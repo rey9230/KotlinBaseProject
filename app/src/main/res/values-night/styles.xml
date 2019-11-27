@@ -1,0 +1,12 @@
+<resources>
+
+    <style name="Theme.MyApp.Main" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/myColorPrimaryDark</item>
+        <item name="colorSecondary">@color/myColorSecondaryDark</item>
+
+        <item name="myBackgroundColor">@color/myColorBackgroundDark</item>
+
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MyApp.SmallComponent.Dark</item>
+    </style>
+
+</resources>
