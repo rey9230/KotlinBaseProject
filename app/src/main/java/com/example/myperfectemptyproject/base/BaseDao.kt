@@ -4,6 +4,7 @@ package com.example.myperfectemptyproject.base
 
 import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Update
 
 interface BaseDao<T> {
@@ -12,7 +13,7 @@ interface BaseDao<T> {
      *
      * @param obj the object to be inserted.
      */
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(obj: T)
 
     /**
@@ -20,8 +21,8 @@ interface BaseDao<T> {
      *
      * @param obj the objects to be inserted.
      */
-    @Insert
-    fun insert(vararg obj: T)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(obj: List<T>)
 
     /**
      * Update an object from the database.

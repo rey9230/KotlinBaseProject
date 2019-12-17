@@ -1,6 +1,6 @@
 package com.example.myperfectemptyproject.di
 
-import com.example.myperfectemptyproject.data.retrofit.UserApi
+import com.example.myperfectemptyproject.data.source.remote.retrofit.UserApi
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable

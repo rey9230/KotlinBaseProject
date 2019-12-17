@@ -1,5 +1,8 @@
 package com.example.myperfectemptyproject.ui.main.domain.adapter
 
+import com.example.myperfectemptyproject.data.source.local.model.LocalModel
+import com.example.myperfectemptyproject.data.source.remote.model.RemoteModel
+
 
 // The main task of adapters is to convert the entities used by the database
 // and network clients to Domain module entities and back. This conversion has both pros and cons
@@ -8,13 +11,13 @@ package com.example.myperfectemptyproject.ui.main.domain.adapter
 // - There’s a possibility of multiple duplications
 // - While changing the data you have to change the mapper
 
-object TodosAdapter {
+object ModelAdapter {
 
-//    fun toStorage(todosColor: TodosColor) = Todos(
-//        todosColor.completed, todosColor.id, todosColor.title, todosColor.userId
-//    )
-//
-//    fun fromStorage(todos: Todos, color: Long = 0) = TodosColorImpl(
-//        todos.completed, todos.id, todos.title, todos.userId, color
-//    )
+    fun toLocal(remoteModel: RemoteModel): LocalModel {
+        return LocalModel(1)
+    }
+
+    fun toRemote(localModel: LocalModel): RemoteModel {
+        return RemoteModel()
+    }
 }

@@ -16,7 +16,5 @@ interface ApplicationComponent {
         fun create(@BindsInstance applicationContext: Application): ApplicationComponent
     }
 
-//    @Singleton
-//    чтобы класс стал синглтоном нужно пометить сам класс этой аннотацией
     val mainViewModel: MainViewModel
 }
