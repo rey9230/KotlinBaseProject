@@ -24,6 +24,7 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             useCase.execute()
                 .onSuccess {
+
                 }.onFailure {
                     _errorMessage.value = ApiErrorHandle.traceErrorException(it).getErrorMessage()
                 }
