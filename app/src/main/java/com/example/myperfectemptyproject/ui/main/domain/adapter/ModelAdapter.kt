@@ -3,7 +3,6 @@ package com.example.myperfectemptyproject.ui.main.domain.adapter
 import com.example.myperfectemptyproject.data.source.local.model.LocalModel
 import com.example.myperfectemptyproject.data.source.remote.model.RemoteModel
 
-
 // The main task of adapters is to convert the entities used by the database
 // and network clients to Domain module entities and back. This conversion has both pros and cons
 // - Any data changes in one layer don’t affect other layers

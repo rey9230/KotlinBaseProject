@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myperfectemptyproject.ui.main.domain.usecase.UseCase
-import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlinx.coroutines.launch
 
 class MainViewModel @Inject constructor(
     application: Application,
@@ -15,11 +15,8 @@ class MainViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             useCase.execute().onSuccess {
-
             }.onFailure {
-
             }
         }
     }
-
 }

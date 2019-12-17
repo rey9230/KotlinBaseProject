@@ -11,5 +11,4 @@ interface MyDao : BaseDao<LocalModel> {
 
     @Query("SELECT * FROM LocalModel")
     fun getAll(): LiveData<List<LocalModel>>
-
 }
