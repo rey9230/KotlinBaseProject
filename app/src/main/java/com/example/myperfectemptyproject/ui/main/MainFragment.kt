@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.observe
 import com.example.myperfectemptyproject.R
 import com.example.myperfectemptyproject.databinding.MainFragmentBinding
 import com.example.myperfectemptyproject.di.injector
@@ -37,6 +38,18 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setupOnBackPressedAction()
+        viewmodel
+    }
+
+    private fun setupListAdapter() {
+//        mainAdapter = MainAdapter(this)
+//        binding.rvMainFragment.apply {
+//            adapter = mainAdapter
+//            // return animation with this work fine
+//            postponeEnterTransition()
+//            viewTreeObserver.addOnPreDrawListener { startPostponedEnterTransition(); true }
+//        }
+//        myViewModel.lastItem.observe(this, mainAdapter::submitList)
     }
 
     private fun setupOnBackPressedAction() {
@@ -61,5 +74,4 @@ class MainFragment : Fragment() {
     companion object {
         const val MILLIS_FOR_EXIT = 2000L
     }
-
 }
