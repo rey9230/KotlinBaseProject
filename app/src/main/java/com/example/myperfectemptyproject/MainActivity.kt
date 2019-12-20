@@ -2,6 +2,7 @@ package com.example.myperfectemptyproject
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.databinding.DataBindingUtil
 import com.example.myperfectemptyproject.databinding.MainActivityBinding
 

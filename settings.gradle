@@ -1,2 +1,2 @@
-include ':app'
-rootProject.name='MyPerfectEmptyProject'
+include ":app"
+rootProject.name="MyPerfectEmptyProject"
