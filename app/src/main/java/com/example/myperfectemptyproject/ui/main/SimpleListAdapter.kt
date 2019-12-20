@@ -27,7 +27,6 @@ class SimpleListAdapter : ListAdapter<MainModel, SimpleListAdapter.ViewHolder>(D
         }
 
         fun clear() {
-
         }
 
         companion object {
@@ -37,9 +36,7 @@ class SimpleListAdapter : ListAdapter<MainModel, SimpleListAdapter.ViewHolder>(D
                 return ViewHolder(binding)
             }
         }
-
     }
-
 }
 
 class DiffCallback : DiffUtil.ItemCallback<MainModel>() {

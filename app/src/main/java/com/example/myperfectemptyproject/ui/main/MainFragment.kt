@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.observe
 import com.example.myperfectemptyproject.R
 import com.example.myperfectemptyproject.databinding.MainFragmentBinding
 import com.example.myperfectemptyproject.di.injector
@@ -38,7 +37,6 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setupOnBackPressedAction()
-        viewmodel
     }
 
     private fun setupListAdapter() {
