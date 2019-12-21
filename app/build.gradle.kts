@@ -11,13 +11,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion(29)
-    buildToolsVersion = "29.0.2"
+    compileSdkVersion(Apps.compileSdk)
+    buildToolsVersion = Apps.buildToolsSdk
     defaultConfig {
-        minSdkVersion(23)
-        targetSdkVersion(29)
-        versionCode = 1
-        versionName = "1.0"
+        minSdkVersion(Apps.minSdk)
+        targetSdkVersion(Apps.targetSdk)
+        versionCode = Apps.versionCode
+        versionName = Apps.versionName
 //        multiDexEnabled = true
         applicationId = "com.example.myperfectemptyproject"
         vectorDrawables.useSupportLibrary = true
