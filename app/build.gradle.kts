@@ -28,6 +28,9 @@ android {
         getByName("main").java.srcDirs("src/main/kotlin")
     }
     signingConfigs {
+        getByName("debug") {
+
+        }
         create("release") {
             keyAlias = "key"
             keyPassword = "111111"
@@ -47,7 +50,10 @@ android {
             isMinifyEnabled = false
             isDebuggable = false
             isShrinkResources = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
 //            signingConfig = signingConfigs.getByName("release")
         }
     }
