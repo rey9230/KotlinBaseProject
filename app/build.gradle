@@ -8,11 +8,11 @@ android {
     compileSdkVersion = 29
     buildToolsVersion = "29.0.2"
     defaultConfig {
-        applicationId "com.example.myperfectemptyproject"
+        applicationId = "com.example.myperfectemptyproject"
         minSdkVersion(23)
         targetSdkVersion(29)
-        versionCode 1
-        versionName "1.0"
+        versionCode = 1
+        versionName = "1.0"
         vectorDrawables.useSupportLibrary = true
         project.ext.set("archivesBaseName","i30mb1-" + defaultConfig.versionName)
    }
