@@ -26,14 +26,23 @@ android {
     sourceSets {
         getByName("main").java.srcDirs("src/main/kotlin")
     }
+    signingConfigs {
+
+    }
     buildTypes {
+        getByName("debug") {
+            isMinifyEnabled = false
+            isDebuggable = true
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-dev"
+//            signingConfig = signingConfigs.getByName("debug")
+        }
         getByName("release") {
             isMinifyEnabled = false
+            isDebuggable = false
             isShrinkResources = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+//            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
@@ -47,8 +56,16 @@ android {
     dataBinding {
         isEnabled = true
     }
+    lintOptions {
+        isAbortOnError = false
+        isIgnoreWarnings = true
+        isQuiet = true
+    }
     androidExtensions {
         isExperimental = true
+    }
+    packagingOptions {
+        exclude("META-INF/LICENSE")
     }
 }
 
