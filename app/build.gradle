@@ -16,6 +16,9 @@ android {
         vectorDrawables.useSupportLibrary = true
         project.ext.set("archivesBaseName","i30mb1-" + defaultConfig.versionName)
    }
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+    }
     buildTypes {
         release {
             minifyEnabled = false
