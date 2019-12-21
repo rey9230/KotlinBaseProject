@@ -16,6 +16,7 @@ android {
     defaultConfig {
         minSdkVersion(Apps.minSdk)
         targetSdkVersion(Apps.targetSdk)
+//        versionCode = ext.get("gitCommitCount") as? Int
         versionCode = Apps.versionCode
         versionName = Apps.versionName
 //        multiDexEnabled = true
@@ -27,7 +28,12 @@ android {
         getByName("main").java.srcDirs("src/main/kotlin")
     }
     signingConfigs {
-
+        create("release") {
+            keyAlias = "key"
+            keyPassword = "111111"
+            storePassword = "111111"
+            storeFile = file("/Users/i30mb1/Android/Key/keystore")
+        }
     }
     buildTypes {
         getByName("debug") {
@@ -45,6 +51,12 @@ android {
 //            signingConfig = signingConfigs.getByName("release")
         }
     }
+//    productFlavors {
+//            create("full") {
+//            }
+//            create("trial") {
+//            }
+//    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
