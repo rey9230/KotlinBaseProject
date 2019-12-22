@@ -9,7 +9,7 @@ Check&Fix Kotlin code style.
 
 Windows : java -jar ktlint
 
-### Gradle Kotlin DSL benefits
+### Gradle Kotlin DSL (Domain Specefic Language) benefits
 * statically typed & type-safe DSL
 * first-class functions, extension methods
 * IDE auto-compete and content assist
