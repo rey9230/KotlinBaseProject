@@ -8,3 +8,11 @@ This way you don`t need to repeat the same code in different parts of your proje
 Check&Fix Kotlin code style.
 
 Windows : java -jar ktlint
+
+### Gradle Kotlin DSL benefits
+* statically typed & type-safe DSL
+* first-class functions, extension methods
+* IDE auto-compete and content assist
+* it’s easier to start doing more complicated things
+* the errors are detected by the compiler
+* imports added automatically

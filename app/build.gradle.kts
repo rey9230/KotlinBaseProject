@@ -12,15 +12,14 @@ plugins {
 
 android {
     compileSdkVersion(Apps.compileSdk)
-    buildToolsVersion = Apps.buildToolsSdk
     defaultConfig {
+        applicationId = "n7.myperfectemptyproject"
         minSdkVersion(Apps.minSdk)
         targetSdkVersion(Apps.targetSdk)
 //        versionCode = ext.get("gitCommitCount") as? Int
         versionCode = Apps.versionCode
         versionName = Apps.versionName
 //        multiDexEnabled = true
-        applicationId = "com.example.myperfectemptyproject"
         vectorDrawables.useSupportLibrary = true
         setProperty("archivesBaseName", "$applicationId-v$versionName($versionCode)")
     }
@@ -68,8 +67,11 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
-        kotlinOptions.freeCompilerArgs = listOf("-Xallow-result-return-type")
+        kotlinOptions{
+            noStdlib = true
+            jvmTarget = JavaVersion.VERSION_1_8.toString()
+            freeCompilerArgs = listOf("-Xallow-result-return-type")
+        }
     }
     dataBinding {
         isEnabled = true
