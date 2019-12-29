@@ -98,6 +98,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.1.0")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation("com.google.android.material:material:1.2.0-alpha03")
+    //    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     // --- Coroutines ---
     val coroutines = "1.3.2"
@@ -119,7 +120,6 @@ dependencies {
     val dagger = "2.25.2"
     implementation("com.google.dagger:dagger:$dagger")
     kapt("com.google.dagger:dagger-compiler:$dagger")
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     // --- Coil ---
     val coil = "0.8.0"
