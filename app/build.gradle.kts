@@ -22,13 +22,17 @@ android {
 //        multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
         setProperty("archivesBaseName", "$applicationId-v$versionName($versionCode)")
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = mapOf("room.incremental" to "true")
+            }
+        }
     }
     sourceSets {
         getByName("main").java.srcDirs("src/main/kotlin")
     }
     signingConfigs {
         getByName("debug") {
-
         }
         create("release") {
             keyAlias = "key"
@@ -67,7 +71,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     tasks.withType<KotlinCompile> {
-        kotlinOptions{
+        kotlinOptions {
             noStdlib = true
             jvmTarget = JavaVersion.VERSION_1_8.toString()
             freeCompilerArgs = listOf("-Xallow-result-return-type")
@@ -102,16 +106,17 @@ dependencies {
 
     // --- Coroutines ---
     val coroutines = "1.3.2"
-    val coroutinesExt = "2.2.0-alpha01"
+    val lifecycle_version = "2.2.0-rc03"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines")
     // для тестирования и ...
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
     // lifecycleScope + launchWhenResumed
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$coroutinesExt")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
     // liveData ( LiveData + coroutines)
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$coroutinesExt")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
     // viewModelScope
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$coroutinesExt")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    kapt("androidx.lifecycle:lifecycle-common-java8:$lifecycle_version")
     // Firebase
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines")
@@ -120,6 +125,8 @@ dependencies {
     val dagger = "2.25.2"
     implementation("com.google.dagger:dagger:$dagger")
     kapt("com.google.dagger:dagger-compiler:$dagger")
+    compileOnly("com.squareup.inject:assisted-inject-annotations-dagger2:0.5.2")
+    kapt("com.squareup.inject:assisted-inject-processor-dagger2:0.5.2")
 
     // --- Coil ---
     val coil = "0.8.0"

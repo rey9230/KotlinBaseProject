@@ -7,7 +7,7 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [ApplicationModule::class, RetrofitModule::class, RepositoryModule::class])
+@Component(modules = [ApplicationModule::class, RetrofitModule::class, RepositoryModule::class, AssistedInjectModule::class])
 interface ApplicationComponent {
 
     @Component.Factory
@@ -16,5 +16,7 @@ interface ApplicationComponent {
         fun create(@BindsInstance applicationContext: Application): ApplicationComponent
     }
 
-    val mainViewModel: MainViewModel
+//    val mainViewModel: MainViewModel
+
+    val mainViewModelFactory: MainViewModel.Factory
 }
