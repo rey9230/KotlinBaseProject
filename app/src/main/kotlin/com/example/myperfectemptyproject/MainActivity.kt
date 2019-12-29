@@ -26,9 +26,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-class SimpleLifeCycleAwareObservable(application: Application): AndroidViewModel(application) {
 
-    internal val liveData : LiveData<Boolean> = object : MutableLiveData<Boolean>(),
+class SimpleLifeCycleAwareObservable(application: Application) : AndroidViewModel(application) {
+
+    internal val liveData: LiveData<Boolean> = object : MutableLiveData<Boolean>(),
         SharedPreferences.OnSharedPreferenceChangeListener {
         val sp = PreferenceManager.getDefaultSharedPreferences(application)
 
