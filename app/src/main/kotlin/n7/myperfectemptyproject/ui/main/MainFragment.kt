@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import n7.myperfectemptyproject.R
-import n7.myperfectemptyproject.databinding.MainFragmentBinding
-import n7.myperfectemptyproject.di.injector
-import n7.myperfectemptyproject.utils.viewModelWithSavedStateHandle
+import com.example.myperfectemptyproject.databinding.MainFragmentBinding
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import n7.myperfectemptyproject.R
+import n7.myperfectemptyproject.di.injector
+import n7.myperfectemptyproject.utils.viewModelWithSavedStateHandle
 
 class MainFragment : Fragment() {
 

@@ -7,13 +7,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import n7.myperfectemptyproject.data.source.remote.ApiErrorHandle
-import n7.myperfectemptyproject.ui.main.domain.usecase.UseCase
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 import kotlinx.coroutines.launch
+import n7.myperfectemptyproject.data.source.remote.ApiErrorHandle
+import n7.myperfectemptyproject.ui.main.domain.usecase.UseCase
 
-//todo make this ViewModel to BaseViewModel
+// todo make this ViewModel to BaseViewModel
 class MainViewModel @AssistedInject constructor(
     application: Application,
     @Assisted private val handle: SavedStateHandle,

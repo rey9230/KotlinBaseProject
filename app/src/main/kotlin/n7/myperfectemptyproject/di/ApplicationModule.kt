@@ -4,10 +4,10 @@ import android.app.Application
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 import androidx.room.Room
-import n7.myperfectemptyproject.data.source.local.db.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
+import n7.myperfectemptyproject.data.source.local.db.AppDatabase
 
 @Module
 object ApplicationModule {

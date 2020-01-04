@@ -1,9 +1,9 @@
 package n7.myperfectemptyproject.di
 
-import n7.myperfectemptyproject.data.source.remote.retrofit.UserApi
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
+import n7.myperfectemptyproject.data.source.remote.retrofit.UserApi
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
