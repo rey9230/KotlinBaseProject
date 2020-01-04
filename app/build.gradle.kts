@@ -81,7 +81,7 @@ android {
         isEnabled = true
     }
     lintOptions {
-        isAbortOnError = false
+        isAbortOnError = true
         isIgnoreWarnings = true
         isQuiet = true
     }
