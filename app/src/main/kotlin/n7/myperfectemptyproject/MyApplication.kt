@@ -5,6 +5,7 @@ import android.app.Application
 import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
+import android.util.Log
 import n7.myperfectemptyproject.di.ApplicationComponent
 import n7.myperfectemptyproject.di.DaggerApplicationComponent
 import n7.myperfectemptyproject.di.DaggerComponentProvider
