@@ -1,4 +1,4 @@
-package n7.rules
+package n7.rules.issues
 
 import com.android.tools.lint.detector.api.*
 import org.w3c.dom.Attr
@@ -28,7 +28,7 @@ class RequareDeleteBackground : LayoutDetector() {
 
         val ISSUE: Issue = Issue
             .create(
-                id = "AndroidLogDetector",
+                id = "WrongMethodUseDetector",
                 briefDescription = "The android Log should not be used",
                 explanation = """
                 For amazing showcasing purposes we should not use the Android Log. We should the

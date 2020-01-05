@@ -1,10 +1,10 @@
-package n7.rules
+package n7.rules.issues
 
 import com.android.tools.lint.detector.api.*
 import com.intellij.psi.PsiMethod
 import org.jetbrains.uast.UCallExpression
 
-class AndroidLogDetector : Detector(), SourceCodeScanner {
+class WrongMethodUseDetector : Detector(), SourceCodeScanner {
 
     // filters only the method signatures that exist in android.util.Log
     override fun getApplicableMethodNames(): List<String> =
@@ -36,13 +36,13 @@ class AndroidLogDetector : Detector(), SourceCodeScanner {
 
     companion object {
         private val IMPLEMENTATION = Implementation(
-            AndroidLogDetector::class.java,
+            WrongMethodUseDetector::class.java,
             Scope.JAVA_FILE_SCOPE
         )
 
         val ISSUE: Issue = Issue
             .create(
-                id = "AndroidLogDetector",
+                id = "WrongMethodUseDetector",
                 briefDescription = "The android Log should not be used",
                 explanation = """
                 For amazing showcasing purposes we should not use the Android Log. We should the

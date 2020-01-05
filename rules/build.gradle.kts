@@ -1,13 +1,13 @@
- plugins {
-     id("java-library")
-     id("kotlin")
- }
+plugins {
+    id("java-library")
+    id("kotlin")
+}
 
-     dependencies {
-
-        val lintVersion = ""
-         compileOnly("com.android.tools.lint:lint-api:26.5.3")
-         compileOnly("com.android.tools.lint:lint-checks:26.5.3")
-     }
+dependencies {
+    // Android Gradle Plugin version + 23
+    val lintVersion = "26.5.3"
+    compileOnly("com.android.tools.lint:lint-api:$lintVersion")
+    compileOnly("com.android.tools.lint:lint-checks:$lintVersion")
+}
 
 
