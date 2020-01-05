@@ -19,7 +19,7 @@ class MyApplication : Application(), DaggerComponentProvider {
     override fun onCreate() {
         enableStrictMode()
         super.onCreate()
-        registerActivityLifecycle()
+//        registerActivityLifecycle()
     }
 
     private fun registerActivityLifecycle() {

@@ -25,8 +25,13 @@ class MainActivity : AppCompatActivity() {
 
         viewmodel.liveData.observe(this) {}
 
-        Log.d("","")
+        callDima()
     }
+
+    fun callDima() {
+
+    }
+
 }
 
 class SimpleLifeCycleAwareObservable(application: Application) : AndroidViewModel(application) {

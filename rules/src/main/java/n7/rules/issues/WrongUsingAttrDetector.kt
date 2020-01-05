@@ -4,7 +4,7 @@ import com.android.tools.lint.detector.api.*
 import org.w3c.dom.Attr
 import java.util.*
 
-class RequareDeleteBackground : LayoutDetector() {
+class WrongUsingAttrDetector : LayoutDetector() {
 
     override fun getApplicableAttributes(): Collection<String>? {
         return Arrays.asList("background")
@@ -12,33 +12,33 @@ class RequareDeleteBackground : LayoutDetector() {
 
     override fun visitAttribute(context: XmlContext, attribute: Attr) {
         super.visitAttribute(context, attribute)
-
+        if (attribute.value.startsWith("?")) {
+            return
+        }
         context.report(
             ISSUE,
             context.getLocation(attribute.ownerElement),
-            "ISSUE"
+            "use theme attribute that starts with ? mark"
         )
     }
 
     companion object {
-        private val IMPLEMENTATION = Implementation(
-            RequareDeleteBackground::class.java,
-            Scope.RESOURCE_FILE_SCOPE
-        )
 
         val ISSUE: Issue = Issue
             .create(
-                id = "WrongMethodUseDetector",
-                briefDescription = "The android Log should not be used",
+                id = "WrongUsingBackgroundAttr",
+                briefDescription = " with dynamic themes you should use color from current theme",
                 explanation = """
-                For amazing showcasing purposes we should not use the Android Log. We should the
-                AmazingLog instead.
+                -----?-----
             """.trimIndent(),
                 category = Category.CORRECTNESS,
                 priority = 9,
                 severity = Severity.ERROR,
                 androidSpecific = true,
-                implementation = IMPLEMENTATION
+                implementation = Implementation(
+                    WrongUsingAttrDetector::class.java,
+                    Scope.RESOURCE_FILE_SCOPE
+                )
             )
     }
 }

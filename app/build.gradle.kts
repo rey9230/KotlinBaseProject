@@ -83,7 +83,7 @@ android {
     lintOptions {
         isAbortOnError = true
         isIgnoreWarnings = true
-        isQuiet = true
+//        isQuiet = true
     }
     androidExtensions {
         isExperimental = true
