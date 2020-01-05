@@ -172,5 +172,4 @@ dependencies {
 
     // LintRules
     lintChecks(project(":rules"))
-
 }

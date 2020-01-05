@@ -3,7 +3,6 @@ package n7.myperfectemptyproject
 import android.app.Application
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -29,9 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun callDima() {
-
     }
-
 }
 
 class SimpleLifeCycleAwareObservable(application: Application) : AndroidViewModel(application) {

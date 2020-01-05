@@ -16,3 +16,6 @@ Windows : java -jar ktlint
 * it’s easier to start doing more complicated things
 * the errors are detected by the compiler
 * imports added automatically
+
+### Custom Lint Rule
+Default set of lint rules is limited and in some situations we could benefit from creating custom rules that identify issues that are specific to our projects.

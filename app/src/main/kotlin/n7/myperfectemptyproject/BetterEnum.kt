@@ -6,7 +6,7 @@ class BetterEnum {
 
     companion object {
 
-        @IntDef(SLOW,NORMAL,FAST)
+        @IntDef(SLOW, NORMAL, FAST)
         // The @Retention(RetentionPolicy.SOURCE) annotation tells the compiler not to store the enumerated annotation data in the .class file.
         @Retention(AnnotationRetention.SOURCE)
         annotation class Speed
@@ -21,10 +21,8 @@ class BetterEnum {
     }
 
     fun setSpeed(@Speed speed: Int) {
-
     }
 
     @Speed
-    fun getSpeed() :Int = SLOW
-
+    fun getSpeed(): Int = SLOW
 }

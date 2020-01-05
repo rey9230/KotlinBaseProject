@@ -1,2 +1,2 @@
-include(":app",":rules")
+include(":app", ":rules")
 rootProject.name = "MyPerfectEmptyProject"

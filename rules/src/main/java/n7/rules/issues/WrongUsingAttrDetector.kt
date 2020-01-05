@@ -1,8 +1,8 @@
 package n7.rules.issues
 
 import com.android.tools.lint.detector.api.*
-import org.w3c.dom.Attr
 import java.util.*
+import org.w3c.dom.Attr
 
 class WrongUsingAttrDetector : LayoutDetector() {
 
