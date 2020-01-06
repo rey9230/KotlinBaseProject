@@ -5,6 +5,7 @@ import android.app.Application
 import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
+import com.squareup.moshi.Json
 import n7.myperfectemptyproject.di.ApplicationComponent
 import n7.myperfectemptyproject.di.DaggerApplicationComponent
 import n7.myperfectemptyproject.di.DaggerComponentProvider
@@ -19,6 +20,7 @@ class MyApplication : Application(), DaggerComponentProvider {
         enableStrictMode()
         super.onCreate()
 //        registerActivityLifecycle()
+
     }
 
     private fun registerActivityLifecycle() {

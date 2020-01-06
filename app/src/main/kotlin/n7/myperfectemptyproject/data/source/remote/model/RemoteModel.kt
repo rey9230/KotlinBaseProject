@@ -1,3 +1,8 @@
 package n7.myperfectemptyproject.data.source.remote.model
 
-class RemoteModel
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
+class RemoteModel(
+    val id :Int = 0
+)

@@ -155,6 +155,8 @@ dependencies {
     implementation("com.squareup.moshi:moshi:$moshi")
     // generate code in compile time instead of using runtime reflection
     kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshi")
+    // рефлексия generated Name + JsonAdapter ( NarutoJsonAdapter)
+    implementation("com.squareup.moshi:moshi-kotlin:$moshi")
 
     // --- Room ---
     val room = "2.2.2"
@@ -172,4 +174,19 @@ dependencies {
 
     // LintRules
     lintChecks(project(":rules"))
+
+    // Tests
+    // Required -- JUnit 4 framework
+    testImplementation("junit:junit:4.12")
+    // Core library
+    testImplementation("androidx.test:core:1.2.0")
+    testImplementation("androidx.test:core-ktx:1.2.0")
+    // AndroidJUnitRunner and JUnit Rules
+    testImplementation("androidx.test:runner:1.2.0")
+    testImplementation("androidx.test:rules:1.2.0")
+    // Assertions
+    testImplementation("androidx.test.ext:junit:1.1.1")
+    testImplementation("androidx.test.ext:junit-ktx:1.1.1")
+    testImplementation("androidx.test.ext:truth:1.2.0")
+    testImplementation("com.google.truth:truth:0.42")
 }

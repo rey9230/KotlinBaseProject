@@ -9,6 +9,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
+import com.squareup.moshi.JsonClass
+import com.squareup.moshi.Moshi
 import kotlinx.coroutines.launch
 import n7.myperfectemptyproject.data.source.remote.ApiErrorHandle
 import n7.myperfectemptyproject.ui.main.domain.usecase.UseCase
@@ -32,6 +34,7 @@ class MainViewModel @AssistedInject constructor(
         viewModelScope.launch {
             useCase.execute()
                 .onSuccess {
+
                 }
                 .onFailure {
                     _errorMessage.value = ApiErrorHandle.traceErrorException(it).getErrorMessage(); _errorMessage.value = null
