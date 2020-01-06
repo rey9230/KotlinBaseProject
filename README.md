@@ -19,3 +19,7 @@ Windows : java -jar ktlint
 
 ### Custom Lint Rule
 Default set of lint rules is limited and in some situations we could benefit from creating custom rules that identify issues that are specific to our projects.
+
+### Testing
+![Testing](test_pyramid.png)
+* Write simple and readable Unit test with truth 
