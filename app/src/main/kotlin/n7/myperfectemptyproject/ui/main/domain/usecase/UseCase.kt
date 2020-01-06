@@ -14,7 +14,7 @@ class UseCase @Inject constructor(
     suspend fun execute() = withContext(Dispatchers.IO) {
         kotlin.runCatching {
             repositoryImpl
-            appDatabase
+            appDatabase.myDao.getAll()
         }
     }
 }
