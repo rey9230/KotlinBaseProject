@@ -1,12 +1,7 @@
 package n7.myperfectemptyproject.ui.main
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 import com.squareup.moshi.JsonClass
@@ -27,8 +22,10 @@ class MainViewModel @AssistedInject constructor(
 
     private val _isLoading = MutableLiveData<Boolean>(false)
     val isLoading: LiveData<Boolean> = _isLoading
-    private val _errorMessage = MutableLiveData<String?>(null)
-    val errorMessage: LiveData<String?> = _errorMessage
+    private val _errorMessage = MutableLiveData<Throwable?>(null)
+    val errorMessage: LiveData<String?> = _errorMessage.map {
+        ApiErrorHandle.traceErrorException(it).getErrorMessage()
+    }
 
     init {
         viewModelScope.launch {
@@ -37,7 +34,7 @@ class MainViewModel @AssistedInject constructor(
 
                 }
                 .onFailure {
-                    _errorMessage.value = ApiErrorHandle.traceErrorException(it).getErrorMessage(); _errorMessage.value = null
+                    _errorMessage.value = it; _errorMessage.value = null
                 }
         }
     }
