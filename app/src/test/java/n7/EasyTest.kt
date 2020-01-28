@@ -36,4 +36,13 @@ class EasyTest {
         assertThat(listOf(1, 2, 3)).containsAnyIn(listOf(2))
     }
 
+    @Test
+    fun measureTextSetting() {
+        var startTime = System.nanoTime()
+
+
+        Thread.sleep(5000)
+        println((System.nanoTime() - startTime) / 1000000)
+    }
+
 }

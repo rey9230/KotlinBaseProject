@@ -22,4 +22,8 @@ Default set of lint rules is limited and in some situations we could benefit fro
 
 ### Testing
 ![Testing](test_pyramid.png)
-* Write simple and readable Unit test with truth 
+#So lets get more specific. In android there is 3 kind of tests:
+
+* Unit testing: tests that validate your app’s behavior one class at a time
+* Integration testing: tests that validate either interactions between levels of the stack within a module, or interactions between related modules
+* End — to end tests: tests that validate user journeys spanning multiple modules of your app
