@@ -8,6 +8,7 @@ plugins {
     kotlin("android.extensions")
     kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
+    id("de.mannodermaus.android-junit5")
 }
 
 android {
@@ -24,7 +25,11 @@ android {
         setProperty("archivesBaseName", "$applicationId-v$versionName($versionCode)")
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = mapOf("room.incremental" to "true")
+                arguments = mapOf(
+                    "room.schemaLocation" to "$projectDir/schemas",
+                    "room.incremental" to "true",
+                    "room.expandProjection" to "true"
+                )
             }
         }
     }
@@ -106,7 +111,7 @@ dependencies {
 
     // --- Coroutines ---
     val coroutines = "1.3.2"
-    val lifecycle_version = "2.2.0-rc03"
+    val lifecycle_version = "2.2.0"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines")
     // для тестирования и ...
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
@@ -142,9 +147,9 @@ dependencies {
     implementation("androidx.navigation:navigation-runtime-ktx:$navigation")
     implementation("androidx.lifecycle:lifecycle-common-java8:$navigation")
     // для легких транзакций + by viewModels()
-    implementation("androidx.fragment:fragment-ktx:1.2.0-beta01")
+    implementation("androidx.fragment:fragment-ktx:1.2.0")
     // on BackPress support for Fragment
-    implementation("androidx.activity:activity-ktx:1.1.0-beta01")
+    implementation("androidx.activity:activity-ktx:1.1.0")
 
     // --- Retrofit ---
     val retrofit = "2.6.2"
@@ -177,7 +182,10 @@ dependencies {
 
     // Tests
     // Required -- JUnit 4 framework
-    testImplementation("junit:junit:4.12")
+//    testImplementation("junit:junit:4.12")
+    // (Required) Writing and executing Unit Tests on the JUnit Platform
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.2")
     // Core library
     testImplementation("androidx.test:core:1.2.0")
     testImplementation("androidx.test:core-ktx:1.2.0")
@@ -189,4 +197,7 @@ dependencies {
     testImplementation("androidx.test.ext:junit-ktx:1.1.1")
     testImplementation("androidx.test.ext:truth:1.2.0")
     testImplementation("com.google.truth:truth:0.42")
+
+    testImplementation("org.mockito:mockito-core:2.27.0")
+    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0")
 }
