@@ -68,7 +68,7 @@ class EasyTest {
         assertThat(listOf(1, 2, 3)).containsAnyIn(listOf(2))
     }
 
-    @Test
+    @Test(timeout = 6000)
     fun measureTextSetting() {
         val startTime = System.nanoTime()
 
