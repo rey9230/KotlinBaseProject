@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.Reusable
 import n7.myperfectemptyproject.data.source.local.db.AppDatabase
+import n7.myperfectemptyproject.data.source.local.db.MyDao
 
 @Module
 object ApplicationModule {
@@ -24,6 +25,12 @@ object ApplicationModule {
             .fallbackToDestructiveMigration()
             .enableMultiInstanceInvalidation()
             .build()
+    }
+
+    @Reusable
+    @Provides
+    fun provideMyDao(appDatabase: AppDatabase) : MyDao {
+        return appDatabase.myDao
     }
 
     @Reusable

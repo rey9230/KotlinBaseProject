@@ -182,7 +182,7 @@ dependencies {
 
     // Tests
     // Required -- JUnit 4 framework
-//    testImplementation("junit:junit:4.12")
+    testImplementation("junit:junit:4.12")
     // (Required) Writing and executing Unit Tests on the JUnit Platform
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.2")
@@ -198,6 +198,10 @@ dependencies {
     testImplementation("androidx.test.ext:truth:1.2.0")
     testImplementation("com.google.truth:truth:0.42")
 
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+
     testImplementation("org.mockito:mockito-core:2.27.0")
     testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0")
+
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.2")
 }

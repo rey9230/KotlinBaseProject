@@ -18,6 +18,14 @@ class SimpleListAdapter : ListAdapter<MainModel, SimpleListAdapter.ViewHolder>(D
         holder.bind(getItem(position))
     }
 
+    override fun onViewRecycled(holder: ViewHolder) {
+        super.onViewRecycled(holder)
+    }
+
+    override fun onViewDetachedFromWindow(holder: ViewHolder) {
+        super.onViewDetachedFromWindow(holder)
+    }
+
     class ViewHolder private constructor(private val binding: ItemSimpleBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -48,4 +56,6 @@ class DiffCallback : DiffUtil.ItemCallback<MainModel>() {
     override fun areContentsTheSame(oldItem: MainModel, newItem: MainModel): Boolean {
         return true
     }
+
+
 }

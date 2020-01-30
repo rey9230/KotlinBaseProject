@@ -1,4 +1,4 @@
-package n7.myperfectemptyproject.data.source.remote
+package n7.myperfectemptyproject
 
 /**
  * This class designed to show different types of errors through error status & message

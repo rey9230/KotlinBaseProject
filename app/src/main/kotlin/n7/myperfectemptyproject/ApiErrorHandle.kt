@@ -1,4 +1,4 @@
-package n7.myperfectemptyproject.data.source.remote
+package n7.myperfectemptyproject
 
 import android.util.Log
 import java.io.IOException
@@ -21,24 +21,40 @@ object ApiErrorHandle {
             is HttpException -> {
                 // handle UNAUTHORIZED situation (when token expired)
                 if (throwable.code() == 401) {
-                    ErrorModel(throwable.message(), throwable.code(), ErrorModel.ErrorStatus.UNAUTHORIZED)
+                    ErrorModel(
+                        throwable.message(),
+                        throwable.code(),
+                        ErrorModel.ErrorStatus.UNAUTHORIZED
+                    )
                 } else {
-                    getHttpError(throwable.response()?.errorBody())
+                    getHttpError(
+                        throwable.response()?.errorBody()
+                    )
                 }
             }
 
             // handle api call timeout error
             is SocketTimeoutException -> {
-                ErrorModel(throwable.message, ErrorModel.ErrorStatus.TIMEOUT)
+                ErrorModel(
+                    throwable.message,
+                    ErrorModel.ErrorStatus.TIMEOUT
+                )
             }
 
             // handle connection error
             is IOException -> {
-                ErrorModel(throwable.message, ErrorModel.ErrorStatus.NO_CONNECTION)
+                ErrorModel(
+                    throwable.message,
+                    ErrorModel.ErrorStatus.NO_CONNECTION
+                )
             }
             else -> null
         }
-        return errorModel ?: ErrorModel("No Defined Error!", 0, ErrorModel.ErrorStatus.BAD_RESPONSE)
+        return errorModel ?: ErrorModel(
+            "No Defined Error!",
+            0,
+            ErrorModel.ErrorStatus.BAD_RESPONSE
+        )
     }
 
     /**
@@ -52,10 +68,17 @@ object ApiErrorHandle {
             // use response body to get error detail
             val result = body?.string()
             Log.d("getHttpError", "getErrorMessage() called with: errorBody = [$result]")
-            ErrorModel(body.toString(), 400, ErrorModel.ErrorStatus.BAD_RESPONSE)
+            ErrorModel(
+                body.toString(),
+                400,
+                ErrorModel.ErrorStatus.BAD_RESPONSE
+            )
         } catch (e: Throwable) {
             e.printStackTrace()
-            ErrorModel(message = e.message, errorStatus = ErrorModel.ErrorStatus.NOT_DEFINED)
+            ErrorModel(
+                message = e.message,
+                errorStatus = ErrorModel.ErrorStatus.NOT_DEFINED
+            )
         }
     }
 }

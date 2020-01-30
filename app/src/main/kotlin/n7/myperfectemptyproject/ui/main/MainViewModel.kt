@@ -4,10 +4,9 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
-import com.squareup.moshi.JsonClass
-import com.squareup.moshi.Moshi
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
-import n7.myperfectemptyproject.data.source.remote.ApiErrorHandle
+import n7.myperfectemptyproject.ApiErrorHandle
 import n7.myperfectemptyproject.ui.main.domain.usecase.UseCase
 
 // todo make this ViewModel to BaseViewModel
@@ -15,6 +14,8 @@ class MainViewModel @AssistedInject constructor(
     application: Application,
     @Assisted private val handle: SavedStateHandle,
     private val useCase: UseCase
+    //todo you should ALWAYS inject Dispatchers
+//    private val defaultDispatcher: CoroutineDispatcher
 ) : AndroidViewModel(application) {
 
     @AssistedInject.Factory
