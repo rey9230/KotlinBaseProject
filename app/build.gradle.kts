@@ -22,6 +22,7 @@ android {
         versionName = Apps.versionName
 //        multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         setProperty("archivesBaseName", "$applicationId-v$versionName($versionCode)")
         javaCompileOptions {
             annotationProcessorOptions {
@@ -35,6 +36,7 @@ android {
     }
     sourceSets {
         getByName("main").java.srcDirs("src/main/kotlin")
+        getByName("test").java.srcDirs("src/test/kotlin")
     }
     signingConfigs {
         getByName("debug") {
@@ -96,6 +98,9 @@ android {
     packagingOptions {
         exclude("META-INF/LICENSE")
     }
+
+    // for Roboelectric
+//    testOptions.unitTests.isIncludeAndroidResources(true)
 }
 
 dependencies {

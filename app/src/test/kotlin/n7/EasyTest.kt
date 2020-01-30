@@ -1,7 +1,5 @@
 package n7
 
-import android.app.Application
-import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
@@ -10,13 +8,11 @@ import com.google.common.truth.Truth.assertThat
 import com.google.common.truth.Truth.assertWithMessage
 import com.nhaarman.mockitokotlin2.mock
 import com.squareup.moshi.Moshi
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
-import n7.myperfectemptyproject.MyApplication
 import n7.myperfectemptyproject.data.source.RepositoryImpl
 import n7.myperfectemptyproject.data.source.local.db.AppDatabase
 import n7.myperfectemptyproject.data.source.local.db.MyDao
@@ -28,7 +24,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.jupiter.api.TestInstance
-import org.junit.runner.RunWith
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class EasyTest {
@@ -39,54 +34,52 @@ class EasyTest {
 //        on { getSomething() } doReturn RemoteModel(5)
 //    }
 
-    private lateinit var db: AppDatabase
-//    private val context : MyApplication = ApplicationProvider.getApplicationContext()
-    private lateinit var testDispatcher : TestCoroutineDispatcher
+//    private lateinit var db: AppDatabase
+    //    private val context : MyApplication = ApplicationProvider.getApplicationContext()
+//    private lateinit var testDispatcher: TestCoroutineDispatcher
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    @Before
-    fun setUp() {
-        testDispatcher = TestCoroutineDispatcher()
-        Dispatchers.setMain(testDispatcher)
-
-        // is it Unit test or Integration test???
-        db = Room.inMemoryDatabaseBuilder(
-            ApplicationProvider.getApplicationContext(),
-            AppDatabase::class.java
-        )
-            .allowMainThreadQueries()
-            .build()
+//    @Before
+//    fun setUp() {
+//        testDispatcher = TestCoroutineDispatcher()
+//        Dispatchers.setMain(testDispatcher)
 //
-//        useCase = UseCase(repositoryImpl, appDatabase)
-    }
+//        // is it Unit test or Integration test???
+//        db = Room.inMemoryDatabaseBuilder(
+//            ApplicationProvider.getApplicationContext(),
+//            AppDatabase::class.java
+//        )
+//            .allowMainThreadQueries()
+//            .build()
+////
+////        useCase = UseCase(repositoryImpl, appDatabase)
+//    }
 
-    @After
-    fun cleanUp() {
-        db.close()
-
-        Dispatchers.resetMain()
-        testDispatcher.cleanupTestCoroutines()
-    }
-
-    @Test
-    fun saveTask() = testDispatcher.runBlockingTest {
-
-        // GIVEN - a new task saved in the database
-        val myDao: MyDao = db.myDao
-        val useCase = UseCase(RepositoryImpl(mock()), myDao)
+//    @After
+//    fun cleanUp() {
+//        db.close()
 //
-        myDao.insert(LocalModel(5))
+//        Dispatchers.resetMain()
+//        testDispatcher.cleanupTestCoroutines()
+//    }
 
-        // WHEN - retrieved by id
-        val result = myDao.getById(5)
-
-        // THEN
-        assertThat(result.id).isEqualTo(5)
-
-
-    }
+//    @Test
+//    fun saveTask() = testDispatcher.runBlockingTest {
+//
+//        // GIVEN - a new task saved in the database
+//        val myDao: MyDao = db.myDao
+//        val useCase = UseCase(RepositoryImpl(mock()), myDao)
+////
+//        myDao.insert(LocalModel(5))
+//
+//        // WHEN - retrieved by id
+//        val result = myDao.getById(5)
+//
+//        // THEN
+//        assertThat(result.id).isEqualTo(5)
+//    }
 
 //    @Nested
 //    inner class InnerClass {
