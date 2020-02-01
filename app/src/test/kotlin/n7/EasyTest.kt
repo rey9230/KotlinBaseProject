@@ -1,26 +1,15 @@
 package n7
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.room.Room
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.filters.SdkSuppress
 import com.google.common.truth.Truth.assertThat
 import com.google.common.truth.Truth.assertWithMessage
+import com.nhaarman.mockitokotlin2.doReturn
+import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
 import com.squareup.moshi.Moshi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runBlockingTest
-import kotlinx.coroutines.test.setMain
-import n7.myperfectemptyproject.data.source.RepositoryImpl
-import n7.myperfectemptyproject.data.source.local.db.AppDatabase
-import n7.myperfectemptyproject.data.source.local.db.MyDao
 import n7.myperfectemptyproject.data.source.local.model.LocalModel
 import n7.myperfectemptyproject.data.source.remote.model.RemoteModel
-import n7.myperfectemptyproject.ui.main.domain.usecase.UseCase
-import org.junit.After
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.jupiter.api.TestInstance
@@ -28,11 +17,11 @@ import org.junit.jupiter.api.TestInstance
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class EasyTest {
 
-//    private val mainViewModel: MainViewModel = MainViewModel()
+    var localModel: LocalModel = mock() {
+        on { id } doReturn 4
+    }
 
-//    private val repo: RepositoryImpl = mock {
-//        on { getSomething() } doReturn RemoteModel(5)
-//    }
+//    private val mainViewModel: MainViewModel = MainViewModel()
 
 //    private lateinit var db: AppDatabase
     //    private val context : MyApplication = ApplicationProvider.getApplicationContext()
@@ -84,10 +73,13 @@ class EasyTest {
 //    @Nested
 //    inner class InnerClass {
 
-    //чтобы мокать ебаное дерьмо надо использовать интерфейсы или open классы нахуй!
+    //чтобы мокать ебаное дерьмо надо использовать интерфейсы или open классы нахуй! (а нет, можно захуярить файл и он сам пусть разберается)
     @Test
     fun mockTestSample() {
+        localModel.id
+//        given(localModel.id).willReturn(5)
 
+        assertThat(localModel.id).isEqualTo(4)
 //            repo.getString2()
 //            assertWithMessage("mock failure").that(repo.getString2()).isEqualTo("5")
     }

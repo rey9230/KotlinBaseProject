@@ -37,7 +37,10 @@ class MainViewModel @AssistedInject constructor(
                 .onFailure {
                     _errorMessage.value = it; _errorMessage.value = null
                 }
+
+
         }
+
     }
 }
 
