@@ -13,4 +13,8 @@ open class RepositoryImpl @Inject constructor(
     override suspend fun getSomething() = withContext(Dispatchers.IO) {
         userApi.getRandomUser()
     }
+
+    fun getNothing(number : Int) :Int? {
+        return null
+    }
 }

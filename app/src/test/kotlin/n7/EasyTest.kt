@@ -2,19 +2,16 @@ package n7
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.filters.SdkSuppress
+import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth.assertThat
 import com.google.common.truth.Truth.assertWithMessage
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.given
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.spy
 import com.squareup.moshi.Moshi
-import n7.myperfectemptyproject.data.source.local.model.LocalModel
 import n7.myperfectemptyproject.data.source.remote.model.RemoteModel
 import org.junit.Rule
 import org.junit.Test
 import org.junit.jupiter.api.TestInstance
 
+@SmallTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class EasyTest {
 

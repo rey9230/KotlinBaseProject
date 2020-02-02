@@ -1,5 +1,6 @@
 package n7.myperfectemptyproject.data.source.local.model
 
+import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth.assertThat
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
@@ -8,18 +9,13 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Assertions.*
-
+@SmallTest
 internal class LocalModelTest {
 
 
-    var localModelMock: LocalModel = mock {
-        on { id } doReturn 4
-    }
+    private var localModelMock: LocalModel = mock { on { id } doReturn 4 }
 
-    var localModelSpy: LocalModel = spy(LocalModel(5)) {
-        on { id } doReturn 6
-    }
+    private var localModelSpy: LocalModel = spy(LocalModel(5)) { on { id } doReturn 6 }
 
     @BeforeEach
     fun setUp() {
