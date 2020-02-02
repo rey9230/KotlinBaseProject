@@ -7,6 +7,7 @@ import com.google.common.truth.Truth.assertWithMessage
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.spy
 import com.squareup.moshi.Moshi
 import n7.myperfectemptyproject.data.source.local.model.LocalModel
 import n7.myperfectemptyproject.data.source.remote.model.RemoteModel
@@ -19,6 +20,10 @@ class EasyTest {
 
     var localModel: LocalModel = mock() {
         on { id } doReturn 4
+    }
+
+    var localModel2: LocalModel = spy(LocalModel(5)) {
+       on { id } doReturn 6
     }
 
 //    private val mainViewModel: MainViewModel = MainViewModel()
@@ -80,6 +85,7 @@ class EasyTest {
 //        given(localModel.id).willReturn(5)
 
         assertThat(localModel.id).isEqualTo(4)
+        assertThat(localModel2.id).isEqualTo(5)
 //            repo.getString2()
 //            assertWithMessage("mock failure").that(repo.getString2()).isEqualTo("5")
     }
