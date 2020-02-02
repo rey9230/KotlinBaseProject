@@ -18,14 +18,6 @@ import org.junit.jupiter.api.TestInstance
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class EasyTest {
 
-    var localModel: LocalModel = mock() {
-        on { id } doReturn 4
-    }
-
-    var localModel2: LocalModel = spy(LocalModel(5)) {
-       on { id } doReturn 6
-    }
-
 //    private val mainViewModel: MainViewModel = MainViewModel()
 
 //    private lateinit var db: AppDatabase
@@ -77,20 +69,6 @@ class EasyTest {
 
 //    @Nested
 //    inner class InnerClass {
-
-    //чтобы мокать ебаное дерьмо надо использовать интерфейсы или open классы нахуй! (а нет, можно захуярить файл и он сам пусть разберается)
-    @Test
-    fun mockTestSample() {
-        localModel.id
-//        given(localModel.id).willReturn(5)
-
-        assertThat(localModel.id).isEqualTo(4)
-        assertThat(localModel2.id).isEqualTo(5)
-//            repo.getString2()
-//            assertWithMessage("mock failure").that(repo.getString2()).isEqualTo("5")
-    }
-//    }
-
 
     @Test
     fun `display json when loaded`() {
