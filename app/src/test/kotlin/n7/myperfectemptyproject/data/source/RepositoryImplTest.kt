@@ -1,5 +1,6 @@
 package n7.myperfectemptyproject.data.source
 
+import androidx.test.filters.MediumTest
 import com.google.common.truth.Truth.assertThat
 import com.nhaarman.mockitokotlin2.*
 import org.junit.jupiter.api.AfterEach
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
+@MediumTest
 internal class RepositoryImplTest {
 
     private val repositoryImpl : RepositoryImpl = mock {
@@ -28,7 +30,7 @@ internal class RepositoryImplTest {
     }
 
     @Test
-    fun getNothing() {
+    fun `function return null in any case`() {
         assertThat(repositoryImpl.getNothing(any())).isNull()
         // проверяет факт однократного вызова метода в течении 1000 милисекунд
         verify(repositoryImpl, after(1000)!!.times(1)).getNothing(any())
