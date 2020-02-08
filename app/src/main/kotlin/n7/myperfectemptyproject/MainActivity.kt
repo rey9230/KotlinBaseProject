@@ -23,14 +23,10 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.main_activity)
 
         viewmodel.liveData.observe(this) {}
-
-        callDima()
-    }
-
-    fun callDima() {
     }
 }
 
+// крутой способ подписываться на слушатели и отписываться
 class SimpleLifeCycleAwareObservable(application: Application) : AndroidViewModel(application) {
 
     internal val liveData: LiveData<Boolean> = object : MutableLiveData<Boolean>(),

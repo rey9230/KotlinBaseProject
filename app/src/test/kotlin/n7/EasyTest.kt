@@ -96,8 +96,6 @@ class EasyTest {
     @Test(timeout = 6000)
     fun measureTextSetting() {
         val startTime = System.nanoTime()
-
-
         Thread.sleep(5000)
         println((System.nanoTime() - startTime) / 1000000)
     }
