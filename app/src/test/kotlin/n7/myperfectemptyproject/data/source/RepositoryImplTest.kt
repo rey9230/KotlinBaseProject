@@ -21,11 +21,12 @@ import org.junit.jupiter.api.Timeout
 @MediumTest
 internal class RepositoryImplTest {
 
-    private lateinit var testDispatcher: TestCoroutineDispatcher
     private val userApi: UserApi = mock {
         onBlocking { getRandomUser() } doReturn RemoteModel(7)
     }
     private val repositoryImpl = spy(RepositoryImpl(userApi))
+    // todo для этого бойлерплейт кода научиться нужно создавать Rule ( щобы не ебаццо!)
+    private lateinit var testDispatcher: TestCoroutineDispatcher
 
     @BeforeEach
     fun setUp() {
