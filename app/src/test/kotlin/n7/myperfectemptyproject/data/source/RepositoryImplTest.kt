@@ -13,6 +13,7 @@ import kotlinx.coroutines.test.setMain
 import n7.CoroutineTestRule
 import n7.myperfectemptyproject.data.source.remote.model.RemoteModel
 import n7.myperfectemptyproject.data.source.remote.retrofit.UserApi
+import n7.runBlockingTest
 import org.junit.Rule
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -35,7 +36,7 @@ internal class RepositoryImplTest {
     @Timeout(1)
     // todo научится ебашить такие функции чтобы запускались если создают новые ебучие корутины ( а для этого нужно им провайдить из дагера диспатчер ) чтобы тута их подменять!
     fun `function return mock object with id 7`() {
-        coroutineTestRule.testDispatcher.runBlockingTest {
+        coroutineTestRule.runBlockingTest {
             val something = repositoryImpl.getSomething()
             assertThat(something.id).isEqualTo(7)
             verifyBlocking(repositoryImpl, times(1)) { getSomething() }
