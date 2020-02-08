@@ -3,30 +3,51 @@ package n7.myperfectemptyproject.data.source
 import androidx.test.filters.MediumTest
 import com.google.common.truth.Truth.assertThat
 import com.nhaarman.mockitokotlin2.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.setMain
+import n7.myperfectemptyproject.data.source.remote.model.RemoteModel
+import n7.myperfectemptyproject.data.source.remote.retrofit.UserApi
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.Timeout
 
-import org.junit.jupiter.api.Assertions.*
-
+@ExperimentalCoroutinesApi
 @MediumTest
 internal class RepositoryImplTest {
 
-    private val repositoryImpl : RepositoryImpl = mock {
-        on { getNothing(any()) } doReturn null
+    private lateinit var testDispatcher: TestCoroutineDispatcher
+    private val userApi: UserApi = mock {
+        onBlocking { getRandomUser() } doReturn RemoteModel(7)
     }
+    private val repositoryImpl = spy(RepositoryImpl(userApi))
 
     @BeforeEach
     fun setUp() {
+        testDispatcher = TestCoroutineDispatcher()
+        Dispatchers.setMain(testDispatcher)
     }
 
     @AfterEach
     fun tearDown() {
+        Dispatchers.resetMain()
+        testDispatcher.cleanupTestCoroutines()
     }
 
     @Test
-    fun getSomething() {
-
+    @Timeout(1)
+    // todo научится ебашить такие функции чтобы запускались если создают новые ебучие корутины ( а для этого нужно им провайдить из дагера диспатчер ) чтобы тута их подменять!
+    fun `function return mock object with id 7`() {
+        testDispatcher.runBlockingTest {
+            val something = repositoryImpl.getSomething()
+            assertThat(something.id).isEqualTo(7)
+            verifyBlocking(repositoryImpl, times(1)) { getSomething() }
+        }
     }
 
     @Test
