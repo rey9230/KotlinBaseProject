@@ -16,19 +16,14 @@ import org.junit.jupiter.api.TestInstance
 class EasyTest {
 
 //    private val mainViewModel: MainViewModel = MainViewModel()
-
 //    private lateinit var db: AppDatabase
-    //    private val context : MyApplication = ApplicationProvider.getApplicationContext()
-//    private lateinit var testDispatcher: TestCoroutineDispatcher
+//    private val context : MyApplication = ApplicationProvider.getApplicationContext()
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
 //    @Before
 //    fun setUp() {
-//        testDispatcher = TestCoroutineDispatcher()
-//        Dispatchers.setMain(testDispatcher)
-//
 //        // is it Unit test or Integration test???
 //        db = Room.inMemoryDatabaseBuilder(
 //            ApplicationProvider.getApplicationContext(),
@@ -43,9 +38,6 @@ class EasyTest {
 //    @After
 //    fun cleanUp() {
 //        db.close()
-//
-//        Dispatchers.resetMain()
-//        testDispatcher.cleanupTestCoroutines()
 //    }
 
 //    @Test
