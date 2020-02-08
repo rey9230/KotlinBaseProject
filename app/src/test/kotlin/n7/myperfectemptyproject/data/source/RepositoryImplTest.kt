@@ -10,8 +10,10 @@ import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.setMain
+import n7.CoroutineTestRule
 import n7.myperfectemptyproject.data.source.remote.model.RemoteModel
 import n7.myperfectemptyproject.data.source.remote.retrofit.UserApi
+import org.junit.Rule
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -25,26 +27,15 @@ internal class RepositoryImplTest {
         onBlocking { getRandomUser() } doReturn RemoteModel(7)
     }
     private val repositoryImpl = spy(RepositoryImpl(userApi))
-    // todo для этого бойлерплейт кода научиться нужно создавать Rule ( щобы не ебаццо!)
-    private lateinit var testDispatcher: TestCoroutineDispatcher
 
-    @BeforeEach
-    fun setUp() {
-        testDispatcher = TestCoroutineDispatcher()
-        Dispatchers.setMain(testDispatcher)
-    }
-
-    @AfterEach
-    fun tearDown() {
-        Dispatchers.resetMain()
-        testDispatcher.cleanupTestCoroutines()
-    }
+    @get:Rule
+    val coroutineTestRule = CoroutineTestRule()
 
     @Test
     @Timeout(1)
     // todo научится ебашить такие функции чтобы запускались если создают новые ебучие корутины ( а для этого нужно им провайдить из дагера диспатчер ) чтобы тута их подменять!
     fun `function return mock object with id 7`() {
-        testDispatcher.runBlockingTest {
+        coroutineTestRule.testDispatcher.runBlockingTest {
             val something = repositoryImpl.getSomething()
             assertThat(something.id).isEqualTo(7)
             verifyBlocking(repositoryImpl, times(1)) { getSomething() }
