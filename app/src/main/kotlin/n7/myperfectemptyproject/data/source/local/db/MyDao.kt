@@ -13,7 +13,7 @@ interface MyDao : BaseDao<LocalModel> {
     fun getAll(): LiveData<List<LocalModel>>
 
     @Query("SELECT * FROM LocalModel")
-    suspend fun getAllCoroutines() : List<LocalModel>
+    suspend fun getAllCoroutines(): List<LocalModel>
 
     @Query("SELECT * FROM LocalModel WHERE id=:id")
     suspend fun getById(id: Int): LocalModel

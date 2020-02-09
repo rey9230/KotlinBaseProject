@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 import n7.myperfectemptyproject.ApiErrorHandle
 import n7.myperfectemptyproject.ui.main.domain.usecase.UseCase
@@ -14,7 +13,7 @@ class MainViewModel @AssistedInject constructor(
     application: Application,
     @Assisted private val handle: SavedStateHandle,
     private val useCase: UseCase
-    //todo you should ALWAYS inject Dispatchers
+    // todo you should ALWAYS inject Dispatchers
 //    private val defaultDispatcher: CoroutineDispatcher
 ) : AndroidViewModel(application) {
 
@@ -32,15 +31,11 @@ class MainViewModel @AssistedInject constructor(
         viewModelScope.launch {
             useCase.execute()
                 .onSuccess {
-
                 }
                 .onFailure {
                     _errorMessage.value = it; _errorMessage.value = null
                 }
-
-
         }
-
     }
 }
 

@@ -31,8 +31,8 @@ class EasyTest {
 //        )
 //            .allowMainThreadQueries()
 //            .build()
-////
-////        useCase = UseCase(repositoryImpl, appDatabase)
+// //
+// //        useCase = UseCase(repositoryImpl, appDatabase)
 //    }
 
 //    @After
@@ -46,7 +46,7 @@ class EasyTest {
 //        // GIVEN - a new task saved in the database
 //        val myDao: MyDao = db.myDao
 //        val useCase = UseCase(RepositoryImpl(mock()), myDao)
-////
+// //
 //        myDao.insert(LocalModel(5))
 //
 //        // WHEN - retrieved by id
@@ -91,5 +91,4 @@ class EasyTest {
         Thread.sleep(5000)
         println((System.nanoTime() - startTime) / 1000000)
     }
-
 }

@@ -13,8 +13,8 @@ fun CoroutineTestRule.runBlockingTest(block: suspend TestCoroutineScope.() -> Un
 
 @ExperimentalCoroutinesApi
 class CoroutineTestRule(
-    val testDispatcher : TestCoroutineDispatcher = TestCoroutineDispatcher()
-): TestWatcher() {
+    val testDispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
+) : TestWatcher() {
 
     override fun starting(description: Description?) {
         super.starting(description)

@@ -1,23 +1,15 @@
 package n7.myperfectemptyproject.data.source
 
 import androidx.test.filters.MediumTest
-import com.google.common.base.Verify
 import com.google.common.truth.Truth.assertThat
 import com.nhaarman.mockitokotlin2.*
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runBlockingTest
-import kotlinx.coroutines.test.setMain
 import n7.CoroutineTestRule
 import n7.myperfectemptyproject.data.source.remote.model.RemoteModel
 import n7.myperfectemptyproject.data.source.remote.retrofit.UserApi
 import n7.runBlockingTest
 import org.junit.Rule
-import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Timeout
 

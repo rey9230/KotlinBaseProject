@@ -15,7 +15,6 @@ object ApiErrorHandle {
 
     fun traceErrorException(throwable: Throwable?): ErrorModel {
         val errorModel: ErrorModel? = when (throwable) {
-
             // if throwable is an instance of HttpException
             // then attempt to parse error data from response body
             is HttpException -> {
@@ -27,9 +26,7 @@ object ApiErrorHandle {
                         ErrorModel.ErrorStatus.UNAUTHORIZED
                     )
                 } else {
-                    getHttpError(
-                        throwable.response()?.errorBody()
-                    )
+                    getHttpError(throwable.response()?.errorBody())
                 }
             }
 
@@ -74,7 +71,6 @@ object ApiErrorHandle {
                 ErrorModel.ErrorStatus.BAD_RESPONSE
             )
         } catch (e: Throwable) {
-            e.printStackTrace()
             ErrorModel(
                 message = e.message,
                 errorStatus = ErrorModel.ErrorStatus.NOT_DEFINED

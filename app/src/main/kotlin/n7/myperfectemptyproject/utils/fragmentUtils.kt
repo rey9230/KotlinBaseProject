@@ -30,5 +30,4 @@ fun <T> Fragment.viewLifecycle(): ReadWriteProperty<Fragment, T> =
         override fun setValue(thisRef: Fragment, property: KProperty<*>, value: T) {
             this.binding = value
         }
-
     }

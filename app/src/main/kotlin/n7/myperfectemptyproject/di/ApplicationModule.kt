@@ -29,7 +29,7 @@ object ApplicationModule {
 
     @Reusable
     @Provides
-    fun provideMyDao(appDatabase: AppDatabase) : MyDao {
+    fun provideMyDao(appDatabase: AppDatabase): MyDao {
         return appDatabase.myDao
     }
 

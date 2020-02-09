@@ -56,6 +56,4 @@ class DiffCallback : DiffUtil.ItemCallback<MainModel>() {
     override fun areContentsTheSame(oldItem: MainModel, newItem: MainModel): Boolean {
         return true
     }
-
-
 }

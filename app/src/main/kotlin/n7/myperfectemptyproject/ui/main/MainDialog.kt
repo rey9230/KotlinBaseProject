@@ -19,9 +19,8 @@ class MainDialog : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialogBuilder = MaterialAlertDialogBuilder(context)
             .setMessage(args.message)
-            .setPositiveButton("OK",null)
+            .setPositiveButton("OK", null)
 
         return dialogBuilder.create()
     }
-
 }

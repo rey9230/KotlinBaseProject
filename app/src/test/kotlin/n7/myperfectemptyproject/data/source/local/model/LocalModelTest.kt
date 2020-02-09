@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test
 @SmallTest
 internal class LocalModelTest {
 
-
     private var localModelMock: LocalModel = mock { on { id } doReturn 4 }
 
     private var localModelSpy: LocalModel = spy(LocalModel(5)) { on { id } doReturn 6 }
@@ -26,7 +25,7 @@ internal class LocalModelTest {
     }
 
     @Test
-    //чтобы мокать ебаное дерьмо надо использовать интерфейсы или open классы нахуй! (а нет, можно захуярить файл и он сам пусть разберается)
+    // чтобы мокать ебаное дерьмо надо использовать интерфейсы или open классы нахуй! (а нет, можно захуярить файл и он сам пусть разберается)
     fun getId() {
         assertThat(localModelMock.id).isEqualTo(4)
         assertThat(localModelSpy.id).isEqualTo(6)
