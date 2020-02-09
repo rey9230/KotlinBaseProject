@@ -143,14 +143,14 @@ dependencies {
     implementation("io.coil-kt:coil:$coil")
 
     //  --- Navigation ---
-    val navigation = "2.2.0-beta01"
+    val navigation = "2.3.0"
     // Fragment.findNavController + Fragment.navArgs
-    implementation("androidx.navigation:navigation-fragment-ktx:$navigation")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.2.1")
     // setupActionBarWithNavController + setupWithNavController
-    implementation("androidx.navigation:navigation-ui-ktx:$navigation")
+    implementation("androidx.navigation:navigation-ui-ktx:2.2.1")
     // Activity.findNavController + Activity.navArgs + View.findNavController
-    implementation("androidx.navigation:navigation-runtime-ktx:$navigation")
-    implementation("androidx.lifecycle:lifecycle-common-java8:$navigation")
+    implementation("androidx.navigation:navigation-runtime-ktx:2.2.1")
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.2.0")
     // для легких транзакций + by viewModels()
     implementation("androidx.fragment:fragment-ktx:1.2.0")
     // on BackPress support for Fragment

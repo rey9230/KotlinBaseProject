@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -17,7 +17,6 @@ import n7.myperfectemptyproject.databinding.MainFragmentBinding
 import n7.myperfectemptyproject.di.injector
 import n7.myperfectemptyproject.utils.NetworkEvents
 import n7.myperfectemptyproject.utils.NetworkState
-import n7.myperfectemptyproject.utils.NetworkStateHolder
 import n7.myperfectemptyproject.utils.viewModelWithSavedStateHandle
 
 class MainFragment : Fragment() {
@@ -45,12 +44,17 @@ class MainFragment : Fragment() {
         setupOnBackPressedAction()
 
         viewmodel.errorMessage.observe(this) {
-            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+            if (it != null) showDialogWithError(it)
         }
 
         NetworkEvents.observe(this) {
             handleConnectivityChange(it.networkState)
         }
+    }
+
+    private fun showDialogWithError(message: String) {
+        val action = MainDialogDirections.actionGlobalMainDialog(message)
+        findNavController().navigate(action)
     }
 
     private fun handleConnectivityChange(networkState: NetworkState) {
@@ -63,11 +67,6 @@ class MainFragment : Fragment() {
         }
 
         previousSate = networkState.isConnected
-    }
-
-    override fun onResume() {
-        super.onResume()
-        handleConnectivityChange(NetworkStateHolder)
     }
 
     private fun setupListAdapter() {
