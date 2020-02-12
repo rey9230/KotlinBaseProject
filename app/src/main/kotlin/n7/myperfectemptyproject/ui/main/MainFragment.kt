@@ -43,8 +43,12 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         setupOnBackPressedAction()
 
+        binding.bTest.setOnClickListener {
+            binding.bTest.text = "test"
+        }
+
         viewmodel.errorMessage.observe(this) {
-            if (it != null) showDialogWithError(it)
+//            if (it != null) showDialogWithError(it)
         }
 
         NetworkEvents.observe(this) {

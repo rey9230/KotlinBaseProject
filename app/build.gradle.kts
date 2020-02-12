@@ -15,6 +15,7 @@ android {
     compileSdkVersion(Apps.compileSdk)
     defaultConfig {
         applicationId = "n7.myperfectemptyproject"
+        // Set the instrumentation runner
         minSdkVersion(Apps.minSdk)
         targetSdkVersion(Apps.targetSdk)
 //        versionCode = ext.get("gitCommitCount") as? Int
@@ -209,4 +210,10 @@ dependencies {
     testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0")
 
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.2")
+
+    // UI Test
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.0")
+    androidTestImplementation("androidx.test:runner:1.2.0")
+    androidTestImplementation("androidx.test:rules:1.2.0")
+
 }

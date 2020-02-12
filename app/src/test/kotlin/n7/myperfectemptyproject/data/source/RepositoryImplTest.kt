@@ -4,7 +4,6 @@ import androidx.test.filters.MediumTest
 import com.google.common.truth.Truth.assertThat
 import com.nhaarman.mockitokotlin2.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runBlockingTest
 import n7.CoroutineTestRule
 import n7.myperfectemptyproject.data.source.remote.model.RemoteModel
 import n7.myperfectemptyproject.data.source.remote.retrofit.UserApi
