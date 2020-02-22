@@ -31,7 +31,10 @@ for gradle i am using [Kotlin DSL](https://docs.gradle.org/current/userguide/kot
 Default set of lint rules is limited and in some situations we could benefit from creating custom rules that identify issues that are specific to our projects. [Help link](https://www.youtube.com/watch?v=jCmJWOkjbM0)
 
 ### Testing
-*<details><summary>groups</summary><p>![Testing](test_pyramid.png)</p></details>
+<details><summary>groups</summary><p>
+
+![Testing](test_pyramid.png)
+</p></details>
 
 If we want to mock final/private classes we should add special [file](https://github.com/mockito/mockito/wiki/What's-new-in-Mockito-2#mock-the-unmockable-opt-in-mocking-of-final-classesmethods) to our project 
 
@@ -43,19 +46,27 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
  you can enable usage of SavedStateHandle by extending AbstractSavedStateViewModelFactory)
 
 ### Architecture
-*<details><summary>cool picture</summary><p>![arch](architecture.png)</p></details>
+<details><summary>cool picture</summary><p>
+
+![arch](architecture.png)</p></details>
 
 ### About Theme
 
 * if you want to use Material Components look here for [basic](https://github.com/material-components/material-components-android/blob/master/docs/getting-started.md#4-change-your-app-theme-to-inherit-from-a-material-components-theme)
 * specific text sizes for [text](https://material.io/develop/android/theming/typography/)
 * about [MaterialAlertDialog](https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md)
-* for every standard component exist special attribute in theme so we can override it in our theme for personalization <details><summary>attributes&example</summary><p>![componentsStyle](component_styles.png) ![code](component_style_in_action.png)</p></details>
+* for every standard component exist special attribute in theme so we can override it in our theme for personalization 
+<details><summary>attributes&example</summary><p>
+
+![componentsStyle](component_styles.png) 
+![code](component_style_in_action.png)</p></details>
 * each view component belongs to a specific group 
     * ```shapeAppearanceSmallComponent```
     * ```shapeAppearanceMediumComponent```
     * ```shapeAppearanceLargeComponent```
-    *<details><summary>groups</summary><p> ![shape group](shape_appearance_component.png)</p></details>
+<details><summary>groups</summary><p> 
+
+![shape group](shape_appearance_component.png)</p></details>
 
 we can build our own shape appearance by following these [attributes](https://material.io/develop/android/theming/shape/)
 * if we want to change theme from light to night 
