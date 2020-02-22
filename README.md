@@ -19,6 +19,13 @@ so we can override it in our theme for personalization
     * shapeAppearanceLargeComponent
 ![shape group](shape_appearance_component.png)
 we can build our own shape appearance by following these [attributes](https://material.io/develop/android/theming/shape/)
+* if we want to change theme from light to night 
+    * AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) - For light Theme
+    * AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES) - For dark Theme
+    * AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
+    * AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM) 
+* read about [tinting](https://github.com/android/graphics-samples) drawables
+
 
 
 ### Libraries Used

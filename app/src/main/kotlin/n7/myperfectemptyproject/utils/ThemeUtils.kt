@@ -10,11 +10,9 @@ enum class Theme { LIGHT, DARK }
 fun MaterialButtonToggleGroup.changeTheme(theme: Theme?, idFirstButton: Int, idSecondButton: Int) {
     when (theme) {
         Theme.LIGHT -> {
-            this.check(idFirstButton)
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
         Theme.DARK -> {
-            this.check(idSecondButton)
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
     }
