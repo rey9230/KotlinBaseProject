@@ -44,7 +44,9 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
 ### Architecture
 <details><summary>cool picture</summary>
 <p>
+
 ![arch](architecture.png)
+
 </p>
 </details>
 
