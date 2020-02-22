@@ -13,10 +13,12 @@ class MainDialog : DialogFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        // when we want to show dialog with animation
         dialog?.window?.setWindowAnimations(R.style.DialogAnimations)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+
         val dialogBuilder = MaterialAlertDialogBuilder(context)
             .setMessage(args.message)
             .setPositiveButton("OK", null)
