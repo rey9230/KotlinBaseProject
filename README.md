@@ -6,9 +6,10 @@ This way you don`t need to repeat the same code in different parts of your proje
 
 ### Dagger 2 with ViewModel that have SavedState
 
-i'm using the best DI scenario for ViewModel that i have ever seen in my life (took that from this [video](https://youtu.be/9fn5s8_CYJI?list=LLMBNl1baSJfDak1Lo2VVVZQ)) and slightly modifying by adding [AssistedInjection](https://github.com/square/AssistedInject) for supporting SavedStateVMFactory.
-
-
+i'm using the best DI scenario for ViewModel that i have ever seen in my life (took that from this [video](https://youtu.be/9fn5s8_CYJI?list=LLMBNl1baSJfDak1Lo2VVVZQ))
+ and slightly modifying by adding [AssistedInjection](https://github.com/square/AssistedInject) 
+ for supporting SavedStateModule (When providing a custom ViewModelProvider.Factory instance,
+  you can enable usage of SavedStateHandle by extending AbstractSavedStateViewModelFactory)
 
 ### Architecture
 ![arch](architecture.png)
