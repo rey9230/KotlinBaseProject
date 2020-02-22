@@ -1,8 +1,15 @@
 # KotlinBaseProject
 
 A base code which I almost use in every project I work on!
-It shows how to use ViewModels and Room together with Coroutines & Koin by Clean Architecture in Kotlin!
+It shows how to use ViewModels and Room together with Coroutines & Dagger by Clean Architecture in Kotlin!
 This way you don`t need to repeat the same code in different parts of your project over & over.
+
+### Libraries Used
+#### if you do need specific library feel fre to delete it from build.gradle.kts 'dependencies' section
+
+### FAQ
+ - What if i need to update library version?
+ - Before update you should read what new was added, or it can brake your functionality (for android libraries look here [link](https://developer.android.com/jetpack/androidx/versions/all-channel)) 
 
 ### Ktlint
 Check&Fix Kotlin code style.
