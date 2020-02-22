@@ -21,6 +21,10 @@ import n7.myperfectemptyproject.utils.viewModelWithSavedStateHandle
 
 class MainFragment : Fragment() {
 
+    companion object {
+        const val MILLIS_FOR_EXIT = 2000L
+    }
+
     private var previousSate: Boolean? = null
     private lateinit var binding: MainFragmentBinding
     private var finishActivity = false
@@ -102,9 +106,5 @@ class MainFragment : Fragment() {
                 }
             }
         }
-    }
-
-    companion object {
-        const val MILLIS_FOR_EXIT = 2000L
     }
 }

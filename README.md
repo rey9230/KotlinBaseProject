@@ -11,6 +11,10 @@ This way you don`t need to repeat the same code in different parts of your proje
 
 ☝️ - Before update you should read what new was added, or it can brake your functionality (for android libraries [link](https://developer.android.com/jetpack/androidx/versions/all-channel)) 
 
+#### 🤔 - Where i can make fast and cool icon?
+
+☝️ - [here](https://android-material-icon-generator.bitdroid.de/)
+
 ---
 
 ### Ktlint
