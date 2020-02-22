@@ -43,14 +43,7 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
  you can enable usage of SavedStateHandle by extending AbstractSavedStateViewModelFactory)
 
 ### Architecture
-<details><summary>cool picture</summary>
-<p>
-
-![arch](architecture.png)
-
-</p>
-</details>
-
+*<details><summary>cool picture</summary><p>![arch](architecture.png)</p></details>
 
 ### About Theme
 
@@ -59,17 +52,17 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
 * about [MaterialAlertDialog](https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md)
 * for every standard component exist special attribute in theme so we can override it in our theme for personalization <details><summary>attributes&example</summary><p>![componentsStyle](component_styles.png) ![code](component_style_in_action.png)</p></details>
 * each view component belongs to a specific group 
-    * shapeAppearanceSmallComponent
-    * shapeAppearanceMediumComponent
-    * shapeAppearanceLargeComponent
+    * ```shapeAppearanceSmallComponent```
+    * ```shapeAppearanceMediumComponent```
+    * ```shapeAppearanceLargeComponent```
     *<details><summary>groups</summary><p> ![shape group](shape_appearance_component.png)</p></details>
 
 we can build our own shape appearance by following these [attributes](https://material.io/develop/android/theming/shape/)
 * if we want to change theme from light to night 
-    * AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) - For light Theme
-    * AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES) - For dark Theme
-    * AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
-    * AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM) 
+    * ```AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)``` - For light Theme
+    * ```AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)``` - For dark Theme
+    * ```AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)```
+    * ```AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)```
 * read about [tinting](https://github.com/android/graphics-samples) drawables
 
 
