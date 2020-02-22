@@ -28,9 +28,8 @@
 
         <!-- windows transition animation between activities -->
         <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
-        <item name="shapeAppearanceSmallComponent">
-            @style/ShapeAppearance.MyApp.SmallComponent.Light
-        </item>
+        <!-- custom shapes for all small components -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MyApp.SmallComponent.Light</item>
 
     </style>
 
@@ -39,6 +38,7 @@
 
     </style>
 
+    <!--  share for light theme can be different from dark theme  -->
     <style name="ShapeAppearance.MyApp.SmallComponent.Light" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">cut</item>
         <item name="cornerSize">@dimen/dimenCornerSize</item>
