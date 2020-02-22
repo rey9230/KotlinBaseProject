@@ -9,8 +9,12 @@ This way you don`t need to repeat the same code in different parts of your proje
 * if you want to use Material Components look here for [basic](https://github.com/material-components/material-components-android/blob/master/docs/getting-started.md#4-change-your-app-theme-to-inherit-from-a-material-components-theme)
 * specific text sizes for [text](https://material.io/develop/android/theming/typography/)
 * about [MaterialAlertDialog](https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md)
-* for every standard component we can override theme 
+* for every standard component exist special attribute in theme
 ![componentsStyle](component_styles.png)
+
+so we can override it for personalization
+
+![code](component_style_in_action.png)
 
 ### Libraries Used
 #### if you do need specific library feel fre to delete it from build.gradle.kts 'dependencies' section
