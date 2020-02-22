@@ -8,8 +8,11 @@ This way you don`t need to repeat the same code in different parts of your proje
 #### if you do need specific library feel fre to delete it from build.gradle.kts 'dependencies' section
 * [Foundation](https://developer.android.com/jetpack/components) - Components for core system capabilities, Kotlin extensions and support for multidex and automated testing.
     * [AppCompat](https://developer.android.com/topic/libraries/support-library/packages#v7-appcompat) - Degrade gracefully on older versions of Android.
-
-
+    * [Android KTX](https://developer.android.com/kotlin/ktx/extensions-list) - Write more concise, idiomatic Kotlin code.
+    * [Material](https://material.io/components/) - Build beautiful products, faster.
+    
+    
+    
 ### FAQ
 ---
 #### 🤔 - What if i need to update library version?
