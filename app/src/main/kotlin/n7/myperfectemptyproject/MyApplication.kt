@@ -23,7 +23,7 @@ class MyApplication : Application(), DaggerComponentProvider {
         registerConnectivityMonitor()
     }
 
-    // крутой способ отслеживать статус всех активи
+    // listen what happening with our activities (but we using single activity *rofl*)
     private fun registerActivityLifecycle() {
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
             override fun onActivityPaused(activity: Activity) {}
@@ -42,7 +42,7 @@ class MyApplication : Application(), DaggerComponentProvider {
         })
     }
 
-    // если где-то есть проблемы, то мы о них узнаем сразу!
+    // if we want to build cool without any problems we can enable StrickMode that alarm us if we have something to fix (all messages will come with 'StrictMode' debug tag)
     private fun enableStrictMode() {
         if (BuildConfig.DEBUG) {
             Handler().postAtFrontOfQueue {

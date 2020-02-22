@@ -12,6 +12,30 @@ interface NetworkState {
     val linkProperties: LinkProperties?
 }
 
+object NetworkStateHolder : NetworkState {
+
+    private lateinit var holder: NetworkStateImpl
+
+    override val isConnected: Boolean
+        get() = holder.isConnected
+    override val network: Network?
+        get() = holder.network
+    override val networkCapabilities: NetworkCapabilities?
+        get() = holder.networkCapabilities
+    override val linkProperties: LinkProperties?
+        get() = holder.linkProperties
+
+    fun Application.registerConnectivityMonitor() {
+        holder = NetworkStateImpl()
+        val connectivityManager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        connectivityManager.registerNetworkCallback(
+            NetworkRequest.Builder().build(),
+            NetworkCallbackImp(holder)
+        )
+    }
+}
+
 internal class NetworkStateImpl : NetworkState {
     override var network: Network? = null
 
@@ -53,30 +77,6 @@ internal class NetworkCallbackImp(private val holder: NetworkStateImpl) :
 
     override fun onLinkPropertiesChanged(network: Network, linkProperties: LinkProperties) {
         holder.linkProperties = linkProperties
-    }
-}
-
-object NetworkStateHolder : NetworkState {
-
-    private lateinit var holder: NetworkStateImpl
-
-    override val isConnected: Boolean
-        get() = holder.isConnected
-    override val network: Network?
-        get() = holder.network
-    override val networkCapabilities: NetworkCapabilities?
-        get() = holder.networkCapabilities
-    override val linkProperties: LinkProperties?
-        get() = holder.linkProperties
-
-    fun Application.registerConnectivityMonitor() {
-        holder = NetworkStateImpl()
-        val connectivityManager =
-            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        connectivityManager.registerNetworkCallback(
-            NetworkRequest.Builder().build(),
-            NetworkCallbackImp(holder)
-        )
     }
 }
 

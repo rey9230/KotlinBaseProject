@@ -84,6 +84,7 @@ class MainFragment : Fragment() {
 //        myViewModel.lastItem.observe(this, mainAdapter::submitList)
     }
 
+    // handle back press action for this fragment
     private fun setupOnBackPressedAction() {
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             if (finishActivity) {

@@ -8,14 +8,11 @@ import androidx.test.rule.ActivityTestRule
 import kotlinx.android.synthetic.main.main_fragment.view.*
 import n7.myperfectemptyproject.MainActivity
 import n7.myperfectemptyproject.R
-import org.hamcrest.core.StringContains.containsString
 import org.junit.After
-import org.junit.Before
-
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 
 class MainFragmentTest {
 

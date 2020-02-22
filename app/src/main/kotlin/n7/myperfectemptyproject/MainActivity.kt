@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-// крутой способ подписываться на слушатели и отписываться
+// cool idea how to listen changes from SharedPreference with automatic subscription/unsubscription that prevent memory leaks
 class SimpleLifeCycleAwareObservable(application: Application) : AndroidViewModel(application) {
 
     internal val liveData: LiveData<Boolean> = object : MutableLiveData<Boolean>(),
@@ -38,8 +38,8 @@ class SimpleLifeCycleAwareObservable(application: Application) : AndroidViewMode
         }
 
         override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
-//            if (TutorialFragment.PREF_SEEN_TUTORIAL == key) {
-//                value = sp.getBoolean(TutorialFragment.PREF_SEEN_TUTORIAL, false)
+//            if (MainActivity.KEY == key) {
+//                value = sp.getBoolean(MainActivity.KEY, false)
 //            }
         }
 

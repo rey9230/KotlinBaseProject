@@ -216,5 +216,4 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.1.0")
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test:rules:1.2.0")
-
 }
