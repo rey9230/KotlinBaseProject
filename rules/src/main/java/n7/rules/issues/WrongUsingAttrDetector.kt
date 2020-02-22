@@ -4,6 +4,7 @@ import com.android.tools.lint.detector.api.*
 import java.util.*
 import org.w3c.dom.Attr
 
+// class that is able to find background attribute in xml files that not start with "?" mark
 class WrongUsingAttrDetector : LayoutDetector() {
 
     override fun getApplicableAttributes(): Collection<String>? {

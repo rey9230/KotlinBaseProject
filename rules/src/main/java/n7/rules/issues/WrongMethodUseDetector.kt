@@ -4,7 +4,7 @@ import com.android.tools.lint.detector.api.*
 import com.intellij.psi.PsiMethod
 import org.jetbrains.uast.UCallExpression
 
-// class that is able to find one/more specific issues
+// class that is able to find method with name "callDima" and notify us that something is wrong
 class WrongMethodUseDetector : Detector(), SourceCodeScanner {
 
     // filters only the method signatures that exist in android.util.Log
@@ -16,9 +16,6 @@ class WrongMethodUseDetector : Detector(), SourceCodeScanner {
         super.visitMethodCall(context, node, method)
         val evaluator = context.evaluator
         reportUsage(context, node)
-//        if (evaluator.isMemberInClass(method, "android.util.Log")) {
-//            reportUsage(context, node)
-//        }
     }
 
     // used to report an issue when found
