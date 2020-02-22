@@ -37,6 +37,8 @@ So lets get more specific. In android there is 3 kind of tests:
 * Integration testing: tests that validate either interactions between levels of the stack within a module, or interactions between related modules
 * End — to end tests: tests that validate user journeys spanning multiple modules of your app
 
+If we want to mock final/private classes we should add special [file](https://github.com/mockito/mockito/wiki/What's-new-in-Mockito-2#mock-the-unmockable-opt-in-mocking-of-final-classesmethods) to our project 
+
 ### Dagger 2 with ViewModel that have SavedState
 
 i'm using the best DI scenario for ViewModel that i have ever seen in my life (took that from this [video](https://youtu.be/9fn5s8_CYJI?list=LLMBNl1baSJfDak1Lo2VVVZQ))
