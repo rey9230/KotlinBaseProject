@@ -56,12 +56,13 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
 * if you want to use Material Components look here for [basic](https://github.com/material-components/material-components-android/blob/master/docs/getting-started.md#4-change-your-app-theme-to-inherit-from-a-material-components-theme)
 * specific text sizes for [text](https://material.io/develop/android/theming/typography/)
 * about [MaterialAlertDialog](https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md)
-* for every standard component exist special attribute in theme so we can override it in our theme for personalization <details><summary>attributes</summary><p>![componentsStyle](component_styles.png) ![code](component_style_in_action.png)</p></details>
+* for every standard component exist special attribute in theme so we can override it in our theme for personalization <details><summary>attributes&example</summary><p>![componentsStyle](component_styles.png) ![code](component_style_in_action.png)</p></details>
 * each view component belongs to a specific group 
     * shapeAppearanceSmallComponent
     * shapeAppearanceMediumComponent
     * shapeAppearanceLargeComponent
-![shape group](shape_appearance_component.png)
+<details><summary>groups</summary><p>![shape group](shape_appearance_component.png)</p></details>
+
 we can build our own shape appearance by following these [attributes](https://material.io/develop/android/theming/shape/)
 * if we want to change theme from light to night 
     * AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) - For light Theme
