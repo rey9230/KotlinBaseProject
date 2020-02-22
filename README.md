@@ -32,11 +32,6 @@ Default set of lint rules is limited and in some situations we could benefit fro
 
 ### Testing
 ![Testing](test_pyramid.png)
-So lets get more specific. In android there is 3 kind of tests:
-* Unit testing: tests that validate your app’s behavior one class at a time
-* Integration testing: tests that validate either interactions between levels of the stack within a module, or interactions between related modules
-* End — to end tests: tests that validate user journeys spanning multiple modules of your app
-
 If we want to mock final/private classes we should add special [file](https://github.com/mockito/mockito/wiki/What's-new-in-Mockito-2#mock-the-unmockable-opt-in-mocking-of-final-classesmethods) to our project 
 
 ### Dagger 2 with ViewModel that have SavedState
@@ -47,7 +42,12 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
  you can enable usage of SavedStateHandle by extending AbstractSavedStateViewModelFactory)
 
 ### Architecture
+<details><summary>cool picture</summary>
+<p>
 ![arch](architecture.png)
+</p>
+</details>
+
 
 ### About Theme
 
