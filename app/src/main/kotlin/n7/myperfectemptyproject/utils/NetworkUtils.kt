@@ -11,7 +11,9 @@ interface NetworkState {
     val networkCapabilities: NetworkCapabilities?
     val linkProperties: LinkProperties?
 }
-
+// old way for checking network state is depricated
+// https://developer.android.com/training/monitoring-device-state/connectivity-status-type
+// so we use new approach with liveData
 object NetworkStateHolder : NetworkState {
 
     private lateinit var holder: NetworkStateImpl
