@@ -4,9 +4,45 @@ A base code which I almost use in every project I work on!
 It shows how to use ViewModels and Room together with Coroutines & Dagger by Clean Architecture in Kotlin!
 This way you don`t need to repeat the same code in different parts of your project over & over.
 
+    
+### FAQ
+---
+#### 🤔 - What if i need to update library version?
+
+☝️ - Before update you should read what new was added, or it can brake your functionality (for android libraries [link](https://developer.android.com/jetpack/androidx/versions/all-channel)) 
+
+---
+
+### Ktlint
+We can improve Check&Fix Kotlin code style via using [ktlint](https://ktlint.github.io/)
+
+Command for Windows : java -jar ktlint -F
+
+### Gradle Kotlin DSL (Domain-specific language) benefits
+* statically typed & type-safe DSL
+* first-class functions, extension methods
+* IDE auto-compete and content assist
+* it’s easier to start doing more complicated things
+* the errors are detected by the compiler
+* imports added automatically
+
+### Custom Lint Rule
+Default set of lint rules is limited and in some situations we could benefit from creating custom rules that identify issues that are specific to our projects.
+
+### Testing
+![Testing](test_pyramid.png)
+#### So lets get more specific. In android there is 3 kind of tests:
+
+* Unit testing: tests that validate your app’s behavior one class at a time
+* Integration testing: tests that validate either interactions between levels of the stack within a module, or interactions between related modules
+* End — to end tests: tests that validate user journeys spanning multiple modules of your app
+
 ### Dagger 2 with ViewModel that have SavedState
 
-i'm using the best DI scenario for ViewModel that i have ever seen in my life (took that from this [video](https://youtu.be/9fn5s8_CYJI?list=LLMBNl1baSJfDak1Lo2VVVZQ)) and slightly modifying by adding [AssistedInjection](https://github.com/square/AssistedInject) for supporting SavedStateModule (When providing a custom ViewModelProvider.Factory instance, you can enable usage of SavedStateHandle by extending AbstractSavedStateViewModelFactory)
+i'm using the best DI scenario for ViewModel that i have ever seen in my life (took that from this [video](https://youtu.be/9fn5s8_CYJI?list=LLMBNl1baSJfDak1Lo2VVVZQ))
+ and slightly modifying by adding [AssistedInjection](https://github.com/square/AssistedInject) 
+ for supporting SavedStateModule (When providing a custom ViewModelProvider.Factory instance, 
+ you can enable usage of SavedStateHandle by extending AbstractSavedStateViewModelFactory)
 
 ### Architecture
 ![arch](architecture.png)
@@ -44,35 +80,3 @@ we can build our own shape appearance by following these [attributes](https://ma
 * [Architecture](https://developer.android.com/jetpack/arch/) - A collection of libraries that help you design robust, testable, and maintainable apps. 
     * [Data Binding](https://developer.android.com/topic/libraries/data-binding/) - Declaratively bind observable data to UI elements.
     * [Lifecycles](https://developer.android.com/topic/libraries/architecture/lifecycle) - Create a UI that automatically responds to lifecycle events.
-    
-### FAQ
----
-#### 🤔 - What if i need to update library version?
-
-☝️ - Before update you should read what new was added, or it can brake your functionality (for android libraries [link](https://developer.android.com/jetpack/androidx/versions/all-channel)) 
-
----
-
-### Ktlint
-Check&Fix Kotlin code style.
-
-Windows : java -jar ktlint
-
-### Gradle Kotlin DSL (Domain-specific language) benefits
-* statically typed & type-safe DSL
-* first-class functions, extension methods
-* IDE auto-compete and content assist
-* it’s easier to start doing more complicated things
-* the errors are detected by the compiler
-* imports added automatically
-
-### Custom Lint Rule
-Default set of lint rules is limited and in some situations we could benefit from creating custom rules that identify issues that are specific to our projects.
-
-### Testing
-![Testing](test_pyramid.png)
-#### So lets get more specific. In android there is 3 kind of tests:
-
-* Unit testing: tests that validate your app’s behavior one class at a time
-* Integration testing: tests that validate either interactions between levels of the stack within a module, or interactions between related modules
-* End — to end tests: tests that validate user journeys spanning multiple modules of your app
