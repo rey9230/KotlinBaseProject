@@ -4,6 +4,12 @@ A base code which I almost use in every project I work on!
 It shows how to use ViewModels and Room together with Coroutines & Dagger by Clean Architecture in Kotlin!
 This way you don`t need to repeat the same code in different parts of your project over & over.
 
+### Dagger 2 with ViewModel that have SavedState
+
+i'm using the best DI scenario for ViewModel that i have ever seen in my life (took that from this [video](https://youtu.be/9fn5s8_CYJI?list=LLMBNl1baSJfDak1Lo2VVVZQ)) and slightly modifying by adding [AssistedInjection](https://github.com/square/AssistedInject) for supporting SavedStateVMFactory.
+
+
+
 ### Architecture
 ![arch](architecture.png)
 
