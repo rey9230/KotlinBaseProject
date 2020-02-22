@@ -11,9 +11,9 @@ import org.junit.jupiter.api.Test
 
 @SmallTest
 internal class LocalModelTest {
-
+    // we can mock fun and return that result what we expect
     private var localModelMock: LocalModel = mock { on { id } doReturn 4 }
-
+    // also we can spy and mock only those function that we want so change
     private var localModelSpy: LocalModel = spy(LocalModel(5)) { on { id } doReturn 6 }
 
     @BeforeEach
@@ -25,7 +25,6 @@ internal class LocalModelTest {
     }
 
     @Test
-    // чтобы мокать ебаное дерьмо надо использовать интерфейсы или open классы нахуй! (а нет, можно захуярить файл и он сам пусть разберается)
     fun getId() {
         assertThat(localModelMock.id).isEqualTo(4)
         assertThat(localModelSpy.id).isEqualTo(6)
