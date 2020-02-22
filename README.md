@@ -18,7 +18,8 @@ We can improve Check&Fix Kotlin code style via using [ktlint](https://ktlint.git
 
 Command for Windows : java -jar ktlint -F
 
-### Gradle Kotlin DSL (Domain-specific language) benefits
+### Gradle Kotlin DSL (Domain-specific language)
+ benefits :
 * statically typed & type-safe DSL
 * first-class functions, extension methods
 * IDE auto-compete and content assist
