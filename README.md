@@ -11,9 +11,7 @@ This way you don`t need to repeat the same code in different parts of your proje
 * about [MaterialAlertDialog](https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md)
 * for every standard component exist special attribute in theme
 ![componentsStyle](component_styles.png)
-
-so we can override it for personalization
-
+so we can override it in our theme for personalization
 ![code](component_style_in_action.png)
 
 ### Libraries Used
