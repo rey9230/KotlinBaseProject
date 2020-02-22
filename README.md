@@ -9,8 +9,8 @@ This way you don`t need to repeat the same code in different parts of your proje
 
 ### FAQ
 
- - What if i need to update library version?
- - Before update you should read what new was added, or it can brake your functionality ( for android libraries look here [link](https://developer.android.com/jetpack/androidx/versions/all-channel) ) 
+What if i need to update library version?
+Before update you should read what new was added, or it can brake your functionality ( for android libraries look here [link](https://developer.android.com/jetpack/androidx/versions/all-channel) ) 
 
 ### Ktlint
 Check&Fix Kotlin code style.
