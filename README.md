@@ -61,7 +61,7 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
     * shapeAppearanceSmallComponent
     * shapeAppearanceMediumComponent
     * shapeAppearanceLargeComponent
-<details><summary>groups</summary><p>![shape group](shape_appearance_component.png)</p></details>
+           <details><summary>groups</summary><p> ![shape group](shape_appearance_component.png)</p></details>
 
 we can build our own shape appearance by following these [attributes](https://material.io/develop/android/theming/shape/)
 * if we want to change theme from light to night 
