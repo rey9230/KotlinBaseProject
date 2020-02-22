@@ -113,21 +113,22 @@ dependencies {
 
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation("com.google.android.material:material:1.2.0-alpha03")
+    //    someone know for what this library?
     //    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     // --- Coroutines ---
     val coroutines = "1.3.2"
-    val lifecycle_version = "2.2.0"
+    val lifecycleVersion = "2.2.0"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines")
     // для тестирования и ...
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
     // lifecycleScope + launchWhenResumed
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
     // liveData ( LiveData + coroutines)
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
     // viewModelScope
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
-    kapt("androidx.lifecycle:lifecycle-common-java8:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+    kapt("androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion")
     // Firebase
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines")
