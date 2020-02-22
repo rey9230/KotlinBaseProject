@@ -13,7 +13,10 @@ This way you don`t need to repeat the same code in different parts of your proje
 ![componentsStyle](component_styles.png)
 so we can override it in our theme for personalization
 ![code](component_style_in_action.png)
-* each view component belongs to a specific group (shapeAppearanceSmallComponent, shapeAppearanceMediumComponent, shapeAppearanceLargeComponent)
+* each view component belongs to a specific group 
+    * shapeAppearanceSmallComponent
+    * shapeAppearanceMediumComponent
+    * shapeAppearanceLargeComponent
 ![shape group](shape_appearance_component.png)
 we can build our own shape appearance by following these [attributes](https://material.io/develop/android/theming/shape/)
 
