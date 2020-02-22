@@ -31,7 +31,8 @@ for gradle i am using [Kotlin DSL](https://docs.gradle.org/current/userguide/kot
 Default set of lint rules is limited and in some situations we could benefit from creating custom rules that identify issues that are specific to our projects. [Help link](https://www.youtube.com/watch?v=jCmJWOkjbM0)
 
 ### Testing
-![Testing](test_pyramid.png)
+*<details><summary>groups</summary><p>![Testing](test_pyramid.png)</p></details>
+
 If we want to mock final/private classes we should add special [file](https://github.com/mockito/mockito/wiki/What's-new-in-Mockito-2#mock-the-unmockable-opt-in-mocking-of-final-classesmethods) to our project 
 
 ### Dagger 2 with ViewModel that have SavedState
