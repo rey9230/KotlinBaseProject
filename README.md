@@ -15,6 +15,10 @@ This way you don`t need to repeat the same code in different parts of your proje
 
 ☝️ - [here](https://android-material-icon-generator.bitdroid.de/)
 
+#### 🤔 - Where i can make fast and cool template for Google Market?
+
+☝️ - [here](https://www.appstorescreenshot.com/)
+
 ---
 
 ### Ktlint
