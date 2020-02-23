@@ -1,3 +1,4 @@
+// when we have all version's here how can we know there is new version available for our lib?
 object Apps {
     const val compileSdk = 29
     const val buildToolsSdk = "29.0.2"
