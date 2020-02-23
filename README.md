@@ -97,3 +97,4 @@ we can build our own shape appearance by following these [attributes](https://ma
 * [Architecture](https://developer.android.com/jetpack/arch/) - A collection of libraries that help you design robust, testable, and maintainable apps. 
     * ["dataBinding{isEnabled = true}"](https://developer.android.com/topic/libraries/data-binding/) - Declaratively bind observable data to UI elements.
     * ["androidx.lifecycle:lifecycle-common-java8:2.2.0"](https://developer.android.com/topic/libraries/architecture/lifecycle) - Create a UI that automatically responds to lifecycle events.
+* ["org.jetbrains.kotlinx:kotlinx-coroutines-core1.3.2"](https://github.com/Kotlin/kotlinx.coroutines/blob/master/docs/coroutines-guide.md)
