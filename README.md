@@ -95,5 +95,5 @@ we can build our own shape appearance by following these [attributes](https://ma
     * ["androidx.core:core-ktx:1.1.0"](https://developer.android.com/kotlin/ktx/extensions-list) - Write more concise, idiomatic Kotlin code.
     * ["com.google.android.material:material:1.2.0-alpha03"](https://material.io/components/) - Build beautiful products, faster.
 * [Architecture](https://developer.android.com/jetpack/arch/) - A collection of libraries that help you design robust, testable, and maintainable apps. 
-    * [Data Binding](https://developer.android.com/topic/libraries/data-binding/) - Declaratively bind observable data to UI elements.
+    * ["dataBinding{isEnabled = true}"](https://developer.android.com/topic/libraries/data-binding/) - Declaratively bind observable data to UI elements.
     * ["androidx.lifecycle:lifecycle-common-java8:2.2.0"](https://developer.android.com/topic/libraries/architecture/lifecycle) - Create a UI that automatically responds to lifecycle events.
