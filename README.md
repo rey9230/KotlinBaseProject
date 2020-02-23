@@ -22,7 +22,7 @@ This way you don`t need to repeat the same code in different parts of your proje
 ---
 
 ### Ktlint
-We can improve Check&Fix Kotlin code style via using [ktlint](https://ktlint.github.io/)
+We can improve Check&Fix Kotlin code style via using [ktlint](https://ktlint.github.io/) (it's works because file `ktlint` exist in android root directory)
 
 Command for Windows : java -jar ktlint -F
 
