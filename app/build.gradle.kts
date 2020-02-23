@@ -23,7 +23,7 @@ android {
         versionName = Apps.versionName
 //        multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" // specify a test runner in the same module-level
         setProperty("archivesBaseName", "$applicationId-v$versionName($versionCode)")
         javaCompileOptions {
             annotationProcessorOptions {
@@ -210,6 +210,7 @@ dependencies {
 
     // UI Test
     androidTestImplementation("androidx.test.espresso:espresso-core:3.1.0")
+    androidTestImplementation("androidx.test.espresso:espresso-intents:3.1.0")
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test:rules:1.2.0")
 }
