@@ -44,7 +44,7 @@ Default set of lint rules is limited and in some situations we could benefit fro
 ![Testing](test_pyramid.png)
 </p></details>
 
-If we want to mock final/private classes we should add special [file](https://github.com/mockito/mockito/wiki/What's-new-in-Mockito-2#mock-the-unmockable-opt-in-mocking-of-final-classesmethods) to our project 
+If we want to mock final/private classes (when we writing unit tests) we should add special [file](https://github.com/mockito/mockito/wiki/What's-new-in-Mockito-2#mock-the-unmockable-opt-in-mocking-of-final-classesmethods) to our project 
 
 ### Dagger 2 with ViewModel that have SavedState
 
