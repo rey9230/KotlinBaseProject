@@ -39,7 +39,7 @@ internal class RepositoryImplTest {
     fun `function return null in any case`() {
         assertThat(repositoryImpl.getNothing(any())).isNull()
         // проверяет факт однократного вызова метода в течении 1000 милисекунд
-        verify(repositoryImpl, after(1000)!!.times(1)).getNothing(any())
+        verify(repositoryImpl, timeout(1000).times(1)).getNothing(any())
 
         // проверяет что ниразу не был вызван этот метод с такими параметрами
         verify(repositoryImpl, never()).getNothing(7)

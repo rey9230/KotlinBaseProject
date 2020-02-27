@@ -15,7 +15,6 @@ android {
     compileSdkVersion(Apps.compileSdk)
     defaultConfig {
         applicationId = "n7.myperfectemptyproject"
-        // Set the instrumentation runner
         minSdkVersion(Apps.minSdk)
         targetSdkVersion(Apps.targetSdk)
 //        versionCode = ext.get("gitCommitCount") as? Int
@@ -36,11 +35,12 @@ android {
         }
     }
     sourceSets {
-        getByName("main").java.srcDirs("src/main/kotlin")
+        getByName("main").java.srcDirs("src/main/kotlin") // Changes the directory for Java sources. The default directory is 'src/main/java'.
         getByName("test").java.srcDirs("src/test/kotlin")
     }
     signingConfigs {
         getByName("debug") {
+
         }
         create("release") {
             keyAlias = "key"
@@ -51,20 +51,21 @@ android {
     }
     buildTypes {
         getByName("debug") {
-            isMinifyEnabled = false
+            isMinifyEnabled = false // ProGuard turn off
             isDebuggable = true
             applicationIdSuffix = ".debug"
-            versionNameSuffix = "-dev"
+            versionNameSuffix = "-debug"
+            resValue("string","app_name","(debug)") // change app name for debug version
             signingConfig = signingConfigs.getByName("debug")
         }
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true // ProGuard turn on
             isDebuggable = false
             isShrinkResources = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
+            resValue("string","app_name","App name") // app name
             signingConfig = signingConfigs.getByName("release")
         }
     }
@@ -89,15 +90,29 @@ android {
         isEnabled = true
     }
     lintOptions {
-        isAbortOnError = true
-        isIgnoreWarnings = true
-//        isQuiet = true
+        isAbortOnError = true // if set to true (default), stops the build if errors are found.
+        isIgnoreWarnings = false // if true, only report errors.
+//        isQuiet = true // If set to true, turns off analysis progress reporting by lint.
     }
     androidExtensions {
         isExperimental = true
     }
     packagingOptions {
         exclude("META-INF/LICENSE")
+    }
+
+    testOptions {
+        animationsDisabled = true
+        // Encapsulates options for local unit tests.
+        unitTests.apply {
+            // By default, local unit tests throw an exception any time the code you are testing tries to access
+            // Android platform APIs (unless you mock Android dependencies yourself or with a testing
+            // framework like Mockito). However, you can enable the following property so that the test
+            // returns either null or zero when accessing platform APIs, rather than throwing an exception.
+            isReturnDefaultValues = true
+            isIncludeAndroidResources = true
+        }
+        setExecution("ANDROID_TEST_ORCHESTRATOR")
     }
 
     // for Roboelectric
