@@ -58,6 +58,27 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
 
 ![arch](architecture.png)</p></details>
 
+
+- **View** 
+  - >Request data from viewModel
+  
+  - >Observe viewmodel LiveData for response  
+
+
+- **ViewModel**  
+  - >Having all LiveData of DataModels   
+  
+  - >Call getDataReqeust from Repository
+  
+  - > Send requested param and live data to Repository  
+
+- **Repository** 
+  - > Get RequestData & LiveData as Param from ViewModel 
+  
+  - > Decide to fetch data from DB/Network 
+  
+  - > Fetch data and post it on LiveData get from viewmodel
+
 ### About Theme
 
 * if you want to use Material Components look here for [basic](https://github.com/material-components/material-components-android/blob/master/docs/getting-started.md#4-change-your-app-theme-to-inherit-from-a-material-components-theme)
