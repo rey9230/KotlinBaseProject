@@ -5,7 +5,7 @@ import androidx.lifecycle.*
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 import kotlinx.coroutines.launch
-import n7.myperfectemptyproject.ApiErrorHandle
+import n7.myperfectemptyproject.base.ApiErrorHandle
 import n7.myperfectemptyproject.ui.main.domain.usecase.UseCase
 
 // todo make this ViewModel to BaseViewModel
