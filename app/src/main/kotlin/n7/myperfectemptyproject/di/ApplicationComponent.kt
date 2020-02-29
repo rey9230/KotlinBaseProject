@@ -7,7 +7,12 @@ import javax.inject.Singleton
 import n7.myperfectemptyproject.ui.main.MainViewModel
 
 @Singleton
-@Component(modules = [ApplicationModule::class, RetrofitModule::class, RepositoryModule::class, AssistedInjectModule::class])
+@Component(modules = [
+    ApplicationModule::class,
+    RetrofitModule::class,
+    RepositoryModule::class,
+    AssistedInjectModule::class
+])
 interface ApplicationComponent {
 
     @Component.Factory

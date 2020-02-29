@@ -7,6 +7,7 @@ import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
+import kotlinx.coroutines.Dispatchers
 import n7.myperfectemptyproject.data.source.local.db.AppDatabase
 import n7.myperfectemptyproject.data.source.local.db.MyDao
 
@@ -21,7 +22,7 @@ object ApplicationModule {
             AppDatabase::class.java,
             AppDatabase.DB_NAME
         )
-            .allowMainThreadQueries()
+//            .allowMainThreadQueries()
             .fallbackToDestructiveMigration()
             .enableMultiInstanceInvalidation()
             .build()
@@ -32,6 +33,10 @@ object ApplicationModule {
     fun provideMyDao(appDatabase: AppDatabase): MyDao {
         return appDatabase.myDao
     }
+
+    @Reusable
+    @Provides
+    fun provideIoDispatcher() = Dispatchers.IO
 
     @Reusable
     @Provides
