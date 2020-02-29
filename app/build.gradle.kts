@@ -180,10 +180,8 @@ dependencies {
     // --- Moshi ---
     val moshi = "1.9.2"
     implementation("com.squareup.moshi:moshi:$moshi")
-    // generate code in compile time instead of using runtime reflection
     kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshi")
-    // рефлексия generated Name + JsonAdapter ( NarutoJsonAdapter)
-    implementation("com.squareup.moshi:moshi-kotlin:$moshi")
+//    implementation("com.squareup.moshi:moshi-kotlin:$moshi")
 
     // --- Room ---
     val room = "2.2.2"

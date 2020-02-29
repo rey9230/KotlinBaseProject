@@ -7,6 +7,7 @@ import com.google.common.truth.Truth.assertThat
 import com.google.common.truth.Truth.assertWithMessage
 import com.squareup.moshi.Moshi
 import n7.myperfectemptyproject.data.source.remote.model.RemoteModel
+import n7.myperfectemptyproject.data.source.remote.model.RemoteModelJsonAdapter
 import org.junit.Rule
 import org.junit.Test
 import org.junit.jupiter.api.TestInstance
@@ -68,12 +69,10 @@ class EasyTest {
         """.trimIndent()
 
         val moshi = Moshi.Builder()
-//            .add(KotlinJsonAdapterFactory())
             .build()
-
         val result = moshi.adapter(RemoteModel::class.java).fromJson(jsonString)!!
         println(result)
-        assertThat(result.id).isEqualTo(13)
+        assertThat(result.id).isEqualTo(1)
     }
 
     @Test
