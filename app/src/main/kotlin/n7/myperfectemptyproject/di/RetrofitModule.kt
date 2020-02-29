@@ -10,10 +10,12 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 @Module
 object RetrofitModule {
 
+    private const val randomUserBaseUrl = "https://randomuser.me/api/"
+
     @Provides
     @Reusable
     fun provideRandomUser(): UserApi =
-        Retrofit.Builder().baseUrl("https://*/").addConverterFactory(
+        Retrofit.Builder().baseUrl(randomUserBaseUrl).addConverterFactory(
             MoshiConverterFactory.create()
         ).build().create(UserApi::class.java)
 }
