@@ -21,6 +21,7 @@
 #-renamesourcefileattribute SourceFile
 
 # -------- Moshi ---------------------------------------------------
+# https://github.com/square/moshi#r8--proguard
 
 # JSR 305 annotations are for embedding nullability information.
 -dontwarn javax.annotation.**
@@ -38,4 +39,10 @@
     <fields>;
     **[] values();
 }
+
+#-keep class kotlin.reflect.jvm.internal.impl.builtins.BuiltInsLoaderImpl
+#
+#-keepclassmembers class kotlin.Metadata {
+#    public <methods>;
+#}
 # --------------------------------------------------------------------
