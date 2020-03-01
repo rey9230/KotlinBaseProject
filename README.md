@@ -58,19 +58,9 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
 
 ![arch](architecture.png)</p></details>
 
-- **View** 
+- **Fragment/Activity/View** 
   - >Request data from viewModel
-  - >Observe viewmodel LiveData for response  
-  
-- **ViewModel**  
-  - >Having all LiveData of DataModels   
-  - >Call getDataReqeust from Repository
-  - >Send requested param and live data to Repository  
-
-- **Repository** 
-  - >Get RequestData & LiveData as Param from ViewModel 
-  - >Decide to fetch data from DB/Network 
-  - >Fetch data and post it on LiveData get from viewmodel
+  - >Observe viewModel LiveData for response
 
 ### About Theme
 
