@@ -65,9 +65,10 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
 
 ### About Theme
 
-* if you want to use Material Components look here for [basic](https://github.com/material-components/material-components-android/blob/master/docs/getting-started.md#4-change-your-app-theme-to-inherit-from-a-material-components-theme)
-* specific text sizes for [text](https://material.io/develop/android/theming/typography/)
-* about [MaterialAlertDialog](https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md)
+* [Material Components](https://github.com/material-components/material-components-android/blob/master/docs/getting-started.md#4-change-your-app-theme-to-inherit-from-a-material-components-theme)
+* [Text Sizes](https://material.io/develop/android/theming/typography/)
+* [MaterialAlertDialog](https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md)
+* [Tinting](https://github.com/android/graphics-samples)
 * for every standard component exist special attribute in theme so we can override it in our theme for personalization 
 <details><summary>attributes&example</summary><p>
 
@@ -87,7 +88,6 @@ we can build our own shape appearance by following these [attributes](https://ma
     * ```AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)``` - For dark Theme
     * ```AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)```
     * ```AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)```
-* read about [tinting](https://github.com/android/graphics-samples) drawables
 
 ### LINKS
 
