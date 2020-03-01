@@ -68,8 +68,7 @@ class EasyTest {
             }
         """.trimIndent()
 
-        val moshi = Moshi.Builder()
-            .build()
+        val moshi = Moshi.Builder().build()
         val result = moshi.adapter(RemoteModel::class.java).fromJson(jsonString)!!
         println(result)
         assertThat(result.id).isEqualTo(1)

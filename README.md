@@ -44,7 +44,7 @@ Default set of lint rules is limited and in some situations we could benefit fro
 ![Testing](test_pyramid.png)
 </p></details>
 
-If we want to mock final/private classes (when we writing unit tests) we should add special [file](https://github.com/mockito/mockito/wiki/What's-new-in-Mockito-2#mock-the-unmockable-opt-in-mocking-of-final-classesmethods) to our project 
+If we want to mock (with library `mockitokotlin2`) final/private classes (when we writing unit tests) we should add special [file](https://github.com/mockito/mockito/wiki/What's-new-in-Mockito-2#mock-the-unmockable-opt-in-mocking-of-final-classesmethods) to our project 
 
 ### Dagger 2 with ViewModel that have SavedState
 
@@ -58,26 +58,19 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
 
 ![arch](architecture.png)</p></details>
 
-
 - **View** 
   - >Request data from viewModel
-  
   - >Observe viewmodel LiveData for response  
-
-
+  
 - **ViewModel**  
   - >Having all LiveData of DataModels   
-  
   - >Call getDataReqeust from Repository
-  
-  - > Send requested param and live data to Repository  
+  - >Send requested param and live data to Repository  
 
 - **Repository** 
-  - > Get RequestData & LiveData as Param from ViewModel 
-  
-  - > Decide to fetch data from DB/Network 
-  
-  - > Fetch data and post it on LiveData get from viewmodel
+  - >Get RequestData & LiveData as Param from ViewModel 
+  - >Decide to fetch data from DB/Network 
+  - >Fetch data and post it on LiveData get from viewmodel
 
 ### About Theme
 
@@ -121,4 +114,4 @@ we can build our own shape appearance by following these [attributes](https://ma
 * ["org.jetbrains.kotlinx:kotlinx-coroutines-core1.3.2"](https://github.com/Kotlin/kotlinx.coroutines/blob/master/docs/coroutines-guide.md)
 * ["com.squareup.moshi:moshi:1.9.2"](https://github.com/square/moshi) - It makes it easy to parse JSON into Kotlin objects
 * ["com.squareup.moshi:moshi-kotlin:1.9.2"](https://github.com/square/moshi#reflection) - Add reflection to moshi (better not to use : 2.5 MB)
-* [kapt("com.squareup.moshi:moshi-kotlin-codegen:1.9.2")](https://github.com/square/moshi#codegen) - 
+* [kapt("com.squareup.moshi:moshi-kotlin-codegen:1.9.2")](https://github.com/square/moshi#codegen) - Add codegen to moshi (generating by using @JsonClass(generateAdapter = true))
