@@ -2,16 +2,18 @@ package n7.myperfectemptyproject.data.source.remote.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.util.*
 
 @JsonClass(generateAdapter = true)
-class RemoteModel(
-    val id: Int = 0
+data class RemoteModel(
+    val id: Int = 0,
+    val date : Date = Date()
 )
 
 // todo determine is Json serialization works faster without custom field name @Json
 // https://github.com/square/moshi#custom-field-names-with-json
 @JsonClass(generateAdapter = true) // Codegen annotation ("$ClassName + JsonAdapter") (NarutoJsonAdapter) https://github.com/square/moshi#codegen
-data class RandomUsersResults(
+class RandomUsersResults(
     @Json(name = "info")
     val info: Info = Info(),
     @Json(name = "results")
@@ -19,7 +21,7 @@ data class RandomUsersResults(
 )
 
 @JsonClass(generateAdapter = true)
-data class Info(
+class Info(
     @Json(name = "page")
     val page: Int = 0,
     @Json(name = "results")
@@ -31,7 +33,7 @@ data class Info(
 )
 
 @JsonClass(generateAdapter = true)
-data class Result(
+class Result(
     @Json(name = "name")
     val name: Name = Name(),
     @Json(name = "picture")
@@ -41,7 +43,7 @@ data class Result(
 )
 
 @JsonClass(generateAdapter = true)
-data class Name(
+class Name(
     @Json(name = "first")
     val first: String = "",
     @Json(name = "last")
@@ -51,7 +53,7 @@ data class Name(
 )
 
 @JsonClass(generateAdapter = true)
-data class Picture(
+class Picture(
     @Json(name = "large")
     val large: String = "",
     @Json(name = "medium")
@@ -61,9 +63,9 @@ data class Picture(
 )
 
 @JsonClass(generateAdapter = true)
-data class Registered(
+class Registered(
     @Json(name = "age")
     val age: Int = 0,
     @Json(name = "date")
-    val date: String = ""
+    val date: Date = Date()
 )

@@ -6,11 +6,13 @@ import androidx.test.filters.SmallTest
 import com.google.common.truth.Truth.assertThat
 import com.google.common.truth.Truth.assertWithMessage
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import n7.myperfectemptyproject.data.source.remote.model.RemoteModel
 import n7.myperfectemptyproject.data.source.remote.model.RemoteModelJsonAdapter
 import org.junit.Rule
 import org.junit.Test
 import org.junit.jupiter.api.TestInstance
+import java.util.*
 
 @SmallTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -64,11 +66,14 @@ class EasyTest {
     fun `display json when loaded`() {
         val jsonString = """
             {
-                "id" : "1"
+                "id" : "1",
+                "date" : "2012-12-04T08:56:19.243Z"
             }
         """.trimIndent()
 
-        val moshi = Moshi.Builder().build()
+        val moshi = Moshi.Builder()
+            .add(Date::class.java, Rfc3339DateJsonAdapter().nullSafe())
+            .build()
         val result = moshi.adapter(RemoteModel::class.java).fromJson(jsonString)!!
         println(result)
         assertThat(result.id).isEqualTo(1)

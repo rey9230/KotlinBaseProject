@@ -182,6 +182,7 @@ dependencies {
     implementation("com.squareup.moshi:moshi:$moshi")
     kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshi")
 //    implementation("com.squareup.moshi:moshi-kotlin:$moshi")
+    implementation("com.squareup.moshi:moshi-adapters:$moshi")
 
     // --- Room ---
     val room = "2.2.2"
