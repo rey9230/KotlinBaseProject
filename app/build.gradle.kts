@@ -1,6 +1,8 @@
 @file:Suppress("SpellCheckingInspection")
 
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.utils.loadPropertyFromResources
 
 plugins {
     id("com.android.application")
@@ -10,6 +12,9 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("de.mannodermaus.android-junit5")
 }
+
+val key: String by project // get string from gradle.properties
+val key2: String = gradleLocalProperties(rootDir).getProperty("key") // get string from local.properties
 
 android {
     compileSdkVersion(Apps.compileSdk)
@@ -22,7 +27,8 @@ android {
         versionName = Apps.versionName
 //        multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" // specify a test runner in the same module-level
+        testInstrumentationRunner =
+            "androidx.test.runner.AndroidJUnitRunner" // specify a test runner in the same module-level
         setProperty("archivesBaseName", "$applicationId-v$versionName($versionCode)")
         javaCompileOptions {
             annotationProcessorOptions {
@@ -55,7 +61,9 @@ android {
             isDebuggable = true
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
-            resValue("string","app_name","(debug)") // change app name for debug version
+            resValue("string", "app_name", "(debug)") // change app name for debug version
+
+            buildConfigField("String", "key", key) // write custom field in BuildConfig file
             signingConfig = signingConfigs.getByName("debug")
         }
         getByName("release") {
@@ -65,7 +73,7 @@ android {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
-            resValue("string","app_name","App name") // app name
+            resValue("string", "app_name", "App name") // app name
             signingConfig = signingConfigs.getByName("release")
         }
     }

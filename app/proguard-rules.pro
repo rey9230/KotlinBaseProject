@@ -45,4 +45,7 @@
 #-keepclassmembers class kotlin.Metadata {
 #    public <methods>;
 #}
+
+# Keep the names of our models so that Moshi can use them
+#-keepnames class io.github.droidkaigi.confsched2018.data.api.response.** { *; }
 # --------------------------------------------------------------------
