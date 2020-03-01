@@ -9,7 +9,7 @@ import dagger.Provides
 import dagger.Reusable
 import kotlinx.coroutines.Dispatchers
 import n7.myperfectemptyproject.data.source.local.db.AppDatabase
-import n7.myperfectemptyproject.data.source.local.db.MyDao
+import n7.myperfectemptyproject.data.source.local.db.UsersDao
 
 @Module
 object ApplicationModule {
@@ -30,7 +30,7 @@ object ApplicationModule {
 
     @Reusable
     @Provides
-    fun provideMyDao(appDatabase: AppDatabase): MyDao {
+    fun provideMyDao(appDatabase: AppDatabase): UsersDao {
         return appDatabase.myDao
     }
 

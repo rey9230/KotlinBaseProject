@@ -6,15 +6,13 @@ import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 import kotlinx.coroutines.launch
 import n7.myperfectemptyproject.base.ApiErrorHandle
-import n7.myperfectemptyproject.ui.main.domain.usecase.UseCase
+import n7.myperfectemptyproject.ui.main.domain.usecase.GetUsersUseCase
 
-// todo make this ViewModel to BaseViewModel
+// todo make this ViewModel as BaseViewModel
 class MainViewModel @AssistedInject constructor(
     application: Application,
     @Assisted private val handle: SavedStateHandle,
-    private val useCase: UseCase
-    // todo you should ALWAYS inject Dispatchers
-//    private val defaultDispatcher: CoroutineDispatcher
+    private val useCase: GetUsersUseCase
 ) : AndroidViewModel(application) {
 
     @AssistedInject.Factory

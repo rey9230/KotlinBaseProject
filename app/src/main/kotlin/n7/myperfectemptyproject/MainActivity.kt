@@ -17,7 +17,7 @@ import n7.myperfectemptyproject.databinding.MainActivityBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: MainActivityBinding
-    private val viewmodel by viewModels<SimpleLifeCycleAwareObservable>()
+    private val viewModel by viewModels<SimpleLifeCycleAwareObservable>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,15 +26,16 @@ class MainActivity : AppCompatActivity() {
         // The window will not be resized when virtual keyboard is shown (bottom navigation bar will be hidden under virtual keyboard)
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING)
 
-        viewmodel.liveData.observe(this) {}
+        viewModel.liveData.observe(this) {
+
+        }
     }
 }
 
 // cool idea how to listen changes from SharedPreference with automatic subscription/unsubscription that prevent memory leaks
 class SimpleLifeCycleAwareObservable(application: Application) : AndroidViewModel(application) {
 
-    internal val liveData: LiveData<Boolean> = object : MutableLiveData<Boolean>(),
-        SharedPreferences.OnSharedPreferenceChangeListener {
+    internal val liveData: LiveData<Boolean> = object : MutableLiveData<Boolean>(), SharedPreferences.OnSharedPreferenceChangeListener {
         val sp = PreferenceManager.getDefaultSharedPreferences(application)
 
         override fun onActive() {

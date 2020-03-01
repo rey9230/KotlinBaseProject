@@ -47,5 +47,5 @@
 #}
 
 # Keep the names of our models so that Moshi can use them
-#-keepnames class io.github.droidkaigi.confsched2018.data.api.response.** { *; }
+-keepnames class n7.myperfectemptyproject.data.source.remote.model.** { *; }
 # --------------------------------------------------------------------

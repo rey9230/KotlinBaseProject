@@ -46,6 +46,7 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setupOnBackPressedAction()
+        setupListAdapter()
 
         binding.bTest.setOnClickListener {
             binding.bTest.text = "test"
@@ -78,14 +79,14 @@ class MainFragment : Fragment() {
     }
 
     private fun setupListAdapter() {
-//        mainAdapter = MainAdapter(this)
-//        binding.rvMainFragment.apply {
-//            adapter = mainAdapter
-//            // exitTransition animation with this works as intended
-//            postponeEnterTransition()
-//            viewTreeObserver.addOnPreDrawListener { startPostponedEnterTransition(); true }
-//        }
-//        myViewModel.lastItem.observe(this, mainAdapter::submitList)
+        mainAdapter = SimpleListAdapter(this)
+        binding.rvMainFragment.apply {
+            adapter = mainAdapter
+            // exitTransition animation with this works as intended
+            postponeEnterTransition()
+            viewTreeObserver.addOnPreDrawListener { startPostponedEnterTransition(); true }
+        }
+        myViewModel.lastItem.observe(this, mainAdapter::submitList)
     }
 
     // handle back press action for this fragment

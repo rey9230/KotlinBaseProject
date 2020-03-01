@@ -2,7 +2,7 @@ package n7.myperfectemptyproject.data.source.remote.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import java.util.*
+import java.util.Date
 
 @JsonClass(generateAdapter = true)
 data class RemoteModel(
@@ -13,23 +13,9 @@ data class RemoteModel(
 // todo determine is Json serialization works faster without custom field name @Json
 // https://github.com/square/moshi#custom-field-names-with-json
 @JsonClass(generateAdapter = true) // Codegen annotation ("$ClassName + JsonAdapter") (NarutoJsonAdapter) https://github.com/square/moshi#codegen
-class RandomUsersResults(
-    @Json(name = "info")
-    val info: Info = Info(),
+class RemoteUsers(
     @Json(name = "results")
     val results: List<Result> = listOf()
-)
-
-@JsonClass(generateAdapter = true)
-class Info(
-    @Json(name = "page")
-    val page: Int = 0,
-    @Json(name = "results")
-    val results: Int = 0,
-    @Json(name = "seed")
-    val seed: String = "",
-    @Json(name = "version")
-    val version: String = ""
 )
 
 @JsonClass(generateAdapter = true)

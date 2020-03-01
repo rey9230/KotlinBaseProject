@@ -1,7 +1,7 @@
 package n7.myperfectemptyproject.data.source
 
-import n7.myperfectemptyproject.data.source.remote.model.RemoteModel
+import n7.myperfectemptyproject.data.source.remote.model.RemoteUsers
 
 interface Repository {
-   suspend fun getSomething(): RemoteModel
+    suspend fun getRemoteUsers(count : Int): RemoteUsers
 }
