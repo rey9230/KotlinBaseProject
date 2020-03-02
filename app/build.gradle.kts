@@ -1,8 +1,4 @@
-@file:Suppress("SpellCheckingInspection")
-
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.jetbrains.kotlin.gradle.utils.loadPropertyFromResources
 
 plugins {
     id("com.android.application")
@@ -13,8 +9,8 @@ plugins {
     id("de.mannodermaus.android-junit5")
 }
 
-val key: String by project // get string from gradle.properties
-val key2: String = gradleLocalProperties(rootDir).getProperty("key") // get string from local.properties
+// val key: String by project // get string from gradle.properties
+// val key2: String = gradleLocalProperties(rootDir).getProperty("key") // get string from local.properties
 
 android {
     compileSdkVersion(Apps.compileSdk)
@@ -46,7 +42,6 @@ android {
     }
     signingConfigs {
         getByName("debug") {
-
         }
         create("release") {
             keyAlias = "key"
@@ -63,7 +58,7 @@ android {
             versionNameSuffix = "-debug"
             resValue("string", "app_name", "(debug)") // change app name for debug version
 
-            buildConfigField("String", "key", key) // write custom field in BuildConfig file
+            // buildConfigField("String", "key", key) // write custom field in BuildConfig file
             signingConfig = signingConfigs.getByName("debug")
         }
         getByName("release") {
@@ -187,17 +182,17 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-moshi:$retrofit")
     // --- Moshi ---
     val moshi = "1.9.2"
-    implementation("com.squareup.moshi:moshi:$moshi")
-    kapt("com.squareup.moshi:moshi-kotlin-codegen:$moshi")
-//    implementation("com.squareup.moshi:moshi-kotlin:$moshi")
-    implementation("com.squareup.moshi:moshi-adapters:$moshi")
+    implementation("com.squareup.moshi:moshi:1.9.2")
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.9.2")
+    implementation("com.squareup.moshi:moshi-kotlin:1.9.2")
+    implementation("com.squareup.moshi:moshi-adapters:1.9.2")
 
     // --- Room ---
     val room = "2.2.2"
-    implementation("androidx.room:room-runtime:$room")
-    kapt("androidx.room:room-compiler:$room")
+    implementation("androidx.room:room-runtime:2.2.2")
+    kapt("androidx.room:room-compiler:2.2.2")
     // kotlin Extensions and Coroutines support for Room
-    implementation("androidx.room:room-ktx:$room")
+    implementation("androidx.room:room-ktx:2.2.2")
 
     // --- SharedPreferences ---
     implementation("androidx.preference:preference-ktx:1.1.0")
@@ -225,14 +220,14 @@ dependencies {
 
     testImplementation("androidx.arch.core:core-testing:2.1.0")
 
-    testImplementation("org.mockito:mockito-core:2.27.0")
-    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0") // A small library that provides helper functions to work with Mockito in Kotlin.
+    testImplementation("org.mockito:mockito-core:3.2.4")
+    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0") // A small library that provides helper functions to work with Mockito in Kotlin.
 
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.2")
 
     // UI Test
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.0")
-    androidTestImplementation("androidx.test.espresso:espresso-intents:3.1.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+    androidTestImplementation("androidx.test.espresso:espresso-intents:3.2.0")
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test:rules:1.2.0")
 }

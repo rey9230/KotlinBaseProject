@@ -53,7 +53,7 @@ class MainFragment : Fragment() {
         }
 
         viewmodel.errorMessage.observe(this) {
-//            if (it != null) showDialogWithError(it)
+           if (it != null) showDialogWithError(it)
         }
 
         NetworkEvents.observe(this) {
@@ -79,14 +79,13 @@ class MainFragment : Fragment() {
     }
 
     private fun setupListAdapter() {
-        mainAdapter = SimpleListAdapter(this)
-        binding.rvMainFragment.apply {
-            adapter = mainAdapter
-            // exitTransition animation with this works as intended
-            postponeEnterTransition()
+        val usersListAdapter = UsersListAdapter()
+        binding.rv.apply {
+            adapter = usersListAdapter
+            postponeEnterTransition() // exitTransition animation with this works as intended
             viewTreeObserver.addOnPreDrawListener { startPostponedEnterTransition(); true }
         }
-        myViewModel.lastItem.observe(this, mainAdapter::submitList)
+        viewmodel.getUsers.observe(this, usersListAdapter::submitList)
     }
 
     // handle back press action for this fragment

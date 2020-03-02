@@ -24,21 +24,21 @@
 # https://github.com/square/moshi#r8--proguard
 
 # JSR 305 annotations are for embedding nullability information.
--dontwarn javax.annotation.**
-
--keepclasseswithmembers class * {
-    @com.squareup.moshi.* <methods>;
-}
-
--keep @com.squareup.moshi.JsonQualifier interface *
+#-dontwarn javax.annotation.**
+#
+#-keepclasseswithmembers class * {
+#    @com.squareup.moshi.* <methods>;
+#}
+#
+#-keep @com.squareup.moshi.JsonQualifier interface *
 
 # Enum field names are used by the integrated EnumJsonAdapter.
 # values() is synthesized by the Kotlin compiler and is used by EnumJsonAdapter indirectly
 # Annotate enums with @JsonClass(generateAdapter = false) to use them with Moshi.
--keepclassmembers @com.squareup.moshi.JsonClass class * extends java.lang.Enum {
-    <fields>;
-    **[] values();
-}
+#-keepclassmembers @com.squareup.moshi.JsonClass class * extends java.lang.Enum {
+#    <fields>;
+#    **[] values();
+#}
 
 #-keep class kotlin.reflect.jvm.internal.impl.builtins.BuiltInsLoaderImpl
 #
@@ -47,5 +47,5 @@
 #}
 
 # Keep the names of our models so that Moshi can use them
--keepnames class n7.myperfectemptyproject.data.source.remote.model.** { *; }
+#-keepnames class n7.myperfectemptyproject.data.source.remote.model.** { *; }
 # --------------------------------------------------------------------

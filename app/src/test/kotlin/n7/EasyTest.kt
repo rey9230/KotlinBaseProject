@@ -7,12 +7,11 @@ import com.google.common.truth.Truth.assertThat
 import com.google.common.truth.Truth.assertWithMessage
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
+import java.util.*
 import n7.myperfectemptyproject.data.source.remote.model.RemoteModel
-import n7.myperfectemptyproject.data.source.remote.model.RemoteModelJsonAdapter
 import org.junit.Rule
 import org.junit.Test
 import org.junit.jupiter.api.TestInstance
-import java.util.*
 
 @SmallTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

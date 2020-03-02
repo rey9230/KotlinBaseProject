@@ -1,18 +1,29 @@
 package n7.myperfectemptyproject.ui.main
 
 import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
+import androidx.lifecycle.map
+import androidx.lifecycle.viewModelScope
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 import kotlinx.coroutines.launch
 import n7.myperfectemptyproject.base.ApiErrorHandle
-import n7.myperfectemptyproject.ui.main.domain.usecase.GetUsersUseCase
+import n7.myperfectemptyproject.data.source.local.db.UsersDao
+import n7.myperfectemptyproject.ui.main.domain.usecase.GetUsersFromRemoteStoreUseCase
+import n7.myperfectemptyproject.ui.main.domain.usecase.SaveUsersToLocalStoreUseCase
 
 // todo make this ViewModel as BaseViewModel
 class MainViewModel @AssistedInject constructor(
     application: Application,
     @Assisted private val handle: SavedStateHandle,
-    private val useCase: GetUsersUseCase
+    private val getUsersFromRemoteStoreUseCase: GetUsersFromRemoteStoreUseCase,
+    private val saveUsersToLocalStoreUseCase: SaveUsersToLocalStoreUseCase,
+    private val usersDao: UsersDao
 ) : AndroidViewModel(application) {
 
     @AssistedInject.Factory
@@ -24,11 +35,15 @@ class MainViewModel @AssistedInject constructor(
     val errorMessage: LiveData<String?> = _errorMessage.map {
         ApiErrorHandle.traceErrorException(it).getErrorMessage()
     }
+    val getUsers = liveData {
+        emitSource(usersDao.getAllByLiveData())
+    }
 
     init {
         viewModelScope.launch {
-            useCase.execute()
+            getUsersFromRemoteStoreUseCase.execute(1)
                 .onSuccess {
+                    saveUsersToLocalStoreUseCase.execute(it)
                 }
                 .onFailure {
                     _errorMessage.value = it; _errorMessage.value = null

@@ -7,7 +7,7 @@ import java.util.Date
 @JsonClass(generateAdapter = true)
 data class RemoteModel(
     val id: Int = 0,
-    val date : Date = Date()
+    val date: Date = Date()
 )
 
 // todo determine is Json serialization works faster without custom field name @Json
@@ -15,11 +15,11 @@ data class RemoteModel(
 @JsonClass(generateAdapter = true) // Codegen annotation ("$ClassName + JsonAdapter") (NarutoJsonAdapter) https://github.com/square/moshi#codegen
 class RemoteUsers(
     @Json(name = "results")
-    val results: List<Result> = listOf()
+    val results: List<RemoteUser> = listOf()
 )
 
 @JsonClass(generateAdapter = true)
-class Result(
+class RemoteUser(
     @Json(name = "name")
     val name: Name = Name(),
     @Json(name = "picture")
@@ -51,7 +51,7 @@ class Picture(
 @JsonClass(generateAdapter = true)
 class Registered(
     @Json(name = "age")
-    val age: Int = 0,
-    @Json(name = "date")
-    val date: Date = Date()
+    val age: Int = 0
+    // @Json(name = "date")
+    // val date: Date = Date()
 )

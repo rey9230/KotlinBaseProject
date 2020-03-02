@@ -2,11 +2,11 @@ package n7.myperfectemptyproject.data.source.local.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import n7.myperfectemptyproject.data.source.local.model.Users
+import n7.myperfectemptyproject.data.source.local.model.User
 
 private const val DB_VERSION = 1
 
-@Database(entities = [Users::class], version = DB_VERSION, exportSchema = false)
+@Database(entities = [User::class], version = DB_VERSION, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract val myDao: UsersDao

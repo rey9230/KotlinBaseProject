@@ -81,7 +81,6 @@ object ApiErrorHandle {
     }
 }
 
-
 /**
  * This class designed to show different types of errors through error status & message
  *

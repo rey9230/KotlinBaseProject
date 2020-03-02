@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import n7.myperfectemptyproject.databinding.ItemSimpleBinding
-import n7.myperfectemptyproject.ui.main.domain.model.MainModel
+import n7.myperfectemptyproject.data.source.local.model.User
+import n7.myperfectemptyproject.databinding.ItemUserBinding
 
-class SimpleListAdapter : ListAdapter<MainModel, SimpleListAdapter.ViewHolder>(DiffCallback()) {
+class UsersListAdapter : ListAdapter<User, UsersListAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
@@ -26,10 +26,11 @@ class SimpleListAdapter : ListAdapter<MainModel, SimpleListAdapter.ViewHolder>(D
         super.onViewDetachedFromWindow(holder)
     }
 
-    class ViewHolder private constructor(private val binding: ItemSimpleBinding) :
+    class ViewHolder private constructor(private val binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(mainModel: MainModel) {
+        fun bind(user: User) {
+            binding.user = user
             binding.executePendingBindings()
 //            binding.tvItemUserTitle.setTextFuture(PrecomputedTextCompat.getTextFuture(userInfo.name.title,binding.tvItemUserTitle.textMetricsParamsCompat,null))
         }
@@ -40,20 +41,20 @@ class SimpleListAdapter : ListAdapter<MainModel, SimpleListAdapter.ViewHolder>(D
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemSimpleBinding.inflate(layoutInflater, parent, false)
+                val binding = ItemUserBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(binding)
             }
         }
     }
 }
 
-class DiffCallback : DiffUtil.ItemCallback<MainModel>() {
+class DiffCallback : DiffUtil.ItemCallback<User>() {
 
-    override fun areItemsTheSame(oldItem: MainModel, newItem: MainModel): Boolean {
-        return true
+    override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
+        return oldItem.userId == newItem.userId
     }
 
-    override fun areContentsTheSame(oldItem: MainModel, newItem: MainModel): Boolean {
-        return true
+    override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
+        return false
     }
 }
