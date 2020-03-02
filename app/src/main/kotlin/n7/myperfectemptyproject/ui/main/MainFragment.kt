@@ -50,11 +50,11 @@ class MainFragment : Fragment() {
         setupOnBackPressedAction()
         setupListAdapter()
 
-        mainViewModel.errorMessage.observe(this) {
+        mainViewModel.errorMessage.observe(viewLifecycleOwner) {
             if (it != null) showDialogWithError(it)
         }
 
-        NetworkEvents.observe(this) { handleConnectivityChange(it.networkState) }
+        NetworkEvents.observe(viewLifecycleOwner) { handleConnectivityChange(it.networkState) }
     }
 
     // show dialog from navGraph
