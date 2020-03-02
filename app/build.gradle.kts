@@ -180,6 +180,7 @@ dependencies {
     val retrofit = "2.6.2"
     implementation("com.squareup.retrofit2:retrofit:$retrofit")
     implementation("com.squareup.retrofit2:converter-moshi:$retrofit")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.2.1")
     // --- Moshi ---
     val moshi = "1.9.2"
     implementation("com.squareup.moshi:moshi:1.9.2")

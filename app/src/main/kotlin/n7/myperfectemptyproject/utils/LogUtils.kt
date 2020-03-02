@@ -16,7 +16,7 @@ fun Fragment.addLogObserver() {
     this.lifecycle.addObserver(LogUtils())
 }
 
-fun log(message: String) {
+fun logPlease(message: String) {
     Log.d("StrictMode", message)
 }
 
@@ -24,6 +24,6 @@ class LogUtils : LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
     private fun onAny(source: LifecycleOwner, event: Lifecycle.Event) {
-        log("$source - $event")
+        logPlease("$source - $event")
     }
 }

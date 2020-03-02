@@ -10,7 +10,7 @@ open class RepositoryImpl @Inject constructor(
 ) : Repository {
 
     override suspend fun getRemoteUsers(count: Int): RemoteUsers {
-        delay(5000)
+        // delay(5000)
         return userApi.getRandomUsers(
             count,
             listOf("name", "picture", "registered").joinToString(separator = ",")
