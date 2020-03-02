@@ -7,12 +7,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 import kotlinx.coroutines.launch
-import n7.myperfectemptyproject.base.ApiErrorHandle
 import n7.myperfectemptyproject.data.source.local.db.UsersDao
 import n7.myperfectemptyproject.ui.main.domain.usecase.GetUsersFromRemoteStoreUseCase
 import n7.myperfectemptyproject.ui.main.domain.usecase.SaveUsersToLocalStoreUseCase
@@ -31,22 +29,31 @@ class MainViewModel @AssistedInject constructor(
 
     private val _isLoading = MutableLiveData<Boolean>(false)
     val isLoading: LiveData<Boolean> = _isLoading
-    private val _errorMessage = MutableLiveData<Throwable?>(null)
-    val errorMessage: LiveData<String?> = _errorMessage.map {
-        ApiErrorHandle.traceErrorException(it).getErrorMessage()
-    }
+    private val _errorMessage = MutableLiveData<String?>(null)
+    // val errorMessage: LiveData<String?> = _errorMessage.map {
+    //     ApiErrorHandle.traceErrorException(it).getErrorMessage()
+    //     it.toString()
+    // }
+    val errorMessage: LiveData<String?> = _errorMessage
     val getUsers = liveData {
-        emitSource(usersDao.getAllByLiveData())
+        val allByCoroutines = usersDao.getAllByCoroutines()
+        emit(allByCoroutines)
     }
 
     init {
+        loadUser()
+    }
+
+    fun loadUser() {
         viewModelScope.launch {
             getUsersFromRemoteStoreUseCase.execute(1)
-                .onSuccess {
-                    saveUsersToLocalStoreUseCase.execute(it)
+                .onSuccess { fff ->
+                    saveUsersToLocalStoreUseCase.execute(fff).onFailure {
+                        _errorMessage.value = it.toString(); _errorMessage.value = null
+                    }
                 }
                 .onFailure {
-                    _errorMessage.value = it; _errorMessage.value = null
+                    _errorMessage.value = it.toString(); _errorMessage.value = null
                 }
         }
     }

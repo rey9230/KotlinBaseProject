@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -49,7 +51,7 @@ class MainFragment : Fragment() {
         setupListAdapter()
 
         binding.bTest.setOnClickListener {
-            binding.bTest.text = "test"
+            viewmodel.loadUser()
         }
 
         viewmodel.errorMessage.observe(this) {
@@ -79,13 +81,20 @@ class MainFragment : Fragment() {
     }
 
     private fun setupListAdapter() {
-        val usersListAdapter = UsersListAdapter()
+       val usersListAdapter = UsersListAdapter()
         binding.rv.apply {
             adapter = usersListAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             postponeEnterTransition() // exitTransition animation with this works as intended
             viewTreeObserver.addOnPreDrawListener { startPostponedEnterTransition(); true }
         }
-        viewmodel.getUsers.observe(this, usersListAdapter::submitList)
+        viewmodel.getUsers.observe(viewLifecycleOwner) {
+            usersListAdapter.submitList(it)
+        }
+
+        viewmodel.getUsers.observe(viewLifecycleOwner, Observer {
+            usersListAdapter.submitList(it)
+        })
     }
 
     // handle back press action for this fragment

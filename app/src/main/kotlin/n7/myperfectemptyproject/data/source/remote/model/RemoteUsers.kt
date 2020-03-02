@@ -13,13 +13,13 @@ data class RemoteModel(
 // todo determine is Json serialization works faster without custom field name @Json
 // https://github.com/square/moshi#custom-field-names-with-json
 @JsonClass(generateAdapter = true) // Codegen annotation ("$ClassName + JsonAdapter") (NarutoJsonAdapter) https://github.com/square/moshi#codegen
-class RemoteUsers(
+data class RemoteUsers(
     @Json(name = "results")
     val results: List<RemoteUser> = listOf()
 )
 
 @JsonClass(generateAdapter = true)
-class RemoteUser(
+data class RemoteUser(
     @Json(name = "name")
     val name: Name = Name(),
     @Json(name = "picture")
@@ -29,7 +29,7 @@ class RemoteUser(
 )
 
 @JsonClass(generateAdapter = true)
-class Name(
+data class Name(
     @Json(name = "first")
     val first: String = "",
     @Json(name = "last")
@@ -39,7 +39,7 @@ class Name(
 )
 
 @JsonClass(generateAdapter = true)
-class Picture(
+data class Picture(
     @Json(name = "large")
     val large: String = "",
     @Json(name = "medium")
@@ -49,7 +49,7 @@ class Picture(
 )
 
 @JsonClass(generateAdapter = true)
-class Registered(
+data class Registered(
     @Json(name = "age")
     val age: Int = 0
     // @Json(name = "date")
