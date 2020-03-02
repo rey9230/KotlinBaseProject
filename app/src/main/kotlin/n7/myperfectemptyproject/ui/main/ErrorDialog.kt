@@ -7,21 +7,21 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import n7.myperfectemptyproject.R
 
-class MainDialog : DialogFragment() {
+class ErrorDialog : DialogFragment() {
 
-    private val args: MainDialogArgs by navArgs()
+    // "className + Args" help to retrieve values from Bundle
+    private val args: ErrorDialogArgs by navArgs()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        // when we want to show dialog with animation
+        // show dialog with animation
         dialog?.window?.setWindowAnimations(R.style.DialogAnimations)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-
         val dialogBuilder = MaterialAlertDialogBuilder(context)
             .setMessage(args.message)
-            .setPositiveButton("OK", null)
+            .setPositiveButton(android.R.string.ok, null)
 
         return dialogBuilder.create()
     }

@@ -36,8 +36,7 @@ class MainViewModel @AssistedInject constructor(
     // }
     val errorMessage: LiveData<String?> = _errorMessage
     val getUsers = liveData {
-        val allByCoroutines = usersDao.getAllByCoroutines()
-        emit(allByCoroutines)
+        emitSource(usersDao.getAllByLiveData())
     }
 
     init {

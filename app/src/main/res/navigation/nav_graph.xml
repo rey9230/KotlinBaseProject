@@ -11,15 +11,15 @@
         android:label="main_fragment"
         tools:layout="@layout/main_fragment" />
     <dialog
-        android:id="@+id/mainDialog"
-        android:name="n7.myperfectemptyproject.ui.main.MainDialog"
-        android:label="MainDialog" >
+        android:id="@+id/errorDialog"
+        android:name="n7.myperfectemptyproject.ui.main.ErrorDialog"
+        android:label="errorDialog" >
         <argument
             android:name="message"
             app:argType="string"
             android:defaultValue="empty" />
     </dialog>
     <action
-        android:id="@+id/action_global_mainDialog"
-        app:destination="@id/mainDialog" />
+        android:id="@+id/action_global_errorDialog"
+        app:destination="@id/errorDialog" />
 </navigation>

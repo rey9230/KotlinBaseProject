@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
@@ -30,7 +29,7 @@ class MainFragment : Fragment() {
     private var previousSate: Boolean? = null
     private lateinit var binding: MainFragmentBinding
     private var finishActivity = false
-    private val viewmodel by viewModelWithSavedStateHandle {
+    private val mainViewModel by viewModelWithSavedStateHandle {
         injector.mainViewModelFactory
     }
 
@@ -41,6 +40,7 @@ class MainFragment : Fragment() {
     ): View {
         binding = MainFragmentBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
+            viewModel = mainViewModel
         }
         return binding.root
     }
@@ -50,51 +50,37 @@ class MainFragment : Fragment() {
         setupOnBackPressedAction()
         setupListAdapter()
 
-        binding.bTest.setOnClickListener {
-            viewmodel.loadUser()
+        mainViewModel.errorMessage.observe(this) {
+            if (it != null) showDialogWithError(it)
         }
 
-        viewmodel.errorMessage.observe(this) {
-           if (it != null) showDialogWithError(it)
-        }
-
-        NetworkEvents.observe(this) {
-            handleConnectivityChange(it.networkState)
-        }
+        NetworkEvents.observe(this) { handleConnectivityChange(it.networkState) }
     }
 
-    private fun showDialogWithError(message: String) {
-        val action = MainDialogDirections.actionGlobalMainDialog(message)
-        findNavController().navigate(action)
-    }
+    // show dialog from navGraph
+    private fun showDialogWithError(message: String) =
+        findNavController().navigate(ErrorDialogDirections.actionGlobalErrorDialog(message))
 
+    // we can be notified when internet connection change
     private fun handleConnectivityChange(networkState: NetworkState) {
         if (networkState.isConnected && previousSate != true) {
-            binding.tvNetworkStatus.text = "The network is back !"
         }
-
         if (!networkState.isConnected && previousSate == false) {
-            binding.tvNetworkStatus.text = "No Network !"
         }
-
         previousSate = networkState.isConnected
     }
 
     private fun setupListAdapter() {
-       val usersListAdapter = UsersListAdapter()
+        val usersListAdapter = UsersListAdapter()
         binding.rv.apply {
             adapter = usersListAdapter
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
             postponeEnterTransition() // exitTransition animation with this works as intended
             viewTreeObserver.addOnPreDrawListener { startPostponedEnterTransition(); true }
         }
-        viewmodel.getUsers.observe(viewLifecycleOwner) {
-            usersListAdapter.submitList(it)
-        }
-
-        viewmodel.getUsers.observe(viewLifecycleOwner, Observer {
-            usersListAdapter.submitList(it)
-        })
+        mainViewModel.getUsers.observe(viewLifecycleOwner, usersListAdapter::submitList)
     }
 
     // handle back press action for this fragment

@@ -5,12 +5,6 @@ import android.content.Context
 import android.net.*
 import androidx.lifecycle.LiveData
 
-interface NetworkState {
-    val isConnected: Boolean
-    val network: Network?
-    val networkCapabilities: NetworkCapabilities?
-    val linkProperties: LinkProperties?
-}
 // old way for checking network state is depricated
 // https://developer.android.com/training/monitoring-device-state/connectivity-status-type
 // so we use new approach with liveData
@@ -29,12 +23,8 @@ object NetworkStateHolder : NetworkState {
 
     fun Application.registerConnectivityMonitor() {
         holder = NetworkStateImpl()
-        val connectivityManager =
-            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        connectivityManager.registerNetworkCallback(
-            NetworkRequest.Builder().build(),
-            NetworkCallbackImp(holder)
-        )
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        connectivityManager.registerNetworkCallback(NetworkRequest.Builder().build(), NetworkCallbackImp(holder))
     }
 }
 
@@ -61,8 +51,7 @@ internal class NetworkStateImpl : NetworkState {
         }
 }
 
-internal class NetworkCallbackImp(private val holder: NetworkStateImpl) :
-    ConnectivityManager.NetworkCallback() {
+internal class NetworkCallbackImp(private val holder: NetworkStateImpl) : ConnectivityManager.NetworkCallback() {
     override fun onAvailable(network: Network) {
         holder.network = network
         holder.isConnected = true
@@ -80,6 +69,13 @@ internal class NetworkCallbackImp(private val holder: NetworkStateImpl) :
     override fun onLinkPropertiesChanged(network: Network, linkProperties: LinkProperties) {
         holder.linkProperties = linkProperties
     }
+}
+
+interface NetworkState {
+    val isConnected: Boolean
+    val network: Network?
+    val networkCapabilities: NetworkCapabilities?
+    val linkProperties: LinkProperties?
 }
 
 sealed class Event {
