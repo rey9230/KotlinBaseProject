@@ -35,7 +35,6 @@ private class ActionDebounce(private val action: () -> Unit) {
         lastActionTime = now
 
         if (actionAllowed) {
-            logPlease("$millisecondsPassed")
             action.invoke()
         }
     }

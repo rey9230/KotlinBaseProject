@@ -7,6 +7,7 @@ import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -28,27 +29,38 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.liveData.observe(this) {
         }
+
+        // registerFragmentLifecycle()
+    }
+
+    // listen what happening with our fragments (much better than ActivityLifecycleCallbacks)
+   private fun registerFragmentLifecycle() {
+        supportFragmentManager.registerFragmentLifecycleCallbacks(object : FragmentManager.FragmentLifecycleCallbacks() {}, false)
     }
 }
 
 // cool idea how to listen changes from SharedPreference with automatic subscription/unsubscription that prevent memory leaks
 class SimpleLifeCycleAwareObservable(application: Application) : AndroidViewModel(application) {
 
-    internal val liveData: LiveData<Boolean> = object : MutableLiveData<Boolean>(), SharedPreferences.OnSharedPreferenceChangeListener {
-        val sp = PreferenceManager.getDefaultSharedPreferences(application)
+    internal val liveData: LiveData<Boolean> =
+        object : MutableLiveData<Boolean>(), SharedPreferences.OnSharedPreferenceChangeListener {
+            val sp = PreferenceManager.getDefaultSharedPreferences(application)
 
-        override fun onActive() {
-            sp.registerOnSharedPreferenceChangeListener(this)
-        }
+            override fun onActive() {
+                sp.registerOnSharedPreferenceChangeListener(this)
+            }
 
-        override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
+            override fun onSharedPreferenceChanged(
+                sharedPreferences: SharedPreferences,
+                key: String
+            ) {
 //            if (MainActivity.KEY == key) {
 //                value = sp.getBoolean(MainActivity.KEY, false)
 //            }
-        }
+            }
 
-        override fun onInactive() {
-            sp.unregisterOnSharedPreferenceChangeListener(this)
+            override fun onInactive() {
+                sp.unregisterOnSharedPreferenceChangeListener(this)
+            }
         }
-    }
 }
