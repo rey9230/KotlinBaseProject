@@ -51,7 +51,7 @@ data class Picture(
 @JsonClass(generateAdapter = true)
 data class Registered(
     @Json(name = "age")
-    val age: Int = 0
-    // @Json(name = "date")
-    // val date: Date = Date()
+    val age: Int = 0,
+    @Json(name = "date")
+    val date: Date = Date()
 )

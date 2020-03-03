@@ -14,6 +14,7 @@ fun RemoteUser.toLocalStore(): User {
     return User(
         firstName = name.first,
         lastName = name.last,
-        pictureUrl = picture.medium
+        pictureUrl = picture.medium,
+        date = registered.date
     )
 }

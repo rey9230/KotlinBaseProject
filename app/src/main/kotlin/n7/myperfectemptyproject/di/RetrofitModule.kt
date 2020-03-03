@@ -1,5 +1,6 @@
 package n7.myperfectemptyproject.di
 
+import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -18,10 +19,10 @@ object RetrofitModule {
 
     @Provides
     @Reusable
-    fun provideRandomUser(client: OkHttpClient): UserApi = Retrofit.Builder()
+    fun provideRandomUser(client: OkHttpClient, moshi: Moshi): UserApi = Retrofit.Builder()
         .baseUrl(randomUserBaseUrl)
         .client(client)
-        .addConverterFactory(MoshiConverterFactory.create())
+        .addConverterFactory(MoshiConverterFactory.create(moshi))
         .build()
         .create(UserApi::class.java)
 

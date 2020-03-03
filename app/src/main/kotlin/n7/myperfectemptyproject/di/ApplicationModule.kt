@@ -4,12 +4,17 @@ import android.app.Application
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 import androidx.room.Room
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import n7.myperfectemptyproject.data.source.local.db.AppDatabase
 import n7.myperfectemptyproject.data.source.local.db.UsersDao
+import java.util.Date
 
 @Module
 object ApplicationModule {
@@ -36,11 +41,18 @@ object ApplicationModule {
 
     @Reusable
     @Provides
-    fun provideIoDispatcher() = Dispatchers.IO
+    fun provideIoDispatcher() : CoroutineDispatcher = Dispatchers.IO
 
     @Reusable
     @Provides
     fun provideSharedPreferences(application: Application): SharedPreferences {
         return PreferenceManager.getDefaultSharedPreferences(application)
     }
+
+    @Reusable
+    @Provides
+    fun moshi(): Moshi = Moshi.Builder()
+        .add(Date::class.java, Rfc3339DateJsonAdapter().nullSafe())
+        /* more brilliant adapters */
+        .build()
 }
