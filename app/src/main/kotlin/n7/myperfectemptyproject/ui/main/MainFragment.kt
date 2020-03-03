@@ -73,6 +73,7 @@ class MainFragment : Fragment() {
     private fun setupListAdapter() {
         val usersListAdapter = UsersListAdapter()
         binding.rv.apply {
+            setHasFixedSize(true)
             adapter = usersListAdapter
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 

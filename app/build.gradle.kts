@@ -27,15 +27,15 @@ android {
         testInstrumentationRunner =
             "androidx.test.runner.AndroidJUnitRunner" // specify a test runner in the same module-level
         setProperty("archivesBaseName", "$applicationId-v$versionName($versionCode)")
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = mapOf(
-                    "room.schemaLocation" to "$projectDir/schemas",
-                    "room.incremental" to "true",
-                    "room.expandProjection" to "true"
-                )
-            }
-        }
+        // javaCompileOptions {
+        //     annotationProcessorOptions {
+        //         arguments = mapOf(
+        //             "room.schemaLocation" to "$projectDir/schemas",
+        //             "room.incremental" to "true",
+        //             "room.expandProjection" to "true"
+        //         )
+        //     }
+        // }
     }
     sourceSets {
         getByName("main").java.srcDirs("src/main/kotlin") // Changes the directory for Java sources. The default directory is 'src/main/java'.
