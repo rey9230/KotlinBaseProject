@@ -1,3 +1,4 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -9,8 +10,8 @@ plugins {
     id("de.mannodermaus.android-junit5")
 }
 
-// val key: String by project // get string from gradle.properties
-// val key2: String = gradleLocalProperties(rootDir).getProperty("key") // get string from local.properties
+val stringFromGradleProperties: String by project // get string from gradle.properties
+val stringFromLocalProperties: String = gradleLocalProperties(rootDir).getProperty("key") // get string from local.properties
 
 android {
     compileSdkVersion(Apps.compileSdk)
@@ -58,7 +59,7 @@ android {
             versionNameSuffix = "-debug"
             resValue("string", "app_name", "(debug)") // change app name for debug version
 
-            // buildConfigField("String", "key", key) // write custom field in BuildConfig file
+            buildConfigField("String", "key", stringFromLocalProperties) // write custom field in BuildConfig file
             signingConfig = signingConfigs.getByName("debug")
         }
         getByName("release") {
