@@ -3,6 +3,7 @@ package n7.myperfectemptyproject.di
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
+import n7.myperfectemptyproject.BuildConfig
 import n7.myperfectemptyproject.data.source.remote.retrofit.UserApi
 import n7.myperfectemptyproject.utils.logPlease
 import okhttp3.OkHttpClient
@@ -26,13 +27,17 @@ object RetrofitModule {
 
     @Provides
     @Reusable
-    fun provideClient(): OkHttpClient {
+    fun provideOkHttpClient(): OkHttpClient {
         val httpLoggingInterceptor = HttpLoggingInterceptor(object : HttpLoggingInterceptor.Logger {
             override fun log(message: String) {
                 logPlease(message)
             }
         })
-        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BASIC
+        if (BuildConfig.DEBUG) {
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BASIC
+        } else {
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.NONE
+        }
         return OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build()
     }
 }

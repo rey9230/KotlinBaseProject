@@ -8,11 +8,11 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
 
-fun FragmentActivity.addLogObserver() {
+fun FragmentActivity.addLifecycleLogObserver() {
     this.lifecycle.addObserver(LogUtils())
 }
 
-fun Fragment.addLogObserver() {
+fun Fragment.addLifecycleLogObserver() {
     this.lifecycle.addObserver(LogUtils())
 }
 
@@ -20,7 +20,7 @@ fun logPlease(message: String) {
     Log.d("StrictMode", message)
 }
 
-class LogUtils : LifecycleObserver {
+private class LogUtils : LifecycleObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
     private fun onAny(source: LifecycleOwner, event: Lifecycle.Event) {
