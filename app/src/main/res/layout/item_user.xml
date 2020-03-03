@@ -12,6 +12,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true">
 
@@ -22,30 +26,36 @@
 
             <ImageView
                 android:id="@+id/iv_photo"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                loadImageUrl="@{user.pictureUrl}"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                loadImageUrl="@{user.pictureUrl}"
+                android:contentDescription="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@null"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/tv_date"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(user.date)}"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:lines="1"
+                tools:text="@tools:sample/date/ddmmyy"
+                android:ellipsize="end"
+                android:text="@{String.valueOf(user.date)}"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_photo"
                 app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
             <TextView
                 android:id="@+id/tv_name"
+                tools:text="@tools:sample/full_names"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -58,6 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                tools:text="tools"
                 android:layout_marginTop="8dp"
                 android:text="@{String.valueOf(user.userId)}"
                 app:layout_constraintStart_toEndOf="@+id/iv_photo"
