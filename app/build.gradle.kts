@@ -11,7 +11,8 @@ plugins {
 }
 
 val stringFromGradleProperties: String by project // get string from gradle.properties
-val stringFromLocalProperties: String = gradleLocalProperties(rootDir).getProperty("key") // get string from local.properties
+val stringFromLocalProperties: String =
+    gradleLocalProperties(rootDir).getProperty("key") // get string from local.properties
 
 android {
     compileSdkVersion(Apps.compileSdk)
@@ -59,7 +60,11 @@ android {
             versionNameSuffix = "-debug"
             resValue("string", "app_name", "(debug)") // change app name for debug version
 
-            buildConfigField("String", "key", stringFromLocalProperties) // write custom field in BuildConfig file
+            buildConfigField(
+                "String",
+                "key",
+                stringFromLocalProperties
+            ) // write custom field in BuildConfig file
             signingConfig = signingConfigs.getByName("debug")
         }
         getByName("release") {
@@ -132,8 +137,7 @@ dependencies {
 
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation("com.google.android.material:material:1.2.0-alpha03")
-    //    someone know for what this library?
-    //    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    //    implementation("androidx.legacy:legacy-support-v4:1.0.0") // someone know for what this library?
 
     // --- Coroutines ---
     val coroutines = "1.3.2"
