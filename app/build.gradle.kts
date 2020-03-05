@@ -107,7 +107,7 @@ android {
         isExperimental = true
     }
     packagingOptions {
-        exclude("META-INF/LICENSE")
+        exclude("META-INF/LICENSE") // ???
     }
 
     testOptions {
