@@ -33,7 +33,10 @@ class UsersListAdapter : ListAdapter<User, UsersListAdapter.ViewHolder>(DiffCall
 
         fun bind(user: User) = user.run {
             binding.user = this
+            // we will call executePendingBindings() so that the list item is updated without waiting for the next layout phase.
+            // This is required when using Data Binding inside RecyclerView, even if you are not using PrecomputedText.
             binding.executePendingBindings()
+            // recommend trying PrecomputedText with list item TextViews that commonly display 200 characters or more
             // read about this https://medium.com/androiddevelopers/prefetch-text-layout-in-recyclerview-4acf9103f438
             // binding.tvDate.setTextFuture(PrecomputedTextCompat.getTextFuture(date!!.toString(), TextViewCompat.getTextMetricsParams(binding.tvDate), null))
         }

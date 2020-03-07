@@ -2,7 +2,24 @@ package n7.myperfectemptyproject.utils
 
 import android.os.SystemClock
 import android.view.View
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.text.PrecomputedTextCompat
+import androidx.core.widget.TextViewCompat
 import androidx.databinding.BindingAdapter
+
+// we take any TextView properties that may be controlled by Data Binding, and apply all of them at the beginning of our adapter
+@BindingAdapter("asyncText", "android:textSize", requireAll = false)
+fun asyncText(textView: TextView, text: CharSequence, textSize: Int?) {
+    // first, set all measurement affecting properties of the text
+    // (size, locale, typeface, direction, etc)
+    if (textSize != null) {
+        // interpret the text size as SP
+        textView.textSize = textSize.toFloat()
+    }
+    val params = TextViewCompat.getTextMetricsParams(textView)
+    (textView as AppCompatTextView).setTextFuture(PrecomputedTextCompat.getTextFuture(text, params, null))
+}
 
 @BindingAdapter("setOnDebouncedClickListener")
 fun View.setOnDebouncedClickListener(action: () -> Unit) {

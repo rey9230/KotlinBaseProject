@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="user"
             type="n7.myperfectemptyproject.data.source.local.model.User" />
@@ -45,34 +46,34 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:lines="1"
-                tools:text="@tools:sample/date/ddmmyy"
                 android:ellipsize="end"
-                android:text="@{String.valueOf(user.date)}"
+                android:lines="1"
+                asyncText="@{String.valueOf(user.date)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_photo"
-                app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                tools:text="@tools:sample/date/ddmmyy" />
 
             <TextView
                 android:id="@+id/tv_name"
-                tools:text="@tools:sample/full_names"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="@{user.firstName + ` ` + user.lastName}"
                 app:layout_constraintStart_toEndOf="@+id/iv_photo"
-                app:layout_constraintTop_toTopOf="@+id/iv_photo" />
+                app:layout_constraintTop_toTopOf="@+id/iv_photo"
+                tools:text="@tools:sample/full_names" />
 
             <TextView
                 android:id="@+id/tv_age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                tools:text="@sample/users.json/data/age"
                 android:layout_marginTop="8dp"
                 android:text="@{String.valueOf(user.userId)}"
                 app:layout_constraintStart_toEndOf="@+id/iv_photo"
-                app:layout_constraintTop_toBottomOf="@+id/tv_date" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_date"
+                tools:text="@sample/users.json/data/age" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>
