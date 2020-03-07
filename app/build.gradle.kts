@@ -133,7 +133,7 @@ dependencies {
     // Starting with Kotlin 1.1.2, the dependencies with group org.jetbrains.kotlin are by default resolved with the version taken from the applied plugin
     implementation(kotlin("stdlib-jdk7")) // in old projects we shoud write in this way - implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.60")
     implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.core:core-ktx:1.1.0")
+    implementation("androidx.core:core-ktx:1.2.0")
 
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
     implementation("com.google.android.material:material:1.2.0-alpha03")
