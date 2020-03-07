@@ -26,7 +26,7 @@ object ApplicationModule {
             AppDatabase::class.java,
             AppDatabase.DB_NAME
         )
-//            .allowMainThreadQueries()
+        //  .allowMainThreadQueries()
             .fallbackToDestructiveMigration()
             .enableMultiInstanceInvalidation()
             .build()

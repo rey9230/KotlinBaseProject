@@ -1,4 +1,4 @@
-package n7.myperfectemptyproject.ui.main
+package n7.myperfectemptyproject.ui
 
 import android.app.Dialog
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import n7.myperfectemptyproject.R
+import n7.myperfectemptyproject.ui.main.ErrorDialogArgs
 
 class ErrorDialog : DialogFragment() {
 

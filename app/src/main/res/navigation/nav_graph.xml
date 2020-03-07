@@ -12,7 +12,7 @@
         tools:layout="@layout/main_fragment" />
     <dialog
         android:id="@+id/errorDialog"
-        android:name="n7.myperfectemptyproject.ui.main.ErrorDialog"
+        android:name="n7.myperfectemptyproject.ui.ErrorDialog"
         android:label="errorDialog" >
         <argument
             android:name="message"
