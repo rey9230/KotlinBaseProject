@@ -5,7 +5,7 @@ import java.util.*
 
 @Entity(tableName = "Users")
 data class User(
-    @PrimaryKey @ColumnInfo(name = "id") val userId: Long = 0,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val userId: Long = 0,
     val firstName: String,
     val lastName: String,
     val pictureUrl: String,

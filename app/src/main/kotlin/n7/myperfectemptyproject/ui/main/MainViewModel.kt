@@ -35,14 +35,10 @@ class MainViewModel @AssistedInject constructor(
         emitSource(usersDao.getAllByLiveData())
     }
 
-    init {
-        loadUser()
-    }
-
     fun loadUser() {
         launchWithLoading {
-            getUsersFromRemoteStoreUseCase.execute(1)
-                .onSuccess { fff -> saveUsersToLocalStoreUseCase.execute(fff) }
+            getUsersFromRemoteStoreUseCase.execute(10)
+                .onSuccess { remoteUsers -> saveUsersToLocalStoreUseCase.execute(remoteUsers) }
                 .onFailure { _errorMessage.value = it.toString(); _errorMessage.value = null }
         }
     }
