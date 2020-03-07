@@ -26,9 +26,9 @@ open class BaseViewModel(application: Application, val savedStateHandle: SavedSt
 
     fun launchWithLoading(block: suspend CoroutineScope.() -> Unit) {
         viewModelScope.launch(singleThreadContext) {
-            _isLoading.value = true
+            _isLoading.postValue(true)
             block()
-            _isLoading.value = false
+            _isLoading.postValue(false)
         }
     }
 
