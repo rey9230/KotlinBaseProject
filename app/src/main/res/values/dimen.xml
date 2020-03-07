@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dimenCornerSize">0dp</dimen>
+    <dimen name="dimen_corner_size">0dp</dimen>
 
-    <integer name="DialogAnimDuration">300</integer>
+    <integer name="dialog_anim_duration">300</integer>
+
+    <dimen name="provider_padding">8dp</dimen>
 </resources>

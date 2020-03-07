@@ -11,7 +11,7 @@
 
     <style name="ShapeAppearance.MyApp.SmallComponent.Dark" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">cut</item>
-        <item name="cornerSize">@dimen/dimenCornerSize</item>
+        <item name="cornerSize">@dimen/dimen_corner_size</item>
     </style>
 
 </resources>
