@@ -10,20 +10,31 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.launch
+import java.util.concurrent.Executors
 
 open class BaseViewModel(application: Application, val savedStateHandle: SavedStateHandle? = null) :
     AndroidViewModel(application) {
+
+    private val singleThreadContext = Executors.newSingleThreadExecutor { target ->
+        Thread(target, "ChooseProvider")
+    }.asCoroutineDispatcher()
 
     private val _isLoading = MutableLiveData<Boolean>(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
     fun launchWithLoading(block: suspend CoroutineScope.() -> Unit) {
-        viewModelScope.launch {
+        viewModelScope.launch(singleThreadContext) {
             _isLoading.value = true
             block()
             _isLoading.value = false
         }
+    }
+
+    override fun onCleared() {
+        singleThreadContext.close()
+        super.onCleared()
     }
 }
 
