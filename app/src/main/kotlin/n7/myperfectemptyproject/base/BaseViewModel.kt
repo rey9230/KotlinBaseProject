@@ -15,16 +15,13 @@ import kotlinx.coroutines.launch
 open class BaseViewModel(application: Application, val savedStateHandle: SavedStateHandle? = null) :
     AndroidViewModel(application) {
 
-    protected val _isLoading = MutableLiveData<Boolean>(false)
+    private val _isLoading = MutableLiveData<Boolean>(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
     fun launchWithLoading(block: suspend CoroutineScope.() -> Unit) {
-        try {
+        viewModelScope.launch {
             _isLoading.value = true
-            viewModelScope.launch {
-                block()
-            }
-        } finally {
+            block()
             _isLoading.value = false
         }
     }
