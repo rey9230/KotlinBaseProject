@@ -19,7 +19,7 @@ import n7.myperfectemptyproject.di.injector
 import n7.myperfectemptyproject.ui.ErrorDialogDirections
 import n7.myperfectemptyproject.utils.viewModelWithSavedStateHandle
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(R.layout.main_fragment) {
 
     companion object {
         const val MILLIS_FOR_EXIT = 2000L
@@ -31,16 +31,12 @@ class MainFragment : Fragment() {
         injector.mainViewModelFactory
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = MainFragmentBinding.inflate(inflater, container, false).apply {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = MainFragmentBinding.bind(view).apply {
             lifecycleOwner = viewLifecycleOwner // without this all bindings in xml will no work!
             viewModel = mainViewModel
         }
-        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
