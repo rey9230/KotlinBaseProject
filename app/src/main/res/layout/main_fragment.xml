@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="n7.myperfectemptyproject.ui.main.MainViewModel" />
@@ -23,6 +25,7 @@
             android:layout_height="4dp"
             android:indeterminate="true"
             android:scaleY="5"
+            android:visibility="@{viewModel.isLoading? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

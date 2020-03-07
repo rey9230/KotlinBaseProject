@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
@@ -17,6 +16,7 @@ import kotlinx.coroutines.launch
 import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.databinding.MainFragmentBinding
 import n7.myperfectemptyproject.di.injector
+import n7.myperfectemptyproject.ui.ErrorDialogDirections
 import n7.myperfectemptyproject.utils.viewModelWithSavedStateHandle
 
 class MainFragment : Fragment() {
@@ -37,7 +37,7 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = MainFragmentBinding.inflate(inflater, container, false).apply {
-            lifecycleOwner = viewLifecycleOwner
+            lifecycleOwner = viewLifecycleOwner // without this all bindings in xml will no work!
             viewModel = mainViewModel
         }
         return binding.root
@@ -48,9 +48,6 @@ class MainFragment : Fragment() {
         setupOnBackPressedAction()
         setupListAdapter()
 
-        mainViewModel.isLoading.observe(viewLifecycleOwner) {
-            binding.pb.isVisible = it
-        }
         // mainViewModel.errorMessage.observe(viewLifecycleOwner) {
         //     if (it != null) showDialogWithError(it)
         // }

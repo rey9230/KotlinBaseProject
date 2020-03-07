@@ -23,9 +23,9 @@ interface ApplicationComponent {
         fun create(@BindsInstance applicationContext: Application): ApplicationComponent
     }
 
-    // get simple viewModel instance
-    val mainViewModel: MainViewModel
+    // get simple viewModel instance without @AssistedInject
+    // val mainViewModel: MainViewModel
 
-    // get viewModel instance with param's
+    // get viewModel instance with with @AssistedInject param's
     val mainViewModelFactory: MainViewModel.Factory
 }
