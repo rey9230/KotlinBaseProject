@@ -21,7 +21,7 @@ import androidx.lifecycle.LiveData
  *
  *      override fun onActivityCreated(savedInstanceState: Bundle?) {
  *      ...
- *          Transformations.distinctUntilChanged(NetworkEvents)
+ *           NetworkEvents.distinctUntilChanged()
  *              .observe(viewLifecycleOwner) { handleConnectivityChange(it.networkState) }
  *      ...
  *      }
