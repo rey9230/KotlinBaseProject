@@ -21,6 +21,7 @@ fun asyncText(textView: TextView, text: CharSequence, textSize: Int?) {
     (textView as AppCompatTextView).setTextFuture(PrecomputedTextCompat.getTextFuture(text, params, null))
 }
 
+//todo write custom rule for newbie developers that warn them to use only this method!
 @BindingAdapter("setOnDebouncedClickListener")
 fun View.setOnDebouncedClickListener(action: () -> Unit) {
     val actionDebounce = ActionDebounce(action)
