@@ -6,15 +6,14 @@ import androidx.preference.PreferenceManager
 import androidx.room.Room
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
+import java.util.Date
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import n7.myperfectemptyproject.data.source.local.db.AppDatabase
 import n7.myperfectemptyproject.data.source.local.db.UsersDao
-import java.util.Date
 
 @Module
 object ApplicationModule {
@@ -41,7 +40,7 @@ object ApplicationModule {
 
     @Reusable
     @Provides
-    fun provideIoDispatcher() : CoroutineDispatcher = Dispatchers.IO
+    fun provideIoDispatcher(): CoroutineDispatcher = Dispatchers.IO
 
     @Reusable
     @Provides

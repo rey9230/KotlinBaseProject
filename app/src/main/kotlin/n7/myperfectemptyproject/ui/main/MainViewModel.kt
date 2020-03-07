@@ -47,4 +47,3 @@ class MainViewModel @AssistedInject constructor(
         }
     }
 }
-

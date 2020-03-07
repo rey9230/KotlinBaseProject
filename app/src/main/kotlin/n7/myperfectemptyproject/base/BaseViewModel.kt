@@ -9,10 +9,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.squareup.inject.assisted.AssistedInject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
-import n7.myperfectemptyproject.ui.main.MainViewModel
 
 open class BaseViewModel(application: Application, val savedStateHandle: SavedStateHandle? = null) :
     AndroidViewModel(application) {

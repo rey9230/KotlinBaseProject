@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
@@ -18,8 +17,6 @@ import kotlinx.coroutines.launch
 import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.databinding.MainFragmentBinding
 import n7.myperfectemptyproject.di.injector
-import n7.myperfectemptyproject.utils.NetworkEvents
-import n7.myperfectemptyproject.utils.NetworkState
 import n7.myperfectemptyproject.utils.viewModelWithSavedStateHandle
 
 class MainFragment : Fragment() {
@@ -43,11 +40,6 @@ class MainFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             viewModel = mainViewModel
         }
-
-        // val text = binding.tvNetworkStatus.text.toSpannable()
-        // val taskerIndex = text.indexOf("tatu")
-        // text[taskerIndex, taskerIndex + 4] = UnderlineSpan()
-        // binding.tvNetworkStatus.text = text
         return binding.root
     }
 
@@ -62,7 +54,6 @@ class MainFragment : Fragment() {
         // mainViewModel.errorMessage.observe(viewLifecycleOwner) {
         //     if (it != null) showDialogWithError(it)
         // }
-
     }
 
     // show dialog from navGraph

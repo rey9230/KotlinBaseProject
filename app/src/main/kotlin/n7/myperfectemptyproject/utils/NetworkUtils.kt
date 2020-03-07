@@ -8,7 +8,6 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
 
 /**
  * old way for checking network state is deprecated
