@@ -27,7 +27,7 @@ class MainFragment : Fragment() {
 
     private lateinit var binding: MainFragmentBinding
     private var finishActivity = false
-    private val mainViewModel by viewModelWithSavedStateHandle {
+    private val mainViewModel : MainViewModel by viewModelWithSavedStateHandle {
         injector.mainViewModelFactory
     }
 
