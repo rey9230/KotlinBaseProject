@@ -136,7 +136,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.2.0")
 
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
-    implementation("com.google.android.material:material:1.2.0-alpha03")
+    implementation("com.google.android.material:material:1.2.0-alpha05")
     //    implementation("androidx.legacy:legacy-support-v4:1.0.0") // someone know for what this library?
 
     // --- Coroutines ---
