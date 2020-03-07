@@ -13,7 +13,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.navGraphViewModels
-import n7.myperfectemptyproject.ui.main.ViewModelAssistedFactory
+import n7.myperfectemptyproject.base.ViewModelAssistedFactory
 
 inline fun <reified T : ViewModel> FragmentActivity.viewModel(
     crossinline provider: () -> T

@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
@@ -26,7 +28,6 @@ class MainFragment : Fragment() {
         const val MILLIS_FOR_EXIT = 2000L
     }
 
-    private var previousSate: Boolean? = null
     private lateinit var binding: MainFragmentBinding
     private var finishActivity = false
     private val mainViewModel by viewModelWithSavedStateHandle {
@@ -42,6 +43,11 @@ class MainFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             viewModel = mainViewModel
         }
+
+        // val text = binding.tvNetworkStatus.text.toSpannable()
+        // val taskerIndex = text.indexOf("tatu")
+        // text[taskerIndex, taskerIndex + 4] = UnderlineSpan()
+        // binding.tvNetworkStatus.text = text
         return binding.root
     }
 
@@ -50,32 +56,26 @@ class MainFragment : Fragment() {
         setupOnBackPressedAction()
         setupListAdapter()
 
-        mainViewModel.errorMessage.observe(viewLifecycleOwner) {
-            if (it != null) showDialogWithError(it)
+        mainViewModel.isLoading.observe(viewLifecycleOwner) {
+            binding.pb.isVisible = it
         }
+        // mainViewModel.errorMessage.observe(viewLifecycleOwner) {
+        //     if (it != null) showDialogWithError(it)
+        // }
 
-        NetworkEvents.observe(viewLifecycleOwner) { handleConnectivityChange(it.networkState) }
     }
 
     // show dialog from navGraph
     private fun showDialogWithError(message: String) =
         findNavController().navigate(ErrorDialogDirections.actionGlobalErrorDialog(message))
 
-    // we can be notified when internet connection change
-    private fun handleConnectivityChange(networkState: NetworkState) {
-        if (networkState.isConnected && previousSate != true) {
-        }
-        if (!networkState.isConnected && previousSate == false) {
-        }
-        previousSate = networkState.isConnected
-    }
-
     private fun setupListAdapter() {
         val usersListAdapter = UsersListAdapter()
         binding.rv.apply {
             setHasFixedSize(true)
             adapter = usersListAdapter
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
             postponeEnterTransition() // exitTransition animation with this works as intended
             viewTreeObserver.addOnPreDrawListener { startPostponedEnterTransition(); true }

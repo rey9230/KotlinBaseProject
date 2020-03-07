@@ -2,12 +2,42 @@ package n7.myperfectemptyproject.utils
 
 import android.app.Application
 import android.content.Context
-import android.net.*
+import android.net.ConnectivityManager
+import android.net.LinkProperties
+import android.net.Network
+import android.net.NetworkCapabilities
+import android.net.NetworkRequest
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
 
-// old way for checking network state is depricated
-// https://developer.android.com/training/monitoring-device-state/connectivity-status-type
-// so we use new approach with liveData
+/**
+ * old way for checking network state is deprecated
+ * {@link https://developer.android.com/training/monitoring-device-state/connectivity-status-type }
+ * so we use new approach with liveData
+ *
+ * Here is an example
+ * <pre>
+ *
+ *  class Fragment : Fragment() {
+ *
+ *      override fun onActivityCreated(savedInstanceState: Bundle?) {
+ *      ...
+ *          Transformations.distinctUntilChanged(NetworkEvents)
+ *              .observe(viewLifecycleOwner) { handleConnectivityChange(it.networkState) }
+ *      ...
+ *      }
+ *
+ *      private fun handleConnectivityChange(networkState: NetworkState) {
+ *          if (networkState.isConnected) {
+ *                    binding.tvNetworkStatus.text = " ON "
+ *                }
+ *          if (!networkState.isConnected) {
+ *                    binding.tvNetworkStatus.text = " OFF "
+ *                }
+ *
+ *      }
+ * </pre>
+ */
 object NetworkStateHolder : NetworkState {
 
     private lateinit var holder: NetworkStateImpl
@@ -23,8 +53,12 @@ object NetworkStateHolder : NetworkState {
 
     fun Application.registerConnectivityMonitor() {
         holder = NetworkStateImpl()
-        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        connectivityManager.registerNetworkCallback(NetworkRequest.Builder().build(), NetworkCallbackImp(holder))
+        val connectivityManager =
+            getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        connectivityManager.registerNetworkCallback(
+            NetworkRequest.Builder().build(),
+            NetworkCallbackImp(holder)
+        )
     }
 }
 
@@ -51,7 +85,8 @@ internal class NetworkStateImpl : NetworkState {
         }
 }
 
-internal class NetworkCallbackImp(private val holder: NetworkStateImpl) : ConnectivityManager.NetworkCallback() {
+internal class NetworkCallbackImp(private val holder: NetworkStateImpl) :
+    ConnectivityManager.NetworkCallback() {
     override fun onAvailable(network: Network) {
         holder.network = network
         holder.isConnected = true
