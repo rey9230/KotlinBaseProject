@@ -7,8 +7,8 @@ import java.util.Date
 class DateConverter {
 
     @TypeConverter
-    fun toDate(value: Long?): Date? {
-        return value?.let { Date(it) }
+    fun fromTimestamp(timestamp: Long?): Date? {
+        return timestamp?.let { Date(it) }
     }
 
     @TypeConverter
