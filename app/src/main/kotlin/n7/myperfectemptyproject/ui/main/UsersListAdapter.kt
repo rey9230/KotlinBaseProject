@@ -2,6 +2,8 @@ package n7.myperfectemptyproject.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.text.PrecomputedTextCompat
+import androidx.core.widget.TextViewCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -29,10 +31,11 @@ class UsersListAdapter : ListAdapter<User, UsersListAdapter.ViewHolder>(DiffCall
     class ViewHolder private constructor(private val binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(user: User) {
-            binding.user = user
+        fun bind(user: User) = user.run {
+            binding.user = this
             binding.executePendingBindings()
-//            binding.tvItemUserTitle.setTextFuture(PrecomputedTextCompat.getTextFuture(userInfo.name.title,binding.tvItemUserTitle.textMetricsParamsCompat,null))
+            // read about this https://medium.com/androiddevelopers/prefetch-text-layout-in-recyclerview-4acf9103f438
+            // binding.tvDate.setTextFuture(PrecomputedTextCompat.getTextFuture(date!!.toString(), TextViewCompat.getTextMetricsParams(binding.tvDate), null))
         }
 
         fun clear() {
