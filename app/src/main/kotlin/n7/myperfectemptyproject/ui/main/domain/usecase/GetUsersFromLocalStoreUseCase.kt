@@ -8,7 +8,9 @@ import javax.inject.Inject
 class GetUsersFromLocalStoreUseCase @Inject constructor(
     private val userDao: UsersDao
 ) {
-    suspend fun execute(): LiveData<List<User>> {
+
+    suspend operator fun invoke(): LiveData<List<User>> {
         return userDao.getAllByLiveData()
     }
+
 }

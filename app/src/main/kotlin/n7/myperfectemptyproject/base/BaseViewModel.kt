@@ -10,11 +10,9 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import java.util.concurrent.Executors
 
 open class BaseViewModel(application: Application, val savedStateHandle: SavedStateHandle? = null) :
     AndroidViewModel(application) {
@@ -40,7 +38,6 @@ open class BaseViewModel(application: Application, val savedStateHandle: SavedSt
             }
         }
     }
-
 }
 
 // used to inject SavedStateHandle from any class we want

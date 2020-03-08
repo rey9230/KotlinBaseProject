@@ -14,7 +14,7 @@ class SaveUsersToLocalStoreUseCase @Inject constructor(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
 
-    suspend fun execute(remoteUsers: RemoteUsers) = withContext(ioDispatcher) {
+    suspend operator fun invoke(remoteUsers: RemoteUsers) = withContext(ioDispatcher) {
         kotlin.runCatching {
             val userList: List<User> = remoteUsers.results.map {
                 it.toLocalStore()

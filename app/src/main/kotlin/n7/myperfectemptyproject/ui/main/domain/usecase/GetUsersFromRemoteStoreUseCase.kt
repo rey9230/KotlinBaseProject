@@ -13,7 +13,7 @@ class GetUsersFromRemoteStoreUseCase @Inject constructor(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
 
-    suspend fun execute(count: Int) = withContext(ioDispatcher) {
+    suspend operator fun invoke(count: Int) = withContext(ioDispatcher) {
         kotlin.runCatching {
             delay(3000)
             repositoryImpl.getRemoteUsers(count)

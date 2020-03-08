@@ -23,12 +23,12 @@ class MainViewModel @AssistedInject constructor(
     @AssistedInject.Factory
     interface Factory : ViewModelAssistedFactory<MainViewModel>
 
-    val getUsers = liveData { emitSource(getUsersFromLocalStoreUseCase.execute()) }
+    val getUsers = liveData { emitSource(getUsersFromLocalStoreUseCase()) }
 
     fun loadUser() {
         launchWithLoading {
-            getUsersFromRemoteStoreUseCase.execute(10)
-                .onSuccess { remoteUsers -> saveUsersToLocalStoreUseCase.execute(remoteUsers) }
+            getUsersFromRemoteStoreUseCase(10)
+                .onSuccess { remoteUsers -> saveUsersToLocalStoreUseCase(remoteUsers) }
                 .onFailure { _errorMessage.value = SingleEvent(it.toString()) }
         }
     }
