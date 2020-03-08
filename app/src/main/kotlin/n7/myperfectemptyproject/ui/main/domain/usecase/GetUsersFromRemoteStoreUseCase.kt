@@ -10,7 +10,6 @@ import n7.myperfectemptyproject.data.source.local.db.UsersDao
 
 class GetUsersFromRemoteStoreUseCase @Inject constructor(
     private val repositoryImpl: RepositoryImpl,
-    private val userDao: UsersDao,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
 

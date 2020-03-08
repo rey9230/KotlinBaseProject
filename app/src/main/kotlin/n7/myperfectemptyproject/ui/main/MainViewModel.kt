@@ -7,20 +7,18 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.liveData
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
-import kotlinx.coroutines.asCoroutineDispatcher
 import n7.myperfectemptyproject.base.BaseViewModel
 import n7.myperfectemptyproject.base.ViewModelAssistedFactory
-import n7.myperfectemptyproject.data.source.local.db.UsersDao
+import n7.myperfectemptyproject.ui.main.domain.usecase.GetUsersFromLocalStoreUseCase
 import n7.myperfectemptyproject.ui.main.domain.usecase.GetUsersFromRemoteStoreUseCase
 import n7.myperfectemptyproject.ui.main.domain.usecase.SaveUsersToLocalStoreUseCase
-import java.util.concurrent.Executors
 
 class MainViewModel @AssistedInject constructor(
     application: Application,
     @Assisted private val handle: SavedStateHandle,
     private val getUsersFromRemoteStoreUseCase: GetUsersFromRemoteStoreUseCase,
     private val saveUsersToLocalStoreUseCase: SaveUsersToLocalStoreUseCase,
-    private val usersDao: UsersDao
+    private val getUsersFromLocalStoreUseCase: GetUsersFromLocalStoreUseCase
 ) : BaseViewModel(application, handle) {
 
     @AssistedInject.Factory
@@ -34,7 +32,7 @@ class MainViewModel @AssistedInject constructor(
     // }
     val errorMessage: LiveData<String?> = _errorMessage
     val getUsers = liveData {
-        emitSource(usersDao.getAllByLiveData())
+        emitSource(getUsersFromLocalStoreUseCase.execute())
     }
 
     fun loadUser() {
