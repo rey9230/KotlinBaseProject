@@ -22,6 +22,10 @@ This way you don`t need to repeat the same code in different parts of your proje
 
 ☝️ - [here](https://www.appstorescreenshot.com/)
 
+#### 🤔 - Where i can make get flat badges for my github repository?
+
+☝️ - [here](https://shields.io/)
+
 ---
 
 ### Ktlint
@@ -81,7 +85,7 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
     * ```shapeAppearanceSmallComponent```
     * ```shapeAppearanceMediumComponent```
     * ```shapeAppearanceLargeComponent```
-<details><summary>groups</summary><p> 
+<details><summary>groups</summary><p>
 
 ![shape group](shape_appearance_component.png)</p></details>
 
