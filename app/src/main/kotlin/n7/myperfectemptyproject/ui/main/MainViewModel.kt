@@ -15,7 +15,7 @@ import n7.myperfectemptyproject.ui.main.domain.usecase.SaveUsersToLocalStoreUseC
 
 class MainViewModel @AssistedInject constructor(
     application: Application,
-    @Assisted private val handle: SavedStateHandle,
+    @Assisted handle: SavedStateHandle,
     private val getUsersFromRemoteStoreUseCase: GetUsersFromRemoteStoreUseCase,
     private val saveUsersToLocalStoreUseCase: SaveUsersToLocalStoreUseCase,
     private val getUsersFromLocalStoreUseCase: GetUsersFromLocalStoreUseCase
