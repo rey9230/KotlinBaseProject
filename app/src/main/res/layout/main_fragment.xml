@@ -26,22 +26,11 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
-                app:layout_scrollFlags="scroll"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.DayNight" />
         </com.google.android.material.appbar.AppBarLayout>
-
-        <ProgressBar
-            android:id="@+id/pb"
-            app:layout_anchor="@id/toolbar"
-            app:layout_anchorGravity="bottom"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:indeterminate="true"
-            android:scaleY="5"
-            android:visibility="@{viewModel.isLoading? View.VISIBLE : View.GONE}" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
@@ -50,12 +39,24 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:listitem="@layout/item_user" />
 
+        <ProgressBar
+            android:id="@+id/pb"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:indeterminate="true"
+            android:scaleY="5"
+            android:visibility="@{viewModel.isLoading? View.VISIBLE : View.GONE}"
+            app:layout_anchor="@id/toolbar"
+            app:layout_anchorGravity="bottom" />
+
         <Button
             android:id="@+id/b_test"
             setOnDebouncedClickListener="@{()->viewModel.loadUser()}"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="8dp"
-            android:layout_height="wrap_content" />
+            android:enabled="@{viewModel.isLoading()? false : true}" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
