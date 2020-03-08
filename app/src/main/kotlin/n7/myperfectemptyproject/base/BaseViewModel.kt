@@ -18,7 +18,7 @@ open class BaseViewModel(application: Application, val savedStateHandle: SavedSt
     AndroidViewModel(application) {
 
     private val singleThreadContext = Executors.newSingleThreadExecutor { target ->
-        Thread(target, "ChooseProvider")
+        Thread(target, "singleThreadContext")
     }.asCoroutineDispatcher()
 
     private val _isLoading = MutableLiveData<Boolean>(false)

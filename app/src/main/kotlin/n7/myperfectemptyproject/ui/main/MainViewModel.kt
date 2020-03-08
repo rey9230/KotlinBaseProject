@@ -1,8 +1,6 @@
 package n7.myperfectemptyproject.ui.main
 
 import android.app.Application
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.liveData
 import com.squareup.inject.assisted.Assisted
@@ -31,7 +29,7 @@ class MainViewModel @AssistedInject constructor(
         launchWithLoading {
             getUsersFromRemoteStoreUseCase.execute(10)
                 .onSuccess { remoteUsers -> saveUsersToLocalStoreUseCase.execute(remoteUsers) }
-                .onFailure { _errorMessage.value = SingleEvent(it.toString()) }
+                .onFailure { _errorMessage.postValue(SingleEvent(it.toString())) }
         }
     }
 }
