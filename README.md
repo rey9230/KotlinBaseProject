@@ -1,5 +1,8 @@
 # KotlinBaseProject
 
+![](https://img.shields.io/github/last-commit/i30mb1/KotlinBaseProject?color=red&style=for-the-badge)
+
+
 A base code which I almost use in every project I work on!
 It shows how to use ViewModels and Room together with Coroutines & Dagger by Clean Architecture in Kotlin!
 This way you don`t need to repeat the same code in different parts of your project over & over.
