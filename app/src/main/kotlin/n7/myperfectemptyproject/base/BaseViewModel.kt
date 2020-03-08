@@ -12,15 +12,15 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import java.util.concurrent.Executors
 
 open class BaseViewModel(application: Application, val savedStateHandle: SavedStateHandle? = null) :
     AndroidViewModel(application) {
 
-    private val singleThreadContext = Executors.newSingleThreadExecutor { target ->
-        Thread(target, "singleThreadContext")
-    }.asCoroutineDispatcher()
-
+    // learn more about mutex https://blog.danlew.net/2020/01/28/coroutines-and-java-synchronization-dont-mix/
+    private val mutex = Mutex()
     private val _isLoading = MutableLiveData<Boolean>(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
@@ -32,17 +32,15 @@ open class BaseViewModel(application: Application, val savedStateHandle: SavedSt
     // }
 
     fun launchWithLoading(block: suspend CoroutineScope.() -> Unit) {
-        viewModelScope.launch(singleThreadContext) {
-            _isLoading.postValue(true)
-            block()
-            _isLoading.postValue(false)
+        viewModelScope.launch {
+            mutex.withLock {
+                _isLoading.value = true
+                block()
+                _isLoading.value = false
+            }
         }
     }
 
-    override fun onCleared() {
-        singleThreadContext.close()
-        super.onCleared()
-    }
 }
 
 // used to inject SavedStateHandle from any class we want

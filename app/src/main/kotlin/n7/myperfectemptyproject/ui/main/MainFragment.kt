@@ -8,13 +8,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.databinding.MainFragmentBinding
 import n7.myperfectemptyproject.di.injector
 import n7.myperfectemptyproject.ui.ErrorDialogDirections
+import n7.myperfectemptyproject.utils.showSnackbar
 import n7.myperfectemptyproject.utils.viewModelWithSavedStateHandle
 
 class MainFragment : Fragment(R.layout.main_fragment) {
@@ -25,9 +25,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
     private lateinit var binding: MainFragmentBinding
     private var finishActivity = false
-    private val mainViewModel: MainViewModel by viewModelWithSavedStateHandle {
-        injector.mainViewModelFactory
-    }
+    private val mainViewModel: MainViewModel by viewModelWithSavedStateHandle { injector.mainViewModelFactory }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,7 +39,11 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         super.onActivityCreated(savedInstanceState)
         setupOnBackPressedAction()
         setupListAdapter()
+        setupErrorMessage()
 
+    }
+
+    private fun setupErrorMessage() {
         mainViewModel.errorMessage.observe(viewLifecycleOwner) { event ->
             event.getContentIfNotHandled()?.let { showDialogWithError(it) }
         }
@@ -76,15 +78,8 @@ class MainFragment : Fragment(R.layout.main_fragment) {
                 requireActivity().finish()
             } else {
                 finishActivity = true
-                Snackbar.make(
-                    binding.root,
-                    getString(R.string.all_press_again_for_exit),
-                    Snackbar.LENGTH_SHORT
-                ).show()
-                lifecycleScope.launch {
-                    delay(MILLIS_FOR_EXIT)
-                    finishActivity = false
-                }
+                view?.showSnackbar(getString(R.string.all_press_again_for_exit))
+                lifecycleScope.launch { delay(MILLIS_FOR_EXIT); finishActivity = false }
             }
         }
     }

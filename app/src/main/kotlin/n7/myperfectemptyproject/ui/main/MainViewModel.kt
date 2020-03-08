@@ -29,7 +29,7 @@ class MainViewModel @AssistedInject constructor(
         launchWithLoading {
             getUsersFromRemoteStoreUseCase.execute(10)
                 .onSuccess { remoteUsers -> saveUsersToLocalStoreUseCase.execute(remoteUsers) }
-                .onFailure { _errorMessage.postValue(SingleEvent(it.toString())) }
+                .onFailure { _errorMessage.value = SingleEvent(it.toString()) }
         }
     }
 }
