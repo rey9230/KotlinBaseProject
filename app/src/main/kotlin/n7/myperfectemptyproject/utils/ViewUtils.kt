@@ -1,5 +1,6 @@
 package n7.myperfectemptyproject.utils
 
+import android.graphics.Paint
 import android.os.SystemClock
 import android.view.View
 import android.widget.TextView
@@ -19,6 +20,16 @@ fun asyncText(textView: TextView, text: CharSequence, textSize: Int?) {
     }
     val params = TextViewCompat.getTextMetricsParams(textView)
     (textView as AppCompatTextView).setTextFuture(PrecomputedTextCompat.getTextFuture(text, params, null))
+}
+
+// we can зачеркнуть string~!
+@BindingAdapter("app:completedTask")
+fun setStyle(textView: TextView, enabled: Boolean) {
+    if (enabled) {
+        textView.paintFlags = textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+    } else {
+        textView.paintFlags = textView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+    }
 }
 
 //todo write custom rule for newbie developers that warn them to use only this method!
