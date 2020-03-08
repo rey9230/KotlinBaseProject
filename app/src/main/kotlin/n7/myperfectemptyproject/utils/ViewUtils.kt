@@ -9,7 +9,9 @@ import androidx.core.text.PrecomputedTextCompat
 import androidx.core.widget.TextViewCompat
 import androidx.databinding.BindingAdapter
 
-// we take any TextView properties that may be controlled by Data Binding, and apply all of them at the beginning of our adapter
+/**
+  * we take any TextView properties that may be controlled by Data Binding, and apply all of them at the beginning of our adapter
+  */
 @BindingAdapter("asyncText", "android:textSize", requireAll = false)
 fun asyncText(textView: TextView, text: CharSequence, textSize: Int?) {
     // first, set all measurement affecting properties of the text
@@ -19,10 +21,18 @@ fun asyncText(textView: TextView, text: CharSequence, textSize: Int?) {
         textView.textSize = textSize.toFloat()
     }
     val params = TextViewCompat.getTextMetricsParams(textView)
-    (textView as AppCompatTextView).setTextFuture(PrecomputedTextCompat.getTextFuture(text, params, null))
+    (textView as AppCompatTextView).setTextFuture(
+        PrecomputedTextCompat.getTextFuture(
+            text,
+            params,
+            null
+        )
+    )
 }
 
-// we can зачеркнуть string~!
+/**
+ *   we can зачеркнуть string~!
+ */
 @BindingAdapter("app:completedTask")
 fun setStyle(textView: TextView, enabled: Boolean) {
     if (enabled) {

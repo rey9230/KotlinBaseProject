@@ -67,18 +67,18 @@ internal class NetworkStateImpl : NetworkState {
     override var isConnected: Boolean = false
         set(value) {
             field = value
-            NetworkEvents.notify(if (value) Event.ConnectivityAvailable else Event.ConnectivityLost)
+            NetworkEvents.notify(if (value) NetworkEvent.ConnectivityAvailable else NetworkEvent.ConnectivityLost)
         }
     override var linkProperties: LinkProperties? = null
         set(value) {
-            val event = Event.LinkPropertyChanged(field)
+            val event = NetworkEvent.LinkPropertyChanged(field)
             field = value
             NetworkEvents.notify(event)
         }
 
     override var networkCapabilities: NetworkCapabilities? = null
         set(value) {
-            val event = Event.NetworkCapabilityChanged(field)
+            val event = NetworkEvent.NetworkCapabilityChanged(field)
             field = value
             NetworkEvents.notify(event)
         }
@@ -112,18 +112,18 @@ interface NetworkState {
     val linkProperties: LinkProperties?
 }
 
-sealed class Event {
+sealed class NetworkEvent {
 
     val networkState: NetworkState = NetworkStateHolder
 
-    object ConnectivityLost : Event()
-    object ConnectivityAvailable : Event()
-    data class NetworkCapabilityChanged(val old: NetworkCapabilities?) : Event()
-    data class LinkPropertyChanged(val old: LinkProperties?) : Event()
+    object ConnectivityLost : NetworkEvent()
+    object ConnectivityAvailable : NetworkEvent()
+    data class NetworkCapabilityChanged(val old: NetworkCapabilities?) : NetworkEvent()
+    data class LinkPropertyChanged(val old: LinkProperties?) : NetworkEvent()
 }
 
-object NetworkEvents : LiveData<Event>() {
-    internal fun notify(event: Event) {
+object NetworkEvents : LiveData<NetworkEvent>() {
+    internal fun notify(event: NetworkEvent) {
         postValue(event)
     }
 }
