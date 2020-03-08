@@ -45,7 +45,7 @@ open class BaseViewModel(application: Application, val savedStateHandle: SavedSt
     }
 }
 
-// used to inject variable from any class we want
+// used to inject SavedStateHandle from any class we want
 interface ViewModelAssistedFactory<T : ViewModel> {
     fun create(handle: SavedStateHandle): T
 }
