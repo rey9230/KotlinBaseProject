@@ -25,7 +25,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
     private lateinit var binding: MainFragmentBinding
     private var finishActivity = false
-    private val mainViewModel : MainViewModel by viewModelWithSavedStateHandle {
+    private val mainViewModel: MainViewModel by viewModelWithSavedStateHandle {
         injector.mainViewModelFactory
     }
 
@@ -42,9 +42,13 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         setupOnBackPressedAction()
         setupListAdapter()
 
-        // mainViewModel.errorMessage.observe(viewLifecycleOwner) {
-        //     if (it != null) showDialogWithError(it)
-        // }
+        mainViewModel.errorMessage.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { showDialogWithError(it) }
+        }
+    }
+
+    private fun setupSnackbar() {
+        // view?.setupSnackbar(this, mainViewModel.errorMessage)
     }
 
     // show dialog from navGraph

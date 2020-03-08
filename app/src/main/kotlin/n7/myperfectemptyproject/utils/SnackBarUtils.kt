@@ -5,7 +5,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
-import n7.myperfectemptyproject.base.Event
+import n7.myperfectemptyproject.base.SingleEvent
 
 /**
  * Transforms static java function Snackbar.make() to an extension function on View.
@@ -30,7 +30,7 @@ fun View.showSnackbar(snackbarText: String, timeLength: Int = Snackbar.LENGTH_SH
  */
 fun View.setupSnackbar(
     lifecycleOwner: LifecycleOwner,
-    snackbarEvent: LiveData<Event<Int>>,
+    snackbarEvent: LiveData<SingleEvent<Int>>,
     timeLength: Int = Snackbar.LENGTH_SHORT
 ) {
 

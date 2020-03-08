@@ -24,6 +24,13 @@ open class BaseViewModel(application: Application, val savedStateHandle: SavedSt
     private val _isLoading = MutableLiveData<Boolean>(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
+    protected val _errorMessage = MutableLiveData<SingleEvent<String>>()
+    val errorMessage: LiveData<SingleEvent<String>> = _errorMessage
+    // val errorMessage: LiveData<String?> = _errorMessage.map {
+    //     ApiErrorHandle.traceErrorException(it).getErrorMessage()
+    //     it.toString()
+    // }
+
     fun launchWithLoading(block: suspend CoroutineScope.() -> Unit) {
         viewModelScope.launch(singleThreadContext) {
             _isLoading.postValue(true)
