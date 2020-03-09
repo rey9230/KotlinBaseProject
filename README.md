@@ -99,6 +99,7 @@ we can build our own shape appearance by following these [attributes](https://ma
 ### LINKS
 
 * git commands [(rus)](https://github.com/k88hudson/git-flight-rules/blob/master/README_ru.md#%D0%A0%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B8) [(eng)](https://github.com/k88hudson/git-flight-rules/blob/master/README.md)
+* if designer drunk use this tool [svgomg](https://jakearchibald.github.io/svgomg/) 
 
 ### Libraries Used
 #### if you do need specific library feel fre to delete it from build.gradle.kts 'dependencies' section
