@@ -50,6 +50,7 @@ class MyApplication : Application(), DaggerComponentProvider {
 }
     // while this outer class we can create different LifecycleCallbacks for our needs
     // composition over inheritance!
+    // @link (https://proandroiddev.com/say-no-to-baseactivity-and-basefragment-83b156ed8998)
  class AnalyticsCallbacks(val analytics: String) : Application.ActivityLifecycleCallbacks {
      override fun onActivityPaused(activity: Activity) {
          TODO("Not yet implemented")
