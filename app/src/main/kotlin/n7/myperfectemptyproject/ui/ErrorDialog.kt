@@ -7,6 +7,9 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import n7.myperfectemptyproject.R
 
+// global type dialog can communicate only through listener that passing as parameter
+// but in perfect world it should be done with `callback = (Callback) getParentFragment()`
+// but... maybe... i... am... wrong...
 class ErrorDialog : DialogFragment() {
 
     // "className + Args" help to retrieve values from Bundle
