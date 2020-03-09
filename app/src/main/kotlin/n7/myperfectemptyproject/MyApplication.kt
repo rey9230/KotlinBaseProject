@@ -19,28 +19,11 @@ class MyApplication : Application(), DaggerComponentProvider {
     override fun onCreate() {
         enableStrictMode()
         super.onCreate()
-//        registerActivityLifecycle()
         registerConnectivityMonitor()
+        // listen what happening with our activities (but we using single activity *rofl*)
+        registerActivityLifecycleCallbacks(AnalyticsCallbacks(""))
     }
 
-    // listen what happening with our activities (but we using single activity *rofl*)
-    private fun registerActivityLifecycle() {
-        registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
-            override fun onActivityPaused(activity: Activity) {}
-
-            override fun onActivityStarted(activity: Activity) {}
-
-            override fun onActivityDestroyed(activity: Activity) {}
-
-            override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {}
-
-            override fun onActivityStopped(activity: Activity) {}
-
-            override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
-
-            override fun onActivityResumed(activity: Activity) {}
-        })
-    }
 
     // if we want to build cool without any problems we can enable StrickMode that alarm us if we have something to fix (all messages will come with 'StrictMode' debug tag)
     private fun enableStrictMode() {
@@ -65,3 +48,34 @@ class MyApplication : Application(), DaggerComponentProvider {
         }
     }
 }
+    // while this outer class we can create different LifecycleCallbacks for our needs
+    // composition over inheritance!
+ class AnalyticsCallbacks(val analytics: String) : Application.ActivityLifecycleCallbacks {
+     override fun onActivityPaused(activity: Activity) {
+         TODO("Not yet implemented")
+     }
+
+     override fun onActivityStarted(activity: Activity) {
+         TODO("Not yet implemented")
+     }
+
+     override fun onActivityDestroyed(activity: Activity) {
+         TODO("Not yet implemented")
+     }
+
+     override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
+         TODO("Not yet implemented")
+     }
+
+     override fun onActivityStopped(activity: Activity) {
+         TODO("Not yet implemented")
+     }
+
+     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
+         TODO("Not yet implemented")
+     }
+
+     override fun onActivityResumed(activity: Activity) {
+         TODO("Not yet implemented")
+     }
+ }
