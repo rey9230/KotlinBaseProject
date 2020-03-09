@@ -25,13 +25,13 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
     private lateinit var binding: MainFragmentBinding
     private var finishActivity = false
-    private val mainViewModel: MainViewModel by viewModelWithSavedStateHandle { injector.mainViewModelFactory }
+    private val viewModel: MainViewModel by viewModelWithSavedStateHandle { injector.mainViewModelFactory }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = MainFragmentBinding.bind(view).apply {
-            lifecycleOwner = viewLifecycleOwner // without this all bindings in xml will no work!
-            viewModel = mainViewModel
+        binding = MainFragmentBinding.bind(view).also {
+            it.lifecycleOwner = viewLifecycleOwner // without this all bindings in xml will no work!
+            it.viewModel = viewModel
         }
     }
 
@@ -44,7 +44,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
     }
 
     private fun setupErrorMessage() {
-        mainViewModel.errorMessage.observe(viewLifecycleOwner) { event ->
+        viewModel.errorMessage.observe(viewLifecycleOwner) { event ->
             event.getContentIfNotHandled()?.let { showDialogWithError(it) }
         }
     }
@@ -68,7 +68,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
             postponeEnterTransition() // exitTransition animation with this works as intended
             viewTreeObserver.addOnPreDrawListener { startPostponedEnterTransition(); true }
         }
-        mainViewModel.getUsers.observe(viewLifecycleOwner, usersListAdapter::submitList)
+        viewModel.getUsers.observe(viewLifecycleOwner, usersListAdapter::submitList)
     }
 
     // handle back press action for this fragment
