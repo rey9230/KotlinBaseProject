@@ -60,11 +60,7 @@ android {
             versionNameSuffix = "-debug"
             resValue("string", "app_name", "(debug)") // change app name for debug version
 
-            buildConfigField(
-                "String",
-                "key",
-                stringFromLocalProperties
-            ) // write custom field in BuildConfig file
+            buildConfigField("String", "key", stringFromLocalProperties) // write custom field in BuildConfig file
             signingConfig = signingConfigs.getByName("debug")
         }
         getByName("release") {
@@ -103,9 +99,11 @@ android {
         isIgnoreWarnings = false // if true, only report errors.
 //        isQuiet = true // If set to true, turns off analysis progress reporting by lint.
     }
+
     androidExtensions {
-        isExperimental = true
+        isExperimental = true // In order to have parcelize annotation
     }
+
     packagingOptions {
         exclude("META-INF/LICENSE") // ???
     }
