@@ -17,4 +17,8 @@ interface UsersDao : BaseDao<User> {
 
     @Query("SELECT * FROM Users WHERE id=:id")
     suspend fun getById(id: Int): User
+
+    @Query("DELETE FROM Users")
+    suspend fun deleteAll()
+
 }
