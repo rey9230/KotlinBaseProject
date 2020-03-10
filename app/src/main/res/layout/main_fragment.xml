@@ -32,12 +32,12 @@
                 app:popupTheme="@style/ThemeOverlay.AppCompat.DayNight" />
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:listitem="@layout/item_user" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:listitem="@layout/item_user" />
 
         <ProgressBar
             android:id="@+id/pb"
@@ -58,14 +58,18 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="8dp"
             android:enabled="@{viewModel.isLoading()? false : true}"
+            app:layout_dodgeInsetEdges="bottom"
+            app:layout_behavior="n7.myperfectemptyproject.ui.main.behaviour.ChangeThemeButtonBehavior"
             android:text="@string/main_fragment_load_new_users" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
+            android:layout_margin="8dp"
             android:onClick="@{()->viewModel.changeTheme()}"
-            android:text="@string/main_fragment_change_theme"
-            android:layout_margin="8dp" />
+            app:layout_dodgeInsetEdges="bottom"
+            android:text="@string/main_fragment_change_theme" />
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

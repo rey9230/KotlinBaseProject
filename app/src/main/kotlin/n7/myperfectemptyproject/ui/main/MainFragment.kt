@@ -3,6 +3,7 @@ package n7.myperfectemptyproject.ui.main
 import android.os.Bundle
 import android.view.View
 import androidx.activity.addCallback
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
@@ -14,6 +15,7 @@ import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.databinding.MainFragmentBinding
 import n7.myperfectemptyproject.di.injector
 import n7.myperfectemptyproject.ui.ErrorDialogDirections
+import n7.myperfectemptyproject.ui.main.behaviour.ChangeThemeButtonBehavior
 import n7.myperfectemptyproject.utils.showSnackbar
 import n7.myperfectemptyproject.utils.viewModelWithSavedStateHandle
 
@@ -40,7 +42,6 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         setupOnBackPressedAction()
         setupListAdapter()
         setupErrorMessage()
-
     }
 
     private fun setupErrorMessage() {

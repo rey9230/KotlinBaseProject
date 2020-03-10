@@ -46,7 +46,7 @@
     </style>
 
     <style name="MySnackbarStyle" parent="@style/Widget.MaterialComponents.Snackbar">
-        <item name="android:background">?colorError</item>
+
     </style>
 
     <!--  share for light theme can be different from dark theme  -->
