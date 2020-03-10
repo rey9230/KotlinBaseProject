@@ -57,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="8dp"
+            android:text="@string/main_fragment_load_new_users"
             android:enabled="@{viewModel.isLoading()? false : true}" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
