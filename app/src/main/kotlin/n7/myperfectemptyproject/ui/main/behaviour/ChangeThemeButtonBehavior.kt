@@ -32,10 +32,10 @@ internal class ChangeThemeButtonBehavior(context: Context, attributeSet: Attribu
         consumed: IntArray,
         type: Int
     ) {
-        child.translationY = MathUtils.clamp(
-            child.translationY + dy,
+        child.translationX = MathUtils.clamp(
+            child.translationX + dy,
             0f,
-            child.minHeight.toFloat() + child.paddingBottom
+            child.width.toFloat() + child.paddingEnd
         )
         super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed, type)
     }
