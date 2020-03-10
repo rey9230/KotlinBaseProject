@@ -53,30 +53,30 @@ class MyApplication : Application(), DaggerComponentProvider {
     // @link (https://proandroiddev.com/say-no-to-baseactivity-and-basefragment-83b156ed8998)
  class AnalyticsCallbacks(val analytics: String) : Application.ActivityLifecycleCallbacks {
      override fun onActivityPaused(activity: Activity) {
-         TODO("Not yet implemented")
+
      }
 
      override fun onActivityStarted(activity: Activity) {
-         TODO("Not yet implemented")
+
      }
 
      override fun onActivityDestroyed(activity: Activity) {
-         TODO("Not yet implemented")
+
      }
 
      override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
-         TODO("Not yet implemented")
+
      }
 
      override fun onActivityStopped(activity: Activity) {
-         TODO("Not yet implemented")
+
      }
 
      override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
-         TODO("Not yet implemented")
+
      }
 
      override fun onActivityResumed(activity: Activity) {
-         TODO("Not yet implemented")
+
      }
  }
