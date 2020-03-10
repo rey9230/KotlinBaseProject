@@ -57,7 +57,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="8dp"
-            android:text="@string/main_fragment_load_new_users"
-            android:enabled="@{viewModel.isLoading()? false : true}" />
+            android:enabled="@{viewModel.isLoading()? false : true}"
+            android:text="@string/main_fragment_load_new_users" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:onClick="@{()->viewModel.changeTheme()}"
+            android:text="@string/main_fragment_change_theme"
+            android:layout_margin="8dp" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

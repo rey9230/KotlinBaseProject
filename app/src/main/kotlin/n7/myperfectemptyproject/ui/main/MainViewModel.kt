@@ -1,6 +1,7 @@
 package n7.myperfectemptyproject.ui.main
 
 import android.app.Application
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.liveData
 import com.squareup.inject.assisted.Assisted
@@ -30,6 +31,13 @@ class MainViewModel @AssistedInject constructor(
             getUsersFromRemoteStoreUseCase(10)
                 .onSuccess { remoteUsers -> saveUsersToLocalStoreUseCase(remoteUsers) }
                 .onFailure { _errorMessage.value = SingleEvent(it.toString()) }
+        }
+    }
+
+    fun changeTheme() {
+        when (AppCompatDelegate.getDefaultNightMode()) {
+            AppCompatDelegate.MODE_NIGHT_YES -> { AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) }
+            else -> { AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES) }
         }
     }
 }
