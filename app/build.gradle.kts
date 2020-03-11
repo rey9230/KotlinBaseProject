@@ -224,6 +224,7 @@ dependencies {
 
     testImplementation("androidx.arch.core:core-testing:2.1.0")
 
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.4.0")
     testImplementation("org.mockito:mockito-core:3.2.4")
     testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0") // A small library that provides helper functions to work with Mockito in Kotlin.
 
