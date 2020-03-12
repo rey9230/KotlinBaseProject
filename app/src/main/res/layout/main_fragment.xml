@@ -58,8 +58,8 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="8dp"
             android:enabled="@{viewModel.isLoading()? false : true}"
-            android:text="@string/main_fragment_load_new_users"
-            app:layout_behavior="n7.myperfectemptyproject.ui.main.behaviour.ChangeThemeButtonBehavior"
+            android:text="@string/main_fragment_load_users"
+            app:layout_behavior="n7.myperfectemptyproject.ui.main.behaviour.LoadUsersButtonBehavior"
             app:layout_dodgeInsetEdges="bottom"
             app:onLongClickListener="@{()->viewModel.deleteAllUsers()}" />
 
@@ -69,6 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
             android:layout_margin="8dp"
+            app:layout_behavior="n7.myperfectemptyproject.ui.main.behaviour.ChangeThemeButtonBehavior"
             android:onClick="@{()->viewModel.changeTheme()}"
             android:text="@string/main_fragment_change_theme"
             app:layout_dodgeInsetEdges="bottom" />
