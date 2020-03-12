@@ -4,7 +4,7 @@ import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import n7.myperfectemptyproject.BR
 
-class UserVO : BaseObservable() {
+class VOUser : BaseObservable() {
 
     @get:Bindable
     var firstName: String = ""

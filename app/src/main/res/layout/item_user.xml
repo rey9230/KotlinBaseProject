@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="n7.myperfectemptyproject.ui.main.domain.vo.UserVO" />
+            type="n7.myperfectemptyproject.ui.main.domain.vo.VOUser" />
     </data>
 
     <androidx.cardview.widget.CardView

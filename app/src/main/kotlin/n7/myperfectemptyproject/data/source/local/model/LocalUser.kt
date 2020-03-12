@@ -3,8 +3,8 @@ package n7.myperfectemptyproject.data.source.local.model
 import androidx.room.*
 import java.util.*
 
-@Entity(tableName = "Users")
-data class User(
+@Entity(tableName = "LocalUsers")
+data class LocalUser(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val userId: Long = 0,
     val firstName: String,
     val lastName: String,

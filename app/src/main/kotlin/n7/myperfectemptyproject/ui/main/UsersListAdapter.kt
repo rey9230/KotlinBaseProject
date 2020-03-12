@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import n7.myperfectemptyproject.databinding.ItemUserBinding
-import n7.myperfectemptyproject.ui.main.domain.vo.UserVO
+import n7.myperfectemptyproject.ui.main.domain.vo.VOUser
 
-class UsersListAdapter : ListAdapter<UserVO, UsersListAdapter.ViewHolder>(DiffCallback()) {
+class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
@@ -29,7 +29,7 @@ class UsersListAdapter : ListAdapter<UserVO, UsersListAdapter.ViewHolder>(DiffCa
     class ViewHolder private constructor(private val binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(user: UserVO) = user.run {
+        fun bind(user: VOUser) = user.run {
             binding.user = this
             // we will call executePendingBindings() so that the list item is updated without waiting for the next layout phase.
             // This is required when using Data Binding inside RecyclerView, even if you are not using PrecomputedText.
@@ -52,13 +52,13 @@ class UsersListAdapter : ListAdapter<UserVO, UsersListAdapter.ViewHolder>(DiffCa
     }
 }
 
-class DiffCallback : DiffUtil.ItemCallback<UserVO>() {
+class DiffCallback : DiffUtil.ItemCallback<VOUser>() {
 
-    override fun areItemsTheSame(oldItem: UserVO, newItem: UserVO): Boolean {
+    override fun areItemsTheSame(oldItem: VOUser, newItem: VOUser): Boolean {
         return oldItem.firstName == newItem.firstName
     }
 
-    override fun areContentsTheSame(oldItem: UserVO, newItem: UserVO): Boolean {
+    override fun areContentsTheSame(oldItem: VOUser, newItem: VOUser): Boolean {
         return true
     }
 }

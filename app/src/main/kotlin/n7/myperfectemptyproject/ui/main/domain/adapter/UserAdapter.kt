@@ -1,8 +1,8 @@
 package n7.myperfectemptyproject.ui.main.domain.adapter
 
-import n7.myperfectemptyproject.data.source.local.model.User
+import n7.myperfectemptyproject.data.source.local.model.LocalUser
 import n7.myperfectemptyproject.data.source.remote.model.RemoteUser
-import n7.myperfectemptyproject.ui.main.domain.vo.UserVO
+import n7.myperfectemptyproject.ui.main.domain.vo.VOUser
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -13,8 +13,8 @@ import java.util.Locale
 // - There’s a possibility of multiple duplications
 // - While changing the data you have to change the mapper
 
-fun RemoteUser.toLocalStore(): User {
-    return User(
+fun RemoteUser.toLocalStore(): LocalUser {
+    return LocalUser(
         firstName = name.first,
         lastName = name.last,
         pictureUrl = picture.large,
@@ -22,8 +22,8 @@ fun RemoteUser.toLocalStore(): User {
     )
 }
 
-fun User.toVo(): UserVO {
-   return UserVO().also {
+fun LocalUser.toVo(): VOUser {
+   return VOUser().also {
         it.firstName = firstName
         it.lastName = lastName
         it.pictureUrl = pictureUrl

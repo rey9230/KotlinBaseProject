@@ -4,21 +4,21 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import n7.myperfectemptyproject.base.BaseDao
-import n7.myperfectemptyproject.data.source.local.model.User
+import n7.myperfectemptyproject.data.source.local.model.LocalUser
 
 @Dao
-interface UsersDao : BaseDao<User> {
+interface UsersDao : BaseDao<LocalUser> {
 
-    @Query("SELECT * FROM Users")
-    fun getAllByLiveData(): LiveData<List<User>>
+    @Query("SELECT * FROM LocalUsers")
+    fun getAllByLiveData(): LiveData<List<LocalUser>>
 
-    @Query("SELECT * FROM Users")
-    suspend fun getAllByCoroutines(): List<User>
+    @Query("SELECT * FROM LocalUsers")
+    suspend fun getAllByCoroutines(): List<LocalUser>
 
-    @Query("SELECT * FROM Users WHERE id=:id")
-    suspend fun getById(id: Int): User
+    @Query("SELECT * FROM LocalUsers WHERE id=:id")
+    suspend fun getById(id: Int): LocalUser
 
-    @Query("DELETE FROM Users")
+    @Query("DELETE FROM LocalUsers")
     suspend fun deleteAll()
 
 }
