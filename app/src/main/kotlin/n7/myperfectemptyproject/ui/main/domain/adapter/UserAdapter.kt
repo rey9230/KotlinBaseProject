@@ -2,6 +2,9 @@ package n7.myperfectemptyproject.ui.main.domain.adapter
 
 import n7.myperfectemptyproject.data.source.local.model.User
 import n7.myperfectemptyproject.data.source.remote.model.RemoteUser
+import n7.myperfectemptyproject.ui.main.domain.vo.UserVO
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 // The main task of adapters is to convert the entities used by the database
 // and network clients to Domain module entities and back. This conversion has both pros and cons
@@ -17,4 +20,13 @@ fun RemoteUser.toLocalStore(): User {
         pictureUrl = picture.large,
         date = registered.date
     )
+}
+
+fun User.toVo() {
+    UserVO().also {
+        it.firstName = firstName
+        it.lastName = lastName
+        it.pictureUrl = pictureUrl
+        it.date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date!!)
+    }
 }
