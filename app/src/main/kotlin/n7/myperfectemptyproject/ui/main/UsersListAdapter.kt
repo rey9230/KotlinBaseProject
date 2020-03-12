@@ -2,15 +2,13 @@ package n7.myperfectemptyproject.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.text.PrecomputedTextCompat
-import androidx.core.widget.TextViewCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import n7.myperfectemptyproject.data.source.local.model.User
 import n7.myperfectemptyproject.databinding.ItemUserBinding
+import n7.myperfectemptyproject.ui.main.domain.vo.UserVO
 
-class UsersListAdapter : ListAdapter<User, UsersListAdapter.ViewHolder>(DiffCallback()) {
+class UsersListAdapter : ListAdapter<UserVO, UsersListAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
@@ -31,7 +29,7 @@ class UsersListAdapter : ListAdapter<User, UsersListAdapter.ViewHolder>(DiffCall
     class ViewHolder private constructor(private val binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(user: User) = user.run {
+        fun bind(user: UserVO) = user.run {
             binding.user = this
             // we will call executePendingBindings() so that the list item is updated without waiting for the next layout phase.
             // This is required when using Data Binding inside RecyclerView, even if you are not using PrecomputedText.
@@ -54,13 +52,13 @@ class UsersListAdapter : ListAdapter<User, UsersListAdapter.ViewHolder>(DiffCall
     }
 }
 
-class DiffCallback : DiffUtil.ItemCallback<User>() {
+class DiffCallback : DiffUtil.ItemCallback<UserVO>() {
 
-    override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
-        return oldItem.userId == newItem.userId
+    override fun areItemsTheSame(oldItem: UserVO, newItem: UserVO): Boolean {
+        return oldItem.firstName == newItem.firstName
     }
 
-    override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
-        return false
+    override fun areContentsTheSame(oldItem: UserVO, newItem: UserVO): Boolean {
+        return true
     }
 }

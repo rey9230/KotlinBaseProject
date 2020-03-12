@@ -22,8 +22,8 @@ fun RemoteUser.toLocalStore(): User {
     )
 }
 
-fun User.toVo() {
-    UserVO().also {
+fun User.toVo(): UserVO {
+   return UserVO().also {
         it.firstName = firstName
         it.lastName = lastName
         it.pictureUrl = pictureUrl

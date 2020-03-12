@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="n7.myperfectemptyproject.data.source.local.model.User" />
+            type="n7.myperfectemptyproject.ui.main.domain.vo.UserVO" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -48,7 +48,7 @@
                 android:layout_marginEnd="8dp"
                 android:ellipsize="end"
                 android:lines="1"
-                asyncText="@{String.valueOf(user.date)}"
+                asyncText="@{user.date}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_photo"
                 app:layout_constraintTop_toBottomOf="@+id/tv_name"
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="@{user.firstName + ` ` + user.lastName}"
+                asyncText="@{user.firstName + ` ` + user.lastName}"
                 app:layout_constraintStart_toEndOf="@+id/iv_photo"
                 app:layout_constraintTop_toTopOf="@+id/iv_photo"
                 tools:text="@tools:sample/full_names" />
@@ -70,7 +70,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="@{String.valueOf(user.userId)}"
                 app:layout_constraintStart_toEndOf="@+id/iv_photo"
                 app:layout_constraintTop_toBottomOf="@+id/tv_date"
                 tools:text="@sample/users.json/data/age" />
