@@ -11,8 +11,7 @@ import com.google.android.material.button.MaterialButton
 internal class ChangeThemeButtonBehavior(context: Context, attributeSet: AttributeSet? = null) :
     CoordinatorLayout.Behavior<MaterialButton>(context, attributeSet) {
 
-    var isHiding = false
-    var oa: ObjectAnimator? = null
+    var isHide = false
 
     override fun onStartNestedScroll(
         coordinatorLayout: CoordinatorLayout,
@@ -34,28 +33,24 @@ internal class ChangeThemeButtonBehavior(context: Context, attributeSet: Attribu
         consumed: IntArray,
         type: Int
     ) {
-        if (dy > 0 && !isHiding) hiding(child)
-        if (dy < 0 && isHiding) showing(child)
+        if (!isHide && dy > 0) hiding(child)
+        if (isHide && dy < 0) showing(child)
         super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed, type)
     }
 
     private fun hiding(target: View) {
-        isHiding = true
-        oa = ObjectAnimator.ofFloat(
-            target,
-            View.TRANSLATION_X,
-            -target.width.toFloat() - target.paddingEnd
-        ).apply {
+        isHide = true
+        ObjectAnimator.ofFloat(target, View.TRANSLATION_X, -target.width.toFloat() - target.paddingEnd).apply {
             duration = 300
+            start()
         }
-        oa?.start()
     }
 
     private fun showing(target: View) {
-        isHiding = false
-        oa = ObjectAnimator.ofFloat(target, View.TRANSLATION_X, 0f).apply {
+        isHide = false
+        ObjectAnimator.ofFloat(target, View.TRANSLATION_X, 0f).apply {
             duration = 300
+            start()
         }
-        oa?.start()
     }
 }
