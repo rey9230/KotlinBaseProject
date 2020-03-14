@@ -20,14 +20,33 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+            android:background="?colorPrimary"
+            android:elevation="8dp"
+            app:layout_behavior="n7.myperfectemptyproject.ui.main.behaviour.ToolbarBehavior">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <FrameLayout
+                android:id="@+id/fl_appbar_container"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_scrollFlags="scroll"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.DayNight" />
+                android:layout_height="?attr/actionBarSize">
+
+                <!--                TODO: convert this drawable to AVD (animated vector drawable)-->
+                <!--                <ImageView-->
+                <!--                    android:id="@+id/iv_drawer"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_gravity="center_vertical"-->
+                <!--                    android:padding="16dp"-->
+                <!--                    android:tint="@color/toolbar_title_color"-->
+                <!--                    app:srcCompat="@drawable/ic_drawer_icon" />-->
+
+                <View
+                    android:id="@+id/v_toolbar_title"
+                    android:layout_width="140dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_pill"
+                    android:backgroundTint="?colorPrimaryDark" />
+            </FrameLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -41,7 +60,7 @@
             android:id="@+id/pb"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal.MyProgressBar"
             android:visibility="@{viewModel.isLoading? View.VISIBLE : View.GONE}"
-            app:layout_anchor="@id/toolbar"
+            app:layout_anchor="@id/fl_appbar_container"
             app:layout_anchorGravity="bottom" />
 
         <Button
