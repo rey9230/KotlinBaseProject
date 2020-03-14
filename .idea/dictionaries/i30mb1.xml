@@ -2,9 +2,14 @@
   <dictionary name="i30mb1">
     <words>
       <w>codegen</w>
+      <w>constraintlayout</w>
       <w>coroutine</w>
+      <w>kotlinx</w>
+      <w>livedata</w>
       <w>snackbar</w>
+      <w>squareup</w>
       <w>unsubscription</w>
+      <w>viewmodel</w>
     </words>
   </dictionary>
 </component>

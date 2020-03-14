@@ -11,13 +11,12 @@ plugins {
 }
 
 val stringFromGradleProperties: String by project // get string from gradle.properties
-val stringFromLocalProperties: String =
-    gradleLocalProperties(rootDir).getProperty("key") // get string from local.properties
+val stringFromLocalProperties: String = gradleLocalProperties(rootDir).getProperty("key") // get string from local.properties
 
 android {
     compileSdkVersion(Apps.compileSdk)
     defaultConfig {
-        applicationId = "n7.myperfectemptyproject"
+        applicationId = Apps.applicationId
         minSdkVersion(Apps.minSdk)
         targetSdkVersion(Apps.targetSdk)
 //        versionCode = ext.get("gitCommitCount") as? Int
@@ -27,7 +26,7 @@ android {
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner =
             "androidx.test.runner.AndroidJUnitRunner" // specify a test runner in the same module-level
-        setProperty("archivesBaseName", "$applicationId-v$versionName($versionCode)")
+        setProperty("archivesBaseName", "$applicationId-v$versionName.$versionCode") // name for generated apk file
         // javaCompileOptions {
         //     annotationProcessorOptions {
         //         arguments = mapOf(
@@ -130,75 +129,50 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     // Starting with Kotlin 1.1.2, the dependencies with group org.jetbrains.kotlin are by default resolved with the version taken from the applied plugin
     implementation(kotlin("stdlib-jdk7")) // in old projects we shoud write in this way - implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.60")
-    implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.core:core-ktx:1.2.0")
+    implementation(Lib.appcompat)
+    implementation(Lib.coreKtx)
 
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
-    implementation("com.google.android.material:material:1.2.0-alpha05")
+    implementation(Lib.constraintLayout)
+    implementation(Lib.material)
     //    implementation("androidx.legacy:legacy-support-v4:1.0.0") // someone know for what this library?
 
-    // --- Coroutines ---
-    val coroutines = "1.3.2"
-    val lifecycleVersion = "2.2.0"
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines")
-    // для тестирования и ...
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
-    // lifecycleScope + launchWhenResumed
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
-    // liveData ( LiveData + coroutines)
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
-    // viewModelScope
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
-    kapt("androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion")
-    // Firebase
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines")
+    implementation(Lib.coroutines)
+    implementation(Lib.coroutinesAndroid)
+    implementation(Lib.coroutinesLifecycle)
+    implementation(Lib.coroutinesLivedata)
+    implementation(Lib.coroutinesViewmodel)
+    implementation(Lib.coroutinesPlayServices)
 
-    // --- Dagger ---
-    val dagger = "2.25.2"
-    implementation("com.google.dagger:dagger:$dagger")
-    kapt("com.google.dagger:dagger-compiler:$dagger")
-    compileOnly("com.squareup.inject:assisted-inject-annotations-dagger2:0.5.2")
-    kapt("com.squareup.inject:assisted-inject-processor-dagger2:0.5.2")
+    implementation (Lib.lifecycleAnnotation)
 
-    // --- Coil ---
-    val coil = "0.8.0"
-    implementation("io.coil-kt:coil:$coil")
+    implementation(Lib.dagger)
+    kapt(Lib.daggerAnnotation)
+    compileOnly(Lib.daggerAssisted)
+    kapt(Lib.daggerAssistedAnnotation)
 
-    //  --- Navigation ---
-    val navigation = "2.3.0"
-    // Fragment.findNavController + Fragment.navArgs
-    implementation("androidx.navigation:navigation-fragment-ktx:2.2.1")
-    // setupActionBarWithNavController + setupWithNavController
-    implementation("androidx.navigation:navigation-ui-ktx:2.2.1")
-    // Activity.findNavController + Activity.navArgs + View.findNavController
-    implementation("androidx.navigation:navigation-runtime-ktx:2.2.1")
-    implementation("androidx.lifecycle:lifecycle-common-java8:2.2.0")
-    // для легких транзакций + by viewModels()
-    implementation("androidx.fragment:fragment-ktx:1.2.0")
-    // on BackPress support for Fragment
-    implementation("androidx.activity:activity-ktx:1.1.0")
+    implementation(Lib.coil)
 
-    // --- Retrofit ---
-    val retrofit = "2.6.2"
-    implementation("com.squareup.retrofit2:retrofit:$retrofit")
-    implementation("com.squareup.retrofit2:converter-moshi:$retrofit")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.2.1")
-    // --- Moshi ---
-    val moshi = "1.9.2"
-    implementation("com.squareup.moshi:moshi:1.9.2")
-    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.9.2")
-    implementation("com.squareup.moshi:moshi-kotlin:1.9.2")
-    implementation("com.squareup.moshi:moshi-adapters:1.9.2")
+    implementation(Lib.navigationFragmentKtx)
+    implementation(Lib.navigationUiKtx)
+
+    implementation(Lib.navigationRuntimeKtx)
+    implementation(Lib.fragmentKtx)
+    implementation(Lib.ActivityKtx)
+
+    implementation(Lib.retrofit)
+    implementation(Lib.retrofitMoshiConverter)
+    implementation(Lib.retrofitInterceptor)
+
+    implementation(Lib.moshi)
+    implementation(Lib.moshiKotlin)
+    implementation(Lib.moshiAdapter)
+    kapt(Lib.moshiCodegen)
 
     // --- Room ---
-    val room = "2.2.2"
-    implementation("androidx.room:room-runtime:2.2.2")
-    kapt("androidx.room:room-compiler:2.2.2")
-    // kotlin Extensions and Coroutines support for Room
-    implementation("androidx.room:room-ktx:2.2.2")
+    implementation("androidx.room:room-runtime:2.2.4")
+    implementation("androidx.room:room-ktx:2.2.4")
+    kapt("androidx.room:room-compiler:2.2.4")
 
-    // --- SharedPreferences ---
     implementation("androidx.preference:preference-ktx:1.1.0")
 
     // LintRules
