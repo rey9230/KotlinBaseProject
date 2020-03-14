@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark Theme -->
+    <color name="myColorPrimaryDark">#000</color>
+    <color name="myColorPrimary">#6300CC</color>
+    <color name="myColorOnPrimary">#ffffff</color>
+
+    <color name="myColorSecondary">#6300CC</color>
+    <color name="myColorOnSecondary">#ffffff</color>
+
+    <color name="myColorBackground">#121212</color>
+
+    <color name="myColorSurface">#121212</color>
+
+    <color name="myColorError">#D50000</color>
+    <color name="myTextColorPrimary">#ffffff</color>
+
+    <color name="myColorCustom">#2B2B2B</color>
+</resources>

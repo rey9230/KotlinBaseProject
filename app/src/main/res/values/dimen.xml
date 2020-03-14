@@ -3,6 +3,4 @@
     <dimen name="dimen_corner_size">0dp</dimen>
 
     <integer name="dialog_anim_duration">300</integer>
-
-    <dimen name="provider_padding">8dp</dimen>
 </resources>

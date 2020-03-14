@@ -15,7 +15,6 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?myBackgroundColor"
         tools:context=".ui.main.MainFragment">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -60,13 +59,14 @@
 
         <Button
             android:id="@+id/b_change_theme"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
             android:layout_margin="8dp"
-            app:layout_behavior="n7.myperfectemptyproject.ui.main.behaviour.ChangeThemeButtonBehavior"
             android:onClick="@{()->viewModel.changeTheme()}"
             android:text="@string/main_fragment_change_theme"
+            app:layout_behavior="n7.myperfectemptyproject.ui.main.behaviour.ChangeThemeButtonBehavior"
             app:layout_dodgeInsetEdges="bottom" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

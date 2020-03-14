@@ -1,15 +1,17 @@
 <resources>
     <!-- Dark Theme -->
-    <style name="Theme.MyApp.Main" parent="Theme.MaterialComponents.NoActionBar">
-        <item name="colorPrimary">@color/myColorPrimaryDark</item>
-        <item name="colorSecondary">@color/myColorSecondaryDark</item>
+    <style name="Theme.MyApp.Main" parent="AppTheme">
+        <!-- Whether the elevation overlay functionality is enabled -->
+        <item name="elevationOverlayEnabled">true</item>
+        <!-- The color used for the elevation overlays, applied at an alpha based on elevation -->
+        <item name="elevationOverlayColor">@android:color/white</item>
 
-        <item name="myBackgroundColor">@color/myColorBackgroundDark</item>
+        <item name="android:windowLightStatusBar">false</item>
 
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MyApp.SmallComponent.Dark</item>
+        <item name="shapeAppearanceSmallComponent">@style/MySmallComponent.Dark</item>
     </style>
 
-    <style name="ShapeAppearance.MyApp.SmallComponent.Dark" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+    <style name="MySmallComponent.Dark" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">cut</item>
         <item name="cornerSize">@dimen/dimen_corner_size</item>
     </style>

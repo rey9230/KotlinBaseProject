@@ -1,43 +1,41 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Status bar color ...-->
-        <item name="colorPrimaryDark">@color/myColorOnPrimary</item>
+        <!-- Status bar color ... -->
+        <item name="colorPrimaryDark">@color/myColorPrimaryDark</item>
 
         <!-- Buttons, Toolbar, Selected Items, Tabs, Progress -->
         <item name="colorPrimary">@color/myColorPrimary</item>
         <!-- A color top of the primary color (text color on Button, Toolbar, ...) -->
         <item name="colorOnPrimary">@color/myColorOnPrimary</item>
-        <!-- A tonal variation of the primary color -->
-        <item name="colorPrimaryVariant">@color/myColorPrimaryVariant</item>
-
         <!-- Fab, Slider, CheckBox, Switch, Radio Button -->
         <item name="colorSecondary">@color/myColorSecondary</item>
-        <!--  A color on top of the secondary color -->
+        <!--  A color on top of the secondary color (text/icon color on RadioButton, Switch, ...) -->
         <item name="colorOnSecondary">@color/myColorOnSecondary</item>
-        <!--  A tonal variation of the secondary color -->
-        <item name="colorSecondaryVariant">@color/myColorSecondaryVariant</item>
+
+        <!-- background color behind scrollable content -->
+        <item name="android:colorBackground">@color/myColorBackground</item>
+        <!-- surface colors (CardView, Sheet, Menu) -->
+        <item name="colorSurface">@color/myColorSurface</item>
+        <!-- color drawn on top of the surface color (background color snackbar, ...) -->
+        <item name="colorOnSurface">@color/myColorOnSurface</item>
         <!-- The color used for elements displayed on top of your error color -->
         <item name="colorError">@color/myColorError</item>
 
+        <!-- color text for TextView -->
+        <item name="android:textColor">@color/myTextColorPrimary</item>
+
         <!-- My custom attribute -->
-        <item name="myBackgroundColor">@color/myColorBackground</item>
+        <item name="myCustomAttr">@color/myColorCustom</item>
 
         <!-- dark icons for status bar -->
         <item name="android:windowLightStatusBar">true</item>
 
         <!-- windows transition animation between activities -->
-        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        <item name="android:windowAnimationStyle">@style/MyWindowAnimationTransition</item>
+
         <!-- custom shapes for all small components -->
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.MyApp.SmallComponent.Light</item>
-
-        <!-- Style to use for Snackbar in this theme -->
-        <item name="snackbarStyle">@style/MySnackbarStyle</item>
-        <!-- Style to use for action button within a Snackbar in this theme. -->
-        <item name="snackbarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Snackbar</item>
-        <!-- Style to use for message text within a Snackbar in this theme. -->
-        <item name="snackbarTextViewStyle">@style/Widget.MaterialComponents.Snackbar.TextView</item>
-
+        <item name="shapeAppearanceSmallComponent">@style/MySmallComponent.Light</item>
     </style>
 
     <!-- Light Theme -->
@@ -45,22 +43,18 @@
 
     </style>
 
-    <style name="MySnackbarStyle" parent="@style/Widget.MaterialComponents.Snackbar">
-
-    </style>
-
-    <!--  share for light theme can be different from dark theme  -->
-    <style name="ShapeAppearance.MyApp.SmallComponent.Light" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+    <!-- share for light theme can be different from dark theme -->
+    <style name="MySmallComponent.Light" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">cut</item>
         <item name="cornerSize">@dimen/dimen_corner_size</item>
     </style>
 
-    <style name="WindowAnimationTransition">
+    <style name="MyWindowAnimationTransition">
         <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
     </style>
 
-    <style name="DialogAnimations">
+    <style name="MyDialogAnimations">
         <item name="android:windowEnterAnimation">@anim/slide_from_left</item>
         <item name="android:windowExitAnimation">@anim/slide_to_right</item>
     </style>

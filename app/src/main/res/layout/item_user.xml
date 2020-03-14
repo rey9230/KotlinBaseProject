@@ -10,7 +10,7 @@
             type="n7.myperfectemptyproject.ui.main.domain.vo.VOUser" />
     </data>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -53,7 +53,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_name"
                 tools:text="@tools:sample/date/ddmmyy" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,5 +73,5 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_date"
                 tools:text="@sample/users.json/data/age" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

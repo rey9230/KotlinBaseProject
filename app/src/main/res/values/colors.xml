@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Light Theme -->
+    <color name="myColorPrimaryDark">#ffffff</color>
     <color name="myColorPrimary">#448aff</color>
-    <color name="myColorPrimaryVariant">#7E57C2</color>
     <color name="myColorOnPrimary">#ffffff</color>
+
     <color name="myColorSecondary">#448aff</color>
-    <color name="myColorSecondaryVariant">#7E57C2</color>
     <color name="myColorOnSecondary">#ffffff</color>
+
+    <color name="myColorBackground">#ffffff</color>
+
+    <color name="myColorSurface">#ffffff</color>
+    <color name="myColorOnSurface">#656565</color>
+
     <color name="myColorError">#D50000</color>
-    <color name="myColorBackground">#19000000</color>
-    <color name="myCextColorPrimary">#212121</color>
-    <color name="myCextColorSecondary">#757575</color>
-    <!-- Dark Theme -->
-    <color name="myColorPrimaryDark">#4F009F</color>
-    <color name="myColorSecondaryDark">#4F009F</color>
-    <color name="myColorBackgroundDark">#19FFFFFF</color>
+    <color name="myTextColorPrimary">#000000</color>
+
+    <color name="myColorCustom">#FFFFFF</color>
 
 </resources>
