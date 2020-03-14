@@ -11,6 +11,7 @@
     <color name="myColorBackground">#121212</color>
 
     <color name="myColorSurface">#121212</color>
+    <color name="myColorOnSurface">#fff</color>
 
     <color name="myColorError">#D50000</color>
     <color name="myTextColorPrimary">#ffffff</color>
