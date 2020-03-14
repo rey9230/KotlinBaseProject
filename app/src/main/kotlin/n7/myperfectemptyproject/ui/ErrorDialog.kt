@@ -18,7 +18,7 @@ class ErrorDialog : DialogFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         // show dialog with animation
-        dialog?.window?.setWindowAnimations(R.style.DialogAnimations)
+        dialog?.window?.setWindowAnimations(R.style.MyDialogAnimations)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
