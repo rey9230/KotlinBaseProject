@@ -1,8 +1,14 @@
 package n7.rules.issues
 
-import com.android.tools.lint.detector.api.*
-import java.util.*
+import com.android.tools.lint.detector.api.Category
+import com.android.tools.lint.detector.api.Implementation
+import com.android.tools.lint.detector.api.Issue
+import com.android.tools.lint.detector.api.LayoutDetector
+import com.android.tools.lint.detector.api.Scope
+import com.android.tools.lint.detector.api.Severity
+import com.android.tools.lint.detector.api.XmlContext
 import org.w3c.dom.Attr
+import java.util.Arrays
 
 // class that is able to find background attribute in xml files that not start with "?" mark
 class WrongUsingAttrDetector : LayoutDetector() {
@@ -13,7 +19,7 @@ class WrongUsingAttrDetector : LayoutDetector() {
 
     override fun visitAttribute(context: XmlContext, attribute: Attr) {
         super.visitAttribute(context, attribute)
-        if (attribute.value.startsWith("?")) {
+        if (attribute.value.startsWith("?") || attribute.value.startsWith("@drawable/")) {
             return
         }
         context.report(
