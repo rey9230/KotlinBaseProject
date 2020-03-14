@@ -128,13 +128,12 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     // Starting with Kotlin 1.1.2, the dependencies with group org.jetbrains.kotlin are by default resolved with the version taken from the applied plugin
-    implementation(kotlin("stdlib-jdk7")) // in old projects we shoud write in this way - implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.60")
+    implementation(kotlin("stdlib-jdk7")) // in old projects we should write in this way - implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.60")
     implementation(Lib.appcompat)
     implementation(Lib.coreKtx)
 
     implementation(Lib.constraintLayout)
     implementation(Lib.material)
-    //    implementation("androidx.legacy:legacy-support-v4:1.0.0") // someone know for what this library?
 
     implementation(Lib.coroutines)
     implementation(Lib.coroutinesAndroid)
@@ -169,11 +168,11 @@ dependencies {
     kapt(Lib.moshiCodegen)
 
     // --- Room ---
-    implementation("androidx.room:room-runtime:2.2.4")
-    implementation("androidx.room:room-ktx:2.2.4")
-    kapt("androidx.room:room-compiler:2.2.4")
+    implementation(Lib.room)
+    implementation(Lib.roomKtx)
+    kapt(Lib.roomAnnotation)
 
-    implementation("androidx.preference:preference-ktx:1.1.0")
+    implementation(Lib.sharedPreference)
 
     // LintRules
     lintChecks(project(":rules"))
