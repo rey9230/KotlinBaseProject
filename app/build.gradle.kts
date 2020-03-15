@@ -2,12 +2,12 @@ import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("android.extensions")
-    kotlin("kapt")
-    id("androidx.navigation.safeargs.kotlin")
-    id("de.mannodermaus.android-junit5")
+    androidApp()
+    kotlinAndroid()
+    kotlinAndroidExt()
+    kotlinKapt()
+    safeargs()
+    junit5()
 }
 
 val stringFromGradleProperties: String by project // get string from gradle.properties
