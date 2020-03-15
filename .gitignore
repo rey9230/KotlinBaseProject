@@ -12,6 +12,7 @@
 /captures
 .externalNativeBuild
 .cxx
-/buildSrc/**/*
 /projectFilesBackup/.idea/workspace.xml
 *.log
+buildSrc/**/*
+!buildSrc/src/**/*
