@@ -26,24 +26,16 @@ object Lib {
 
     // --- Coroutines ---
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2"
-    const val coroutinesAndroid =
-        "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2" // for testing coroutines
-    const val coroutinesLifecycle =
-        "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0" // lifecycleScope + launchWhenResumed and ets.
-    const val coroutinesLivedata =
-        "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0" // liveData (LiveData + coroutines)
-    const val coroutinesViewmodel =
-        "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0" // viewModelScope + savedStateHandle
-    const val lifecycleAnnotation =
-        "androidx.lifecycle:lifecycle-common-java8:2.2.0" // that's only needed if you have lifecycle-related annotations in your code, specifically @OnLifecycleEvent
-    const val fragmentKtx =
-        "androidx.fragment:fragment-ktx:1.2.2" // easy fragment transaction + by viewModels()
-    const val activityKtx =
-        "androidx.activity:activity-ktx:1.1.0" // on BackPress support for Fragment
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2" // for testing coroutines
+    const val coroutinesLifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0" // lifecycleScope + launchWhenResumed and ets.
+    const val coroutinesLivedata = "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0" // liveData (LiveData + coroutines)
+    const val coroutinesViewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0" // viewModelScope + savedStateHandle
+    const val lifecycleAnnotation = "androidx.lifecycle:lifecycle-common-java8:2.2.0" // that's only needed if you have lifecycle-related annotations in your code, specifically @OnLifecycleEvent
+    const val fragmentKtx = "androidx.fragment:fragment-ktx:1.2.2" // easy fragment transaction + by viewModels()
+    const val activityKtx = "androidx.activity:activity-ktx:1.1.0" // on BackPress support for Fragment
 
     // --- Firebase Coroutines ---
-    const val coroutinesPlayServices =
-        "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.3.2"
+    const val coroutinesPlayServices = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.3.2"
 
     // --- Dagger ---
     const val dagger = "com.google.dagger:dagger:2.25.2"
