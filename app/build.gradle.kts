@@ -153,10 +153,9 @@ dependencies {
 
     implementation(Lib.navigationFragmentKtx)
     implementation(Lib.navigationUiKtx)
-
     implementation(Lib.navigationRuntimeKtx)
     implementation(Lib.fragmentKtx)
-    implementation(Lib.ActivityKtx)
+    implementation(Lib.activityKtx)
 
     implementation(Lib.retrofit)
     implementation(Lib.retrofitMoshiConverter)
@@ -167,7 +166,6 @@ dependencies {
     implementation(Lib.moshiAdapter)
     kapt(Lib.moshiCodegen)
 
-    // --- Room ---
     implementation(Lib.room)
     implementation(Lib.roomKtx)
     kapt(Lib.roomAnnotation)
