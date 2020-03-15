@@ -55,7 +55,7 @@ inline fun <reified T : ViewModel> Fragment.activityViewModel(
 }
 
 inline fun <reified T : ViewModel> Fragment.navGraphViewModel(
-    id: Int,
+    navGraphId: Int,
     crossinline provider: () -> T
 ) = navGraphViewModels<T>(id) {
     object : ViewModelProvider.Factory {
