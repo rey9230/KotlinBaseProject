@@ -6,7 +6,7 @@ import kotlinx.coroutines.withContext
 import n7.myperfectemptyproject.data.source.local.db.UsersDao
 import javax.inject.Inject
 
-class DeleteAllUsersStoreUseCase @Inject constructor(
+class DeleteAllUsersLocalUseCase @Inject constructor(
     private val userDao: UsersDao,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {

@@ -9,9 +9,8 @@ import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 import kotlinx.coroutines.launch
 import n7.myperfectemptyproject.base.BaseViewModel
-import n7.myperfectemptyproject.base.SingleEvent
 import n7.myperfectemptyproject.base.ViewModelAssistedFactory
-import n7.myperfectemptyproject.ui.main.domain.usecase.DeleteAllUsersStoreUseCase
+import n7.myperfectemptyproject.ui.main.domain.usecase.DeleteAllUsersLocalUseCase
 import n7.myperfectemptyproject.ui.main.domain.usecase.GetUsersFromLocalStoreUseCase
 import n7.myperfectemptyproject.ui.main.domain.usecase.GetUsersFromRemoteStoreUseCase
 import n7.myperfectemptyproject.ui.main.domain.usecase.SaveUsersToLocalStoreUseCase
@@ -22,7 +21,7 @@ class MainViewModel @AssistedInject constructor(
     private val getUsersFromRemoteStoreUseCase: GetUsersFromRemoteStoreUseCase,
     private val saveUsersToLocalStoreUseCase: SaveUsersToLocalStoreUseCase,
     private val getUsersFromLocalStoreUseCase: GetUsersFromLocalStoreUseCase,
-    private val deleteAllUsersStoreUseCase: DeleteAllUsersStoreUseCase
+    private val deleteAllUsersLocalUseCase: DeleteAllUsersLocalUseCase
 ) : BaseViewModel(application, handle) {
 
     @AssistedInject.Factory
@@ -34,13 +33,13 @@ class MainViewModel @AssistedInject constructor(
         launchWithLoading {
             getUsersFromRemoteStoreUseCase(1)
                 .onSuccess { remoteUsers -> saveUsersToLocalStoreUseCase(remoteUsers) }
-                .onFailure { _errorMessage.value = SingleEvent(it.toString()) }
+                .onFailure { _errorMessage.value = it.toString() }
         }
     }
 
     fun deleteAllUsers(): Boolean {
         viewModelScope.launch {
-            deleteAllUsersStoreUseCase()
+            deleteAllUsersLocalUseCase()
         }
         return true
     }

@@ -4,9 +4,7 @@ import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import com.google.android.material.R
 import com.google.android.material.snackbar.Snackbar
-import n7.myperfectemptyproject.base.SingleEvent
 
 /**
  * Transforms static java function Snackbar.make() to an extension function on View.
@@ -29,15 +27,15 @@ fun View.showSnackbar(snackbarText: String, timeLength: Int = Snackbar.LENGTH_SH
 /**
  * Triggers a snackbar message when the value contained by snackbarTaskMessageLiveEvent is modified.
  */
-fun View.setupSnackbar(
+fun View.setupErrorSnackbar(
     lifecycleOwner: LifecycleOwner,
-    snackbarEvent: LiveData<SingleEvent<Int>>,
+    snackbarEvent: LiveData<String>,
     timeLength: Int = Snackbar.LENGTH_SHORT
 ) {
 
     snackbarEvent.observe(lifecycleOwner, Observer { event ->
-        event.getContentIfNotHandled()?.let {
-            showSnackbar(context.getString(it), timeLength)
+        event?.let {
+            showSnackbar(it, timeLength)
         }
     })
 }

@@ -2,20 +2,16 @@ package n7.myperfectemptyproject.ui.main
 
 import android.os.Bundle
 import android.view.View
-import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.databinding.MainFragmentBinding
 import n7.myperfectemptyproject.di.injector
 import n7.myperfectemptyproject.ui.ErrorDialogDirections
 import n7.myperfectemptyproject.utils.setOnBackPressExit
-import n7.myperfectemptyproject.utils.showSnackbar
+import n7.myperfectemptyproject.utils.setupErrorSnackbar
 import n7.myperfectemptyproject.utils.viewModelWithSavedStateHandle
 
 class MainFragment : Fragment(R.layout.main_fragment) {
@@ -35,20 +31,14 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         super.onActivityCreated(savedInstanceState)
         setOnBackPressExit()
         setupListAdapter()
-        setupErrorMessage()
-    }
-
-    private fun setupErrorMessage() {
-        viewModel.errorMessage.observe(viewLifecycleOwner) { event ->
-            event.getContentIfNotHandled()?.let { showDialogWithError(it) }
-        }
+        setupSnackbar()
     }
 
     private fun setupSnackbar() {
-        // view?.setupSnackbar(this, mainViewModel.errorMessage)
+        view?.setupErrorSnackbar(viewLifecycleOwner, viewModel.errorMessage)
     }
 
-    // show dialog from navGraph
+    // show Global dialog
     private fun showDialogWithError(message: String) =
         findNavController().navigate(ErrorDialogDirections.actionGlobalErrorDialog(message))
 

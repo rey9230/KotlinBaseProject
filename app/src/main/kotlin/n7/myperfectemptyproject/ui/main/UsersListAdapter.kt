@@ -26,8 +26,7 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
         super.onViewDetachedFromWindow(holder)
     }
 
-    class ViewHolder private constructor(private val binding: ItemUserBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(private val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(user: VOUser) = user.run {
             binding.user = this
@@ -40,6 +39,7 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
         }
 
         fun clear() {
+
         }
 
         companion object {
