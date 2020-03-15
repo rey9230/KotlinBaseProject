@@ -7,6 +7,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import n7.myperfectemptyproject.R
 
+
+fun <T> unsafeLazy(initializer: () -> T): Lazy<T> = lazy(LazyThreadSafetyMode.NONE, initializer)
+
 fun Fragment.setOnBackPressExit() {
     val millisForExit = 2000L
     var killActivity = false

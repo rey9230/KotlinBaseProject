@@ -31,10 +31,10 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         super.onActivityCreated(savedInstanceState)
         setOnBackPressExit()
         setupListAdapter()
-        setupSnackbar()
+        setupErrorSnackbar()
     }
 
-    private fun setupSnackbar() {
+    private fun setupErrorSnackbar() {
         view?.setupErrorSnackbar(viewLifecycleOwner, viewModel.errorMessage)
     }
 
