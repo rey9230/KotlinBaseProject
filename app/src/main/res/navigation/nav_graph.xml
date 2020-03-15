@@ -18,6 +18,10 @@
             android:name="message"
             app:argType="string"
             android:defaultValue="empty" />
+        <argument
+            android:name="listener"
+            app:argType="n7.myperfectemptyproject.ui.ErrorDialogListener"
+            app:nullable="true" />
     </dialog>
     <action
         android:id="@+id/action_global_errorDialog"

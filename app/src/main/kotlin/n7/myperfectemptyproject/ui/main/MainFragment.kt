@@ -10,11 +10,13 @@ import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.databinding.MainFragmentBinding
 import n7.myperfectemptyproject.di.injector
 import n7.myperfectemptyproject.ui.ErrorDialogDirections
+import n7.myperfectemptyproject.ui.ErrorDialogListener
 import n7.myperfectemptyproject.utils.setOnBackPressExit
 import n7.myperfectemptyproject.utils.setupErrorSnackbar
+import n7.myperfectemptyproject.utils.showSnackbar
 import n7.myperfectemptyproject.utils.viewModelWithSavedStateHandle
 
-class MainFragment : Fragment(R.layout.main_fragment) {
+class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
 
     private lateinit var binding: MainFragmentBinding
     private val viewModel: MainViewModel by viewModelWithSavedStateHandle { injector.mainViewModelFactory }
@@ -32,6 +34,8 @@ class MainFragment : Fragment(R.layout.main_fragment) {
         setOnBackPressExit()
         setupListAdapter()
         setupErrorSnackbar()
+
+        binding.vToolbarTitle.setOnClickListener { showDialogWithError("DIALOG") }
     }
 
     private fun setupErrorSnackbar() {
@@ -40,7 +44,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
 
     // show Global dialog
     private fun showDialogWithError(message: String) =
-        findNavController().navigate(ErrorDialogDirections.actionGlobalErrorDialog(message))
+        findNavController().navigate(ErrorDialogDirections.actionGlobalErrorDialog(message, this))
 
     private fun setupListAdapter() {
         val usersListAdapter = UsersListAdapter()
@@ -54,5 +58,9 @@ class MainFragment : Fragment(R.layout.main_fragment) {
             viewTreeObserver.addOnPreDrawListener { startPostponedEnterTransition(); true }
         }
         viewModel.getUsers.observe(viewLifecycleOwner, usersListAdapter::submitList)
+    }
+
+    override fun onPositiveButtonClick() {
+        view?.showSnackbar("OKKKKKKKK")
     }
 }
