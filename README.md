@@ -28,6 +28,10 @@ This way you don`t need to repeat the same code in different parts of your proje
 
 ---
 
+### [CLI GITHUB](https://cli.github.com/)
+CLI - is an extension to command-line Git that helps you do everyday GitHub tasks without ever leaving the terminal.
+[readeMore](https://medium.com/better-programming/the-official-github-cli-is-here-9fb7276e2e15)
+
 ### Ktlint
 We can improve Check&Fix Kotlin code style via using [ktlint](https://ktlint.github.io/) (it's works because file `ktlint` exist in android root directory)
 
