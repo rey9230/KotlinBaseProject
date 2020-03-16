@@ -7,7 +7,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import n7.myperfectemptyproject.R
 
-
+/**
+ * @link (https://proandroiddev.com/the-power-of-lazy-properties-in-kotlin-6a25e04e59bd)
+ * If we are sure the property will only be accessed by a single thread we can switch to NONE to avoid the overhead of performing the synchronization.
+ */
 fun <T> unsafeLazy(initializer: () -> T): Lazy<T> = lazy(LazyThreadSafetyMode.NONE, initializer)
 
 fun Fragment.setOnBackPressExit() {
