@@ -2,6 +2,7 @@ package n7.myperfectemptyproject.ui
 
 import android.app.Dialog
 import android.os.Bundle
+import androidx.annotation.Keep
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -31,6 +32,6 @@ class ErrorDialog : DialogFragment() {
     }
 }
 
-interface ErrorDialogListener : Serializable {
+@Keep interface ErrorDialogListener : Serializable {
     fun onPositiveButtonClick()
 }

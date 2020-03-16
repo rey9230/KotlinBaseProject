@@ -48,7 +48,7 @@ android {
             keyAlias = "key"
             keyPassword = "111111"
             storePassword = "111111"
-            storeFile = file("/Users/i30mb1/Android/Key/keystore")
+            storeFile = file("C:\\Users\\i30mb1\\Google Диск\\disk_G\\wm7167\\key111111.jks")
         }
     }
     buildTypes {
@@ -64,7 +64,7 @@ android {
         }
         getByName("release") {
             isMinifyEnabled = true // ProGuard turn on
-            isDebuggable = false
+            isDebuggable = true
             isShrinkResources = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
