@@ -39,6 +39,7 @@ Command for Windows : java -jar ktlint -F
 
 ### Gradle Kotlin DSL (Domain-specific language)
 for gradle i am using [Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) that provide me some benefits :
+[help link](https://caster.io/lessons/gradle-dependency-management-using-kotlin-and-buildsrc-for-buildgradle-autocomplete-in-android-studio)
 * statically typed & type-safe DSL
 * first-class functions, extension methods
 * IDE auto-compete and content assist
@@ -104,6 +105,13 @@ we can build our own shape appearance by following these [attributes](https://ma
 
 * git commands [(rus)](https://github.com/k88hudson/git-flight-rules/blob/master/README_ru.md#%D0%A0%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B8) [(eng)](https://github.com/k88hudson/git-flight-rules/blob/master/README.md)
 * if designer drunk use this tool [svgomg](https://jakearchibald.github.io/svgomg/) 
+*Animations
+    * shared element animation [link](https://medium.com/redmadrobot-mobile/hidden-mistakes-with-shared-element-transitions-65d79831c63)
+    * rotation animation [link](https://blog.usejournal.com/animate-image-rotation-like-a-pro-c08d2bd986c6)
+    * suspeding animations [link](https://medium.com/androiddevelopers/suspending-over-views-19de9ebd7020)
+    * animation pro level [link](https://proandroiddev.com/complex-ui-animation-on-android-8f7a46f4aec4?gi=549fab234e8c)
+*Reverse engineering
+    * [1](https://www.andreafortuna.org/2019/07/18/reverse-engineering-and-penetration-testing-on-android-apps-my-own-list-of-tools/)
 
 ### Libraries Used
 #### if you do need specific library feel fre to delete it from build.gradle.kts 'dependencies' section
