@@ -13,6 +13,8 @@ import java.util.Locale
 // - There’s a possibility of multiple duplications
 // - While changing the data you have to change the mapper
 
+// one day i will use this somehow
+// https://riggaroo.co.za/lessons-learnt-with-kotlin-using-inline-classes/
 fun RemoteUser.toLocalStore(): LocalUser {
     return LocalUser(
         firstName = name.first,
