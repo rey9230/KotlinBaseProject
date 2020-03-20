@@ -103,6 +103,7 @@ we can build our own shape appearance by following these [attributes](https://ma
 
 ### LINKS
 
+* [Android Unique ID](https://proandroiddev.com/how-to-generate-android-unique-id-38362794e1a8)
 * git help [rus](https://github.com/nicothin/web-development/tree/master/git)
 * git help2 [(rus)](https://github.com/k88hudson/git-flight-rules/blob/master/README_ru.md#%D0%A0%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B8) [(eng)](https://github.com/k88hudson/git-flight-rules/blob/master/README.md)
 * if designer drunk use this tool [svgomg](https://jakearchibald.github.io/svgomg/) 
