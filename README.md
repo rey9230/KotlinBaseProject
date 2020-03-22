@@ -117,20 +117,3 @@ we can build our own shape appearance by following these [attributes](https://ma
     * TransitionAnimation [link](https://medium.com/@andkulikov/animate-all-the-things-transitions-in-android-914af5477d50)
 *Reverse engineering
     * [1](https://www.andreafortuna.org/2019/07/18/reverse-engineering-and-penetration-testing-on-android-apps-my-own-list-of-tools/)
-
-### Libraries Used
-#### if you do need specific library feel fre to delete it from build.gradle.kts 'dependencies' section
-* [Foundation](https://developer.android.com/jetpack/components) - Components for core system capabilities, Kotlin extensions and support for multidex and automated testing.
-    * ["androidx.appcompat:appcompat:1.1.0"](https://developer.android.com/topic/libraries/support-library/packages#v7-appcompat) - Degrade gracefully on older versions of Android.
-    * ["androidx.core:core-ktx:1.1.0"](https://developer.android.com/kotlin/ktx/extensions-list) - Write more concise, idiomatic Kotlin code.
-    * ["com.google.android.material:material:1.2.0-alpha03"](https://material.io/components/) - Build beautiful products, faster.
-* [Architecture](https://developer.android.com/jetpack/arch/) - A collection of libraries that help you design robust, testable, and maintainable apps. 
-    * ["dataBinding{isEnabled = true}"](https://developer.android.com/topic/libraries/data-binding/) - Declaratively bind observable data to UI elements.
-    * ["androidx.lifecycle:lifecycle-common-java8:2.2.0"](https://developer.android.com/topic/libraries/architecture/lifecycle) - Create a UI that automatically responds to lifecycle events.
-* ["org.jetbrains.kotlinx:kotlinx-coroutines-core1.3.2"](https://github.com/Kotlin/kotlinx.coroutines/blob/master/docs/coroutines-guide.md)
-* ["com.squareup.moshi:moshi:1.9.2"](https://github.com/square/moshi) - It makes it easy to parse JSON into Kotlin objects
-* ["com.squareup.moshi:moshi-kotlin:1.9.2"](https://github.com/square/moshi#reflection) - Add reflection to moshi (better not to use : 2.5 MB)
-* [kapt("com.squareup.moshi:moshi-kotlin-codegen:1.9.2")](https://github.com/square/moshi#codegen) - Add codegen to moshi (generating by using @JsonClass(generateAdapter = true))
-* [Testing]()
-    * [testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.2")]() - test engine implementation, runs tests
-    * [testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")]() - API for writing tests and extensions

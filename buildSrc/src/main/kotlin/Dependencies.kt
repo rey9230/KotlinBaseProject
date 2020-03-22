@@ -17,10 +17,10 @@ object Versions {
 }
 
 object Lib {
-    const val appcompat        = "androidx.appcompat:appcompat:1.1.0"
-    const val coreKtx          = "androidx.core:core-ktx:1.2.0"
+    const val appcompat        = "androidx.appcompat:appcompat:1.1.0" // Degrade gracefully on older versions of Android.
+    const val coreKtx          = "androidx.core:core-ktx:1.2.0" // Write more concise, idiomatic Kotlin code.
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
-    const val material         = "com.google.android.material:material:1.2.0-alpha05"
+    const val material         = "com.google.android.material:material:1.2.0-alpha05" // Build beautiful products, faster.
     const val coil             = "io.coil-kt:coil:0.8.0"
     const val sharedPreference = "androidx.preference:preference-ktx:1.1.0"
 
@@ -54,9 +54,9 @@ object Lib {
     const val retrofitInterceptor    = "com.squareup.okhttp3:logging-interceptor:4.3.1"
 
     // --- Moshi ---
-    const val moshi        = "com.squareup.moshi:moshi:1.9.2"
-    const val moshiCodegen = "com.squareup.moshi:moshi-kotlin-codegen:1.9.2"
-    const val moshiKotlin  = "com.squareup.moshi:moshi-kotlin:1.9.2"
+    const val moshi        = "com.squareup.moshi:moshi:1.9.2" // It makes it easy to parse JSON into Kotlin objects
+    const val moshiCodegen = "com.squareup.moshi:moshi-kotlin-codegen:1.9.2" // Add codegen to moshi (generating by using @JsonClass(generateAdapter = true))
+    const val moshiKotlin  = "com.squareup.moshi:moshi-kotlin:1.9.2" // Add reflection to moshi (better not to use : 2.5 MB)
     const val moshiAdapter = "com.squareup.moshi:moshi-adapters:1.9.2"
 
     // --- Room ---

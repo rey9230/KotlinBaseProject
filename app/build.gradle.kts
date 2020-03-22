@@ -179,8 +179,8 @@ dependencies {
     // Required -- JUnit 4 framework
     testImplementation("junit:junit:4.12")
     // (Required) Writing and executing Unit Tests on the JUnit Platform
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2") // API for writing tests and extensions
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.2") // test engine implementation, runs tests
     // Core library
     testImplementation("androidx.test:core:1.2.0")
     testImplementation("androidx.test:core-ktx:1.2.0")
