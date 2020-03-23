@@ -65,7 +65,7 @@ object Lib {
     const val roomKtx        = "androidx.room:room-ktx:2.2.4" // kotlin Extensions and Coroutines support for Room
 
     object Test {
-
+    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.2"
     }
 
     object AndroidTest {
