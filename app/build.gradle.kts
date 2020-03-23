@@ -199,7 +199,7 @@ dependencies {
     testImplementation("org.mockito:mockito-core:3.2.4")
     testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0") // A small library that provides helper functions to work with Mockito in Kotlin.
 
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.2")
+    testImplementation(Lib.Test.coroutinesTest)
 
     // UI Test
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
