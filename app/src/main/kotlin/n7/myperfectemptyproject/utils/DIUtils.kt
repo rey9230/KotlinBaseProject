@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.navGraphViewModels
 import n7.myperfectemptyproject.base.ViewModelAssistedFactory
 
+// Magic. Do not touch.
 inline fun <reified T : ViewModel> FragmentActivity.viewModel(
     crossinline provider: () -> T
 ) = viewModels<T> {
