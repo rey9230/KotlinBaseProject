@@ -109,6 +109,7 @@ we can build our own shape appearance by following these [attributes](https://ma
 * if designer drunk use this tool [svgomg](https://jakearchibald.github.io/svgomg/) 
 * [VD (Vector Drawable)](https://www.youtube.com/watch?v=fgbl34me3kk)
 *Animations
+
     * shared element animation [link](https://medium.com/redmadrobot-mobile/hidden-mistakes-with-shared-element-transitions-65d79831c63)
     * rotation animation [link](https://blog.usejournal.com/animate-image-rotation-like-a-pro-c08d2bd986c6)
     * suspeding animations [link](https://medium.com/androiddevelopers/suspending-over-views-19de9ebd7020)
@@ -116,4 +117,5 @@ we can build our own shape appearance by following these [attributes](https://ma
     * [wtf](https://medium.com/androiddevelopers/playing-with-paths-3fbc679a6f77)
     * TransitionAnimation [link](https://medium.com/@andkulikov/animate-all-the-things-transitions-in-android-914af5477d50)
 *Reverse engineering
+
     * [1](https://www.andreafortuna.org/2019/07/18/reverse-engineering-and-penetration-testing-on-android-apps-my-own-list-of-tools/)
