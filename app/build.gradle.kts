@@ -116,6 +116,7 @@ android {
             // framework like Mockito). However, you can enable the following property so that the test
             // returns either null or zero when accessing platform APIs, rather than throwing an exception.
             isReturnDefaultValues = true
+            // for robolectic
             isIncludeAndroidResources = true
         }
         setExecution("ANDROID_TEST_ORCHESTRATOR")
