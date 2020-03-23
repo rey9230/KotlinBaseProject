@@ -16,7 +16,6 @@ import com.nhaarman.mockitokotlin2.*
 //
 //     @Test
 //     @Timeout(1)
-//     // todo научится ебашить такие функции чтобы запускались если создают новые ебучие корутины ( а для этого нужно им провайдить из дагера диспатчер ) чтобы тута их подменять!
 //     fun `function return mock object with id 7`() {
 //         coroutineTestRule.runBlockingTest {
 //             val something = repositoryImpl.getSomething()
