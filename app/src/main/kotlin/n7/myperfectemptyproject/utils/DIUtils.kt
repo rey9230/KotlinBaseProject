@@ -24,6 +24,9 @@ inline fun <reified T : ViewModel> FragmentActivity.viewModel(
     }
 }
 
+// no comments for you
+// it was hard to write
+// so it should be hard to read
 inline fun <reified T : ViewModel> Fragment.viewModel(
     crossinline provider: () -> T
 ) = viewModels<T> {
@@ -32,6 +35,7 @@ inline fun <reified T : ViewModel> Fragment.viewModel(
     }
 }
 
+/* Please work */
 inline fun <reified T : ViewModel> Fragment.viewModelWithSavedStateHandle(
     defaultArgs: Bundle? = null,
     crossinline provider: () -> ViewModelAssistedFactory<T>
