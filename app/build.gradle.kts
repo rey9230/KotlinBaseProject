@@ -43,6 +43,7 @@ android {
     }
     signingConfigs {
         getByName("debug") {
+            // automatic signs with debug key
         }
         create("release") {
             keyAlias = "key"
@@ -69,7 +70,7 @@ android {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
-            resValue("string", "app_name", "App name") // app name
+            resValue("string", "app_name", "App name") // Adds a new generated resource
             signingConfig = signingConfigs.getByName("release")
         }
     }
