@@ -65,7 +65,7 @@ android {
         getByName("release") {
             isMinifyEnabled = true // ProGuard turn on
             isDebuggable = true
-            isShrinkResources = false
+            isShrinkResources = false // delete unused resources
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
