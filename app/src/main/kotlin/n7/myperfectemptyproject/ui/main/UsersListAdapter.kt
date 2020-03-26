@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import n7.myperfectemptyproject.databinding.ItemUserBinding
 import n7.myperfectemptyproject.ui.main.domain.vo.VOUser
 
+// https://youtu.be/GZkTwgetUWI?list=LLMBNl1baSJfDak1Lo2VVVZQ&t=1565
 class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
