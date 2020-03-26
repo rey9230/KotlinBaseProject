@@ -47,7 +47,7 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
         findNavController().navigate(ErrorDialogDirections.actionGlobalErrorDialog(message, this))
 
     private fun setupListAdapter() {
-        val usersListAdapter = UsersListAdapter1()
+        val usersListAdapter = UsersListAdapter()
         binding.rv.apply {
             setHasFixedSize(true)
             adapter = usersListAdapter
