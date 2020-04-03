@@ -24,10 +24,6 @@ open class BaseViewModel(application: Application, val savedStateHandle: SavedSt
 
     protected val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
-    // val errorMessage: LiveData<String?> = _errorMessage.map {
-    //     ApiErrorHandle.traceErrorException(it).getErrorMessage()
-    //     it.toString()
-    // }
 
     fun launchWithLoading(block: suspend CoroutineScope.() -> Unit) {
         viewModelScope.launch {
