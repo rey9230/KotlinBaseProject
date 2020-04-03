@@ -11,8 +11,6 @@ import com.google.android.material.button.MaterialButton
 internal class ChangeThemeButtonBehavior(context: Context, attributeSet: AttributeSet? = null) :
     CoordinatorLayout.Behavior<MaterialButton>(context, attributeSet) {
 
-    var isHide = false
-
     override fun onStartNestedScroll(
         coordinatorLayout: CoordinatorLayout,
         child: MaterialButton,
@@ -33,22 +31,15 @@ internal class ChangeThemeButtonBehavior(context: Context, attributeSet: Attribu
         consumed: IntArray,
         type: Int
     ) {
-        if (!isHide && dy > 0) hiding(child)
-        if (isHide && dy < 0) showing(child)
+        animateTranslation(child, dy < 0)
         super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed, type)
     }
 
-    private fun hiding(target: View) {
-        isHide = true
-        ObjectAnimator.ofFloat(target, View.TRANSLATION_X, -target.width.toFloat() - target.paddingEnd).apply {
-            duration = 300
-            start()
-        }
-    }
-
-    private fun showing(target: View) {
-        isHide = false
-        ObjectAnimator.ofFloat(target, View.TRANSLATION_X, 0f).apply {
+    // thx to this video https://www.youtube.com/watch?v=f3Lm8iOr4mE
+    private fun animateTranslation(target: View, visibleOnScreen: Boolean) {
+        val targetTranslation = if (visibleOnScreen) 0f else -target.width.toFloat() - target.paddingEnd
+        if (target.translationX == targetTranslation) return
+        ObjectAnimator.ofFloat(target, View.TRANSLATION_X, targetTranslation).apply {
             duration = 300
             start()
         }
