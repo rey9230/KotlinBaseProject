@@ -179,7 +179,7 @@ dependencies {
 
     // Tests
     // Required -- JUnit 4 framework
-    testImplementation("junit:junit:4.12")
+    testImplementation("junit:junit:4.13")
    // Core library
     testImplementation("androidx.test:core:1.2.0")
     testImplementation("androidx.test:core-ktx:1.2.0")
@@ -190,7 +190,7 @@ dependencies {
     testImplementation("androidx.test.ext:junit:1.1.1")
     testImplementation("androidx.test.ext:junit-ktx:1.1.1")
     testImplementation("androidx.test.ext:truth:1.2.0")
-    testImplementation("com.google.truth:truth:0.42")
+    testImplementation("com.google.truth:truth:0.44")
 
     testImplementation("androidx.arch.core:core-testing:2.1.0")
 
