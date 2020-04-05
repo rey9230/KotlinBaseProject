@@ -3,6 +3,7 @@ package n7.myperfectemptyproject
 import android.app.Application
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.TimingLogger
 import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -46,6 +47,14 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.registerFragmentLifecycleCallbacks(object : FragmentManager.FragmentLifecycleCallbacks() {
             // override necessary method
         }, false)
+    }
+
+    private fun measurementOperations() {
+        //  An idiomatic Android approach to measuring execution time
+        val timingLogger = TimingLogger("N7", "work")
+        timingLogger.addSplit("(1)")
+        timingLogger.dumpToLog()
+        // - adb shell setprop log.tag.N7 VERBOSE
     }
 }
 
