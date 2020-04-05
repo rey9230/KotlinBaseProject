@@ -123,8 +123,6 @@ android {
         setExecution("ANDROID_TEST_ORCHESTRATOR")
     }
 
-    // for Roboelectric
-//    testOptions.unitTests.isIncludeAndroidResources(true)
 }
 
 dependencies {
