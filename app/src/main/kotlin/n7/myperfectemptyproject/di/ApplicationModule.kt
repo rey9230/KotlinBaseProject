@@ -51,7 +51,7 @@ object ApplicationModule {
     @Reusable
     @Provides
     fun moshi(): Moshi = Moshi.Builder()
-        .add(Date::class.java, Rfc3339DateJsonAdapter().nullSafe())
+        .add(Date::class.java, Rfc3339DateJsonAdapter().nullSafe()) // adapter that convert timeStamp in Date
         /* more brilliant adapters */
         .build()
 }
