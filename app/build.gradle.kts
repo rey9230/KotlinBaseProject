@@ -160,7 +160,8 @@ dependencies {
     implementation(Lib.room)
     implementation(Lib.roomKtx)
     kapt(Lib.roomAnnotation)
-    implementation(Lib.sharedPreference)
+    implementation(Lib.preference)
+    implementation(Lib.preferenceKtx)
 
     // LintRules
     lintChecks(project(":rules"))
