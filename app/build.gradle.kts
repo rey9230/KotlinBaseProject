@@ -133,76 +133,58 @@ dependencies {
     implementation(kotlin("stdlib-jdk7")) // in old projects we should write in this way - implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.60")
     implementation(Lib.appcompat)
     implementation(Lib.coreKtx)
-
     implementation(Lib.constraintLayout)
     implementation(Lib.material)
-
     implementation(Lib.coroutines)
     implementation(Lib.coroutinesAndroid)
     implementation(Lib.coroutinesLifecycle)
     implementation(Lib.coroutinesLivedata)
     implementation(Lib.coroutinesViewmodel)
     implementation(Lib.coroutinesPlayServices)
-
     implementation (Lib.lifecycleAnnotation)
-
     implementation(Lib.dagger)
     kapt(Lib.daggerAnnotation)
     compileOnly(Lib.daggerAssisted)
     kapt(Lib.daggerAssistedAnnotation)
-
     implementation(Lib.coil)
-
     implementation(Lib.navigationFragmentKtx)
     implementation(Lib.navigationUiKtx)
     implementation(Lib.navigationRuntimeKtx)
     implementation(Lib.fragmentKtx)
     implementation(Lib.activityKtx)
-
     implementation(Lib.retrofit)
     implementation(Lib.retrofitMoshiConverter)
     implementation(Lib.retrofitInterceptor)
-
     implementation(Lib.moshi)
     implementation(Lib.moshiKotlin)
     implementation(Lib.moshiAdapter)
     kapt(Lib.moshiCodegen)
-
     implementation(Lib.room)
     implementation(Lib.roomKtx)
     kapt(Lib.roomAnnotation)
-
     implementation(Lib.sharedPreference)
 
     // LintRules
     lintChecks(project(":rules"))
 
-    // Tests
-    // Required -- JUnit 4 framework
-    testImplementation("junit:junit:4.13")
-   // Core library
-    testImplementation("androidx.test:core:1.2.0")
-    testImplementation("androidx.test:core-ktx:1.2.0")
-    // AndroidJUnitRunner and JUnit Rules
-    testImplementation("androidx.test:runner:1.2.0")
-    testImplementation("androidx.test:rules:1.2.0")
-    // Assertions
-    testImplementation("androidx.test.ext:junit:1.1.1")
-    testImplementation("androidx.test.ext:junit-ktx:1.1.1")
-    testImplementation("androidx.test.ext:truth:1.2.0")
-    testImplementation("com.google.truth:truth:0.44")
-
-    testImplementation("androidx.arch.core:core-testing:2.1.0")
-
-    testImplementation("com.squareup.okhttp3:mockwebserver:4.4.0")
-    testImplementation("org.mockito:mockito-core:3.2.4")
-    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0") // A small library that provides helper functions to work with Mockito in Kotlin.
-
+    testImplementation(Lib.Test.junit)
+    testImplementation(Lib.Test.testCore)
+    testImplementation(Lib.Test.testCoreKtx)
+    testImplementation(Lib.Test.testRunner)
+    testImplementation(Lib.Test.testRules)
+    testImplementation(Lib.Test.testJunit)
+    testImplementation(Lib.Test.testJunitKtx)
+    testImplementation(Lib.Test.testTruth)
+    testImplementation(Lib.Test.testTruth2)
+    testImplementation(Lib.Test.coreTesting)
+    testImplementation(Lib.Test.mockitoWeb)
+    testImplementation(Lib.Test.mockito)
+    testImplementation(Lib.Test.mockitokotlin)
     testImplementation(Lib.Test.coroutinesTest)
 
     // UI Test
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
-    androidTestImplementation("androidx.test.espresso:espresso-intents:3.2.0")
-    androidTestImplementation("androidx.test:runner:1.2.0")
-    androidTestImplementation("androidx.test:rules:1.2.0")
+    androidTestImplementation(Lib.Test.espresso)
+    androidTestImplementation(Lib.Test.espressoIntents)
+    androidTestImplementation(Lib.Test.testRules)
+    androidTestImplementation(Lib.Test.testRunner)
 }
