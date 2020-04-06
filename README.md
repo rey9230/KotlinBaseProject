@@ -71,14 +71,12 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
 ![arch](architecture.png)</p></details>
 
 - **Fragment/Activity/View** 
-
   - >Request data from viewModel
   - >Observe viewModel LiveData for response
  
-- **ELSE**
-
-    - >FF
-    - >FF
+- **Adapters/Interactor/UseCase/Domain**
+  - > Interactor - object that manage group similar UseCases
+  - > UseCase - one action that can be performed
 
 ### About Theme
 
