@@ -74,6 +74,11 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
 
   - >Request data from viewModel
   - >Observe viewModel LiveData for response
+ 
+- **ELSE**
+
+    - >FF
+    - >FF
 
 ### About Theme
 
@@ -108,12 +113,12 @@ we can build our own shape appearance by following these [attributes](https://ma
 * git help2 [(rus)](https://github.com/k88hudson/git-flight-rules/blob/master/README_ru.md#%D0%A0%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B8) [(eng)](https://github.com/k88hudson/git-flight-rules/blob/master/README.md)
 * if designer drunk use this tool [svgomg](https://jakearchibald.github.io/svgomg/) 
 * [VD (Vector Drawable)](https://www.youtube.com/watch?v=fgbl34me3kk)
-*Animations 
+* Animations 
     * shared element animation [link](https://medium.com/redmadrobot-mobile/hidden-mistakes-with-shared-element-transitions-65d79831c63)
     * rotation animation [link](https://blog.usejournal.com/animate-image-rotation-like-a-pro-c08d2bd986c6)
     * suspeding animations [link](https://medium.com/androiddevelopers/suspending-over-views-19de9ebd7020)
     * animation pro level [link](https://proandroiddev.com/complex-ui-animation-on-android-8f7a46f4aec4?gi=549fab234e8c)
     * [wtf](https://medium.com/androiddevelopers/playing-with-paths-3fbc679a6f77)
     * TransitionAnimation [link](https://medium.com/@andkulikov/animate-all-the-things-transitions-in-android-914af5477d50)
-*Reverse engineering 
+* Reverse engineering 
     * [1](https://www.andreafortuna.org/2019/07/18/reverse-engineering-and-penetration-testing-on-android-apps-my-own-list-of-tools/)
