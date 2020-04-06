@@ -74,6 +74,11 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
 
   - >Request data from viewModel
   - >Observe viewModel LiveData for response
+ 
+- **ELSE**
+
+    - >FF
+    - >FF
 
 ### About Theme
 
