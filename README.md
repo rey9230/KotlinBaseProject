@@ -32,8 +32,8 @@ This way you don`t need to repeat the same code in different parts of your proje
 CLI - is an extension to command-line Git that helps you do everyday GitHub tasks without ever leaving the terminal.
 [readeMore](https://medium.com/better-programming/the-official-github-cli-is-here-9fb7276e2e15)
 
-### Ktlint
-We can improve Check&Fix Kotlin code style via using [ktlint](https://ktlint.github.io/) (it's works because file `ktlint` exist in android root directory)
+### [Ktlint]((https://ktlint.github.io/))
+We can improve Check&Fix Kotlin code style via using ktlint (it's works because file `ktlint` exist in android root directory)
 
 Command for Windows : java -jar ktlint -F
 
@@ -109,16 +109,16 @@ we can build our own shape appearance by following these [attributes](https://ma
 ### LINKS
 
 * [Android Unique ID](https://proandroiddev.com/how-to-generate-android-unique-id-38362794e1a8)
-* git help [rus](https://github.com/nicothin/web-development/tree/master/git)
+* git help [(rus)](https://github.com/nicothin/web-development/tree/master/git)
 * git help2 [(rus)](https://github.com/k88hudson/git-flight-rules/blob/master/README_ru.md#%D0%A0%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B8) [(eng)](https://github.com/k88hudson/git-flight-rules/blob/master/README.md)
-* if designer drunk use this tool [svgomg](https://jakearchibald.github.io/svgomg/) 
+* reduce complexity for svg [svgomg](https://jakearchibald.github.io/svgomg/) 
 * [VD (Vector Drawable)](https://www.youtube.com/watch?v=fgbl34me3kk)
 * Animations 
-    * shared element animation [link](https://medium.com/redmadrobot-mobile/hidden-mistakes-with-shared-element-transitions-65d79831c63)
-    * rotation animation [link](https://blog.usejournal.com/animate-image-rotation-like-a-pro-c08d2bd986c6)
-    * suspeding animations [link](https://medium.com/androiddevelopers/suspending-over-views-19de9ebd7020)
-    * animation pro level [link](https://proandroiddev.com/complex-ui-animation-on-android-8f7a46f4aec4?gi=549fab234e8c)
+    * [shared element animation](https://medium.com/redmadrobot-mobile/hidden-mistakes-with-shared-element-transitions-65d79831c63)
+    * [rotation animation](https://blog.usejournal.com/animate-image-rotation-like-a-pro-c08d2bd986c6)
+    * [suspeding animations](https://medium.com/androiddevelopers/suspending-over-views-19de9ebd7020)
+    * [animation pro level](https://proandroiddev.com/complex-ui-animation-on-android-8f7a46f4aec4?gi=549fab234e8c)
     * [wtf](https://medium.com/androiddevelopers/playing-with-paths-3fbc679a6f77)
-    * TransitionAnimation [link](https://medium.com/@andkulikov/animate-all-the-things-transitions-in-android-914af5477d50)
+    * [TransitionAnimation](https://medium.com/@andkulikov/animate-all-the-things-transitions-in-android-914af5477d50)
 * Reverse engineering 
-    * [1](https://www.andreafortuna.org/2019/07/18/reverse-engineering-and-penetration-testing-on-android-apps-my-own-list-of-tools/)
+    * [main tools](https://www.andreafortuna.org/2019/07/18/reverse-engineering-and-penetration-testing-on-android-apps-my-own-list-of-tools/)
