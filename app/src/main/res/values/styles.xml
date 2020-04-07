@@ -19,8 +19,6 @@
         <item name="colorSurface">@color/myColorSurface</item>
         <!-- color drawn on top of the surface color (background color snackbar, ...) -->
         <item name="colorOnSurface">@color/myColorOnSurface</item>
-        <!-- The color used for elements displayed on top of your error color -->
-        <item name="colorError">@color/myColorError</item>
 
         <!-- color text for TextView -->
         <item name="android:textColor">@color/myTextColorPrimary</item>
