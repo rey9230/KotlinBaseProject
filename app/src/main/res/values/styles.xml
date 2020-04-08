@@ -20,9 +20,6 @@
         <!-- color drawn on top of the surface color (background color snackbar, ...) -->
         <item name="colorOnSurface">@color/myColorOnSurface</item>
 
-        <!-- color text for TextView -->
-        <item name="android:textColor">@color/myTextColorPrimary</item>
-
         <!-- My custom attribute -->
         <item name="myCustomAttr">@color/myColorCustom</item>
 
@@ -34,6 +31,20 @@
 
         <!-- custom shapes for all small components -->
         <item name="shapeAppearanceSmallComponent">@style/MySmallComponent.Light</item>
+
+        <item name="textAppearanceHeadline1">@style/HeadLine1</item>
+        <item name="textAppearanceHeadline2">@style/HeadLine2</item>
+        <item name="textAppearanceHeadline3">@style/HeadLine3</item>
+        <item name="textAppearanceHeadline4">@style/HeadLine4</item>
+        <item name="textAppearanceHeadline5">@style/HeadLine5</item>
+        <item name="textAppearanceHeadline6">@style/HeadLine6</item>
+        <item name="textAppearanceSubtitle1">@style/Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/Subtitle2</item>
+        <item name="textAppearanceBody1">@style/Body1</item>
+        <item name="textAppearanceBody2">@style/Body2</item>
+        <item name="textAppearanceCaption">@style/Caption</item>
+        <item name="textAppearanceButton">@style/Button</item>
+        <item name="textAppearanceOverline">@style/OverLine</item>
     </style>
 
     <!-- Light Theme -->
@@ -63,4 +74,57 @@
         <item name="android:indeterminate">true</item>
         <item name="android:scaleY">5</item>
     </style>
+
+    <style name="HeadLine1" parent="TextAppearance.MaterialComponents.Headline1">
+
+    </style>
+
+    <style name="HeadLine2" parent="TextAppearance.MaterialComponents.Headline2">
+
+    </style>
+
+    <style name="HeadLine3" parent="TextAppearance.MaterialComponents.Headline3">
+
+    </style>
+
+    <style name="HeadLine4" parent="TextAppearance.MaterialComponents.Headline4">
+
+    </style>
+
+    <style name="HeadLine5" parent="TextAppearance.MaterialComponents.Headline5">
+
+    </style>
+
+    <style name="HeadLine6" parent="TextAppearance.MaterialComponents.Headline6">
+
+    </style>
+
+    <style name="Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textColor">@color/myTextColorPrimary</item>
+    </style>
+
+    <style name="Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+
+    </style>
+
+    <style name="Body1" parent="TextAppearance.MaterialComponents.Body1">
+
+    </style>
+
+    <style name="Body2" parent="TextAppearance.MaterialComponents.Body2">
+
+    </style>
+
+    <style name="Caption" parent="TextAppearance.MaterialComponents.Caption">
+
+    </style>
+
+    <style name="Button" parent="TextAppearance.MaterialComponents.Button">
+
+    </style>
+
+    <style name="OverLine" parent="TextAppearance.MaterialComponents.Overline">
+
+    </style>
+
 </resources>

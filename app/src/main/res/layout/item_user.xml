@@ -47,6 +47,7 @@
                 android:layout_marginEnd="8dp"
                 android:ellipsize="end"
                 android:lines="1"
+                android:textAppearance="?textAppearanceSubtitle1"
                 asyncText="@{user.date}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_photo"
@@ -58,6 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:textAppearance="?textAppearanceSubtitle1"
                 asyncText="@{user.firstName + ` ` + user.lastName}"
                 app:layout_constraintStart_toEndOf="@+id/iv_photo"
                 app:layout_constraintTop_toTopOf="@+id/iv_photo"
@@ -69,6 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:textAppearance="?textAppearanceSubtitle1"
                 app:layout_constraintStart_toEndOf="@+id/iv_photo"
                 app:layout_constraintTop_toBottomOf="@+id/tv_date"
                 tools:text="@sample/users.json/data/age" />
