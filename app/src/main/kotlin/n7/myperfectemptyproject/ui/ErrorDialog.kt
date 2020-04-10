@@ -32,6 +32,8 @@ class ErrorDialog : DialogFragment() {
     }
 }
 
+// use Annotation @Keep will prevent proguard to shrink this class
+// also you can use this article to automize it https://android.jlelse.eu/how-to-generate-proguard-r8-rules-for-navigation-component-arguments-466e72e75ca7
 @Keep interface ErrorDialogListener : Serializable {
     fun onPositiveButtonClick()
 }
