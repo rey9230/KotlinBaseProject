@@ -29,6 +29,7 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
 
     class ViewHolder private constructor(private val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root) {
 
+        // can we animate our items? step brother? https://youtu.be/7LqeFDsi5dQ
         fun bind(user: VOUser) = user.run {
             binding.user = this
             // we will call executePendingBindings() so that the list item is updated without waiting for the next layout phase.
