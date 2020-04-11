@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import n7.myperfectemptyproject.databinding.ItemUserBinding
 import n7.myperfectemptyproject.ui.main.domain.vo.VOUser
 
-// https://youtu.be/GZkTwgetUWI?list=LLMBNl1baSJfDak1Lo2VVVZQ&t=1565
+// RecyclerView optimizations https://youtu.be/GZkTwgetUWI
 class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,6 +23,7 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
         super.onViewRecycled(holder)
     }
 
+    // in this method we should always stop different animation that happens on our viewHolder
     override fun onViewDetachedFromWindow(holder: ViewHolder) {
         super.onViewDetachedFromWindow(holder)
     }
