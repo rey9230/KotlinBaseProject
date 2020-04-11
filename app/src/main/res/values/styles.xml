@@ -142,6 +142,7 @@
 
     <style name="MyMaterialAlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <item name="alertDialogStyle">@style/MyDialogContainerAttributes</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MyDialogContentAttributes</item>
         <item name="android:windowAnimationStyle">@style/MyWindowAnimationStyle</item>
     </style>
 
@@ -156,6 +157,10 @@
         <item name="backgroundInsetStart">24dp</item>
         <item name="backgroundInsetEnd">24dp</item>
         <item name="shapeAppearance">?shapeAppearanceMediumComponent</item>
+    </style>
+
+    <style name="MyDialogContentAttributes" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@color/myTextColorPrimary</item>
     </style>
 
 </resources>
