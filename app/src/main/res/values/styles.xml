@@ -10,7 +10,7 @@
         <item name="colorOnPrimary">@color/myColorOnPrimary</item>
         <!-- Fab, Slider, CheckBox, Switch, Radio Button -->
         <item name="colorSecondary">@color/myColorSecondary</item>
-        <!--  A color on top of the secondary color (text/icon color on RadioButton, Switch, ...) -->
+        <!-- A color on top of the secondary color (text/icon color on RadioButton, Switch, ...) -->
         <item name="colorOnSecondary">@color/myColorOnSecondary</item>
 
         <!-- background color behind scrollable content -->
@@ -33,6 +33,9 @@
         <item name="shapeAppearanceSmallComponent">@style/MySmallComponent.Light</item>
         <item name="shapeAppearanceMediumComponent">@style/MyMediumComponent</item>
         <item name="shapeAppearanceLargeComponent">@style/MyLargeComponent</item>
+
+        <!-- theme for dialog -->
+        <item name="materialAlertDialogTheme">@style/MyMaterialAlertDialogTheme</item>
 
         <item name="textAppearanceHeadline1">@style/HeadLine1</item>
         <item name="textAppearanceHeadline2">@style/HeadLine2</item>
@@ -135,6 +138,24 @@
 
     <style name="OverLine" parent="TextAppearance.MaterialComponents.Overline">
 
+    </style>
+
+    <style name="MyMaterialAlertDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="alertDialogStyle">@style/MyDialogContainerAttributes</item>
+        <item name="android:windowAnimationStyle">@style/MyWindowAnimationStyle</item>
+    </style>
+
+    <style name="MyWindowAnimationStyle" parent="Animation.AppCompat.Dialog">
+        <item name="android:windowEnterAnimation">@anim/slide_from_left</item>
+        <item name="android:windowExitAnimation">@anim/slide_to_right</item>
+    </style>
+
+    <style name="MyDialogContainerAttributes" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="backgroundInsetTop">80dp</item>
+        <item name="backgroundInsetBottom">80dp</item>
+        <item name="backgroundInsetStart">24dp</item>
+        <item name="backgroundInsetEnd">24dp</item>
+        <item name="shapeAppearance">?shapeAppearanceMediumComponent</item>
     </style>
 
 </resources>

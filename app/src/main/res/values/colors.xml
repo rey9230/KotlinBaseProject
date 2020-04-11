@@ -11,10 +11,9 @@
     <color name="myColorBackground">#ffffff</color>
 
     <color name="myColorSurface">#ffffff</color>
-    <color name="myColorOnSurface">#000</color>
+    <color name="myColorOnSurface">#448aff</color>
 
     <color name="myTextColorPrimary">#000000</color>
 
     <color name="myColorCustom">#FFFFFF</color>
-
 </resources>
