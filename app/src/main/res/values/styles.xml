@@ -15,7 +15,7 @@
 
         <!-- background color behind scrollable content -->
         <item name="android:colorBackground">@color/myColorBackground</item>
-        <!-- surface colors (CardView, Sheet, Menu) -->
+        <!-- surface colors (CardView, Sheet, Menu, BackgroundColorDialog) -->
         <item name="colorSurface">@color/myColorSurface</item>
         <!-- color drawn on top of the surface color (background color snackbar, ...) -->
         <item name="colorOnSurface">@color/myColorOnSurface</item>
