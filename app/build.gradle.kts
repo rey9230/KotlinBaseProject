@@ -54,7 +54,7 @@ android {
     }
     buildTypes {
         getByName("debug") {
-            isMinifyEnabled = false // ProGuard turn off
+            isMinifyEnabled = false // R8 turn off
             isDebuggable = true
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
