@@ -4,6 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import java.util.Date
 
+// maybe i should use this instead of Moshi?? https://medium.com/better-programming/why-and-how-to-use-kotlins-native-serialization-library-c88c0f14f93d
 @JsonClass(generateAdapter = true)
 data class RemoteModel(
     val id: Int = 0,
