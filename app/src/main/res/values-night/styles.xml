@@ -12,10 +12,4 @@
 
         <item name="shapeAppearanceSmallComponent">@style/MySmallComponent.Dark</item>
     </style>
-
-    <style name="MySmallComponent.Dark" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerFamily">cut</item>
-        <item name="cornerSize">@dimen/dimen_corner_size</item>
-    </style>
-
 </resources>

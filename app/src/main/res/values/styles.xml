@@ -57,20 +57,6 @@
 
     </style>
 
-    <!-- share for light theme can be different from dark theme -->
-    <style name="MySmallComponent.Light" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerFamily">cut</item>
-        <item name="cornerSize">@dimen/dimen_corner_size</item>
-    </style>
-
-    <style name="MyMediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
-
-    </style>
-
-    <style name="MyLargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
-
-    </style>
-
     <style name="MyWindowAnimationTransition">
         <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
