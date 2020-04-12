@@ -9,6 +9,11 @@ import androidx.core.text.PrecomputedTextCompat
 import androidx.core.widget.TextViewCompat
 import androidx.databinding.BindingAdapter
 
+@BindingAdapter("isVisible")
+fun View.isVisible(isVisible: Boolean) {
+    this.visibility = if(isVisible) View.VISIBLE else View.GONE
+}
+
 /**
   * we take any TextView properties that may be controlled by Data Binding, and apply all of them at the beginning of our adapter
   */
