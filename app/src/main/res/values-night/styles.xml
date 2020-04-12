@@ -1,15 +1,3 @@
 <resources>
-    <!-- Dark Theme -->
-    <style name="Theme.MyApp.Main" parent="AppTheme">
-        <!-- Whether the elevation overlay functionality is enabled -->
-        <item name="elevationOverlayEnabled">true</item>
-        <!-- The color used for the elevation overlays, applied at an alpha based on elevation -->
-        <item name="elevationOverlayColor">@android:color/white</item>
 
-        <item name="colorOnSurface">@color/myColorPrimary</item>
-
-        <item name="android:windowLightStatusBar">false</item>
-
-        <item name="shapeAppearanceSmallComponent">@style/MySmallComponent.Dark</item>
-    </style>
 </resources>
