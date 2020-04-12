@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="MySmallComponent.Dark" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+    <style name="ShapeAppearance.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">cut</item>
         <item name="cornerSize">@dimen/dimen_corner_size</item>
     </style>

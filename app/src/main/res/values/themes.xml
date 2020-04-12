@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Status bar color ... -->
         <item name="colorPrimaryDark">@color/myColorPrimaryDark</item>
 
@@ -28,33 +28,32 @@
         <item name="android:windowLightStatusBar">true</item>
 
         <!-- windows transition animation between activities -->
-        <item name="android:windowAnimationStyle">@style/MyWindowAnimationTransition</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Window</item>
 
         <!-- custom shapes for all small components -->
-        <item name="shapeAppearanceSmallComponent">@style/MySmallComponent.Light</item>
-        <item name="shapeAppearanceMediumComponent">@style/MyMediumComponent</item>
-        <item name="shapeAppearanceLargeComponent">@style/MyLargeComponent</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.LargeComponent</item>
 
         <!-- theme for dialog -->
-        <item name="materialAlertDialogTheme">@style/MyMaterialAlertDialogTheme</item>
+        <item name="materialAlertDialogTheme">@style/Widget.Dialog</item>
 
-        <item name="textAppearanceHeadline1">@style/HeadLine1</item>
-        <item name="textAppearanceHeadline2">@style/HeadLine2</item>
-        <item name="textAppearanceHeadline3">@style/HeadLine3</item>
-        <item name="textAppearanceHeadline4">@style/HeadLine4</item>
-        <item name="textAppearanceHeadline5">@style/HeadLine5</item>
-        <item name="textAppearanceHeadline6">@style/HeadLine6</item>
-        <item name="textAppearanceSubtitle1">@style/Subtitle1</item>
-        <item name="textAppearanceSubtitle2">@style/Subtitle2</item>
-        <item name="textAppearanceBody1">@style/Body1</item>
-        <item name="textAppearanceBody2">@style/Body2</item>
-        <item name="textAppearanceCaption">@style/Caption</item>
-        <item name="textAppearanceButton">@style/Button</item>
-        <item name="textAppearanceOverline">@style/OverLine</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.HeadLine1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.HeadLine2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.HeadLine3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.HeadLine4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.HeadLine5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.HeadLine6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Body2</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Caption</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Button</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.OverLine</item>
     </style>
 
-    <!-- Light Theme -->
-    <style name="Theme.MyApp.Main" parent="AppTheme">
+    <style name="Theme.N7">
 
     </style>
 
