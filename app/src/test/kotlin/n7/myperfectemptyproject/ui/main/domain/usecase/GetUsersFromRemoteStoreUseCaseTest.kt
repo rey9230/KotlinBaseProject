@@ -14,7 +14,6 @@ import n7.myperfectemptyproject.data.source.remote.model.RemoteUsers
 import n7.runBlockingTest
 import org.junit.Rule
 import org.junit.Test
-import org.junit.jupiter.api.Timeout
 
 @ExperimentalCoroutinesApi
 @MediumTest
@@ -35,7 +34,6 @@ class GetUsersFromRemoteStoreUseCaseTest {
         GetUsersFromRemoteStoreUseCase(repositoryImpl, coroutineTestRule.testDispatcher)
 
     @Test
-    @Timeout(1)
     fun `verify user first and last name`() {
         coroutineTestRule.runBlockingTest {
             val remoteUsers = getUsersFromRemoteStoreUseCase(any())

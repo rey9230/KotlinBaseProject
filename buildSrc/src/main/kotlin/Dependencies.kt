@@ -86,7 +86,6 @@ object Lib {
         const val espresso        = "androidx.test.espresso:espresso-core:3.2.0"
         const val espressoIntents = "androidx.test.espresso:espresso-intents:3.2.0"
 
-
     }
 
     object AndroidTest {
