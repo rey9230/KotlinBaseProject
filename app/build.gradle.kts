@@ -24,8 +24,7 @@ android {
         versionName = Apps.versionName
 //        multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner =
-            "androidx.test.runner.AndroidJUnitRunner" // specify a test runner in the same module-level
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" // base runner that - handles loading test package and app to device - running tests - reporting tests results (for androidTestImplementation )
         setProperty("archivesBaseName", "$applicationId-v$versionName.$versionCode") // name for generated apk file
         // javaCompileOptions {
         //     annotationProcessorOptions {

@@ -72,7 +72,6 @@ object Lib {
         const val junit          = "junit:junit:4.13" // Required -- JUnit 4 framework
         const val testCore       = "androidx.test:core:1.2.0" // Core library
         const val testCoreKtx    = "androidx.test:core-ktx:1.2.0"
-        const val testRunner     = "androidx.test:runner:1.2.0" // AndroidJUnitRunner
         const val testRules      = "androidx.test:rules:1.2.0" // JUnit Rules
         const val testJunit      = "androidx.test.ext:junit:1.1.1" // Assertions
         const val testJunitKtx   = "androidx.test.ext:junit-ktx:1.1.1" // Assertions
@@ -83,6 +82,7 @@ object Lib {
         const val mockito        = "org.mockito:mockito-core:3.2.4"
         const val mockitokotlin  = "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0" // A small library that provides helper functions to work with Mockito in Kotlin.
 
+        const val testRunner     = "androidx.test:runner:1.2.0" // AndroidJUnitRunner
         const val espresso        = "androidx.test.espresso:espresso-core:3.2.0"
         const val espressoIntents = "androidx.test.espresso:espresso-intents:3.2.0"
 
