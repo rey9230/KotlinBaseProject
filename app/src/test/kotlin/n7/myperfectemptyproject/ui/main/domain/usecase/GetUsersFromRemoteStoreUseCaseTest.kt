@@ -1,5 +1,6 @@
 package n7.myperfectemptyproject.ui.main.domain.usecase
 
+import androidx.test.filters.FlakyTest
 import androidx.test.filters.MediumTest
 import com.google.common.truth.Truth.assertThat
 import com.nhaarman.mockitokotlin2.any
@@ -14,9 +15,13 @@ import n7.myperfectemptyproject.data.source.remote.model.RemoteUsers
 import n7.runBlockingTest
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.junit.runners.BlockJUnit4ClassRunner
 
 @ExperimentalCoroutinesApi
 @MediumTest
+@FlakyTest // tests that can work in 9/10 cases
+@RunWith(BlockJUnit4ClassRunner::class) // default runner, we can not write it every time
 class GetUsersFromRemoteStoreUseCaseTest {
 
     @get:Rule
