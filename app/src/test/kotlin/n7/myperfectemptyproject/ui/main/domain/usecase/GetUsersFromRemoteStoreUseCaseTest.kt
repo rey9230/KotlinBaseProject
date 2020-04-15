@@ -35,18 +35,20 @@ class GetUsersFromRemoteStoreUseCaseTest {
         onBlocking { getRemoteUsers(any()) } doReturn remoteUsers
     }
 
-    private val getUsersFromRemoteStoreUseCase =
-        GetUsersFromRemoteStoreUseCase(repositoryImpl, coroutineTestRule.testDispatcher)
+    private val getUsersFromRemoteStoreUseCase = GetUsersFromRemoteStoreUseCase(repositoryImpl, coroutineTestRule.testDispatcher)
+
+    @Test(expected = NullPointerException::class)
+    fun `throw NullPointerException`() = coroutineTestRule.runBlockingTest {
+        throw NullPointerException()
+    }
 
     @Test
-    fun `verify user first and last name`() {
-        coroutineTestRule.runBlockingTest {
-            val remoteUsers = getUsersFromRemoteStoreUseCase(any())
-            remoteUsers.onSuccess {
-                val remoteUser = it.results[0]
-                assertThat(remoteUser.name.first).isEqualTo(firstName)
-                assertThat(remoteUser.name.last).isEqualTo(lastName)
-            }
+    fun `verify user first and last name`() = coroutineTestRule.runBlockingTest {
+        val remoteUsers = getUsersFromRemoteStoreUseCase(any())
+        remoteUsers.onSuccess {
+            val remoteUser = it.results[0]
+            assertThat(remoteUser.name.first).isEqualTo(firstName)
+            assertThat(remoteUser.name.last).isEqualTo(lastName)
         }
     }
 }
