@@ -165,7 +165,6 @@ dependencies {
     // LintRules
     lintChecks(project(":rules"))
 
-    testImplementation(Lib.Test.junit)
     testImplementation(Lib.Test.testCore)
     testImplementation(Lib.Test.testCoreKtx)
     testImplementation(Lib.Test.testRunner)

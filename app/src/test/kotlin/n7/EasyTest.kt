@@ -11,10 +11,8 @@ import java.util.*
 import n7.myperfectemptyproject.data.source.remote.model.RemoteModel
 import org.junit.Rule
 import org.junit.Test
-import org.junit.jupiter.api.TestInstance
 
 @SmallTest
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class EasyTest {
 
 //    private val mainViewModel: MainViewModel = MainViewModel()
