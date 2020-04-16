@@ -83,6 +83,10 @@ object Lib {
 
         const val testRunner     = "androidx.test:runner:1.2.0" // AndroidJUnitRunner
         const val espresso        = "androidx.test.espresso:espresso-core:3.2.0"
+        const val espressoContrib = "androidx.test.espresso:espresso-contrib:3.1.0"
+        const val espressoWeb = "androidx.test.espresso:espresso-web:3.1.0"
+        const val espressoIdling = "androidx.test.espresso.idling:idling-concurrent:3.1.0" // this dependency an be implementation
+        const val espressoAccessibility = "androidx.test.espresso:espresso-accessibility:3.1.0"
         const val espressoIntents = "androidx.test.espresso:espresso-intents:3.2.0"
 
     }
