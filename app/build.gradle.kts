@@ -119,7 +119,7 @@ android {
             // for robolectic
             isIncludeAndroidResources = true
         }
-        setExecution("ANDROID_TEST_ORCHESTRATOR")
+        // setExecution("ANDROID_TEST_ORCHESTRATOR")
     }
 
 }
