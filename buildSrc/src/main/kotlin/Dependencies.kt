@@ -21,7 +21,7 @@ object Lib {
     const val coreKtx          = "androidx.core:core-ktx:1.2.0" // Write more concise, idiomatic Kotlin code.
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
     const val material         = "com.google.android.material:material:1.2.0-alpha05" // Build beautiful products, faster.
-    const val coil             = "io.coil-kt:coil:0.8.0"
+    const val coil             = "io.coil-kt:coil:0.9.5"
 
     // --- Preference ---
     const val preference       = "androidx.preference:preference:1.1.0"

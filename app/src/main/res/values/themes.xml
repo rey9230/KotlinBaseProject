@@ -3,7 +3,7 @@
 
     <style name="Theme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Status bar color ... -->
-        <item name="colorPrimaryDark">@color/myColorPrimaryDark</item>
+        <item name="android:statusBarColor">@color/myColorPrimaryDark</item>
 
         <!-- Buttons, Toolbar, Selected Items, Tabs, Progress -->
         <item name="colorPrimary">@color/myColorPrimary</item>
