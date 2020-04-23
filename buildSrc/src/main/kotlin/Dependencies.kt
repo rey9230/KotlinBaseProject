@@ -10,10 +10,15 @@ object Apps {
 }
 
 object Versions {
-    const val gradle   = "3.5.3"
-    const val kotlin   = "1.3.60"
-
-    const val safeArgs = "2.2.0-alpha03"
+    const val gradle       = "3.5.3"
+    const val kotlin       = "1.3.60"
+    const val moshi        = "1.9.2"
+    const val room         = "2.2.4"
+    const val navigation   = "2.2.1"
+    const val dagger       = "2.25.2"
+    const val retrofit     = "2.7.1"
+    const val daggerAssist = "0.5.2"
+    const val safeArgs     = "2.2.0-alpha03"
 }
 
 object Lib {
@@ -41,31 +46,31 @@ object Lib {
     const val coroutinesPlayServices = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.3.2"
 
     // --- Dagger ---
-    const val dagger                   = "com.google.dagger:dagger:2.25.2"
-    const val daggerAnnotation         = "com.google.dagger:dagger-compiler:2.25.2"
-    const val daggerAssisted           = "com.squareup.inject:assisted-inject-annotations-dagger2:0.5.2"
-    const val daggerAssistedAnnotation = "com.squareup.inject:assisted-inject-processor-dagger2:0.5.2"
+    const val dagger                   = "com.google.dagger:dagger:${Versions.dagger}"
+    const val daggerAnnotation         = "com.google.dagger:dagger-compiler:${Versions.dagger}"
+    const val daggerAssisted           = "com.squareup.inject:assisted-inject-annotations-dagger2:${Versions.daggerAssist}"
+    const val daggerAssistedAnnotation = "com.squareup.inject:assisted-inject-processor-dagger2:${Versions.daggerAssist}"
 
     //  --- Navigation ---
-    const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:2.2.1" // Fragment.findNavController + Fragment.navArgs
-    const val navigationUiKtx       = "androidx.navigation:navigation-ui-ktx:2.2.1" // setupActionBarWithNavController + setupWithNavController
-    const val navigationRuntimeKtx  = "androidx.navigation:navigation-runtime-ktx:2.2.1" // Activity.findNavController + Activity.navArgs + View.findNavController
+    const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}" // Fragment.findNavController + Fragment.navArgs
+    const val navigationUiKtx       = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}" // setupActionBarWithNavController + setupWithNavController
+    const val navigationRuntimeKtx  = "androidx.navigation:navigation-runtime-ktx:${Versions.navigation}" // Activity.findNavController + Activity.navArgs + View.findNavController
 
     // --- Retrofit ---
-    const val retrofit               = "com.squareup.retrofit2:retrofit:2.7.1"
-    const val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:2.7.1"
+    const val retrofit               = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     const val retrofitInterceptor    = "com.squareup.okhttp3:logging-interceptor:4.3.1"
 
     // --- Moshi ---
-    const val moshi        = "com.squareup.moshi:moshi:1.9.2" // It makes it easy to parse JSON into Kotlin objects
-    const val moshiCodegen = "com.squareup.moshi:moshi-kotlin-codegen:1.9.2" // Add codegen to moshi (generating by using @JsonClass(generateAdapter = true))
-    const val moshiKotlin  = "com.squareup.moshi:moshi-kotlin:1.9.2" // Add reflection to moshi (better not to use : 2.5 MB)
-    const val moshiAdapter = "com.squareup.moshi:moshi-adapters:1.9.2"
+    const val moshi        = "com.squareup.moshi:moshi:${Versions.moshi}" // It makes it easy to parse JSON into Kotlin objects
+    const val moshiCodegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}" // Add codegen to moshi (generating by using @JsonClass(generateAdapter = true))
+    const val moshiKotlin  = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}" // Add reflection to moshi (better not to use : 2.5 MB)
+    const val moshiAdapter = "com.squareup.moshi:moshi-adapters:${Versions.moshi}"
 
     // --- Room ---
-    const val room           = "androidx.room:room-runtime:2.2.4"
-    const val roomAnnotation = "androidx.room:room-compiler:2.2.4"
-    const val roomKtx        = "androidx.room:room-ktx:2.2.4" // kotlin Extensions and Coroutines support for Room
+    const val room           = "androidx.room:room-runtime:${Versions.room}"
+    const val roomAnnotation = "androidx.room:room-compiler:${Versions.room}"
+    const val roomKtx        = "androidx.room:room-ktx:${Versions.room}" // kotlin Extensions and Coroutines support for Room
 
     object Test {
         const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.2"
