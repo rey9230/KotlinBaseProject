@@ -16,3 +16,4 @@
 *.log
 buildSrc/**/*
 !buildSrc/src/**/*
+/benchmark/build/**/*
