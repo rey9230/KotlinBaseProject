@@ -3,11 +3,22 @@ package n7.myperfectemptyproject.utils
 import android.graphics.Paint
 import android.os.SystemClock
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.text.PrecomputedTextCompat
 import androidx.core.widget.TextViewCompat
 import androidx.databinding.BindingAdapter
+import coil.api.load
+import coil.transform.RoundedCornersTransformation
+
+@BindingAdapter("loadImageUrl")
+fun ImageView.loadImageUrl(url: String?) {
+    this.load(url) {
+        crossfade(true)
+        transformations(RoundedCornersTransformation(10F))
+    }
+}
 
 @BindingAdapter("isVisible")
 fun View.isVisible(isVisible: Boolean) {
@@ -38,7 +49,7 @@ fun asyncText(textView: TextView, text: CharSequence, textSize: Int?) {
 /**
  *   we can зачеркнуть string~!
  */
-@BindingAdapter("app:completedTask")
+@BindingAdapter("completedTask")
 fun setStyle(textView: TextView, enabled: Boolean) {
     if (enabled) {
         textView.paintFlags = textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
@@ -55,6 +66,17 @@ fun View.setOnDebouncedClickListener(action: () -> Unit) {
     // This is the only place in the project where we should actually use setOnClickListener
     setOnClickListener {
         actionDebounce.notifyAction()
+    }
+}
+
+@BindingAdapter("onLongClick")
+fun View.setOnDebouncedLongClickListener(action: () -> Unit) {
+    val actionDebounce = ActionDebounce(action)
+
+    // This is the only place in the project where we should actually use setOnClickListener
+    setOnLongClickListener {
+        actionDebounce.notifyAction()
+        return@setOnLongClickListener true
     }
 }
 
