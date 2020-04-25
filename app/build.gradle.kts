@@ -161,6 +161,7 @@ dependencies {
     kapt(Lib.roomAnnotation)
     implementation(Lib.preference)
     implementation(Lib.preferenceKtx)
+    implementation(Lib.springAnimation)
 
     // LintRules
     lintChecks(project(":rules"))
