@@ -162,6 +162,7 @@ dependencies {
     implementation(Lib.preference)
     implementation(Lib.preferenceKtx)
     implementation(Lib.springAnimation)
+    implementation(Lib.springAnimationKtx)
 
     // LintRules
     lintChecks(project(":rules"))
