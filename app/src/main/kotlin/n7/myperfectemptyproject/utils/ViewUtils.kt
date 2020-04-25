@@ -48,7 +48,7 @@ fun setStyle(textView: TextView, enabled: Boolean) {
 }
 
 //todo write custom rule for newbie developers that warn them to use only this method!
-@BindingAdapter("setOnDebouncedClickListener")
+@BindingAdapter("onClick")
 fun View.setOnDebouncedClickListener(action: () -> Unit) {
     val actionDebounce = ActionDebounce(action)
 
