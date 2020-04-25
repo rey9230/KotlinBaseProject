@@ -69,17 +69,6 @@ fun View.setOnDebouncedClickListener(action: () -> Unit) {
     }
 }
 
-@BindingAdapter("onLongClick")
-fun View.setOnDebouncedLongClickListener(action: () -> Unit) {
-    val actionDebounce = ActionDebounce(action)
-
-    // This is the only place in the project where we should actually use setOnClickListener
-    setOnLongClickListener {
-        actionDebounce.notifyAction()
-        return@setOnLongClickListener true
-    }
-}
-
 fun View.removeOnDebouncedClickListener() {
     setOnClickListener(null)
     isClickable = false
