@@ -22,12 +22,13 @@ object Versions {
 }
 
 object Lib {
-    const val appcompat        = "androidx.appcompat:appcompat:1.1.0" // Degrade gracefully on older versions of Android.
-    const val coreKtx          = "androidx.core:core-ktx:1.2.0" // Write more concise, idiomatic Kotlin code.
-    const val constraintLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
-    const val material         = "com.google.android.material:material:1.2.0-alpha05" // Build beautiful products, faster.
-    const val coil             = "io.coil-kt:coil:0.9.5"
-    const val springAnimation  = "androidx.dynamicanimation:dynamicanimation:1.0.0"
+    const val appcompat           = "androidx.appcompat:appcompat:1.1.0" // Degrade gracefully on older versions of Android.
+    const val coreKtx             = "androidx.core:core-ktx:1.2.0" // Write more concise, idiomatic Kotlin code.
+    const val constraintLayout    = "androidx.constraintlayout:constraintlayout:1.1.3"
+    const val material            = "com.google.android.material:material:1.2.0-alpha05" // Build beautiful products, faster.
+    const val coil                = "io.coil-kt:coil:0.9.5"
+    const val springAnimation     = "androidx.dynamicanimation:dynamicanimation:1.0.0"
+    const val springAnimationKtx  = "androidx.dynamicanimation:dynamicanimation-ktx:1.0.0-alpha03"
 
     // --- Preference ---
     const val preference       = "androidx.preference:preference:1.1.0"
