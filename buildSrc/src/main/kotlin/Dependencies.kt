@@ -27,6 +27,7 @@ object Lib {
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:1.1.3"
     const val material         = "com.google.android.material:material:1.2.0-alpha05" // Build beautiful products, faster.
     const val coil             = "io.coil-kt:coil:0.9.5"
+    const val springAnimation  = "androidx.dynamicanimation:dynamicanimation:1.0.0"
 
     // --- Preference ---
     const val preference       = "androidx.preference:preference:1.1.0"
