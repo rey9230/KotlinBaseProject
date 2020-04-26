@@ -50,8 +50,8 @@ internal class ChangeThemeButtonBehavior(context: Context, attributeSet: Attribu
             targetTranslation
         ).apply {
             withSpringForceProperties {
-                dampingRatio = SpringForce.DAMPING_RATIO_LOW_BOUNCY
-                stiffness = SpringForce.STIFFNESS_MEDIUM
+                dampingRatio = SpringForce.DAMPING_RATIO_LOW_BOUNCY // how much bounce animation will be
+                stiffness = SpringForce.STIFFNESS_MEDIUM // how quickly animation will be
             }
             animateToFinalPosition(targetTranslation)
         }
