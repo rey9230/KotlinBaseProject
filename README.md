@@ -89,8 +89,6 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
 
 ![componentsStyle](component_styles.png) 
 ![code](component_style_in_action.png)</p></details>
-
-* 
 <details><summary>about elevation</summary><p>
 
 ![code](elevation.png)</p></details>
@@ -115,9 +113,9 @@ we can build our own shape appearance by following these [attributes](https://ma
 * [Android Unique ID](https://proandroiddev.com/how-to-generate-android-unique-id-38362794e1a8)
 * git help [(rus)](https://github.com/nicothin/web-development/tree/master/git)
 * git help2 [(rus)](https://github.com/k88hudson/git-flight-rules/blob/master/README_ru.md#%D0%A0%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B8) [(eng)](https://github.com/k88hudson/git-flight-rules/blob/master/README.md)
-* <details><summary>vim cheatSheet</summary><p>
+<details><summary>vim cheatSheet</summary><p>
 
-![code](elevation.png)</p></details>
+![code](vim.png)</p></details>
 * reduce complexity for svg [svgomg](https://jakearchibald.github.io/svgomg/) 
 * [VD (Vector Drawable)](https://www.youtube.com/watch?v=fgbl34me3kk)
 * Animations 
