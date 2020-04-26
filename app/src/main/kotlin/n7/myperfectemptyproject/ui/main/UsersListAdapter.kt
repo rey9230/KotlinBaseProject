@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import n7.myperfectemptyproject.databinding.ItemUserBinding
 import n7.myperfectemptyproject.ui.main.domain.vo.VOUser
+import n7.myperfectemptyproject.utils.animateRotation
+import n7.myperfectemptyproject.utils.animateTranslationX
 
 // RecyclerView optimizations https://youtu.be/GZkTwgetUWI
 class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCallback()) {
@@ -17,6 +19,8 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
+        holder.animateRotation()
+        holder.animateTranslationX()
     }
 
     override fun onViewRecycled(holder: ViewHolder) {
@@ -42,7 +46,6 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
         }
 
         fun clear() {
-
         }
 
         companion object {
