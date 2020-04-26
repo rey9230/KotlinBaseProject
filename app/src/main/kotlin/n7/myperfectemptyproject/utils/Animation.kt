@@ -1,5 +1,6 @@
 package n7.myperfectemptyproject.utils
 
+import android.view.View
 import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
@@ -27,4 +28,13 @@ fun RecyclerView.ViewHolder.animateRotation() {
         setStartValue(-5f)
         start()
     }
+}
+
+fun View.spring(property: DynamicAnimation.ViewProperty): SpringAnimation {
+    var springAnimation = getTag(property.hashCode()) as? SpringAnimation?
+    if (springAnimation == null) {
+        springAnimation = SpringAnimation(this, property)
+        setTag(property.hashCode(), springAnimation)
+    }
+    return springAnimation
 }

@@ -9,6 +9,7 @@ import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
 import androidx.dynamicanimation.animation.withSpringForceProperties
 import com.google.android.material.button.MaterialButton
+import n7.myperfectemptyproject.utils.spring
 
 internal class ChangeThemeButtonBehavior(context: Context, attributeSet: AttributeSet? = null) :
     CoordinatorLayout.Behavior<MaterialButton>(context, attributeSet) {
@@ -44,11 +45,8 @@ internal class ChangeThemeButtonBehavior(context: Context, attributeSet: Attribu
         val targetTranslation = if (visibleOnScreen) 0f else -target.width.toFloat() - target.paddingEnd
         if (lastVisibleOnScreenState == visibleOnScreen) return
         lastVisibleOnScreenState = visibleOnScreen
-        SpringAnimation(
-            target,
-            SpringAnimation.TRANSLATION_X,
-            targetTranslation
-        ).apply {
+
+        target.spring(SpringAnimation.TRANSLATION_X).apply {
             withSpringForceProperties {
                 dampingRatio = SpringForce.DAMPING_RATIO_LOW_BOUNCY // how much bounce animation will be
                 stiffness = SpringForce.STIFFNESS_MEDIUM // how quickly animation will be
