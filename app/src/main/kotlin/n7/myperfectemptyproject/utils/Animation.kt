@@ -30,6 +30,7 @@ fun RecyclerView.ViewHolder.animateRotation() {
     }
 }
 
+// create or grubbing existing spring animation
 fun View.spring(property: DynamicAnimation.ViewProperty): SpringAnimation {
     var springAnimation = getTag(property.hashCode()) as? SpringAnimation?
     if (springAnimation == null) {
