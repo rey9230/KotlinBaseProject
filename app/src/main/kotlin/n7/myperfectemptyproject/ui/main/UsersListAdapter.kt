@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import n7.myperfectemptyproject.databinding.ItemUserBinding
 import n7.myperfectemptyproject.ui.main.domain.vo.VOUser
-import n7.myperfectemptyproject.utils.animateRotation
-import n7.myperfectemptyproject.utils.animateTranslationX
+import n7.myperfectemptyproject.utils.extension.animateRotation
+import n7.myperfectemptyproject.utils.extension.animateTranslationX
 
 // RecyclerView optimizations https://youtu.be/GZkTwgetUWI
 class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCallback()) {

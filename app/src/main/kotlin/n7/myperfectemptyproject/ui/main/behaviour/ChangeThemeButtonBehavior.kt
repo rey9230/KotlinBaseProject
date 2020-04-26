@@ -9,7 +9,7 @@ import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
 import androidx.dynamicanimation.animation.withSpringForceProperties
 import com.google.android.material.button.MaterialButton
-import n7.myperfectemptyproject.utils.spring
+import n7.myperfectemptyproject.utils.extension.spring
 
 // thx to this video https://www.youtube.com/watch?v=Nw-fvUzgm9g
 internal class ChangeThemeButtonBehavior(context: Context, attributeSet: AttributeSet? = null) :

@@ -11,9 +11,9 @@ import n7.myperfectemptyproject.databinding.MainFragmentBinding
 import n7.myperfectemptyproject.di.injector
 import n7.myperfectemptyproject.ui.ErrorDialogDirections
 import n7.myperfectemptyproject.ui.ErrorDialogListener
-import n7.myperfectemptyproject.utils.setOnBackPressExit
-import n7.myperfectemptyproject.utils.setupErrorSnackbar
-import n7.myperfectemptyproject.utils.showSnackbar
+import n7.myperfectemptyproject.utils.extension.setOnBackPressExit
+import n7.myperfectemptyproject.utils.extension.setupErrorSnackbar
+import n7.myperfectemptyproject.utils.extension.showSnackbar
 import n7.myperfectemptyproject.utils.viewModelWithSavedStateHandle
 
 class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
