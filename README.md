@@ -90,10 +90,10 @@ i'm using the best DI scenario for ViewModel that i have ever seen in my life (t
 ![componentsStyle](component_styles.png) 
 ![code](component_style_in_action.png)</p></details>
 
-* <details><summary>about elevation</summary><p>
+* 
+<details><summary>about elevation</summary><p>
 
-![code](elevation.png)
-</p></details>
+![code](elevation.png)</p></details>
 
 * each view component belongs to a specific group 
     * ```shapeAppearanceSmallComponent```
