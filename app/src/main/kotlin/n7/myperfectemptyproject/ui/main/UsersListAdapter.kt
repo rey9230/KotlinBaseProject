@@ -43,6 +43,10 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
             // recommend trying PrecomputedText with list item TextViews that commonly display 200 characters or more
             // read about this https://medium.com/androiddevelopers/prefetch-text-layout-in-recyclerview-4acf9103f438
             // binding.tvDate.setTextFuture(PrecomputedTextCompat.getTextFuture(date!!.toString(), TextViewCompat.getTextMetricsParams(binding.tvDate), null))
+
+            binding.root.setOnClickListener {
+                binding.root.isSelected = !binding.root.isSelected
+            }
         }
 
         fun clear() {

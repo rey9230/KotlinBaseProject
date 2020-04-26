@@ -16,6 +16,7 @@
         android:layout_margin="4dp"
         android:clickable="true"
         android:focusable="true"
+        android:stateListAnimator="@animator/selected_user"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardPreventCornerOverlap="true">
 
