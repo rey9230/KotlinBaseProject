@@ -5,6 +5,9 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.ViewCompat
+import androidx.dynamicanimation.animation.SpringAnimation
+import androidx.dynamicanimation.animation.SpringForce
+import androidx.dynamicanimation.animation.withSpringForceProperties
 import com.google.android.material.button.MaterialButton
 
 internal class ChangeThemeButtonBehavior(context: Context, attributeSet: AttributeSet? = null) :
@@ -41,10 +44,16 @@ internal class ChangeThemeButtonBehavior(context: Context, attributeSet: Attribu
         val targetTranslation = if (visibleOnScreen) 0f else -target.width.toFloat() - target.paddingEnd
         if (lastVisibleOnScreenState == visibleOnScreen) return
         lastVisibleOnScreenState = visibleOnScreen
-        target.animate().apply {
-            translationX(targetTranslation)
-            duration = 300
-            start()
+        SpringAnimation(
+            target,
+            SpringAnimation.TRANSLATION_X,
+            targetTranslation
+        ).apply {
+            withSpringForceProperties {
+                dampingRatio = SpringForce.DAMPING_RATIO_LOW_BOUNCY
+                stiffness = SpringForce.STIFFNESS_MEDIUM
+            }
+            animateToFinalPosition(targetTranslation)
         }
     }
 }
