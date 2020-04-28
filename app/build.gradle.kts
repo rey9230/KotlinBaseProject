@@ -182,10 +182,13 @@ dependencies {
     testImplementation(Lib.Test.coroutinesTest)
 
     // UI Test
-    androidTestImplementation(Lib.Test.testJunit)
-    androidTestImplementation(Lib.Test.testJunitKtx)
-    androidTestImplementation(Lib.Test.espresso)
-    androidTestImplementation(Lib.Test.espressoIntents)
+    androidTestImplementation(Lib.Test.testCore)
+    androidTestImplementation(Lib.Test.testCoreKtx)
     androidTestImplementation(Lib.Test.testRules)
     androidTestImplementation(Lib.Test.testRunner)
+    androidTestImplementation(Lib.Test.testJunit)
+    androidTestImplementation(Lib.Test.testJunitKtx)
+    androidTestImplementation(Lib.Test.coreTesting)
+    androidTestImplementation(Lib.Test.espresso)
+    androidTestImplementation(Lib.Test.espressoIntents)
 }

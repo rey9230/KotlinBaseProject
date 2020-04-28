@@ -10,6 +10,7 @@ object Apps {
 }
 
 object Versions {
+    const val lifecycle    = "2.2.0"
     const val gradle       = "3.5.3"
     const val kotlin       = "1.3.60"
     const val moshi        = "1.9.2"
@@ -30,6 +31,10 @@ object Lib {
     const val springAnimation     = "androidx.dynamicanimation:dynamicanimation:1.0.0"
     const val springAnimationKtx  = "androidx.dynamicanimation:dynamicanimation-ktx:1.0.0-alpha03"
 
+    const val lifecycleService    = "androidx.lifecycle:lifecycle-service:${Versions.lifecycle}" // helpers for implementing LifecycleOwner in a Service
+    const val lifecycleProcess    = "androidx.lifecycle:lifecycle-process:${Versions.lifecycle}" // ProcessLifecycleOwner provides a lifecycle for the whole application process
+
+
     // --- Preference ---
     const val preference       = "androidx.preference:preference:1.1.0"
     const val preferenceKtx    = "androidx.preference:preference-ktx:1.1.0"
@@ -37,10 +42,10 @@ object Lib {
     // --- Coroutines ---
     const val coroutines          = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2"
     const val coroutinesAndroid   = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2" // for testing coroutines
-    const val coroutinesLifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0" // lifecycleScope + launchWhenResumed and ets.
-    const val coroutinesLivedata  = "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0" // liveData (LiveData + coroutines) + lambda for livedata
-    const val coroutinesViewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0" // viewModelScope + savedStateHandle
-    const val lifecycleAnnotation = "androidx.lifecycle:lifecycle-common-java8:2.2.0" // that's only needed if you have lifecycle-related annotations in your code, specifically @OnLifecycleEvent
+    const val coroutinesLifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}" // lifecycleScope + launchWhenResumed and ets.
+    const val coroutinesLivedata  = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}" // liveData (LiveData + coroutines) + lambda for livedata
+    const val coroutinesViewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}" // viewModelScope + savedStateHandle
+    const val lifecycleAnnotation = "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}" // that's only needed if you have lifecycle-related annotations in your code, specifically @OnLifecycleEvent
     const val fragmentKtx         = "androidx.fragment:fragment-ktx:1.2.4" // easy fragment transaction + by viewModels()
     const val activityKtx         = "androidx.activity:activity-ktx:1.1.0" // on BackPress support for Fragment
 
