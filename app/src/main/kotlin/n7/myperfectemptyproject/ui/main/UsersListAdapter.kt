@@ -9,15 +9,19 @@ import n7.myperfectemptyproject.databinding.ItemUserBinding
 import n7.myperfectemptyproject.ui.main.domain.vo.VOUser
 import n7.myperfectemptyproject.utils.extension.animateRotation
 import n7.myperfectemptyproject.utils.extension.animateTranslationX
+import java.lang.ref.WeakReference
 
 // RecyclerView optimizations https://youtu.be/GZkTwgetUWI
 class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCallback()) {
+
+    val activeViewHolders = ArrayList<WeakReference<ViewHolder>>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        activeViewHolders.add(WeakReference(holder))
         holder.bind(getItem(position))
         holder.animateRotation()
         holder.animateTranslationX()
@@ -25,6 +29,12 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
 
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
+        for (i in 0 until activeViewHolders.size - 1) {
+            val currentViewHolder = activeViewHolders[i].get()
+            if (currentViewHolder == null || currentViewHolder == holder) {
+                activeViewHolders.removeAt(i)
+            }
+        }
     }
 
     // in this method we should always stop different animation that happens on our viewHolder
