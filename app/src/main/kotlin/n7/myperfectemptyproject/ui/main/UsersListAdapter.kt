@@ -1,6 +1,7 @@
 package n7.myperfectemptyproject.ui.main
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -14,10 +15,13 @@ import java.lang.ref.WeakReference
 // RecyclerView optimizations https://youtu.be/GZkTwgetUWI
 class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCallback()) {
 
-    val activeViewHolders = ArrayList<WeakReference<ViewHolder>>()
+    private val activeViewHolders = ArrayList<WeakReference<ViewHolder>>()
+    private val listener = View.OnClickListener {
+        it.isSelected = !it.isSelected
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.from(parent)
+        return ViewHolder.from(parent, listener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -42,7 +46,10 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
         super.onViewDetachedFromWindow(holder)
     }
 
-    class ViewHolder private constructor(private val binding: ItemUserBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(
+        private val binding: ItemUserBinding,
+        private val listener: View.OnClickListener
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         // can we animate our items? step brother? https://youtu.be/7LqeFDsi5dQ
         fun bind(user: VOUser) = user.run {
@@ -54,25 +61,27 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
             // read about this https://medium.com/androiddevelopers/prefetch-text-layout-in-recyclerview-4acf9103f438
             // binding.tvDate.setTextFuture(PrecomputedTextCompat.getTextFuture(date!!.toString(), TextViewCompat.getTextMetricsParams(binding.tvDate), null))
 
-            binding.root.setOnClickListener {
-                binding.root.isSelected = !binding.root.isSelected
-            }
+            binding.root.setOnClickListener(listener)
         }
 
         fun clear() {
+            binding.root.setOnClickListener(null)
         }
 
         companion object {
-            fun from(parent: ViewGroup): ViewHolder {
+            fun from(
+                parent: ViewGroup,
+                listener: View.OnClickListener
+            ): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ItemUserBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding)
+                return ViewHolder(binding, listener)
             }
         }
     }
 }
 
-class DiffCallback : DiffUtil.ItemCallback<VOUser>() {
+private class DiffCallback : DiffUtil.ItemCallback<VOUser>() {
 
     override fun areItemsTheSame(oldItem: VOUser, newItem: VOUser): Boolean {
         return oldItem.firstName == newItem.firstName
