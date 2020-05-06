@@ -163,6 +163,7 @@ dependencies {
     implementation(Lib.preferenceKtx)
     implementation(Lib.springAnimation)
     implementation(Lib.springAnimationKtx)
+    implementation(Lib.recyclerView)
 
     // LintRules
     lintChecks(project(":rules"))
