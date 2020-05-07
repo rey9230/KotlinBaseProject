@@ -3,6 +3,7 @@ package n7.myperfectemptyproject.ui.main
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentResultListener
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,8 +36,18 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
         setOnBackPressExit()
         setupListAdapter()
         setupErrorSnackbar()
+        registerFragmentResultListener()
 
         binding.vToolbarTitle.setOnClickListener { showDialogWithError("DIALOG") }
+    }
+
+    private fun registerFragmentResultListener() {
+        parentFragmentManager.setFragmentResultListener(
+            "key",
+            viewLifecycleOwner,
+            FragmentResultListener { _, result ->
+                view?.showSnackbar(result.getString("key","not hello"))
+            })
     }
 
     private fun setupErrorSnackbar() {

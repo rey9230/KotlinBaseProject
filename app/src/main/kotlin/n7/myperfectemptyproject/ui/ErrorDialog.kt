@@ -3,6 +3,7 @@ package n7.myperfectemptyproject.ui
 import android.app.Dialog
 import android.os.Bundle
 import androidx.annotation.Keep
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -19,7 +20,10 @@ class ErrorDialog : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialogBuilder = MaterialAlertDialogBuilder(context)
             .setMessage(args.message)
-            .setPositiveButton(android.R.string.ok) { _, _ -> args.listener?.onPositiveButtonClick() }
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                // args.listener?.onPositiveButtonClick()
+                parentFragmentManager.setFragmentResult("key", bundleOf("key" to "hello"))
+            }
 
         return dialogBuilder.create()
     }

@@ -47,7 +47,7 @@ object Lib {
     const val coroutinesLivedata  = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}" // liveData (LiveData + coroutines) + lambda for livedata
     const val coroutinesViewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}" // viewModelScope + savedStateHandle
     const val lifecycleAnnotation = "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}" // that's only needed if you have lifecycle-related annotations in your code, specifically @OnLifecycleEvent
-    const val fragmentKtx         = "androidx.fragment:fragment-ktx:1.2.4" // easy fragment transaction + by viewModels()
+    const val fragmentKtx         = "androidx.fragment:fragment-ktx:1.3.0-alpha04" // easy fragment transaction + by viewModels()
     const val activityKtx         = "androidx.activity:activity-ktx:1.1.0" // on BackPress support for Fragment
 
     // --- Firebase Coroutines ---
