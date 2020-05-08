@@ -1,6 +1,7 @@
 package n7.myperfectemptyproject.data.source
 
 import androidx.lifecycle.LiveData
+import kotlinx.coroutines.flow.Flow
 import n7.myperfectemptyproject.data.source.local.db.UsersDao
 import n7.myperfectemptyproject.data.source.local.model.LocalUser
 import n7.myperfectemptyproject.data.source.remote.model.RemoteUsers
@@ -27,7 +28,7 @@ open class Repository @Inject constructor(
         userDao.deleteAll()
     }
 
-    fun getAllLocalUsers(): LiveData<List<LocalUser>> {
-        return userDao.getAllByLiveData()
+    fun getAllLocalUsers(): Flow<List<LocalUser>> {
+        return userDao.getAllByFlow()
     }
 }

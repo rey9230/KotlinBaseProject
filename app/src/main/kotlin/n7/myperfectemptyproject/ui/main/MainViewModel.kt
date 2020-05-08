@@ -3,7 +3,7 @@ package n7.myperfectemptyproject.ui.main
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.liveData
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
@@ -27,7 +27,7 @@ class MainViewModel @AssistedInject constructor(
     @AssistedInject.Factory
     interface Factory : ViewModelAssistedFactory<MainViewModel>
 
-    val getUsers = liveData { emitSource(getUsersFromLocalStoreUseCase()) }
+    val getUsers = getUsersFromLocalStoreUseCase().asLiveData()
 
     fun loadUser() {
         launchWithLoading {
