@@ -12,7 +12,7 @@ private const val DB_VERSION = 1
 @TypeConverters(DateConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract val myDao: UsersDao
+    abstract val userDao: UsersDao
 
     companion object {
         const val DB_NAME = "AppDatabase$DB_VERSION.db"

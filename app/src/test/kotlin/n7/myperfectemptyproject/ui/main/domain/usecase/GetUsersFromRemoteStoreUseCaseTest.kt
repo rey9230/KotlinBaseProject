@@ -8,7 +8,7 @@ import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import n7.CoroutineTestRule
-import n7.myperfectemptyproject.data.source.RepositoryImpl
+import n7.myperfectemptyproject.data.source.Repository
 import n7.myperfectemptyproject.data.source.remote.model.Name
 import n7.myperfectemptyproject.data.source.remote.model.RemoteUser
 import n7.myperfectemptyproject.data.source.remote.model.RemoteUsers
@@ -31,11 +31,11 @@ class GetUsersFromRemoteStoreUseCaseTest {
     private val lastName = "Shuvagin"
     private val remoteUsers = RemoteUsers(listOf(RemoteUser(Name(firstName, lastName))))
 
-    private val repositoryImpl: RepositoryImpl = mock {
+    private val repository: Repository = mock {
         onBlocking { getRemoteUsers(any()) } doReturn remoteUsers
     }
 
-    private val getUsersFromRemoteStoreUseCase = GetUsersFromRemoteStoreUseCase(repositoryImpl, coroutineTestRule.testDispatcher)
+    private val getUsersFromRemoteStoreUseCase = GetUsersFromRemoteStoreUseCase(repository, coroutineTestRule.testDispatcher)
 
     @Test(expected = NullPointerException::class)
     fun `throw NullPointerException`() = coroutineTestRule.runBlockingTest {
