@@ -19,6 +19,7 @@ object Versions {
     const val dagger       = "2.25.2"
     const val retrofit     = "2.7.1"
     const val daggerAssist = "0.5.2"
+    const val coroutines   = "1.3.6"
     const val safeArgs     = "2.2.0-alpha03"
 }
 
@@ -41,8 +42,8 @@ object Lib {
     const val preferenceKtx    = "androidx.preference:preference-ktx:1.1.0"
 
     // --- Coroutines ---
-    const val coroutines          = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2"
-    const val coroutinesAndroid   = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2" // for testing coroutines
+    const val coroutines          = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val coroutinesAndroid   = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}" // for testing coroutines
     const val coroutinesLifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}" // lifecycleScope + launchWhenResumed and ets.
     const val coroutinesLivedata  = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}" // liveData (LiveData + coroutines) + lambda for livedata
     const val coroutinesViewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}" // viewModelScope + savedStateHandle
