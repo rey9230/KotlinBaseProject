@@ -122,6 +122,12 @@ android {
         // setExecution("ANDROID_TEST_ORCHESTRATOR")
     }
 
+    kapt {
+        javacOptions {
+            option("-Adagger.fastInit=enabled")
+        }
+    }
+
 }
 
 dependencies {
