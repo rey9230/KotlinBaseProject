@@ -16,8 +16,8 @@
         android:layout_margin="4dp"
         android:clickable="true"
         android:focusable="true"
-        android:stateListAnimator="@animator/selected_user"
         android:foreground="?android:attr/selectableItemBackground"
+        android:stateListAnimator="@animator/selected_user"
         app:cardPreventCornerOverlap="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,6 +34,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:contentDescription="@null"
+                android:transitionName="@{@string/tn_iv_photo(user.pictureUrl)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -41,6 +42,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_date"
+                asyncText="@{user.date}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -49,7 +51,6 @@
                 android:ellipsize="end"
                 android:lines="1"
                 android:textAppearance="?textAppearanceSubtitle1"
-                asyncText="@{user.date}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_photo"
                 app:layout_constraintTop_toBottomOf="@+id/tv_name"
@@ -57,11 +58,12 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_name"
+                asyncText="@{user.firstName + ` ` + user.lastName}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:textAppearance="?textAppearanceSubtitle1"
-                asyncText="@{user.firstName + ` ` + user.lastName}"
+                android:transitionName="@{@string/tn_tv_name(user.pictureUrl)}"
                 app:layout_constraintStart_toEndOf="@+id/iv_photo"
                 app:layout_constraintTop_toTopOf="@+id/iv_photo"
                 tools:text="@tools:sample/full_names" />

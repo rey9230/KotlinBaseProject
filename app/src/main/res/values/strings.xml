@@ -3,4 +3,6 @@
     <string name="main_fragment_load_users">load users</string>
     <string name="main_fragment_change_theme">change theme</string>
 
+    <string name="tn_iv_photo">tn_iv_photo_%1$s</string>
+    <string name="tn_tv_name">tn_tv_name_%1$s</string>
 </resources>
