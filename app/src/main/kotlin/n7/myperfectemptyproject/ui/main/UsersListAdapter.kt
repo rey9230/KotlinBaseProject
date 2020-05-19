@@ -3,6 +3,7 @@ package n7.myperfectemptyproject.ui.main
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -47,13 +48,13 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
     }
 
     class ViewHolder private constructor(
-        private val binding: ItemUserBinding,
+        private val binding: ViewDataBinding,
         private val listener: View.OnClickListener
     ) : RecyclerView.ViewHolder(binding.root) {
 
         // can we animate our items? step brother? https://youtu.be/7LqeFDsi5dQ
         fun bind(user: VOUser) = user.run {
-            binding.user = this
+            (binding as ItemUserBinding).user = this
             // we will call executePendingBindings() so that the list item is updated without waiting for the next layout phase.
             // This is required when using Data Binding inside RecyclerView, even if you are not using PrecomputedText.
             binding.executePendingBindings()
