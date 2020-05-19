@@ -4,9 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.databinding.ItemUserBinding
 import n7.myperfectemptyproject.ui.main.domain.vo.VOUser
 import n7.myperfectemptyproject.utils.extension.animateRotation
@@ -45,6 +48,13 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
     // in this method we should always stop different animation that happens on our viewHolder
     override fun onViewDetachedFromWindow(holder: ViewHolder) {
         super.onViewDetachedFromWindow(holder)
+    }
+
+    private fun navigateTo(binding: ViewDataBinding) {
+        val extra = FragmentNavigatorExtras(
+            binding.root to binding.root.transitionName
+        )
+        binding.root.findNavController().navigate(R.id.coil_bitmap)
     }
 
     class ViewHolder private constructor(
