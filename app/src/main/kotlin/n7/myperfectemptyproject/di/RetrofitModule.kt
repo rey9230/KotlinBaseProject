@@ -11,6 +11,8 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.create
+import java.util.concurrent.TimeUnit
 
 @Module
 object RetrofitModule {
@@ -24,7 +26,7 @@ object RetrofitModule {
         .client(client)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .build()
-        .create(UserApi::class.java)
+        .create()
 
     @Provides
     @Reusable
@@ -39,6 +41,11 @@ object RetrofitModule {
         } else {
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.NONE
         }
-        return OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build()
+        return OkHttpClient.Builder()
+            .connectTimeout(10, TimeUnit.SECONDS)
+            .writeTimeout(10, TimeUnit.SECONDS)
+            .readTimeout(10, TimeUnit.SECONDS)
+            .addInterceptor(httpLoggingInterceptor)
+            .build()
     }
 }
