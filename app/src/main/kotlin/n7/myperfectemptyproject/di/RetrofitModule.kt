@@ -15,7 +15,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 @Module
 object RetrofitModule {
 
-    private const val randomUserBaseUrl = "https://randomuser.me/"
+    private const val randomUserBaseUrl = "https://randomuser.me///////"
 
     @Provides
     @Reusable
