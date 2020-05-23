@@ -18,6 +18,8 @@ import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.preference.PreferenceManager
 import n7.myperfectemptyproject.databinding.MainActivityBinding
+import n7.myperfectemptyproject.ui.ErrorDialogDirections
+import n7.myperfectemptyproject.ui.ErrorDialogListener
 import n7.myperfectemptyproject.utils.logPlease
 
 class MainActivity : AppCompatActivity() {
@@ -40,6 +42,10 @@ class MainActivity : AppCompatActivity() {
             logPlease(destination.label.toString())
         }
         // registerFragmentLifecycle()
+    }
+
+    fun showDialogError(message: String, listener: ErrorDialogListener) {
+        findNavController(R.id.nav_main_activity).navigate(ErrorDialogDirections.actionGlobalErrorDialog(message, listener))
     }
 
     // listen what happening with our fragments (much better than ActivityLifecycleCallbacks)

@@ -5,13 +5,12 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentResultListener
 import androidx.lifecycle.observe
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import n7.myperfectemptyproject.MainActivity
 import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.databinding.MainFragmentBinding
 import n7.myperfectemptyproject.di.injector
-import n7.myperfectemptyproject.ui.ErrorDialogDirections
 import n7.myperfectemptyproject.ui.ErrorDialogListener
 import n7.myperfectemptyproject.utils.extension.setOnBackPressExit
 import n7.myperfectemptyproject.utils.extension.setupErrorSnackbar
@@ -29,16 +28,13 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
             it.lifecycleOwner = viewLifecycleOwner // without this all bindings in xml will no work!
             it.viewModel = viewModel
         }
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
         setOnBackPressExit()
         setupListAdapter()
         setupErrorSnackbar()
         registerFragmentResultListener()
 
-        binding.vToolbarTitle.setOnClickListener { showDialogWithError("DIALOG") }
+        binding.vToolbarTitle.setOnClickListener { (activity as? MainActivity)?.showDialogError("Dialog", this) }
     }
 
     private fun registerFragmentResultListener() {
@@ -46,17 +42,13 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
             "key",
             viewLifecycleOwner,
             FragmentResultListener { _, result ->
-                view?.showSnackbar(result.getString("key","not hello"))
+                view?.showSnackbar(result.getString("key", "not hello"))
             })
     }
 
     private fun setupErrorSnackbar() {
         view?.setupErrorSnackbar(viewLifecycleOwner, viewModel.errorMessage)
     }
-
-    // show Global dialog
-    private fun showDialogWithError(message: String) =
-        findNavController().navigate(ErrorDialogDirections.actionGlobalErrorDialog(message, this))
 
     private fun setupListAdapter() {
         val usersListAdapter = UsersListAdapter()
@@ -73,6 +65,6 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
     }
 
     override fun onPositiveButtonClick() {
-        view?.showSnackbar("OKKKKKKKK")
+        view?.showSnackbar("ok")
     }
 }
