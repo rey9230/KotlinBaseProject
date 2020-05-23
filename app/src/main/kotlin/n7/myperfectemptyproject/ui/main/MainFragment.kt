@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentResultListener
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
 import n7.myperfectemptyproject.MainActivity
 import n7.myperfectemptyproject.R
@@ -52,16 +53,21 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
 
     private fun setupListAdapter() {
         val usersListAdapter = UsersListAdapter()
+        val loadingAdapter = LoadingAdapter()
+        val mergeAdapter = MergeAdapter(usersListAdapter, loadingAdapter)
+
         usersListAdapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         binding.rv.apply {
             setHasFixedSize(true)
-            adapter = usersListAdapter
+            adapter = mergeAdapter
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
             postponeEnterTransition() // exitTransition animation with this works as intended
             viewTreeObserver.addOnPreDrawListener { startPostponedEnterTransition(); true }
         }
+
         viewModel.getUsers.observe(viewLifecycleOwner, usersListAdapter::submitList)
+        viewModel.isLoading.observe(viewLifecycleOwner, loadingAdapter::isLoading)
     }
 
     override fun onPositiveButtonClick() {
