@@ -45,6 +45,8 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
         }
     }
 
+    override fun getItemViewType(position: Int): Int = R.layout.item_user
+
     // in this method we should always stop different animation that happens on our viewHolder
     override fun onViewDetachedFromWindow(holder: ViewHolder) {
         super.onViewDetachedFromWindow(holder)
