@@ -2,30 +2,16 @@ package n7.myperfectemptyproject.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import n7.myperfectemptyproject.databinding.ItemLoadingBinding
 
-class LoadingAdapter : RecyclerView.Adapter<LoadingAdapter.ViewHolder>() {
-
-    private val list: MutableList<Int> = mutableListOf()
+class LoadingAdapter : ListAdapter<Int, LoadingAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder.from(parent)
 
-    override fun getItemCount(): Int = list.size
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-    }
-
-    override fun getItemViewType(position: Int): Int = 0
-
-    fun isLoading(loading: Boolean) {
-        list.clear()
-        if (loading) list.add(1)
-        notifyItemChanged(0)
-        notifyItemRemoved(0)
-        notifyItemInserted(0)
-    }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = Unit
 
     class ViewHolder private constructor(
         binding: ItemLoadingBinding
@@ -39,6 +25,17 @@ class LoadingAdapter : RecyclerView.Adapter<LoadingAdapter.ViewHolder>() {
 
                 return ViewHolder(binding)
             }
+        }
+    }
+
+    private class DiffCallback : DiffUtil.ItemCallback<Int>() {
+
+        override fun areItemsTheSame(oldItem: Int, newItem: Int): Boolean {
+            return oldItem == newItem
+        }
+
+        override fun areContentsTheSame(oldItem: Int, newItem: Int): Boolean {
+            return true
         }
     }
 }
