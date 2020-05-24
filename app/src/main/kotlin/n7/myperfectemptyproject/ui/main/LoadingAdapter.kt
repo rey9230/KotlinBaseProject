@@ -13,6 +13,10 @@ class LoadingAdapter : ListAdapter<Int, LoadingAdapter.ViewHolder>(DiffCallback(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = Unit
 
+    fun isLoading(isLoading: Boolean) {
+        submitList(if(isLoading) listOf(1) else emptyList())
+    }
+
     class ViewHolder private constructor(
         binding: ItemLoadingBinding
     ) : RecyclerView.ViewHolder(binding.root) {

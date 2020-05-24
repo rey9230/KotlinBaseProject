@@ -67,9 +67,7 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
         }
 
         viewModel.getUsers.observe(viewLifecycleOwner, usersListAdapter::submitList)
-        viewModel.isLoading.observe(viewLifecycleOwner) {
-            loadingAdapter.submitList(if (it) listOf(1) else emptyList())
-        }
+        viewModel.isLoading.observe(viewLifecycleOwner, loadingAdapter::isLoading)
     }
 
     override fun onPositiveButtonClick() {
