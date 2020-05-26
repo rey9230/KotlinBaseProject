@@ -38,6 +38,10 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
         binding.vToolbarTitle.setOnClickListener { (activity as? MainActivity)?.showDialogError("Dialog", this) }
     }
 
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+    }
+
     private fun registerFragmentResultListener() {
         parentFragmentManager.setFragmentResultListener(
             "key",
