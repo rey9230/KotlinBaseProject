@@ -90,9 +90,11 @@ android {
             freeCompilerArgs = listOf("-Xallow-result-return-type")
         }
     }
-    dataBinding {
-        isEnabled = true
+
+    buildFeatures {
+        dataBinding = true
     }
+
     lintOptions {
         isAbortOnError = true // if set to true (default), stops the build if errors are found.
         isIgnoreWarnings = false // if true, only report errors.
