@@ -1,10 +1,12 @@
 package n7.myperfectemptyproject
 
+import android.Manifest
 import android.app.Application
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.TimingLogger
 import android.view.WindowManager
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -26,6 +28,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: MainActivityBinding
     private val viewModel by viewModels<SimpleLifeCycleAwareObservable>()
+    private val requestPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+        isGranted!!
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +47,10 @@ class MainActivity : AppCompatActivity() {
             logPlease(destination.label.toString())
         }
         // registerFragmentLifecycle()
+    }
+
+    fun startActivityAndGetResult() {
+        requestPermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     }
 
     fun showDialogError(message: String, listener: ErrorDialogListener) {
