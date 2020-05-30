@@ -14,7 +14,7 @@ class GetUsersFromRemoteStoreUseCase @Inject constructor(
 
     suspend operator fun invoke(count: Int) = withContext(ioDispatcher) {
         kotlin.runCatching {
-            delay(1000)
+            delay(100)
             repository.getRemoteUsers(count)
         }
     }
