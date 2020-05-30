@@ -24,7 +24,7 @@ interface UsersDao : BaseDao<LocalUser> {
     suspend fun getById(id: Int): LocalUser
 
     @Query("UPDATE LocalUsers set lastName = :lastName where id = :id AND lastName<> :lastName")
-    suspend fun updateLastName(id: Int, lastName: String): LocalUser
+    suspend fun updateLastName(id: Int, lastName: String): Int
 
     @Query("DELETE FROM LocalUsers")
     suspend fun deleteAll()
@@ -34,6 +34,4 @@ interface UsersDao : BaseDao<LocalUser> {
         deleteAll()
         insert(localUser)
     }
-
-
 }
