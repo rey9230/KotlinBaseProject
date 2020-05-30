@@ -7,6 +7,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import n7.myperfectemptyproject.R
@@ -15,6 +16,7 @@ import n7.myperfectemptyproject.ui.main.domain.vo.VOUser
 import n7.myperfectemptyproject.utils.extension.animateRotation
 import n7.myperfectemptyproject.utils.extension.animateTranslationX
 import java.lang.ref.WeakReference
+import java.util.Collections
 
 // RecyclerView optimizations https://youtu.be/GZkTwgetUWI
 class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCallback()) {
@@ -26,6 +28,12 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent, listener)
+    }
+
+    fun swap(swapFrom: Int, swapTo: Int) {
+        val mutableList = currentList.toMutableList()
+        Collections.swap(mutableList, swapFrom, swapTo)
+        submitList(mutableList)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -102,5 +110,18 @@ private class DiffCallback : DiffUtil.ItemCallback<VOUser>() {
 
     override fun areContentsTheSame(oldItem: VOUser, newItem: VOUser): Boolean {
         return true
+    }
+}
+
+class ItemMoveCallBack(private val viewModel: UsersListAdapter) : ItemTouchHelper.SimpleCallback(ItemTouchHelper.DOWN or ItemTouchHelper.UP, 0) {
+    override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+        val fromPos = viewHolder.layoutPosition
+        val toPos = target.layoutPosition
+
+        viewModel.swap(fromPos, toPos)
+        return true
+    }
+
+    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
     }
 }

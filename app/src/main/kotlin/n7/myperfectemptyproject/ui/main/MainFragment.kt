@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentResultListener
 import androidx.lifecycle.observe
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -75,6 +76,7 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
         binding.rv.apply {
             setHasFixedSize(true)
             adapter = mergeAdapter
+            ItemTouchHelper(ItemMoveCallBack(usersListAdapter)).attachToRecyclerView(this)
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
             postponeEnterTransition() // exitTransition animation with this works as intended

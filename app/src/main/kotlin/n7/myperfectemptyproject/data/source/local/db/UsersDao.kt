@@ -23,8 +23,8 @@ interface UsersDao : BaseDao<LocalUser> {
     @Query("SELECT * FROM LocalUsers WHERE id=:id")
     suspend fun getById(id: Int): LocalUser
 
-    @Query("UPDATE LocalUsers set orderWeight = :newOrderWeight where id = :userId AND orderWeight <> :newOrderWeight")
-    suspend fun updateOrderWeight(userId: Int, newOrderWeight: Int): Int
+    // @Query("UPDATE LocalUsers set orderWeight = :newOrderWeight where id = :userId AND orderWeight <> :newOrderWeight")
+    // suspend fun updateOrderWeight(userId: Int, newOrderWeight: Int): Int
 
     @Query("DELETE FROM LocalUsers")
     suspend fun deleteAll()
