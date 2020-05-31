@@ -155,6 +155,7 @@ dependencies {
     implementation(Lib.navigationFragmentKtx)
     implementation(Lib.navigationUiKtx)
     implementation(Lib.navigationRuntimeKtx)
+    implementation(Lib.navigationDynamicFeatures)
     implementation(Lib.fragmentKtx)
     implementation(Lib.activityKtx)
     implementation(Lib.retrofit)

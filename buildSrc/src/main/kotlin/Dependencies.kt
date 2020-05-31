@@ -15,12 +15,12 @@ object Versions {
     const val kotlin       = "1.3.60"
     const val moshi        = "1.9.2"
     const val room         = "2.2.4"
-    const val navigation   = "2.2.1"
+    const val navigation   = "2.3.0-beta01"
     const val dagger       = "2.25.2"
     const val retrofit     = "2.7.1"
     const val daggerAssist = "0.5.2"
     const val coroutines   = "1.3.6"
-    const val safeArgs     = "2.2.0-alpha03"
+    const val safeArgs     = "2.3.0-beta01"
 }
 
 object Lib {
@@ -61,9 +61,10 @@ object Lib {
     const val daggerAssistedAnnotation = "com.squareup.inject:assisted-inject-processor-dagger2:${Versions.daggerAssist}"
 
     //  --- Navigation ---
-    const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}" // Fragment.findNavController + Fragment.navArgs
-    const val navigationUiKtx       = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}" // setupActionBarWithNavController + setupWithNavController
-    const val navigationRuntimeKtx  = "androidx.navigation:navigation-runtime-ktx:${Versions.navigation}" // Activity.findNavController + Activity.navArgs + View.findNavController
+    const val navigationFragmentKtx     = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}" // Fragment.findNavController + Fragment.navArgs
+    const val navigationUiKtx           = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}" // setupActionBarWithNavController + setupWithNavController
+    const val navigationRuntimeKtx      = "androidx.navigation:navigation-runtime-ktx:${Versions.navigation}" // Activity.findNavController + Activity.navArgs + View.findNavController
+    const val navigationDynamicFeatures = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navigation}"
 
     // --- Retrofit ---
     const val retrofit               = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
@@ -95,17 +96,17 @@ object Lib {
         const val mockito        = "org.mockito:mockito-core:3.2.4"
         const val mockitokotlin  = "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0" // A small library that provides helper functions to work with Mockito in Kotlin.
 
-        const val testRunner     = "androidx.test:runner:1.2.0" // AndroidJUnitRunner
-        const val espresso        = "androidx.test.espresso:espresso-core:3.2.0"
-        const val espressoContrib = "androidx.test.espresso:espresso-contrib:3.1.0"
-        const val espressoWeb = "androidx.test.espresso:espresso-web:3.1.0"
-        const val espressoIdling = "androidx.test.espresso.idling:idling-concurrent:3.1.0" // this dependency an be implementation
+        const val testRunner            = "androidx.test:runner:1.2.0" // AndroidJUnitRunner
+        const val espresso              = "androidx.test.espresso:espresso-core:3.2.0"
+        const val espressoContrib       = "androidx.test.espresso:espresso-contrib:3.1.0"
+        const val espressoWeb           = "androidx.test.espresso:espresso-web:3.1.0"
+        const val espressoIdling        = "androidx.test.espresso.idling:idling-concurrent:3.1.0" // this dependency an be implementation
         const val espressoAccessibility = "androidx.test.espresso:espresso-accessibility:3.1.0"
-        const val espressoIntents = "androidx.test.espresso:espresso-intents:3.2.0"
+        const val espressoIntents       = "androidx.test.espresso:espresso-intents:3.2.0"
 
     }
 
     object AndroidTest {
-
+        const val navigation = "androidx.navigation:navigation-testing:${Versions.navigation}"
     }
 }
