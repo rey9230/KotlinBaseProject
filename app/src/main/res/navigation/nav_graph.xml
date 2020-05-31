@@ -9,7 +9,17 @@
         android:id="@+id/mainFragment"
         android:name="n7.myperfectemptyproject.ui.main.MainFragment"
         android:label="main_fragment"
-        tools:layout="@layout/main_fragment" />
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_featureOne"
+            app:destination="@id/featureOne" />
+    </fragment>
+
+    <fragment
+        app:moduleName="@string/title_feature_one"
+        android:id="@+id/featureOne"
+        android:name="ad2.n7.feature_one.FeatureOne"/>
+
     <dialog
         android:id="@+id/errorDialog"
         android:name="n7.myperfectemptyproject.ui.ErrorDialog"
