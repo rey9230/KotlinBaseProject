@@ -1,13 +1,16 @@
 package n7.myperfectemptyproject.ui.main
 
 import android.app.Application
+import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.findNavController
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 import kotlinx.coroutines.launch
+import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.base.BaseViewModel
 import n7.myperfectemptyproject.base.ViewModelAssistedFactory
 import n7.myperfectemptyproject.ui.main.domain.usecase.DeleteAllUsersLocalUseCase
@@ -41,6 +44,11 @@ class MainViewModel @AssistedInject constructor(
         viewModelScope.launch {
             deleteAllUsersLocalUseCase()
         }
+        return true
+    }
+
+    fun navigateToFeatureOne(view: View): Boolean {
+        view.findNavController().navigate(R.id.action_mainFragment_to_featureOne)
         return true
     }
 

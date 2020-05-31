@@ -83,6 +83,7 @@
             android:layout_gravity="bottom|start"
             android:layout_margin="8dp"
             android:onClick="@{()->viewModel.changeTheme()}"
+            app:onLongClickListener="@{(view)->viewModel.navigateToFeatureOne(view)}"
             android:text="@string/main_fragment_change_theme"
             app:layout_behavior="n7.myperfectemptyproject.ui.main.behaviour.ChangeThemeButtonBehavior"
             app:layout_dodgeInsetEdges="bottom" />
