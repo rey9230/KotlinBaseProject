@@ -123,6 +123,7 @@ android {
         }
         // setExecution("ANDROID_TEST_ORCHESTRATOR")
     }
+    dynamicFeatures = mutableSetOf(":feature_one")
 
     kapt {
         javacOptions {

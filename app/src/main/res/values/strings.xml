@@ -5,4 +5,5 @@
 
     <string name="tn_iv_photo">tn_iv_photo_%1$s</string>
     <string name="tn_tv_name">tn_tv_name_%1$s</string>
+    <string name="title_feature_one">Feature One</string>
 </resources>
