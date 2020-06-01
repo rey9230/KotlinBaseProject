@@ -33,3 +33,9 @@ dependencies {
     implementation(Lib.coreKtx)
     implementation(kotlin("stdlib-jdk7"))
 }
+
+tasks.register("hello") {
+    doLast {
+        println("Hello world!")
+    }
+}
