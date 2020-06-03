@@ -26,15 +26,15 @@ android {
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" // base runner that - handles loading test package and app to device - running tests - reporting tests results (for androidTestImplementation )
         setProperty("archivesBaseName", "$applicationId-v$versionName.$versionCode") // name for generated apk file
-        // javaCompileOptions {
-        //     annotationProcessorOptions {
-        //         arguments = mapOf(
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = mapOf(
         //             "room.schemaLocation" to "$projectDir/schemas",
-        //             "room.incremental" to "true",
+                    "room.incremental" to "true"
         //             "room.expandProjection" to "true"
-        //         )
-        //     }
-        // }
+                )
+            }
+        }
     }
     sourceSets {
         getByName("main").java.srcDirs("src/main/kotlin") // Changes the directory for Java sources. The default directory is 'src/main/java'.
