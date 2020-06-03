@@ -3,12 +3,14 @@ package n7.myperfectemptyproject.utils
 import android.graphics.Paint
 import android.os.SystemClock
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.text.PrecomputedTextCompat
 import androidx.core.widget.TextViewCompat
 import androidx.databinding.BindingAdapter
+import androidx.databinding.InverseBindingAdapter
 import coil.api.load
 import coil.transform.RoundedCornersTransformation
 
@@ -23,6 +25,22 @@ fun ImageView.loadImageUrl(url: String?) {
 @BindingAdapter("isVisible")
 fun View.isVisible(isVisible: Boolean) {
     this.visibility = if(isVisible) View.VISIBLE else View.GONE
+}
+
+@BindingAdapter("android:text")
+fun setTextFromInt(editText: EditText, value: Int) {
+    if (getTextAsInt(editText) != value) {
+        editText.setText(value.toString())
+    }
+}
+
+@InverseBindingAdapter(attribute = "android:text")
+fun getTextAsInt(editText: EditText): Int {
+    return try {
+        Integer.parseInt(editText.text.toString())
+    } catch (e: Exception) {
+        0
+    }
 }
 
 /**
