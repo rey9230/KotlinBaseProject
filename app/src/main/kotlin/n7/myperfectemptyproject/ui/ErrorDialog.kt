@@ -24,9 +24,20 @@ class ErrorDialog : DialogFragment() {
                 // args.listener?.onPositiveButtonClick()
                 parentFragmentManager.setFragmentResult("key", bundleOf("key" to "hello"))
             }
-
+        doNewSomething(counter = 4)
         return dialogBuilder.create()
     }
+
+    @Deprecated(message = "use doNewSomething instead this",
+        replaceWith = ReplaceWith(
+            expression = "doNewSomething(counter = count)",
+            imports = ["n7.myperfectemptyproject.base.MarginItemDecorator"]
+        ),
+    level = DeprecationLevel.ERROR)
+    private fun doSomething(count: Int) = Unit
+
+    private fun doNewSomething(counter: Int) = Unit
+
 }
 
 // use Annotation @Keep will prevent proguard to shrink this class
