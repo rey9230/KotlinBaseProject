@@ -13,12 +13,16 @@
         <action
             android:id="@+id/action_mainFragment_to_featureOne"
             app:destination="@id/featureOne" />
+
+        <deepLink app:uri="https://n7.com/mainFragment" />
     </fragment>
 
     <fragment
         app:moduleName="@string/title_feature_one"
         android:id="@+id/featureOne"
         android:name="ad2.n7.feature_one.FeatureOne"/>
+
+    <deepLink app:uri="https://n7.com/mainFragment/featureOne" />
 
     <dialog
         android:id="@+id/errorDialog"
