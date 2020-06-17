@@ -1,15 +1,14 @@
 package n7.myperfectemptyproject.ui.main.domain.usecase
 
+import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import n7.myperfectemptyproject.data.source.Repository
-import n7.myperfectemptyproject.data.source.local.model.LocalUser
 import n7.myperfectemptyproject.ui.main.domain.adapter.toVo
 import n7.myperfectemptyproject.ui.main.domain.vo.VOUser
-import javax.inject.Inject
 
 class GetUsersFromLocalStoreUseCase @Inject constructor(
     private val repository: Repository,

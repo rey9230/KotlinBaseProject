@@ -3,8 +3,8 @@ package n7.myperfectemptyproject.di
 import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
-import n7.myperfectemptyproject.ui.main.MainViewModel
 import javax.inject.Singleton
+import n7.myperfectemptyproject.ui.main.MainViewModel
 
 @Singleton
 @Component(

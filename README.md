@@ -37,9 +37,10 @@ CLI - is an extension to command-line Git that helps you do everyday GitHub task
 [readeMore](https://medium.com/better-programming/the-official-github-cli-is-here-9fb7276e2e15)
 
 ### [Ktlint]((https://ktlint.github.io/))
-We can improve Check&Fix Kotlin code style via using ktlint (it's works because file `ktlint` exist in android root directory)
+We can improve Check&Fix Kotlin code style via using ktlint
 
-Command for Windows : java -jar ktlint -F
+Command for Windows : java -jar ktlint -F (it's works because file `ktlint` exist in android root directory)
+also it can be achieved via installing plugin and runs as Gradle tasks
 
 ### Gradle Kotlin DSL (Domain-specific language)
 for gradle i am using [Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) that provide me some benefits :

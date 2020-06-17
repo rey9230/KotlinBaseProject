@@ -90,19 +90,18 @@ class ToolbarBehavior(context: Context, attributeSet: AttributeSet? = null) :
         if (dyConsumed > 0) {
             // scroll up:
             if (toolbar.layoutParams.height > toolbarCollapsedHeight) {
-
-                //--- shrink toolbar
+                // --- shrink toolbar
                 val height = toolbar.layoutParams.height - dyConsumed
                 toolbar.layoutParams.height =
                     if (height < toolbarCollapsedHeight) toolbarCollapsedHeight.toInt() else height
                 toolbar.requestLayout()
 
-                //--- translate up drawer icon
+                // --- translate up drawer icon
                 // var translate: Float = (toolbarOriginalHeight - toolbar.layoutParams.height) / (toolbarOriginalHeight - toolbarCollapsedHeight)
                 // translate *= toolbarOriginalHeight
                 // drawerIcon.translationY = -translate
 
-                //--- title
+                // --- title
                 val scale = toolbar.layoutParams.height / toolbarOriginalHeight
                 toolbarTitle.scaleX = if (scale < minScale) minScale else scale
                 toolbarTitle.scaleY = toolbarTitle.scaleX
@@ -110,20 +109,19 @@ class ToolbarBehavior(context: Context, attributeSet: AttributeSet? = null) :
         } else if (dyUnconsumed < 0) {
             // scroll down
             if (toolbar.layoutParams.height < toolbarOriginalHeight) {
-
-                //--- expand toolbar
+                // --- expand toolbar
                 // subtract because dyUnconsumed is < 0
                 val height = toolbar.layoutParams.height - dyUnconsumed
                 toolbar.layoutParams.height =
                     if (height > toolbarOriginalHeight) toolbarOriginalHeight.toInt() else height
                 toolbar.requestLayout()
 
-                //--- translate down  drawer icon
+                // --- translate down  drawer icon
                 // var translate: Float = (toolbarOriginalHeight - toolbar.layoutParams.height) / (toolbarOriginalHeight - toolbarCollapsedHeight)
                 // translate *= toolbarOriginalHeight
                 // drawerIcon.translationY = -translate
 
-                //--- title
+                // --- title
                 val scale = toolbar.layoutParams.height / toolbarOriginalHeight
                 toolbarTitle.scaleX = if (scale < minScale) minScale else scale
                 toolbarTitle.scaleY = toolbarTitle.scaleX

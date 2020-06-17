@@ -56,12 +56,14 @@ fun View.setupErrorSnackbar(
     snackbarEvent: LiveData<String>,
     timeLength: Int = Snackbar.LENGTH_SHORT
 ) {
-
-    snackbarEvent.observe(lifecycleOwner, Observer { event ->
-        event?.let {
-            showSnackbar(it, timeLength)
+    snackbarEvent.observe(
+        lifecycleOwner,
+        Observer { event ->
+            event?.let {
+                showSnackbar(it, timeLength)
+            }
         }
-    })
+    )
 }
 
 /**

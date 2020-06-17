@@ -4,12 +4,12 @@ import android.content.Intent
 import androidx.arch.core.executor.testing.CountingTaskExecutorRule
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.TimeoutException
 import n7.myperfectemptyproject.MainActivity
 import n7.myperfectemptyproject.R
 import org.hamcrest.CoreMatchers
@@ -19,9 +19,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.util.concurrent.CountDownLatch
-import java.util.concurrent.TimeUnit
-import java.util.concurrent.TimeoutException
 
 @RunWith(AndroidJUnit4::class) // local runner that handle all test in class
 class MainFragmentTest {
@@ -53,7 +50,6 @@ class MainFragmentTest {
     @Test
     @Throws(InterruptedException::class, TimeoutException::class)
     fun showSomeResults() {
-
         val intent = Intent(ApplicationProvider.getApplicationContext(), MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         val activity = InstrumentationRegistry.getInstrumentation().startActivitySync(intent)
@@ -82,7 +78,7 @@ class MainFragmentTest {
                 })
         }
         if (recyclerView.adapter!!.itemCount > 0) {
-            return  //already loaded
+            return // already loaded
         }
         MatcherAssert.assertThat(latch.await(10, TimeUnit.SECONDS), CoreMatchers.`is`(true))
     }

@@ -10,5 +10,4 @@ class DataBindingViewHolder<T>(private val binding: ViewDataBinding) : RecyclerV
         binding.setVariable(BR.user, item)
         binding.executePendingBindings()
     }
-
 }

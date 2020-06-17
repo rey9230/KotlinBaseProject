@@ -28,16 +28,17 @@ class ErrorDialog : DialogFragment() {
         return dialogBuilder.create()
     }
 
-    @Deprecated(message = "use doNewSomething instead this",
+    @Deprecated(
+        message = "use doNewSomething instead this",
         replaceWith = ReplaceWith(
             expression = "doNewSomething(counter = count)",
             imports = ["n7.myperfectemptyproject.base.MarginItemDecorator"]
         ),
-    level = DeprecationLevel.ERROR)
+        level = DeprecationLevel.ERROR
+    )
     private fun doSomething(count: Int) = Unit
 
     private fun doNewSomething(counter: Int) = Unit
-
 }
 
 // use Annotation @Keep will prevent proguard to shrink this class

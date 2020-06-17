@@ -59,9 +59,12 @@ class MainActivity : AppCompatActivity() {
 
     // listen what happening with our fragments (much better than ActivityLifecycleCallbacks)
     private fun registerFragmentLifecycle() {
-        supportFragmentManager.registerFragmentLifecycleCallbacks(object : FragmentManager.FragmentLifecycleCallbacks() {
-            // override necessary method
-        }, false)
+        supportFragmentManager.registerFragmentLifecycleCallbacks(
+            object : FragmentManager.FragmentLifecycleCallbacks() {
+                // override necessary method
+            },
+            false
+        )
     }
 
     private fun measurementOperations() {

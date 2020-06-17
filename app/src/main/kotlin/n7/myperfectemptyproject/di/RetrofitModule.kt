@@ -4,6 +4,7 @@ import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
+import java.util.concurrent.TimeUnit
 import n7.myperfectemptyproject.BuildConfig
 import n7.myperfectemptyproject.data.source.remote.retrofit.UserApi
 import n7.myperfectemptyproject.utils.logPlease
@@ -12,7 +13,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
-import java.util.concurrent.TimeUnit
 
 @Module
 object RetrofitModule {

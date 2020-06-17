@@ -21,6 +21,8 @@ object Versions {
     const val daggerAssist = "0.5.2"
     const val coroutines   = "1.3.6"
     const val safeArgs     = "2.3.0-beta01"
+    const val ktlint       = "0.36.0"
+    const val ktlintPlug   = "9.2.1"
 }
 
 object Lib {

@@ -24,7 +24,7 @@ fun ImageView.loadImageUrl(url: String?) {
 
 @BindingAdapter("isVisible")
 fun View.isVisible(isVisible: Boolean) {
-    this.visibility = if(isVisible) View.VISIBLE else View.GONE
+    this.visibility = if (isVisible) View.VISIBLE else View.GONE
 }
 
 @BindingAdapter("android:text")
@@ -44,8 +44,8 @@ fun getTextAsInt(editText: EditText): Int {
 }
 
 /**
-  * we take any TextView properties that may be controlled by Data Binding, and apply all of them at the beginning of our adapter
-  */
+ * we take any TextView properties that may be controlled by Data Binding, and apply all of them at the beginning of our adapter
+ */
 @BindingAdapter("asyncText", "android:textSize", requireAll = false)
 fun asyncText(textView: TextView, text: CharSequence, textSize: Int?) {
     // first, set all measurement affecting properties of the text
@@ -76,7 +76,7 @@ fun setStyle(textView: TextView, enabled: Boolean) {
     }
 }
 
-//todo write custom rule for newbie developers that warn them to use only this method!
+// todo write custom rule for newbie developers that warn them to use only this method!
 @BindingAdapter("onClick")
 fun View.setOnDebouncedClickListener(action: () -> Unit) {
     val actionDebounce = ActionDebounce(action)

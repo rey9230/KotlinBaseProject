@@ -1,12 +1,11 @@
 package n7.myperfectemptyproject.data.source
 
-import androidx.lifecycle.LiveData
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import n7.myperfectemptyproject.data.source.local.db.UsersDao
 import n7.myperfectemptyproject.data.source.local.model.LocalUser
 import n7.myperfectemptyproject.data.source.remote.model.RemoteUsers
 import n7.myperfectemptyproject.data.source.remote.retrofit.UserApi
-import javax.inject.Inject
 
 open class Repository @Inject constructor(
     private val userApi: UserApi,

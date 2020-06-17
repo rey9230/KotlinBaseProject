@@ -29,9 +29,9 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = mapOf(
-        //             "room.schemaLocation" to "$projectDir/schemas",
+                    //             "room.schemaLocation" to "$projectDir/schemas",
                     "room.incremental" to "true"
-        //             "room.expandProjection" to "true"
+                    //             "room.expandProjection" to "true"
                 )
             }
         }
@@ -130,7 +130,6 @@ android {
             option("-Adagger.fastInit=enabled")
         }
     }
-
 }
 
 dependencies {
@@ -147,7 +146,7 @@ dependencies {
     implementation(Lib.coroutinesLivedata)
     implementation(Lib.coroutinesViewmodel)
     implementation(Lib.coroutinesPlayServices)
-    implementation (Lib.lifecycleAnnotation)
+    implementation(Lib.lifecycleAnnotation)
     implementation(Lib.dagger)
     kapt(Lib.daggerAnnotation)
     compileOnly(Lib.daggerAssisted)

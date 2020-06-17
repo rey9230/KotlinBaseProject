@@ -6,7 +6,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentResultListener
 import androidx.lifecycle.observe
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.MergeAdapter
@@ -61,7 +60,8 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
             viewLifecycleOwner,
             FragmentResultListener { _, result ->
                 view?.showSnackbar(result.getString("key", "not hello"))
-            })
+            }
+        )
     }
 
     private fun setupErrorSnackbar() {

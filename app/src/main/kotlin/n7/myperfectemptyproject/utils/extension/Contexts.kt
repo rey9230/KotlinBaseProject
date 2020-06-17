@@ -4,9 +4,9 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.os.Environment
 import androidx.core.content.FileProvider
-import n7.myperfectemptyproject.BuildConfig
 import java.io.File
 import java.io.FileOutputStream
+import n7.myperfectemptyproject.BuildConfig
 
 fun Context.getUri(file: File) {
     FileProvider.getUriForFile(this, "${BuildConfig.APPLICATION_ID}.provider", file)

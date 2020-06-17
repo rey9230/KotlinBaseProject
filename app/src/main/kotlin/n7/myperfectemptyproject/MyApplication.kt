@@ -24,7 +24,6 @@ class MyApplication : Application(), DaggerComponentProvider {
         registerActivityLifecycleCallbacks(AnalyticsCallbacks(""))
     }
 
-
     // if we want to build cool without any problems we can enable StrickMode that alarm us if we have something to fix (all messages will come with 'StrictMode' debug tag)
     private fun enableStrictMode() {
         if (BuildConfig.DEBUG) {
@@ -48,35 +47,28 @@ class MyApplication : Application(), DaggerComponentProvider {
         }
     }
 }
-    // while this outer class we can create different LifecycleCallbacks for our needs
-    // composition over inheritance!
-    // @link (https://proandroiddev.com/say-no-to-baseactivity-and-basefragment-83b156ed8998)
- class AnalyticsCallbacks(val analytics: String) : Application.ActivityLifecycleCallbacks {
-     override fun onActivityPaused(activity: Activity) {
+// while this outer class we can create different LifecycleCallbacks for our needs
+// composition over inheritance!
+// @link (https://proandroiddev.com/say-no-to-baseactivity-and-basefragment-83b156ed8998)
+class AnalyticsCallbacks(val analytics: String) : Application.ActivityLifecycleCallbacks {
+    override fun onActivityPaused(activity: Activity) {
+    }
 
-     }
+    override fun onActivityStarted(activity: Activity) {
+    }
 
-     override fun onActivityStarted(activity: Activity) {
+    override fun onActivityDestroyed(activity: Activity) {
+    }
 
-     }
+    override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
+    }
 
-     override fun onActivityDestroyed(activity: Activity) {
+    override fun onActivityStopped(activity: Activity) {
+    }
 
-     }
+    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
+    }
 
-     override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
-
-     }
-
-     override fun onActivityStopped(activity: Activity) {
-
-     }
-
-     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
-
-     }
-
-     override fun onActivityResumed(activity: Activity) {
-
-     }
- }
+    override fun onActivityResumed(activity: Activity) {
+    }
+}
