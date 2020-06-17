@@ -1,3 +1,24 @@
+plugins {
+    id("org.jlleitschuh.gradle.ktlint") version Versions.ktlintPlug
+}
+
+subprojects {
+    apply(plugin = "org.jlleitschuh.gradle.ktlint")
+    ktlint {
+        debug.set(false)
+        version.set(Versions.ktlint)
+        verbose.set(true)
+        android.set(false)
+        outputToConsole.set(true)
+        ignoreFailures.set(false)
+        enableExperimentalRules.set(true)
+        filter {
+            exclude("**/generated/**")
+            include("**/kotlin/**")
+        }
+    }
+}
+
 buildscript {
     repositories {
         maven("https://maven.google.com")
