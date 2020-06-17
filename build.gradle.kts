@@ -1,9 +1,11 @@
 plugins {
     id("org.jlleitschuh.gradle.ktlint") version Versions.ktlintPlug
+    id("io.gitlab.arturbosch.detekt") version Versions.detekt
 }
 
 subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
+    apply(plugin = "io.gitlab.arturbosch.detekt")
     ktlint {
         debug.set(false)
         version.set(Versions.ktlint)

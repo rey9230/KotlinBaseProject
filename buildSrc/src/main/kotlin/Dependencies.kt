@@ -23,6 +23,7 @@ object Versions {
     const val safeArgs     = "2.3.0-beta01"
     const val ktlint       = "0.36.0"
     const val ktlintPlug   = "9.2.1"
+    const val detekt       = "1.10.0-RC1"
 }
 
 object Lib {
