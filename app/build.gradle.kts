@@ -10,7 +10,7 @@ plugins {
     junit5()
 }
 
-val stringFromGradleProperties: String by project // get string from gradle.properties
+val stringFromGradleProperties = project.findProperty("key") as String // get string from gradle.properties
 val stringFromLocalProperties: String = gradleLocalProperties(rootDir).getProperty("key") // get string from local.properties
 
 android {
