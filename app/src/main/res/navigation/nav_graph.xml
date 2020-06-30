@@ -20,14 +20,15 @@
     <fragment
         app:moduleName="@string/title_feature_one"
         android:id="@+id/featureOne"
-        android:name="ad2.n7.feature_one.FeatureOne"/>
+        android:name="ad2.n7.feature_one.FeatureOne">
 
-    <deepLink app:uri="https://n7.com/mainFragment/featureOne" />
+        <deepLink app:uri="https://n7.com/mainFragment/featureOne" />
+    </fragment>
 
     <dialog
         android:id="@+id/errorDialog"
         android:name="n7.myperfectemptyproject.ui.ErrorDialog"
-        android:label="errorDialog" >
+        android:label="errorDialog">
         <argument
             android:name="message"
             app:argType="string"
