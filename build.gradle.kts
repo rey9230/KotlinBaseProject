@@ -7,6 +7,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.jlleitschuh.gradle.ktlint") version Versions.ktlintPlug
     id("io.gitlab.arturbosch.detekt") version Versions.detekt
+    id("com.github.ben-manes.versions") version "0.28.0"
 }
 
 subprojects {
