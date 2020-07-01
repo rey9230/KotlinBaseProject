@@ -18,7 +18,7 @@ object Versions {
     const val kotlin       = "1.3.60"
     const val moshi        = "1.9.2"
     const val room         = "2.2.4"
-    const val navigation   = "2.3.0-beta01"
+    const val navigation   = "2.3.0"
     const val dagger       = "2.25.2"
     const val retrofit     = "2.7.1"
     const val daggerAssist = "0.5.2"
@@ -27,6 +27,7 @@ object Versions {
     const val ktlint       = "0.36.0"
     const val ktlintPlug   = "9.2.1"
     const val detekt       = "1.10.0-RC1"
+    const val benchmark    = "1.1.0-alpha01"
 }
 
 object Lib {
@@ -102,6 +103,7 @@ object Lib {
         const val mockito        = "org.mockito:mockito-core:3.2.4"
         const val mockitokotlin  = "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0" // A small library that provides helper functions to work with Mockito in Kotlin.
 
+        const val benchmarkJUnit4       = "androidx.benchmark:benchmark-junit4:${Versions.benchmark}"
         const val testRunner            = "androidx.test:runner:1.2.0" // AndroidJUnitRunner
         const val espresso              = "androidx.test.espresso:espresso-core:3.2.0"
         const val espressoContrib       = "androidx.test.espresso:espresso-contrib:3.1.0"

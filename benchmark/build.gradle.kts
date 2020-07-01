@@ -32,5 +32,5 @@ dependencies {
 
     androidTestImplementation(Lib.Test.testRunner)
     androidTestImplementation(Lib.Test.testJunit)
-    androidTestImplementation("androidx.benchmark:benchmark-junit4:1.1.0-alpha01")
+    androidTestImplementation(Lib.Test.benchmarkJUnit4)
 }
