@@ -6,7 +6,6 @@ plugins {
     kotlinAndroidExt()
     kotlinKapt()
     safeargs()
-    junit5()
 }
 
 val stringFromGradleProperties = project.findProperty("key") as String // get string from gradle.properties
