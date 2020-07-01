@@ -119,6 +119,8 @@ dependencies {
     implementation(Lib.appcompat)
     implementation(Lib.coreKtx)
     implementation(Lib.constraintLayout)
+    implementation(Lib.playCore)
+    implementation(Lib.playCoreKtx)
     implementation(Lib.material)
     implementation(Lib.coroutines)
     implementation(Lib.coroutinesAndroid)
