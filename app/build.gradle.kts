@@ -53,7 +53,6 @@ android {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
             resValue("string", "app_name", "(debug)") // change app name for debug version
-
             buildConfigField("String", "key", stringFromLocalProperties) // write custom field in BuildConfig file
             signingConfig = signingConfigs.getByName("debug")
         }
@@ -61,9 +60,7 @@ android {
             isMinifyEnabled = true // ProGuard turn on
             isDebuggable = true
             isShrinkResources = false // delete unused resources
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
-            )
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             resValue("string", "app_name", "App name") // Adds a new generated resource
             signingConfig = signingConfigs.getByName("release")
         }
@@ -161,28 +158,6 @@ dependencies {
     // LintRules
     lintChecks(project(":rules"))
 
-    testImplementation(Lib.Test.testCore)
-    testImplementation(Lib.Test.testCoreKtx)
-    testImplementation(Lib.Test.testRunner)
-    testImplementation(Lib.Test.testRules)
-    testImplementation(Lib.Test.testJunit)
-    testImplementation(Lib.Test.testJunitKtx)
-    testImplementation(Lib.Test.testTruth)
-    testImplementation(Lib.Test.testTruth2)
-    testImplementation(Lib.Test.coreTesting)
-    testImplementation(Lib.Test.mockitoWeb)
-    testImplementation(Lib.Test.mockito)
-    testImplementation(Lib.Test.mockitokotlin)
-    testImplementation(Lib.Test.coroutinesTest)
-
-    // UI Test
-    androidTestImplementation(Lib.Test.testCore)
-    androidTestImplementation(Lib.Test.testCoreKtx)
-    androidTestImplementation(Lib.Test.testRules)
-    androidTestImplementation(Lib.Test.testRunner)
-    androidTestImplementation(Lib.Test.testJunit)
-    androidTestImplementation(Lib.Test.testJunitKtx)
-    androidTestImplementation(Lib.Test.coreTesting)
-    androidTestImplementation(Lib.Test.espresso)
-    androidTestImplementation(Lib.Test.espressoIntents)
+    addTestDependencies()
+    addAndroidTestDependencies()
 }

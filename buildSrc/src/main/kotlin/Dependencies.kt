@@ -1,3 +1,6 @@
+import org.gradle.api.artifacts.Dependency
+import org.gradle.api.artifacts.dsl.DependencyHandler
+
 // when we have all version's here how can we know there is new version available for our lib?
 object Apps {
     const val compileSdk    = 29
@@ -112,4 +115,38 @@ object Lib {
     object AndroidTest {
         const val navigation = "androidx.navigation:navigation-testing:${Versions.navigation}"
     }
+}
+
+private fun DependencyHandler.androidTestImplementation(dependencyNotation: Any): Dependency? =
+    add("androidTestImplementation", dependencyNotation)
+
+private fun DependencyHandler.testImplementation(dependencyNotation: Any): Dependency? =
+    add("testImplementation", dependencyNotation)
+
+fun DependencyHandler.addAndroidTestDependencies() {
+    androidTestImplementation(Lib.Test.testCore)
+    androidTestImplementation(Lib.Test.testCoreKtx)
+    androidTestImplementation(Lib.Test.testRules)
+    androidTestImplementation(Lib.Test.testRunner)
+    androidTestImplementation(Lib.Test.testJunit)
+    androidTestImplementation(Lib.Test.testJunitKtx)
+    androidTestImplementation(Lib.Test.coreTesting)
+    androidTestImplementation(Lib.Test.espresso)
+    androidTestImplementation(Lib.Test.espressoIntents)
+}
+
+fun DependencyHandler.addTestDependencies() {
+    testImplementation(Lib.Test.testCore)
+    testImplementation(Lib.Test.testCoreKtx)
+    testImplementation(Lib.Test.testRunner)
+    testImplementation(Lib.Test.testRules)
+    testImplementation(Lib.Test.testJunit)
+    testImplementation(Lib.Test.testJunitKtx)
+    testImplementation(Lib.Test.testTruth)
+    testImplementation(Lib.Test.testTruth2)
+    testImplementation(Lib.Test.coreTesting)
+    testImplementation(Lib.Test.mockitoWeb)
+    testImplementation(Lib.Test.mockito)
+    testImplementation(Lib.Test.mockitokotlin)
+    testImplementation(Lib.Test.coroutinesTest)
 }
