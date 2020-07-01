@@ -1,5 +1,4 @@
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     androidApp()
@@ -14,15 +13,11 @@ val stringFromGradleProperties = project.findProperty("key") as String // get st
 val stringFromLocalProperties: String = gradleLocalProperties(rootDir).getProperty("key") // get string from local.properties
 
 android {
-    compileSdkVersion(Apps.compileSdk)
+
     defaultConfig {
         applicationId = Apps.applicationId
-        minSdkVersion(Apps.minSdk)
-        targetSdkVersion(Apps.targetSdk)
-//        versionCode = ext.get("gitCommitCount") as? Int
         versionCode = Apps.versionCode
         versionName = Apps.versionName
-//        multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" // base runner that - handles loading test package and app to device - running tests - reporting tests results (for androidTestImplementation )
         setProperty("archivesBaseName", "$applicationId-v$versionName.$versionCode") // name for generated apk file
@@ -79,17 +74,6 @@ android {
 //            create("trial") {
 //            }
 //    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    tasks.withType<KotlinCompile> {
-        kotlinOptions {
-            noStdlib = true
-            jvmTarget = JavaVersion.VERSION_1_8.toString()
-            freeCompilerArgs = listOf("-Xallow-result-return-type")
-        }
-    }
 
     buildFeatures {
         dataBinding = true
