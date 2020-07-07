@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.api.clear
 import java.lang.ref.WeakReference
 import java.util.Collections
 import n7.myperfectemptyproject.R
@@ -51,6 +52,7 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
                 activeViewHolders.removeAt(i)
             }
         }
+        holder.clear()
     }
 
     override fun getItemViewType(position: Int): Int = R.layout.item_user
@@ -87,6 +89,7 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
 
         fun clear() {
             binding.root.setOnClickListener(null)
+            (binding as ItemUserBinding).ivPhoto.clear()
         }
 
         companion object {
