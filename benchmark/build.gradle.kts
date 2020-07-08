@@ -2,7 +2,6 @@ plugins {
     androidLibrary()
     benchmark()
     kotlinAndroid()
-    kotlinAndroidExt()
 }
 
 android {

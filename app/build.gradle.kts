@@ -3,7 +3,6 @@ import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 plugins {
     androidApp()
     kotlinAndroid()
-    kotlinAndroidExt()
     kotlinKapt()
     safeargs()
 }
@@ -79,10 +78,6 @@ android {
         isAbortOnError = true // if set to true (default), stops the build if errors are found.
         isIgnoreWarnings = false // if true, only report errors.
 //        isQuiet = true // If set to true, turns off analysis progress reporting by lint.
-    }
-
-    androidExtensions {
-        isExperimental = true // In order to have parcelize annotation
     }
 
     packagingOptions {
