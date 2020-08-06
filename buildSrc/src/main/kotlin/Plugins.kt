@@ -6,6 +6,8 @@ fun PluginDependenciesSpec.androidLibrary(): PluginDependencySpec = id("com.andr
 
 fun PluginDependenciesSpec.benchmark(): PluginDependencySpec = id("androidx.benchmark")
 
+fun PluginDependenciesSpec.hilt(): PluginDependencySpec = id("dagger.hilt.android.plugin")
+
 fun PluginDependenciesSpec.dynamicFeature(): PluginDependencySpec = id("com.android.dynamic-feature")
 
 fun PluginDependenciesSpec.androidApp(): PluginDependencySpec = id("com.android.application")

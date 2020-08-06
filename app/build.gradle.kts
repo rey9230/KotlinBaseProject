@@ -5,6 +5,7 @@ plugins {
     kotlinAndroid()
     kotlinKapt()
     safeargs()
+    hilt()
 }
 
 val stringFromGradleProperties = project.findProperty("key") as String // get string from gradle.properties
@@ -126,6 +127,10 @@ dependencies {
     implementation(Lib.lifecycleAnnotation)
     implementation(Lib.dagger)
     kapt(Lib.daggerAnnotation)
+    implementation(Lib.hilt)
+    implementation(Lib.hiltViewModel)
+    kapt(Lib.hiltAnnotation)
+    kapt(Lib.hiltAnnotationX)
     compileOnly(Lib.daggerAssisted)
     kapt(Lib.daggerAssistedAnnotation)
     implementation(Lib.coil)

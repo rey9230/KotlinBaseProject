@@ -28,6 +28,7 @@ object Versions {
     const val ktlintPlug   = "9.2.1"
     const val detekt       = "1.10.0-RC1"
     const val benchmark    = "1.0.0"
+    const val hilt         = "2.28-alpha"
 }
 
 object Lib {
@@ -62,6 +63,12 @@ object Lib {
 
     // --- Firebase Coroutines ---
     const val coroutinesPlayServices = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.3.2"
+
+    // --- Hilt ---
+    const val hilt            = "com.google.dagger:hilt-android:${Versions.hilt}"
+    const val hiltAnnotation  = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+    const val hiltAnnotationX = "androidx.hilt:hilt-compiler:1.0.0-alpha02"
+    const val hiltViewModel   = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
 
     // --- Dagger ---
     const val dagger                   = "com.google.dagger:dagger:${Versions.dagger}"
