@@ -5,16 +5,11 @@ import android.app.Application
 import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
-import n7.myperfectemptyproject.di.ApplicationComponent
-import n7.myperfectemptyproject.di.DaggerApplicationComponent
-import n7.myperfectemptyproject.di.DaggerComponentProvider
+import dagger.hilt.android.HiltAndroidApp
 import n7.myperfectemptyproject.utils.NetworkStateHolder.registerConnectivityMonitor
 
-class MyApplication : Application(), DaggerComponentProvider {
-
-    override val component: ApplicationComponent by lazy {
-        DaggerApplicationComponent.factory().create(this)
-    }
+@HiltAndroidApp
+class MyApplication : Application() {
 
     override fun onCreate() {
         enableStrictMode()

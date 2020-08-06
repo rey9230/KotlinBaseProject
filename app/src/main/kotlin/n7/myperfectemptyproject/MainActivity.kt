@@ -19,11 +19,13 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.preference.PreferenceManager
+import dagger.hilt.android.AndroidEntryPoint
 import n7.myperfectemptyproject.databinding.MainActivityBinding
 import n7.myperfectemptyproject.ui.ErrorDialogDirections
 import n7.myperfectemptyproject.ui.ErrorDialogListener
 import n7.myperfectemptyproject.utils.logPlease
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: MainActivityBinding

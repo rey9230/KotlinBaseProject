@@ -5,25 +5,26 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentResultListener
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
+import dagger.hilt.android.AndroidEntryPoint
 import n7.myperfectemptyproject.MainActivity
 import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.databinding.MainFragmentBinding
-import n7.myperfectemptyproject.di.injector
 import n7.myperfectemptyproject.ui.ErrorDialogListener
 import n7.myperfectemptyproject.utils.extension.setOnBackPressExit
 import n7.myperfectemptyproject.utils.extension.setupErrorSnackbar
 import n7.myperfectemptyproject.utils.extension.showSnackbar
-import n7.myperfectemptyproject.utils.viewModelWithSavedStateHandle
 
+@AndroidEntryPoint
 class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
 
     private lateinit var binding: MainFragmentBinding
-    private val viewModel: MainViewModel by viewModelWithSavedStateHandle { injector.mainViewModelFactory }
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

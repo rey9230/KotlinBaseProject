@@ -1,6 +1,6 @@
 package n7.myperfectemptyproject.di
 
-import android.app.Application
+import android.content.Context
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 import androidx.room.Room
@@ -8,21 +8,25 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import dagger.Module
 import dagger.Provides
-import dagger.Reusable
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import java.util.Date
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import n7.myperfectemptyproject.data.source.local.db.AppDatabase
 import n7.myperfectemptyproject.data.source.local.db.UsersDao
+import javax.inject.Singleton
 
 @Module
+@InstallIn(ApplicationComponent::class)
 object ApplicationModule {
 
-    @Reusable
     @Provides
-    fun provideDatabase(application: Application): AppDatabase {
+    @Singleton
+    fun provideDatabase(@ApplicationContext context: Context): AppDatabase {
         return Room.databaseBuilder(
-            application,
+            context,
             AppDatabase::class.java,
             AppDatabase.DB_NAME
         )
@@ -32,24 +36,24 @@ object ApplicationModule {
             .build()
     }
 
-    @Reusable
     @Provides
+    @Singleton
     fun provideMyDao(appDatabase: AppDatabase): UsersDao {
         return appDatabase.userDao
     }
 
-    @Reusable
     @Provides
+    @Singleton
     fun provideIoDispatcher(): CoroutineDispatcher = Dispatchers.IO
 
-    @Reusable
     @Provides
-    fun provideSharedPreferences(application: Application): SharedPreferences {
-        return PreferenceManager.getDefaultSharedPreferences(application)
+    @Singleton
+    fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
+        return PreferenceManager.getDefaultSharedPreferences(context)
     }
 
-    @Reusable
     @Provides
+    @Singleton
     fun moshi(): Moshi = Moshi.Builder()
         .add(Date::class.java, Rfc3339DateJsonAdapter().nullSafe()) // adapter that convert timeStamp in Date
         /* more brilliant adapters */

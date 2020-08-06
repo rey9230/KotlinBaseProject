@@ -22,7 +22,7 @@ android {
         setProperty("archivesBaseName", "$applicationId-v$versionName.$versionCode") // name for generated apk file
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = mapOf(
+                arguments = arguments + mapOf(
                     //             "room.schemaLocation" to "$projectDir/schemas",
                     "room.incremental" to "true"
                     //             "room.expandProjection" to "true"

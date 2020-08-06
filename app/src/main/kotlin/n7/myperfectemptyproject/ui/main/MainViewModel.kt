@@ -3,22 +3,21 @@ package n7.myperfectemptyproject.ui.main
 import android.app.Application
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.hilt.Assisted
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
-import com.squareup.inject.assisted.Assisted
-import com.squareup.inject.assisted.AssistedInject
 import kotlinx.coroutines.launch
 import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.base.BaseViewModel
-import n7.myperfectemptyproject.base.ViewModelAssistedFactory
 import n7.myperfectemptyproject.ui.main.domain.usecase.DeleteAllUsersLocalUseCase
 import n7.myperfectemptyproject.ui.main.domain.usecase.GetUsersFromLocalStoreUseCase
 import n7.myperfectemptyproject.ui.main.domain.usecase.GetUsersFromRemoteStoreUseCase
 import n7.myperfectemptyproject.ui.main.domain.usecase.SaveUsersToLocalStoreUseCase
 
-class MainViewModel @AssistedInject constructor(
+class MainViewModel @ViewModelInject constructor(
     application: Application,
     @Assisted handle: SavedStateHandle,
     private val getUsersFromRemoteStoreUseCase: GetUsersFromRemoteStoreUseCase,
@@ -26,9 +25,6 @@ class MainViewModel @AssistedInject constructor(
     private val getUsersFromLocalStoreUseCase: GetUsersFromLocalStoreUseCase,
     private val deleteAllUsersLocalUseCase: DeleteAllUsersLocalUseCase
 ) : BaseViewModel(application, handle) {
-
-    @AssistedInject.Factory
-    interface Factory : ViewModelAssistedFactory<MainViewModel>
 
     val getUsers = getUsersFromLocalStoreUseCase().asLiveData()
 
