@@ -2,4 +2,5 @@
 <resources>
     <attr name="myCustomAttr" format="reference" />
 
+    <attr name="textAppearanceCustom" format="reference" />
 </resources>

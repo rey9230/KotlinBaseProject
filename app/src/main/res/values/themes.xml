@@ -38,6 +38,7 @@
         <!-- theme for dialog -->
         <item name="materialAlertDialogTheme">@style/Widget.Dialog</item>
 
+        <item name="textAppearanceCustom">@style/TextAppearance.Custom</item>
         <item name="textAppearanceHeadline1">@style/TextAppearance.HeadLine1</item>
         <item name="textAppearanceHeadline2">@style/TextAppearance.HeadLine2</item>
         <item name="textAppearanceHeadline3">@style/TextAppearance.HeadLine3</item>
