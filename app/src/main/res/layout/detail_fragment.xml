@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="url"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,6 +19,8 @@
             android:id="@+id/iv"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            loadImageUrl="@{url}"
+            withCache="@{true}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

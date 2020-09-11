@@ -36,7 +36,7 @@ object Lib {
     const val coreKtx             = "androidx.core:core-ktx:1.2.0" // Write more concise, idiomatic Kotlin code.
     const val constraintLayout    = "androidx.constraintlayout:constraintlayout:2.0.0"
     const val material            = "com.google.android.material:material:1.2.0" // Build beautiful products, faster.
-    const val coil                = "io.coil-kt:coil:0.9.5"
+    const val coil                = "io.coil-kt:coil:0.13.0"
     const val springAnimation     = "androidx.dynamicanimation:dynamicanimation:1.0.0"
     const val springAnimationKtx  = "androidx.dynamicanimation:dynamicanimation-ktx:1.0.0-alpha03"
     const val recyclerView        =  "androidx.recyclerview:recyclerview:1.2.0-alpha03"

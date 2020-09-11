@@ -6,6 +6,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.navigation.fragment.navArgs
+import coil.Coil
+import coil.request.ImageRequest
 import com.google.android.material.transition.MaterialContainerTransform
 import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.databinding.DetailFragmentBinding
@@ -20,9 +22,10 @@ class DetailFragment : Fragment(R.layout.detail_fragment) {
         super.onViewCreated(view, savedInstanceState)
         binding = DetailFragmentBinding.bind(view).also {
             it.lifecycleOwner = viewLifecycleOwner
+            it.url = args.url
         }
         binding.iv.transitionName = args.tn
-        binding.iv.loadImageUrl(args.url)
+
         sharedElementEnterTransition = buildContainerTransform(MaterialContainerTransform.FADE_MODE_OUT)
         sharedElementReturnTransition = buildContainerTransform(MaterialContainerTransform.FADE_MODE_IN)
         // TransitionInflater.from(context).inflateTransition(android.R.transition.move).apply {

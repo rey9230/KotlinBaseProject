@@ -11,15 +11,24 @@ import androidx.core.text.PrecomputedTextCompat
 import androidx.core.widget.TextViewCompat
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
-import coil.api.load
+import coil.Coil
+import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
 
-@BindingAdapter("loadImageUrl")
-fun ImageView.loadImageUrl(url: String?) {
-    this.load(url) {
-        crossfade(true)
-        transformations(RoundedCornersTransformation(10F))
+@BindingAdapter("loadImageUrl", "withCache", requireAll = false)
+fun ImageView.loadImageUrl(url: String?, withCache: Boolean = false) {
+    val imageLoader = Coil.imageLoader(this.context)
+    val builder = ImageRequest.Builder(this.context)
+        .data(url)
+        .target(this)
+        .allowHardware(false)
+        .crossfade(true)
+        .transformations(RoundedCornersTransformation(10F))
+    if (withCache) {
+        builder.memoryCacheKey(url)
     }
+    val request = builder.build()
+    imageLoader.enqueue(request)
 }
 
 @BindingAdapter("isVisible")
