@@ -18,7 +18,7 @@ class ErrorDialog : DialogFragment() {
     private val args: ErrorDialogArgs by navArgs()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialogBuilder = MaterialAlertDialogBuilder(context)
+        val dialogBuilder = MaterialAlertDialogBuilder(requireContext())
             .setMessage(args.message)
             .setPositiveButton(android.R.string.ok) { _, _ ->
                 // args.listener?.onPositiveButtonClick()
