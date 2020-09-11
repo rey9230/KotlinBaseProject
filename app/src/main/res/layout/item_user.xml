@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="longListener"
+            type="n7.myperfectemptyproject.ui.main.VOModelListener" />
+
+        <variable
             name="user"
             type="n7.myperfectemptyproject.ui.main.domain.vo.VOUser" />
     </data>

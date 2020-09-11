@@ -15,6 +15,9 @@
             app:destination="@id/featureOne" />
 
         <deepLink app:uri="https://n7.com/mainFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
 
     <fragment
@@ -41,4 +44,15 @@
     <action
         android:id="@+id/action_global_errorDialog"
         app:destination="@id/errorDialog" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="n7.myperfectemptyproject.ui.detail.DetailFragment"
+        android:label="DetailFragment" >
+        <argument
+            android:name="tn"
+            app:argType="string" />
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -3,6 +3,7 @@ package n7.myperfectemptyproject.ui.main
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.BaseObservable
 import androidx.databinding.ViewDataBinding
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -11,13 +12,17 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.clear
-import java.lang.ref.WeakReference
-import java.util.Collections
 import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.databinding.ItemUserBinding
 import n7.myperfectemptyproject.ui.main.domain.vo.VOUser
 import n7.myperfectemptyproject.utils.extension.animateRotation
 import n7.myperfectemptyproject.utils.extension.animateTranslationX
+import java.lang.ref.WeakReference
+import java.util.Collections
+
+interface VOModelListener<T : BaseObservable> {
+    fun onClickListener(model: T)
+}
 
 // RecyclerView optimizations https://youtu.be/GZkTwgetUWI
 class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCallback()) {
@@ -26,9 +31,18 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
     private val listener = View.OnClickListener {
         it.isSelected = !it.isSelected
     }
+    private val longListener = object : VOModelListener<ItemUserBinding> {
+        override fun onClickListener(model: ItemUserBinding) {
+            val extra = FragmentNavigatorExtras(
+                model.ivPhoto to model.ivPhoto.transitionName
+            )
+            val action = MainFragmentDirections.actionMainFragmentToDetailFragment(model.ivPhoto.transitionName, model.user!!.pictureUrl)
+            model.root.findNavController().navigate(action, extra)
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.from(parent, listener)
+        return ViewHolder.from(parent, listener, longListener)
     }
 
     fun swap(swapFrom: Int, swapTo: Int) {
@@ -40,8 +54,8 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         activeViewHolders.add(WeakReference(holder))
         holder.bind(getItem(position))
-        holder.animateRotation()
-        holder.animateTranslationX()
+        // holder.animateRotation()
+        // holder.animateTranslationX()
     }
 
     override fun onViewRecycled(holder: ViewHolder) {
@@ -62,16 +76,10 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
         super.onViewDetachedFromWindow(holder)
     }
 
-    private fun navigateTo(binding: ViewDataBinding) {
-        val extra = FragmentNavigatorExtras(
-            binding.root to binding.root.transitionName
-        )
-        binding.root.findNavController().navigate(R.id.coil_bitmap)
-    }
-
     class ViewHolder private constructor(
         private val binding: ViewDataBinding,
-        private val listener: View.OnClickListener
+        private val listener: View.OnClickListener,
+        private val longListener: VOModelListener<ItemUserBinding>
     ) : RecyclerView.ViewHolder(binding.root) {
 
         // can we animate our items? step brother? https://youtu.be/7LqeFDsi5dQ
@@ -85,6 +93,10 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
             // binding.tvDate.setTextFuture(PrecomputedTextCompat.getTextFuture(date!!.toString(), TextViewCompat.getTextMetricsParams(binding.tvDate), null))
 
             binding.root.setOnClickListener(listener)
+            binding.root.setOnLongClickListener {
+                longListener.onClickListener(binding)
+                true
+            }
         }
 
         fun clear() {
@@ -95,11 +107,12 @@ class UsersListAdapter : ListAdapter<VOUser, UsersListAdapter.ViewHolder>(DiffCa
         companion object {
             fun from(
                 parent: ViewGroup,
-                listener: View.OnClickListener
+                listener: View.OnClickListener,
+                longListener: VOModelListener<ItemUserBinding>
             ): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ItemUserBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding, listener)
+                return ViewHolder(binding, listener, longListener)
             }
         }
     }
