@@ -21,7 +21,7 @@ class WrongUsingAttrDetector : LayoutDetector() {
 
     override fun visitAttribute(context: XmlContext, attribute: Attr) {
         super.visitAttribute(context, attribute)
-        if (attribute.value.startsWith("#") && attribute.value.startsWith("@color/")) {
+        if (attribute.value.startsWith("#") || attribute.value.startsWith("@color/")) {
             context.report(
                 ISSUE,
                 context.getLocation(attribute.ownerElement),
