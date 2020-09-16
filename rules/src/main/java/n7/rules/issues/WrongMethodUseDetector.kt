@@ -28,7 +28,7 @@ class WrongMethodUseDetector : Detector(), SourceCodeScanner {
                 includeReceiver = true,
                 includeArguments = true
             ),
-            message = "Delete This Shiiiit!!"
+            message = "Не званию этому хуесосу, позвони лучше тимлиду"
         )
     }
 
