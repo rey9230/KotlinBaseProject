@@ -15,6 +15,8 @@ object Apps {
 object Versions {
     const val lifecycle    = "2.2.0"
     const val gradle       = "3.5.3"
+    const val gradlePlugin = "4.0.1"
+    const val lint         = "27.0.1" // gradlePlugin + 23
     const val kotlin       = "1.3.60"
     const val moshi        = "1.9.2"
     const val room         = "2.2.4"
