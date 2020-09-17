@@ -16,6 +16,7 @@ fun CoroutineTestRule.runBlockingTest(block: suspend TestCoroutineScope.() -> Un
  * It contains a reference to a TestCoroutineDispatcher, and as tests are starting and stopping it overrides the default Dispatchers.Main
  * dispatcher and replaces the default with our test dispatcher.
  */
+// one day i will understand this article.... https://proandroiddev.com/companion-object-invoke-operator-overloading-for-default-constructor-argument-in-generic-classes-c8eb61dcc4f7
 @ExperimentalCoroutinesApi
 class CoroutineTestRule(
     val testDispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
