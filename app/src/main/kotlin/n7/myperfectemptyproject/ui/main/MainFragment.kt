@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.savedstate.SavedStateRegistry
 import dagger.hilt.android.AndroidEntryPoint
 import n7.myperfectemptyproject.MainActivity
 import n7.myperfectemptyproject.R
@@ -23,8 +24,19 @@ import n7.myperfectemptyproject.utils.extension.showSnackbar
 @AndroidEntryPoint
 class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
 
+    companion object {
+        private const val MY_SAVED_STATE_KEY = "MY_SAVED_STATE_KEY"
+        private const val SOME_VALUE_KEY = "SOME_VALUE_KEY"
+    }
+
     private lateinit var binding: MainFragmentBinding
     private val viewModel: MainViewModel by viewModels()
+    private lateinit var someValue: String
+    private val savedStateProvider = SavedStateRegistry.SavedStateProvider {
+        Bundle().apply {
+            putString(SOME_VALUE_KEY, someValue)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,6 +45,8 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
             it.viewModel = viewModel
         }
 
+        savedStateRegistry.registerSavedStateProvider(MY_SAVED_STATE_KEY, savedStateProvider)
+        someValue = savedStateRegistry.consumeRestoredStateForKey(MY_SAVED_STATE_KEY)?.getString(SOME_VALUE_KEY) ?: ""
         setOnBackPressExit()
         setupListAdapter()
         setupErrorSnackbar()
