@@ -13,7 +13,6 @@ android {
 dependencies {
     implementation(project(":app"))
     implementation(Lib.coreKtx)
-    implementation(kotlin("stdlib-jdk7"))
 }
 
 tasks.register("hello") {

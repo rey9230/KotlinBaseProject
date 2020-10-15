@@ -66,7 +66,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:${Versions.gradlePlugin}")
         classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}")
-        // classpath(kotlin("gradle-plugin", version = "1.3.72"))
+        classpath(kotlin("gradle-plugin", version = Versions.kotlin))
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}")
         classpath("androidx.benchmark:benchmark-gradle-plugin:${Versions.benchmark}")
         // NOTE: Do not place your application dependencies here; they belong

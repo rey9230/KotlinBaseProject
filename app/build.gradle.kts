@@ -22,11 +22,11 @@ android {
         setProperty("archivesBaseName", "$applicationId-v$versionName.$versionCode") // name for generated apk file
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = arguments + mapOf(
+                // arguments = arguments + mapOf(
                     //             "room.schemaLocation" to "$projectDir/schemas",
-                    "room.incremental" to "true"
+                    // "room.incremental" to "true"
                     //             "room.expandProjection" to "true"
-                )
+                // )
             }
         }
     }
@@ -110,8 +110,6 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    // Starting with Kotlin 1.1.2, the dependencies with group org.jetbrains.kotlin are by default resolved with the version taken from the applied plugin
-    implementation(kotlin("stdlib-jdk7")) // in old projects we should write in this way - implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.60")
     implementation(Lib.appcompat)
     implementation(Lib.coreKtx)
     implementation(Lib.constraintLayout)
