@@ -16,6 +16,13 @@ import org.junit.runner.RunWith
  * The body of [BenchmarkRule.measureRepeated] is measured in a loop, and Studio will
  * output the result. Modify your code to see how it affects performance.
  */
+
+/**
+ * We can take info in profiler via :
+ * Trace.beginSection("onBind")
+ * ...
+ * Trace.endSection()
+ */
 @RunWith(AndroidJUnit4::class)
 class ExampleBenchmark {
 
