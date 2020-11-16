@@ -86,38 +86,21 @@ fun setStyle(textView: TextView, enabled: Boolean) {
 }
 
 // todo write custom rule for newbie developers that warn them to use only this method!
-@BindingAdapter("onClick")
-fun View.setOnDebouncedClickListener(action: () -> Unit) {
-    val actionDebounce = ActionDebounce(action)
-
+@BindingAdapter("debounceTime", "onClick", requireAll = false)
+inline fun View.setOnDebouncedClickListener(debounceTimeInMilliseconds: Long = 600L, crossinline action: () -> Unit) {
+    var lastActionTime = 0L
     // This is the only place in the project where we should actually use setOnClickListener
     setOnClickListener {
-        actionDebounce.notifyAction()
+        val now = SystemClock.elapsedRealtime()
+        val millisecondsPassed = now - lastActionTime
+        val actionNotAllowed = millisecondsPassed < debounceTimeInMilliseconds
+        if (actionNotAllowed) return@setOnClickListener
+        action.invoke()
+        lastActionTime = now
     }
 }
 
 fun View.removeOnDebouncedClickListener() {
     setOnClickListener(null)
     isClickable = false
-}
-
-private class ActionDebounce(private val action: () -> Unit) {
-
-    companion object {
-        const val DEBOUNCE_INTERVAL_MILLISECONDS = 600L
-    }
-
-    private var lastActionTime = 0L
-
-    fun notifyAction() {
-        val now = SystemClock.elapsedRealtime()
-
-        val millisecondsPassed = now - lastActionTime
-        val actionAllowed = millisecondsPassed > DEBOUNCE_INTERVAL_MILLISECONDS
-        lastActionTime = now
-
-        if (actionAllowed) {
-            action.invoke()
-        }
-    }
 }
