@@ -5,13 +5,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import coil.Coil
-import coil.request.ImageRequest
 import com.google.android.material.transition.MaterialContainerTransform
 import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.databinding.DetailFragmentBinding
-import n7.myperfectemptyproject.utils.loadImageUrl
+import n7.myperfectemptyproject.ui.ErrorDialogDirections
 
 class DetailFragment : Fragment(R.layout.detail_fragment) {
 
@@ -32,6 +31,9 @@ class DetailFragment : Fragment(R.layout.detail_fragment) {
         //     sharedElementEnterTransition = this
         //     // sharedElementReturnTransition = this
         // }
+        binding.iv.setOnClickListener {
+            findNavController().navigate(ErrorDialogDirections.actionGlobalErrorDialog("saveliy", null))
+        }
     }
 
     private fun buildContainerTransform(mode: Int) = MaterialContainerTransform().apply {
@@ -42,5 +44,4 @@ class DetailFragment : Fragment(R.layout.detail_fragment) {
         duration = 1000
         scrimColor = Color.TRANSPARENT
     }
-
 }

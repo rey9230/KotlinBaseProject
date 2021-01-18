@@ -2,14 +2,17 @@ package n7.myperfectemptyproject
 
 import android.app.Activity
 import android.app.Application
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
+import com.google.android.play.core.splitcompat.SplitCompat
+import com.google.android.play.core.splitcompat.SplitCompatApplication
 import dagger.hilt.android.HiltAndroidApp
 import n7.myperfectemptyproject.utils.NetworkStateHolder.registerConnectivityMonitor
 
 @HiltAndroidApp
-class MyApplication : Application() {
+class MyApplication : SplitCompatApplication() {
 
     override fun onCreate() {
         enableStrictMode()
@@ -17,6 +20,11 @@ class MyApplication : Application() {
         registerConnectivityMonitor()
         // listen what happening with our activities (but we using single activity *rofl*)
         registerActivityLifecycleCallbacks(AnalyticsCallbacks(""))
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        SplitCompat.install(this)
     }
 
     // if we want to build cool without any problems we can enable StrickMode that alarm us if we have something to fix (all messages will come with 'StrictMode' debug tag)

@@ -45,7 +45,7 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
             it.viewModel = viewModel
         }
 
-        savedStateRegistry.registerSavedStateProvider(MY_SAVED_STATE_KEY, savedStateProvider)
+        // savedStateRegistry.registerSavedStateProvider(MY_SAVED_STATE_KEY, savedStateProvider)
         someValue = savedStateRegistry.consumeRestoredStateForKey(MY_SAVED_STATE_KEY)?.getString(SOME_VALUE_KEY) ?: ""
         setOnBackPressExit()
         setupListAdapter()
