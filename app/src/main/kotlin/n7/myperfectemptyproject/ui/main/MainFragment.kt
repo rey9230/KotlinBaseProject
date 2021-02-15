@@ -6,10 +6,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentResultListener
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.observe
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.savedstate.SavedStateRegistry
 import dagger.hilt.android.AndroidEntryPoint
@@ -86,7 +85,7 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
     private fun setupListAdapter() {
         val usersListAdapter = UsersListAdapter()
         val loadingAdapter = LoadingAdapter()
-        val mergeAdapter = MergeAdapter(usersListAdapter, loadingAdapter)
+        val mergeAdapter = ConcatAdapter(usersListAdapter, loadingAdapter)
 
         usersListAdapter.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         binding.rv.apply {

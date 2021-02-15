@@ -41,7 +41,7 @@ object Lib {
     const val coil                = "io.coil-kt:coil:0.13.0"
     const val springAnimation     = "androidx.dynamicanimation:dynamicanimation:1.0.0"
     const val springAnimationKtx  = "androidx.dynamicanimation:dynamicanimation-ktx:1.0.0-alpha03"
-    const val recyclerView        =  "androidx.recyclerview:recyclerview:1.2.0-alpha03"
+    const val recyclerView        =  "androidx.recyclerview:recyclerview:1.2.0-beta01"
     const val playCore            = "com.google.android.play:core:1.7.3"
     const val playCoreKtx         = "com.google.android.play:core-ktx:1.7.0"
 
