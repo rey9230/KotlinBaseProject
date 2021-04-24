@@ -15,11 +15,9 @@ class SaveUsersToLocalStoreUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke(remoteUsers: RemoteUsers) = withContext(ioDispatcher) {
-        kotlin.runCatching {
             val userList: List<LocalUser> = remoteUsers.results.map {
                 it.toLocalStore()
             }
             repository.saveLocalUser(userList)
-        }
     }
 }
