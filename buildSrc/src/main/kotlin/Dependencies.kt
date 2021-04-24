@@ -104,6 +104,7 @@ object Lib {
         const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.2"
         const val testCore       = "androidx.test:core:1.2.0" // Core library
         const val testCoreKtx    = "androidx.test:core-ktx:1.2.0"
+        const val testFragment   = "androidx.fragment:fragment-testing:1.3.3"
         const val testRules      = "androidx.test:rules:1.2.0" // JUnit Rules
         const val testJunit      = "androidx.test.ext:junit:1.1.1" // Assertions and JUnit 4 framework
         const val testJunitKtx   = "androidx.test.ext:junit-ktx:1.1.1" // Assertions

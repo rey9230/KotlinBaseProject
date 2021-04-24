@@ -28,7 +28,9 @@ dependencies {
     // want to benchmark to a library module:
     // https://developer.android.com/studio/projects/android-library#Convert
 
+    implementation(project(":app"))
     androidTestImplementation(Lib.Test.testRunner)
     androidTestImplementation(Lib.Test.testJunit)
     androidTestImplementation(Lib.Test.benchmarkJUnit4)
+    androidTestImplementation(Lib.Test.testFragment)
 }
