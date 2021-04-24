@@ -3,9 +3,8 @@ package n7.myperfectemptyproject.di
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
-import dagger.Reusable
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import n7.myperfectemptyproject.BuildConfig
 import n7.myperfectemptyproject.data.source.remote.retrofit.UserApi
 import n7.myperfectemptyproject.utils.logPlease
@@ -18,7 +17,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object RetrofitModule {
 
     private const val randomUserBaseUrl = "https://randomuser.me///////"

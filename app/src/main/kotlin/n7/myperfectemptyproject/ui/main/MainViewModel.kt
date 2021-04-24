@@ -4,11 +4,11 @@ import android.app.Application
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.hilt.Assisted
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import n7.myperfectemptyproject.R
 import n7.myperfectemptyproject.base.BaseViewModel
@@ -16,8 +16,10 @@ import n7.myperfectemptyproject.ui.main.domain.usecase.DeleteAllUsersLocalUseCas
 import n7.myperfectemptyproject.ui.main.domain.usecase.GetUsersFromLocalStoreUseCase
 import n7.myperfectemptyproject.ui.main.domain.usecase.GetUsersFromRemoteStoreUseCase
 import n7.myperfectemptyproject.ui.main.domain.usecase.SaveUsersToLocalStoreUseCase
+import javax.inject.Inject
 
-class MainViewModel @ViewModelInject constructor(
+@HiltViewModel
+class MainViewModel @Inject constructor(
     application: Application,
     @Assisted handle: SavedStateHandle,
     private val getUsersFromRemoteStoreUseCase: GetUsersFromRemoteStoreUseCase,
@@ -28,12 +30,9 @@ class MainViewModel @ViewModelInject constructor(
 
     val getUsers = getUsersFromLocalStoreUseCase().asLiveData()
 
-    fun loadUser() {
-        launchWithLoading {
-            getUsersFromRemoteStoreUseCase(1)
-                .onSuccess { remoteUsers -> saveUsersToLocalStoreUseCase(remoteUsers) }
-                .onFailure { _errorMessage.value = it.toString() }
-        }
+    fun loadUser() = viewModelScope.launch {
+        val usersFromRemoteStoreUseCase = getUsersFromRemoteStoreUseCase(1)
+        saveUsersToLocalStoreUseCase(usersFromRemoteStoreUseCase)
     }
 
     fun deleteAllUsers(): Boolean {

@@ -30,7 +30,7 @@ object Versions {
     const val ktlintPlug   = "9.2.1"
     const val detekt       = "1.10.0-RC1"
     const val benchmark    = "1.0.0"
-    const val hilt         = "2.28-alpha"
+    const val hilt         = "2.33-beta"
 }
 
 object Lib {
