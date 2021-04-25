@@ -12,6 +12,8 @@ fun PluginDependenciesSpec.dynamicFeature(): PluginDependencySpec = id("com.andr
 
 fun PluginDependenciesSpec.androidApp(): PluginDependencySpec = id("com.android.application")
 
+fun PluginDependenciesSpec.library(): PluginDependencySpec = id("com.android.library")
+
 fun PluginDependenciesSpec.safeargs(): PluginDependencySpec = id("androidx.navigation.safeargs.kotlin")
 
 fun PluginDependenciesSpec.junit5(): PluginDependencySpec = id("de.mannodermaus.android-junit5")
