@@ -30,6 +30,7 @@ dependencies {
 
     implementation(project(":app"))
     androidTestImplementation(Lib.Test.testRunner)
+    androidTestImplementation(Lib.Test.testRules)
     androidTestImplementation(Lib.Test.testJunit)
     androidTestImplementation(Lib.Test.benchmarkJUnit4)
     androidTestImplementation(Lib.Test.testFragment)

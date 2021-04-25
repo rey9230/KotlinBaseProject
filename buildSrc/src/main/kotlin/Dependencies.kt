@@ -106,7 +106,7 @@ object Lib {
         const val testCoreKtx    = "androidx.test:core-ktx:1.2.0"
         const val testFragment   = "androidx.fragment:fragment-testing:1.3.3"
         const val testRules      = "androidx.test:rules:1.2.0" // JUnit Rules
-        const val testJunit      = "androidx.test.ext:junit:1.1.1" // Assertions and JUnit 4 framework
+        const val testJunit      = "androidx.test.ext:junit:1.1.2" // Assertions and JUnit 4 framework
         const val testJunitKtx   = "androidx.test.ext:junit-ktx:1.1.1" // Assertions
         const val testTruth2     = "com.google.truth:truth:0.44"
         const val testTruth      = "androidx.test.ext:truth:1.2.0"
