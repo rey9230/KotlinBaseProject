@@ -62,6 +62,11 @@
             app:layout_anchor="@id/fl_appbar_container"
             app:layout_anchorGravity="bottom" />
 
+        <n7.myperfectemptyproject.YouTubeView
+            android:layout_margin="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
         <Button
             android:id="@+id/b_load_user"
             onClick="@{()->viewModel.loadUser()}"
