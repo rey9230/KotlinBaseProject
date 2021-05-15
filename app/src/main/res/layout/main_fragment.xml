@@ -63,9 +63,9 @@
             app:layout_anchorGravity="bottom" />
 
         <n7.myperfectemptyproject.YouTubeView
-            android:layout_margin="4dp"
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
+            android:elevation="10dp"
+            android:layout_height="match_parent" />
 
         <Button
             android:id="@+id/b_load_user"
