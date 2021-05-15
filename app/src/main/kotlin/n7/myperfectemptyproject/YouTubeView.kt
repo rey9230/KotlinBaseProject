@@ -11,7 +11,6 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.withSave
-import androidx.core.math.MathUtils
 import androidx.core.view.marginBottom
 import androidx.core.view.marginEnd
 import androidx.core.view.marginStart
@@ -31,7 +30,7 @@ class YouTubeView(
 
     companion object {
         const val MAX_SCALE = 1F
-        const val MIN_SCALE = 0.7F
+        const val MIN_SCALE = 0.5F
     }
 
     private var halfWidth = 0
@@ -39,7 +38,7 @@ class YouTubeView(
     private var shouldInterceptTouchEvent = false
     private var currentScale = MAX_SCALE
     private var view: View = View(context).apply {
-        layoutParams = LayoutParams(200.toPx, 150.toPx).apply {
+        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, 150.toPx).apply {
             updateMargins(10.toPx, 10.toPx, 10.toPx, 10.toPx)
         }
         setBackgroundColor(ContextCompat.getColor(context, android.R.color.black))
@@ -51,6 +50,9 @@ class YouTubeView(
             currentScale *= detector.scaleFactor
             currentScale = max(MIN_SCALE, min(currentScale, MAX_SCALE))
 
+            view.pivotY = view.height / 2f
+            view.pivotX = view.width / 2f
+            // view.animate().scaleY(currentScale).scaleX(currentScale).setDuration(0).start()
             view.scaleX = currentScale
             view.scaleY = currentScale
             return true
@@ -58,32 +60,37 @@ class YouTubeView(
     }
 
     private val scaleDetector = ScaleGestureDetector(context, scaleListener)
-    private val dragHelper = ViewDragHelper.create(this, 1.0f, object : ViewDragHelper.Callback() {
+    private val dragHelper = ViewDragHelper.create(this, 1f, object : ViewDragHelper.Callback() {
         override fun tryCaptureView(child: View, pointerId: Int): Boolean = child == view
-        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int = MathUtils.clamp(left, 0, width - child.width)
-        override fun clampViewPositionVertical(child: View, top: Int, dy: Int): Int = MathUtils.clamp(top, 0, height - child.height)
-
-        override fun onViewCaptured(capturedChild: View, activePointerId: Int) {
-
-        }
-
-        override fun onViewReleased(releasedChild: View, xvel: Float, yvel: Float) {
-            onEnd(releasedChild)
-        }
+        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int = left
+        override fun clampViewPositionVertical(child: View, top: Int, dy: Int): Int = top
+        override fun onViewReleased(releasedChild: View, xvel: Float, yvel: Float) = onEnd(releasedChild, xvel, yvel)
     })
 
-
-
-    private fun onEnd(child: View) {
+    private fun onEnd(child: View, xvel: Float, yvel: Float) {
         val location = IntArray(2)
         child.getLocationInWindow(location)
         var (x, y) = location
         x += child.width / 2
         y += child.height / 2
-        val finalX = if (x < halfWidth) 0 + child.marginStart else width - child.marginEnd - child.width
-        val finalY = if (y < halfHeight) 0 + child.marginTop else height - child.marginBottom - child.height
+        val finalX = when {
+            xvel > 10000 -> width
+            xvel < -10000 -> -child.width
+            xvel > 1000 -> width - child.marginEnd - child.width
+            xvel < -1000 -> 0 + child.marginStart
+            x < halfWidth -> 0 + child.marginStart
+            else -> width - child.marginEnd - child.width
+        }
+        val finalY = when {
+            yvel > 20000 -> height
+            yvel < -20000 -> -child.height
+            yvel > 1000 -> height - child.marginBottom - child.height
+            yvel < -1000 -> 0 + child.marginTop
+            y < halfWidth -> 0 + child.marginTop
+            else -> height - child.marginBottom - child.height
+        }
         val settle = dragHelper.settleCapturedViewAt(finalX, finalY)
-        if (settle) child.postOnAnimation(RecursiveSettle(child))
+        if (settle) child.postOnAnimation(RecursiveSettle(child, dragHelper))
     }
 
     override fun dispatchDraw(canvas: Canvas) {
@@ -115,7 +122,10 @@ class YouTubeView(
         return shouldInterceptTouchEvent
     }
 
-    private inner class RecursiveSettle(private val child: View) : Runnable {
+    private class RecursiveSettle(
+        private val child: View,
+        private val dragHelper: ViewDragHelper,
+    ) : Runnable {
         override fun run() {
             if (dragHelper.continueSettling(true)) {
                 child.postOnAnimation(this)
