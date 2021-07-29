@@ -22,11 +22,27 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     application: Application,
     @Assisted handle: SavedStateHandle,
+    // @Assisted private val id: Int,
     private val getUsersFromRemoteStoreUseCase: GetUsersFromRemoteStoreUseCase,
     private val saveUsersToLocalStoreUseCase: SaveUsersToLocalStoreUseCase,
     private val getUsersFromLocalStoreUseCase: GetUsersFromLocalStoreUseCase,
     private val deleteAllUsersLocalUseCase: DeleteAllUsersLocalUseCase
 ) : BaseViewModel(application, handle) {
+
+    // @AssistedFactory
+    // interface Factory {
+    //     fun create(id: Int): MainViewModel
+    // }
+    //
+    // @Suppress("UNCHECKED_CAST")
+    // companion object {
+    //     fun provideFactory(
+    //         assistedFactory: Factory,
+    //         id: Int,
+    //     ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
+    //         override fun <T : ViewModel?> create(modelClass: Class<T>): T = assistedFactory.create(id) as T
+    //     }
+    // }
 
     val getUsers = getUsersFromLocalStoreUseCase().asLiveData()
 

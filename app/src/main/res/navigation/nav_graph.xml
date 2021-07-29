@@ -20,13 +20,12 @@
             app:destination="@id/detailFragment" />
     </fragment>
 
-    <fragment
-        app:moduleName="@string/title_feature_one"
+    <include-dynamic
         android:id="@+id/featureOne"
-        android:name="ad2.n7.feature_one.FeatureOne">
-
+        app:moduleName="@string/title_feature_one"
+        app:graphResName="feature_one_graph">
         <deepLink app:uri="https://n7.com/mainFragment/featureOne" />
-    </fragment>
+    </include-dynamic>
 
     <dialog
         android:id="@+id/errorDialog"

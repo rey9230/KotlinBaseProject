@@ -28,6 +28,7 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
         private const val SOME_VALUE_KEY = "SOME_VALUE_KEY"
     }
 
+    // lateinit var viewModelAssistedFactory: MainViewModel.Factory
     private lateinit var binding: MainFragmentBinding
     private val viewModel: MainViewModel by viewModels()
     private lateinit var someValue: String

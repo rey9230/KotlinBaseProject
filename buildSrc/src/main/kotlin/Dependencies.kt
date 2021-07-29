@@ -20,7 +20,7 @@ object Versions {
     const val kotlin       = "1.4.0"
     const val moshi        = "1.9.2"
     const val room         = "2.2.4"
-    const val navigation   = "2.3.0"
+    const val navigation   = "2.3.5"
     const val dagger       = "2.25.2"
     const val retrofit     = "2.7.1"
     const val daggerAssist = "0.5.2"

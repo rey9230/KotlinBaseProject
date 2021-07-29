@@ -3,6 +3,7 @@ package n7.myperfectemptyproject
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Resources
+import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
@@ -122,16 +123,16 @@ class YouTubeView(
     }
 
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
+        val viewRect = Rect()
+        view.getHitRect(viewRect)
         when (ev.action) {
-            MotionEvent.ACTION_DOWN -> interceptKeyEvents = true
             MotionEvent.ACTION_CANCEL, MotionEvent.ACTION_UP -> {
                 interceptKeyEvents = false
                 dragHelper.cancel()
                 return false
             }
         }
-
-        return if (interceptKeyEvents) dragHelper.shouldInterceptTouchEvent(ev) else false
+        return viewRect.contains(ev.x.toInt(), ev.y.toInt())
     }
 
     private class RecursiveSettle(
