@@ -30,7 +30,7 @@ object Versions {
     const val ktlintPlug   = "9.2.1"
     const val detekt       = "1.10.0-RC1"
     const val benchmark    = "1.0.0"
-    const val hilt         = "2.33-beta"
+    const val hilt         = "2.38.1"
 }
 
 object Lib {
@@ -69,8 +69,7 @@ object Lib {
     // --- Hilt ---
     const val hilt            = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val hiltAnnotation  = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
-    const val hiltAnnotationX = "androidx.hilt:hilt-compiler:1.0.0-alpha02"
-    const val hiltViewModel   = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02"
+    const val hiltAnnotationX = "androidx.hilt:hilt-compiler:1.0.0"
 
     // --- Dagger ---
     const val dagger                   = "com.google.dagger:dagger:${Versions.dagger}"

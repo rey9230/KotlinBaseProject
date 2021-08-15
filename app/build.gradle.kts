@@ -123,7 +123,7 @@ dependencies {
     implementation(Lib.coroutinesPlayServices)
     implementation(Lib.lifecycleAnnotation)
     implementation(Lib.hilt)
-    implementation(Lib.hiltViewModel)
+    // implementation(Lib.hiltViewModel)
     kapt(Lib.hiltAnnotation)
     kapt(Lib.hiltAnnotationX)
     implementation(Lib.coil)
