@@ -2,7 +2,6 @@ import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.internal.plugins.AppPlugin
 import com.android.build.gradle.internal.plugins.DynamicFeaturePlugin
 import com.android.build.gradle.internal.plugins.LibraryPlugin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("org.jlleitschuh.gradle.ktlint") version Versions.ktlintPlug
@@ -35,17 +34,6 @@ subprojects {
                 targetSdkVersion(Apps.targetSdk)
             }
 
-            compileOptions {
-                sourceCompatibility = JavaVersion.VERSION_1_8
-                targetCompatibility = JavaVersion.VERSION_1_8
-            }
-
-            tasks.withType<KotlinCompile> {
-                kotlinOptions {
-                    noStdlib = true
-                    jvmTarget = JavaVersion.VERSION_1_8.toString()
-                }
-            }
         }
     }
 

@@ -17,7 +17,7 @@ object Versions {
     const val gradle       = "3.5.3"
     const val gradlePlugin = "4.1.1"
     const val lint         = "27.1.0" // gradlePlugin + 23
-    const val kotlin       = "1.4.0"
+    const val kotlin       = "1.5.20"
     const val moshi        = "1.9.2"
     const val room         = "2.2.4"
     const val navigation   = "2.3.5"
