@@ -19,6 +19,7 @@ import n7.myperfectemptyproject.ui.ErrorDialogListener
 import n7.myperfectemptyproject.utils.extension.setOnBackPressExit
 import n7.myperfectemptyproject.utils.extension.setupErrorSnackbar
 import n7.myperfectemptyproject.utils.extension.showSnackbar
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
@@ -28,9 +29,13 @@ class MainFragment : Fragment(R.layout.main_fragment), ErrorDialogListener {
         private const val SOME_VALUE_KEY = "SOME_VALUE_KEY"
     }
 
-    // lateinit var viewModelAssistedFactory: MainViewModel.Factory
+    @Inject lateinit var viewModelAssistedFactory: MainViewModel.Factory
     private lateinit var binding: MainFragmentBinding
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels {
+        MainViewModel.LambdaFactory(this) { state ->
+            viewModelAssistedFactory.create(state, 5)
+        }
+    }
     private lateinit var someValue: String
     private val savedStateProvider = SavedStateRegistry.SavedStateProvider {
         Bundle().apply {
